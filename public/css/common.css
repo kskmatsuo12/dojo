@@ -1,0 +1,22 @@
+/* スマホ用CSSここから */
+
+.container {
+  width: 100%;
+}
+
+/* スマホ用CSS（ここまで） */
+
+/* PC用のCSSはこちら */
+
+@media screen and (min-width: 781px) {
+  /* この中にPC用CSSを書く！ */
+}
+
+/* PC用のCSSはこちら（ここまで） */
+
+@media screen and (min-width: 1040px) {
+  .container {
+    width: 1040px;
+    margin: auto;
+  }
+}

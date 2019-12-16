@@ -1,0 +1,15 @@
+/* スマホ用CSSここから */
+
+.?? {
+  width: 100%;
+}
+
+/* スマホ用CSS（ここまで） */
+
+/* PC用のCSSはこちら */
+
+@media screen and (min-width: 781px) {
+  /* この中にPC用CSSを書く！ */
+}
+
+/* PC用のCSSはこちら（ここまで） */
