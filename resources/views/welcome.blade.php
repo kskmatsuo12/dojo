@@ -249,65 +249,65 @@
         <div class="container">
 
     <!-- Bootstrapの定形コード… -->
-<div class="top">
-    <div class="copy">
-        <h1>新時代の学び体験</h1>
-        <h2>スキルで繋ぐ社会貢献型プロジェクト</h2>
-    </div>
-    <div class="card-body" id="top_body">
-        
-        <div class="card-title" id="top_title">
-            <p>基本情報</p>
+        <div class="top">
+            <div class="copy">
+                <h1>新時代の学び体験</h1>
+                <h2>スキルで繋ぐ社会貢献型プロジェクト</h2>
+            </div>
+            <div class="card-body" id="top_body">
+                
+                <div class="card-title" id="top_title">
+                    <p>基本情報</p>
+                </div>
+                
+                <!-- バリデーションエラーの表示に使用-->
+                @include('common.errors')
+                <!-- バリデーションエラーの表示に使用-->
+
+                <form action="{{ url('candidates') }}" method="POST" class="form-horizontal">
+                    {{ csrf_field() }}
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <!-- <label for="sei" class="">姓</label> -->
+                            <input type="text" name="sei" value="{{old('sei')}}" class="form-control" id="top_form" placeholder="姓">
+                        </div>
+                        <div class="col-sm-6">
+                        <!-- <label for="mei" class="">名</label> -->
+                            <input type="text" name="mei" value="{{old('mei')}}" class="form-control" id="top_form" placeholder="名">
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- <label for="sei_kana" class="">セイ</label> -->
+                            <input type="text" name="sei_kana" value="{{old('sei_kana')}}" class="form-control" id="top_form" placeholder="セイ">
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- <label for="mei_kana" class="">メイ</label> -->
+                            <input type="text" name="mei_kana" value="{{old('mei_kana')}}" class="form-control" id="top_form" placeholder="メイ">
+                        </div>
+                        <div class="sm">
+                            <!-- <label for="email" class="">メールアドレス</label> -->
+                            <input type="text" name="email" value="{{old('email')}}" class="form-control" id="top_form" placeholder="メールアドレス">
+                        </div>
+                        <div class="sm">
+                            <!-- <label for="pw" class="">パスワード設定</label> -->
+                            <input type="text" name="pw" value="{{old('pw')}}" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm">
+                            <button type="submit" class="btn btn-primary">
+                                会員登録（無料）
+                            </button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
-        
-        <!-- バリデーションエラーの表示に使用-->
-    	@include('common.errors')
-        <!-- バリデーションエラーの表示に使用-->
 
-        <form action="{{ url('candidates') }}" method="POST" class="form-horizontal">
-            {{ csrf_field() }}
 
-            <div class="form-group">
-                <div class="col-sm-6">
-                    <!-- <label for="sei" class="">姓</label> -->
-                    <input type="text" name="sei" value="{{old('sei')}}" class="form-control" id="top_form" placeholder="姓">
-                </div>
-                <div class="col-sm-6">
-                <!-- <label for="mei" class="">名</label> -->
-                    <input type="text" name="mei" value="{{old('mei')}}" class="form-control" id="top_form" placeholder="名">
-                </div>
-                <div class="col-sm-6">
-                    <!-- <label for="sei_kana" class="">セイ</label> -->
-                    <input type="text" name="sei_kana" value="{{old('sei_kana')}}" class="form-control" id="top_form" placeholder="セイ">
-                </div>
-                <div class="col-sm-6">
-                    <!-- <label for="mei_kana" class="">メイ</label> -->
-                    <input type="text" name="mei_kana" value="{{old('mei_kana')}}" class="form-control" id="top_form" placeholder="メイ">
-                </div>
-                <div class="sm">
-                    <!-- <label for="email" class="">メールアドレス</label> -->
-                    <input type="text" name="email" value="{{old('email')}}" class="form-control" id="top_form" placeholder="メールアドレス">
-                </div>
-                <div class="sm">
-                    <!-- <label for="pw" class="">パスワード設定</label> -->
-                    <input type="text" name="pw" value="{{old('pw')}}" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm">
-                    <button type="submit" class="btn btn-primary">
-                        会員登録（無料）
-                    </button>
-                </div>
-            </div>
-            
-        </form>
     </div>
-</div>
-
-
-</div>
 
 </div>
 
