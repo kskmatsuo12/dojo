@@ -218,7 +218,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">ログイン</a></li>
+                            <li><a href="{{ route('login') }}">ぉぎｎ</a></li>
                             <li><a href="{{ route('register') }}">会員登録</a></li>
                         @else
                             <li class="dropdown">
