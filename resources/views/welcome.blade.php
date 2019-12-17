@@ -257,7 +257,7 @@
     <div class="card-body" id="top_body">
         
         <div class="card-title" id="top_title">
-            <p>基本情報の登録</p>
+            <p>基本情報</p>
         </div>
         
         <!-- バリデーションエラーの表示に使用-->
