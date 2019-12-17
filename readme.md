@@ -1,4 +1,4 @@
-<h1 align="center">世界を変えるdojyoを作ろう</h1>
+<h1 align="center">世界を変えるdojoを作ろう</h1>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
