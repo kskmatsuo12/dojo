@@ -1,12 +1,11 @@
 <!-- ページ読み込み時の注意事項 -->
 <!-- データが存在する状態で再度確認 -->
 <!-- foreachは要確認 -->
-<!-- 応募するボタンのaction変更必要 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
 $jobs=[];
+$suggestions=[];
 ?>
-
 @extends('layouts.app')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
@@ -120,7 +119,7 @@ $jobs=[];
                         <form action="" method="POST">
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-primary">
-                        応募する
+                        詳細を確認する
                     </button>
                     </td><td></td></tr>
                 </tbody>
