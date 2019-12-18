@@ -22,51 +22,51 @@
                         </div>
                         <div>
                         <!-- <label for="mei" class="">最終学歴</label> -->
-                            <input type="text" name="user_last_degree" value="{{old('mei')}}" placeholder="最終学歴">
+                            <input type="text" name="user_last_degree" value="{{old('user_last_degree')}}" placeholder="最終学歴">
                         </div>
                         <div>
                             <!-- <label for="sei_kana" class="">学校名</label> -->
-                            <input type="text" name="user_last_school" value="{{old('sei_kana')}}" placeholder="学校名">
+                            <input type="text" name="user_last_school" value="{{old('user_last_school')}}" placeholder="学校名">
                         </div>
                         <div>
                             <!-- <label for="mei_kana" class="">学部・学科</label> -->
-                            <input type="text" name="user_last_school_dept" value="{{old('mei_kana')}}" placeholder="学部・学科">
+                            <input type="text" name="user_last_school_dept" value="{{old('user_last_school_dept')}}" placeholder="学部・学科">
                         </div>
-                        <div">
+                        <div>
                             <!-- <label for="email" class="">性別</label> -->
-                            <input type="text" name="user_gender" value="{{old('email')}}" placeholder="性別">
+                            <input type="text" name="user_gender" value="{{old('user_gender')}}" placeholder="性別">
                         </div>
-                        <div">
+                        <div>
                             <!-- <label for="pw" class="">前職の会社名</label> -->
-                            <input type="text" name="user_last_company" value="{{old('pw')}}" placeholder="前職の会社名">
+                            <input type="text" name="user_last_company" value="{{old('user_last_company')}}" placeholder="前職の会社名">
                         </div>
                         <div>
                             <!-- <label for="pw" class="">部署名</label> -->
-                            <input type="text" name="user_last_company_dept" value="{{old('pw')}}" placeholder="部署名">
+                            <input type="text" name="user_last_company_dept" value="{{old('user_last_company_dept')}}" placeholder="部署名">
                         </div>
                         <div>
                             <!-- <label for="pw" class="">役職</label> -->
-                            <input type="text" name="user_last_company_position" value="{{old('pw')}}" placeholder="役職">
+                            <input type="text" name="user_last_company_position" value="{{old('user_last_company_position')}}" placeholder="役職">
                         </div>
                         <div>
                             <!-- <label for="pw" class="">期間年・期間月から</label> -->
-                            <input type="date" name="user_last_company_since" value="{{old('pw')}}" placeholder="期間年・期間月から">
+                            <input type="date" name="user_last_company_since" value="{{old('user_last_company_since')}}" placeholder="期間年・期間月から">
                         </div>
                         <div>
                             <!-- <label for="pw" class="">期間年・期間月まで</label> -->
-                            <input type="date" name="user_last_company_until" value="{{old('pw')}}" placeholder="期間年・期間月まで">
+                            <input type="date" name="user_last_company_until" value="{{old('user_last_company_until')}}" placeholder="期間年・期間月まで">
                         </div>
                         <div>
                             <!-- <label for="pw" class="">簡単な経歴</label> -->
-                            <input type="text" name="user_last_company_exp" value="{{old('pw')}}" placeholder="簡単な経歴">
+                            <input type="text" name="user_last_company_exp" value="{{old('user_last_company_exp')}}" placeholder="簡単な経歴">
                         </div>
                         <div>
                             <!-- <label for="pw" class="">得意な言語（日本語以外）</label> -->
-                            <input type="text" name="user_language" value="{{old('pw')}}" placeholder="得意な言語（日本語以外）">
+                            <input type="text" name="user_language" value="{{old('user_language')}}" placeholder="得意な言語（日本語以外）">
                         </div>
                         <div>
                             <!-- <label for="pw" class="">資格・免許</label> -->
-                            <input type="text" name="user_licence" value="{{old('pw')}}" placeholder="資格・免許">
+                            <input type="text" name="user_licence" value="{{old('user_licence')}}" placeholder="資格・免許">
                         </div>
                     </div>
 
