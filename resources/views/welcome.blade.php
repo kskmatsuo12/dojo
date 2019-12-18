@@ -264,33 +264,33 @@
                 @include('common.errors')
                 <!-- バリデーションエラーの表示に使用-->
 
-                <form action="{{ url('candidates') }}" method="POST" class="form-horizontal">
+                <form action="{{ url('profile') }}" method="GET" class="form-horizontal">
                     {{ csrf_field() }}
-
+                    
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <!-- <label for="sei" class="">姓</label> -->
-                            <input type="text" name="sei" value="{{old('sei')}}" class="form-control" id="top_form" placeholder="姓">
+                            <!-- <label for="user_name_sei" class="">姓</label> -->
+                            <input type="text" name="user_name_sei" value="{{old('user_name_sei')}}" class="form-control" id="top_form" placeholder="姓">
                         </div>
                         <div class="col-sm-6">
-                        <!-- <label for="mei" class="">名</label> -->
-                            <input type="text" name="mei" value="{{old('mei')}}" class="form-control" id="top_form" placeholder="名">
+                        <!-- <label for="user_name_mei" class="">名</label> -->
+                            <input type="text" name="user_name_mei" value="{{old('user_name_mei')}}" class="form-control" id="top_form" placeholder="名">
                         </div>
                         <div class="col-sm-6">
-                            <!-- <label for="sei_kana" class="">セイ</label> -->
-                            <input type="text" name="sei_kana" value="{{old('sei_kana')}}" class="form-control" id="top_form" placeholder="セイ">
+                            <!-- <label for="user_hurigana_sei" class="">セイ</label> -->
+                            <input type="text" name="user_hurigana_sei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form" placeholder="セイ">
                         </div>
                         <div class="col-sm-6">
-                            <!-- <label for="mei_kana" class="">メイ</label> -->
-                            <input type="text" name="mei_kana" value="{{old('mei_kana')}}" class="form-control" id="top_form" placeholder="メイ">
+                            <!-- <label for="user_hurigana_mei" class="">メイ</label> -->
+                            <input type="text" name="user_hurigana_mei" value="{{old('user_hurigana_mei')}}" class="form-control" id="top_form" placeholder="メイ">
                         </div>
                         <div class="sm">
                             <!-- <label for="email" class="">メールアドレス</label> -->
                             <input type="text" name="email" value="{{old('email')}}" class="form-control" id="top_form" placeholder="メールアドレス">
                         </div>
                         <div class="sm">
-                            <!-- <label for="pw" class="">パスワード設定</label> -->
-                            <input type="text" name="pw" value="{{old('pw')}}" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
+                            <!-- <label for="password" class="">パスワード設定</label> -->
+                            <input type="text" name="password" value="{{old('password')}}" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
                         </div>
                     </div>
 
