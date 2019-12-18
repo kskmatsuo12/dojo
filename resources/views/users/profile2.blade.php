@@ -12,13 +12,13 @@
 @section('content')
 <div>
     <!-- この中にコンテンツ -->
-    <form action="{{ url('candidates') }}" method="POST">
+    <form action="{{ url('profile2Store') }}" method="GET">
                     {{ csrf_field() }}
 
                     <div>
                         <div>
                             <!-- <label for="sei" class="">生年月日</label> -->
-                            <input type="text" name="user_birthday" value="{{old('sei')}}" placeholder="生年月日">
+                            <input type="date" name="user_birthday" value="{{old('user_birthday')}}" placeholder="生年月日">
                         </div>
                         <div>
                         <!-- <label for="mei" class="">最終学歴</label> -->
@@ -50,11 +50,11 @@
                         </div>
                         <div>
                             <!-- <label for="pw" class="">期間年・期間月から</label> -->
-                            <input type="text" name="user_last_company_since" value="{{old('pw')}}" placeholder="期間年・期間月から">
+                            <input type="date" name="user_last_company_since" value="{{old('pw')}}" placeholder="期間年・期間月から">
                         </div>
                         <div>
                             <!-- <label for="pw" class="">期間年・期間月まで</label> -->
-                            <input type="text" name="user_last_company_until" value="{{old('pw')}}" placeholder="期間年・期間月まで">
+                            <input type="date" name="user_last_company_until" value="{{old('pw')}}" placeholder="期間年・期間月まで">
                         </div>
                         <div>
                             <!-- <label for="pw" class="">簡単な経歴</label> -->
