@@ -21,7 +21,12 @@ class ClientsController extends Controller
 
 
     //jobsを保存
-    public function postForm(Request $request)
+    public function postForm()
+    {
+        return view('clients/post');
+    }
+
+    public function jobPost(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'job_title' => 'required',

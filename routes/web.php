@@ -80,6 +80,17 @@ Auth::routes();
 
     //クライアントの表示だけここまで
     //ここから飯田ファイル
-    Route::get('/clientsPost', 'ClientsController@postForm');
+    Route::get('/clientsPost', 'ClientsController@jobPost');
     //ホーム画面。
     Route::get('/clients/home', 'ClientsController@Clienthome');
+
+
+    //以下テスト用
+    Route::get('/iida/test1', 'IidaController@test1');
+    Route::post('/iida/test2', 'IidaController@test2');
+
+    Route::get('/mishima/test1', 'MishimaController@test1');
+    Route::post('/mishima/test2', 'MishimaController@test2');
+
+    Route::get('/aoki/test1', 'AokiController@test1');
+    Route::post('/aoki/test2', 'AokiController@test2');
