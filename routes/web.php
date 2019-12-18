@@ -52,6 +52,8 @@ Auth::routes();
 
     Route::get('/issues/assessment', 'HomeController@assessment');
 
+    Route::get('/profile2Store', 'HomeController@profile2Store');
+
     //ユーザーの表示だけここまで
 
 // });
@@ -62,7 +64,7 @@ Auth::routes();
 // クライアントのログインは優先度低めで！
     Route::get('/clients/login_form', 'ClientsController@loginForm');
     Route::get('/clients/register_form', 'ClientsController@registerForm');
-    Route::get('/clients/home', 'ClientsController@home');
+    // Route::get('/clients/home', 'ClientsController@home');
     Route::get('/clients/profile', 'ClientsController@profile');
     Route::get('/clients/post', 'ClientsController@postForm');
     Route::get('/clients/players', 'ClientsController@players');
@@ -76,4 +78,8 @@ Auth::routes();
     Route::get('/clients/messages/group/{id}', 'ClientsController@messagesGroupIndex');
     Route::get('/clients/player/assessment', 'ClientsController@playerAssessment');
 
-        //クライアントの表示だけここまで
+    //クライアントの表示だけここまで
+    //ここから飯田ファイル
+    Route::get('/clientsPost', 'ClientsController@postForm');
+    //ホーム画面。
+    Route::get('/clients/home', 'ClientsController@Clienthome');

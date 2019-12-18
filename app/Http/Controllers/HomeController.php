@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use Validator;
 use Illuminate\Http\Request;
 
-use App\User;
+ //飯田ファイルはここから
+  use App\User;
+  use App\Job;
+
+  //飯田ファイルはここまで
+
 
 class HomeController extends Controller
 // Userコントローラーとして使う。
@@ -99,6 +104,55 @@ class HomeController extends Controller
         return view('welcome');
         // return view(‘users/profile2’);
     }
+
+    //三島さんここまで！
+
+    //飯田さんここからprofile2を保存
+    public function profile2Store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_birthday' => 'required',
+            'user_last_degree' => 'required',
+            'user_last_school' => 'required',
+            'user_last_school_dept' => 'required',
+            'user_last_company' => 'required',
+            'user_last_company_dept' => 'required',
+            'user_last_company_position' => 'required',
+            'user_last_company_since' => 'required',
+            'user_last_company_until' => 'required',
+            'user_last_company_exp' => 'required',
+            'user_language' => 'required',
+            'user_licence' => 'required',
+        ]);
+    
+        //バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect('/')
+                ->withInput()
+                ->withErrors($validator);
+        }
+        //以下に登録処理を記述（Eloquentモデル）
+        $users = new User;
+        $users->user_birthday = $request->user_birthday;
+        $users->user_last_degree = $request->user_last_degree;
+        $users->user_last_school = $request->user_last_school;
+        $users->user_last_school_dept = $request->user_last_school_dept;
+        $users->user_last_company = $request->user_last_company;
+        $users->user_last_company_dept = $request->user_last_company_dept;
+        $users->user_last_company_position = $request->user_last_company_position;
+        $users->user_last_company_since = $request->user_last_company_since;
+        $users->user_last_company_until = $request->user_last_company_until;
+        $users->user_last_company_exp = $request->user_last_company_exp;
+        $users->user_language = $request->user_language;
+        $users->user_licence = $request->user_licence;
+        $users->save();
+        return redirect('/');
+    }
+
+
+
+
+
     
     // ユーザープロフィール1
     // public function profile()
