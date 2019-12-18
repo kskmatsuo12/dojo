@@ -12,6 +12,24 @@
 @section('content')
 <div class="container">
     <!-- この中にコンテンツ -->
+    <h1>企業様　ログイン</h1>
+    @include('common.errors')
+    <form action="{{ url('???') }}" method="POST" class="">
+    {{ csrf_field() }}
+        <div class="form-group">
+            <div><input type="text" name="client_id" value="{{old('client_id')}}" class="form-control" id="top_form" placeholder="ID"></div>
+            <div><input type="text" name="client_pass" value="" class="form-control" id="top_form" placeholder="password"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm">
+                <button type="submit" class="btn btn-primary">
+                ログイン
+                </button>
+            </div>
+        </div>
+    </form>
+
 </div>
 
 <!-- JSファイルの指定してください！ -->

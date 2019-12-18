@@ -1,36 +1,80 @@
-<!-- userのホーム画面 -->
+<!-- ページ読み込み時の注意事項 -->
+<!-- データが存在する状態で再度確認 -->
+<!-- foreachは要確認 -->
+<!-- テーブルがない場合、↓を読み込み -->
+<?php
+$jobs=[];
+?>
+@include('layouts/header')
+
 
 @extends('layouts.app')
-
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/users/home.css') }}">
+    <!-- CSSファイル指定してください -->
+    <link rel="stylesheet" href="{{ asset('css/???.css') }}">
+    <!-- CSSファイル指定してください -->
 </head>
 
-<!-- CSSファイルを読み込んでください〜 -->
-
+<!-- CSSファイルの指定をしてください〜 -->
 @section('content')
 
 <div class="container">
-    @include('/layouts/sp_menu')
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    <!-- @if (session('status')) -->
-                        <div class="alert alert-success">
-                            <!-- {{ session('status') }} -->
-                        </div>
-                    <!-- @endif -->
-
-                    <h1>You are logged in!</h1>
+    <!-- この中にコンテンツ -->
+    <p>memo 項目　募集中案件の状況</p>
+    <div>
+        <div>案件一覧</div>
+        <div>
+        <!-- 現在の案件 -->
+            @if (count($jobs) > 0)
+            <!-- クライアント条件での抜出要 -->
+            <div class="card-body">
+                <div class="card-body">
+                <table class="table table-striped task-table">
+                    <!-- テーブルヘッダ -->
+                    <thead>
+                    <th>公募タイトル</th>
+                    <th>相談したいこと</th>
+                    <th>所用時間</th>
+                    <th>担当者名</th>
+                    <th>案件進捗</th>
+                    <!-- <th>&nbsp;</th> -->
+                    </thead>
+                    <!-- テーブル本体 -->
+                    <tbody>
+                    @foreach ($jobs as $job)
+                    <!-- いけるか不安 -->
+                        <tr>
+                        <td class="table-text">
+                            <div>job_title</div>
+                            <!-- <div>{{ $job->job_title }}</div> -->
+                        </td>
+                        <td class="table-text">
+                            <div>{{ $job->consultation }}</div>
+                        </td>
+                        <td class="table-text">
+                            <div>{{ $job->work_term }}</div>
+                        </td>
+                        <td class="table-text">
+                            <div>{{ $job->responsible_party }}</div>
+                        </td>
+                        <td class="table-text">
+                            <div>＊＊案件進捗状態の表示</div>
+                        </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </div>
-<script src="{{ asset('js/users/home.js') }}"></script>
+
+<!-- JSファイルの指定してください！ -->
+<script src="{{ asset('js/???.js') }}"></script>
+<!-- JSファイルの指定してください！ -->
+
 @endsection
