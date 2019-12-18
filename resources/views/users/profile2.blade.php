@@ -12,7 +12,7 @@
 @section('content')
 <div>
     <!-- この中にコンテンツ -->
-    <form action="{{ url('profile2Store') }}" method="GET">
+    <form action="{{ url('profile2Store') }}" method="POST">
                     {{ csrf_field() }}
 
                     <div>

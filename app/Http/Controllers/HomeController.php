@@ -41,8 +41,24 @@ class HomeController extends Controller
         return view('users/home');
     }
 
-    // 三島さん作ユーザープロフィール
+    public function profile_view(Request $request)
+    {
+        return view('users/profile');
+    }
 
+    public function profile2_view(Request $request)
+    {
+        return view('users/profile2');
+    }
+
+    public function profile3_view(Request $request)
+    {
+        return view('users/profile3');
+    }
+
+    // 三島さん作ユーザープロフィール
+    //初回登録のためのprofile登録ポスト
+    //本来はmakeauthで生成される方へ書くべきなので引っ越し予定
     public function profile(Request $request)
     {
         //バリデーション
@@ -76,7 +92,10 @@ class HomeController extends Controller
         ]);
         // return view(‘users/profile/.$user->id)’);
     }
+
+
     // ユーザープロフィール2
+    //プロフィール２でポストするときに発動
     public function profile2(Request $request)
     {
         //バリデーション
@@ -107,7 +126,8 @@ class HomeController extends Controller
 
     //三島さんここまで！
 
-    //飯田さんここからprofile2を保存
+    //飯田さんここから
+    //profile3を保存
     public function profile2Store(Request $request)
     {
         $validator = Validator::make($request->all(), [

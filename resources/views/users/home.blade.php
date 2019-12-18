@@ -5,6 +5,7 @@
 <?php
 $jobs=[];
 ?>
+@include('layouts/header')
 
 
 @extends('layouts.app')
@@ -16,10 +17,9 @@ $jobs=[];
     <!-- CSSファイル指定してください -->
 </head>
 
-
 <!-- CSSファイルの指定をしてください〜 -->
-
 @section('content')
+
 <div class="container">
     <!-- この中にコンテンツ -->
     <p>memo 項目　募集中案件の状況</p>

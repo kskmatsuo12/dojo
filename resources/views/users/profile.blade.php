@@ -281,14 +281,6 @@ td{
                 <input type="text" name="user_exp_start" value="{{old('user_exp_start')}}" class="form-control" placeholder="期間年・期間月から">
             </td>
         </tr>
-
-        <tr>
-            <th>就業期間(終了)<span>必須</span></th>
-            <td>
-                <input type="text" name="user_exp_start" value="{{old('user_exp_start')}}" class="form-control" placeholder="期間年・期間月から">
-            </td>
-        </tr>
-
         <tr>
             <th>就業期間(終了)<span>必須</span></th>
             <td>

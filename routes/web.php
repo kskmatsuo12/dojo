@@ -32,11 +32,22 @@ Auth::routes();
 
 
 // Route::group(['middleware' => 'auth'], function () {
+    //ユーザーのホーム画面
     Route::get('/home', 'HomeController@index');
+    //profileを表示する画面
+    Route::get('profile_view', 'HomeController@profile_view');
+    Route::get('profile2_view', 'HomeController@profile2_view');
+    Route::get('profile3_view', 'HomeController@profile3_view');
+    //profileにポストするコントローラー
     Route::get('/profile', 'HomeController@profile');
+    //profile2にポストするコントローラー
     Route::get('/profile2', 'HomeController@profile2');
-    Route::get('/profile3', 'HomeController@profile3');
+    //profile2-2にポストするコントローラー
+    Route::post('/profile2Store', 'HomeController@profile2Store');
+    
+    //案件一覧ページ
     Route::get('/issues', 'HomeController@issues');
+    //案件管理ページ
     Route::get('/my', 'HomeController@my');
     Route::get('/sitemap', 'HomeController@sitemap');
 
@@ -52,7 +63,6 @@ Auth::routes();
 
     Route::get('/issues/assessment', 'HomeController@assessment');
 
-    Route::get('/profile2Store', 'HomeController@profile2Store');
 
     //ユーザーの表示だけここまで
 
