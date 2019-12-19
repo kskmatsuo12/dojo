@@ -36,11 +36,11 @@ $suggestions=[];
 
         <div>
         <!-- 現在の案件 foreach -->
-            @if (count($jobs) > 0)
+            @if (count($suggestions) > 0)
             <!-- クライアント条件での抜出要 -->
             <div class="">
                 <div class="">
-                @foreach ($jobs as $job)
+                @foreach ($suggestions as $suggestion)
                 <table class="">
                     <!-- テーブル本体 -->
                     <tbody>
@@ -49,7 +49,7 @@ $suggestions=[];
                         <div>公募タイトル</div>
                     </td>
                     <td class="">
-                        <div>{{$job->job_title}}</div>
+                        <div>{{$suggestion->job_title}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -57,7 +57,7 @@ $suggestions=[];
                         <div>相談したいこと</div>
                     </td>
                     <td class="">
-                        <div>{{$job->consultation}}</div>
+                        <div>{{$suggestion->consultation}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -65,7 +65,7 @@ $suggestions=[];
                         <div>募集期限</div>
                     </td>
                     <td class="">
-                        <div>{{$job->recruitment_term}}</div>
+                        <div>{{$suggestion->recruitment_term}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -93,7 +93,7 @@ $suggestions=[];
                         <div>公募タイトル</div>
                     </td>
                     <td class="">
-                        <div>$job->job_title</div>
+                        <div>$suggestion->job_title</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -101,7 +101,7 @@ $suggestions=[];
                         <div>相談したいこと</div>
                     </td>
                     <td class="">
-                        <div>$job->consultation</div>
+                        <div>$suggestion->consultation</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -109,7 +109,7 @@ $suggestions=[];
                         <div>募集期限</div>
                     </td>
                     <td class="">
-                        <div>$job->recruitment_term</div>
+                        <div>$suggestion->recruitment_term</div>
                     </td>
                     </tr>
                     <tr class="">
