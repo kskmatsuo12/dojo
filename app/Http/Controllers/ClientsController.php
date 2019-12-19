@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 //飯田ファイルはここから
 use Validator;
@@ -53,9 +54,11 @@ class ClientsController extends Controller
    
         $clients->save();
         //client_idをセッションに保存
-        $request->session()->put('client_id', $request->client_id);
+        // $request->session()->put('client_id', $request->client_id);
+        $request->session()->put('name', $request->name);
+
         
-        return redirect('/clients/profile');
+        return redirect('/clients/home');
     }
 
     //profile登録
@@ -147,9 +150,13 @@ class ClientsController extends Controller
 
     public function Clienthome()
     {
+        //下記飯田追記
+    
         $jobs = Job::orderBy('created_at', 'asc')->paginate(2);
         return view('clients/home', [
-            'jobs' => $jobs
+            'jobs' => $jobs,
+            // //下記飯田追記
+            // 'client' => $client
         ]);
     }
 
