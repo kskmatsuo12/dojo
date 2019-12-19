@@ -3,7 +3,9 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
+
 $suggestions=[];
+
 ?>
 @include('layouts/header')
 

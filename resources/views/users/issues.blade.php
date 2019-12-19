@@ -3,7 +3,6 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
-$jobs=[];
 $suggestions=[];
 ?>
 @extends('layouts.app')
@@ -65,10 +64,10 @@ $suggestions=[];
                     </td>
                     </tr>
                     <tr><td>
-                        <form action="{{ url('booksedit/'.$book->id) }}" method="POST">
+                        
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-primary">
-                        応募する
+                    詳細を確認する
                     </button>
                     </td><td></td></tr>
                 </tbody>
@@ -78,56 +77,7 @@ $suggestions=[];
             </div>
             @endif
         </div>
-        <div>
-        <!-- 現在の案件　表記例 -->
-            <table class="">
-                <!-- テーブル本体 -->
-                <tbody>
-                    <tr class="">   
-                    <td class="">
-                        <div>公募タイトル</div>
-                    </td>
-                    <td class="">
-                        <div>$job->job_title</div>
-                    </td>
-                    </tr>
-                    <tr class="">
-                    <td class="">
-                        <div>相談したいこと</div>
-                    </td>
-                    <td class="">
-                        <div>$job->consultation</div>
-                    </td>
-                    </tr>
-                    <tr class="">
-                    <td class="">
-                        <div>募集期限</div>
-                    </td>
-                    <td class="">
-                        <div>$job->recruitment_term</div>
-                    </td>
-                    </tr>
-                    <tr class="">
-                    <td class="">
-                        <div>募集人数</div>
-                    </td>
-                    <td class="">
-                        <div>$job->request_number</div>
-                    </td>
-                    </tr>
-                    <tr><td>
-                        <form action="" method="POST">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-primary">
-                        詳細を確認する
-                    </button>
-                    </td><td></td></tr>
-                </tbody>
-            </table>
-        </div>
     </div>
-
-
 </div>
 
 <!-- JSファイルの指定してください！ -->

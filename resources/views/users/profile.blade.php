@@ -26,6 +26,7 @@ body{
 }
 
 select,input{
+    height: 35px;
     font-size: 15px;
     outline: none;
     resize: none;
@@ -34,9 +35,6 @@ select,input{
     border-radius: 5px;
     border: 1px solid rgb(168, 168, 168);
     width: 250px;
-}
-select{
-    height: 30px;
 }
 
 input[type=radio] {
@@ -47,8 +45,8 @@ label{
     display: block;
     float: left;
     width: 40px;
-    height: 30px;
-    line-height: 30px;
+    height: 35px;
+    line-height: 35px;
     padding-left: 5px;
     padding-right: 5px;
     margin:10px;
@@ -61,15 +59,15 @@ label{
     background: #ffffff;
 }
 label:hover {
-    background-color:rgb(240, 240, 240);
     background: #75d7e0;
 }
 input[type="radio"]:checked + label {
     background: #43c4cf;
     color: #ffffff; 
+    border: 1px solid rgb(240, 240, 240);
 }
 input::placeholder {
-    color: rgb(204, 204, 204);
+    /* color: rgb(204, 204, 204); */
 }
 button{
     display: flex;
@@ -79,9 +77,10 @@ button{
     border-radius: 50px;
     background: #75d7e0;
     font-size: 16px;
+    font-weight: bold;
     letter-spacing:3px;
     color:#ffffff;
-    margin: 0 auto;
+    margin: 30px auto 20px;
     user-select: none;
     outline: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
@@ -105,34 +104,122 @@ span{
 tr{
     height: 30px;
     margin: 20px auto;
-    letter-spacing:2px;
-
+    letter-spacing:1px;
 }
 
 th{
-    height: 30px;
-    text-align: right;
+    background:rgb(67,196,207,0.3);
     vertical-align: middle;
+    height:50px;
+    border-bottom: 1px solid rgb(21, 163, 75,0.1);
+    padding: 0 15px;
 }
 
 td{
+    background:white;
+    padding:20px 10px;
     vertical-align: middle;
-    height: 30px;
+    display: table-cell;
+    text-align:left;
+    align-items:center;
+    border-bottom: 1px solid rgb(67,196,207,0.3);
+}
+table{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgb(67,196,207,0.5);
+    border-radius: 10px;
+    border-collapse: separate;
+    box-shadow: 0px 1px 3px rgb(82, 147, 151);
+    overflow: hidden;
 }
 
+.container{
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    /* width: 40%; */
+}
+
+@media screen and (max-width:800px) { 
+    table {
+        width:90%;
+        font-size: 14px;
+    } 
+    tr{
+        height: 30px;
+        margin: 10px auto;
+        letter-spacing:0px;
+        
+        }
+
+    th{
+        background:rgb(67,196,207,0.3);
+        vertical-align: middle;
+        border-bottom: 1px solid rgb(21, 163, 75,0.1);
+        padding: 0 8px;
+    }
+
+    td{
+        background:white;
+        padding: 10px;
+        vertical-align: middle;
+        display: table-cell;
+        text-align:left;
+        align-items:center;
+        border-bottom: 1px solid rgb(67,196,207,0.3);
+        width:65%;
+    }
+    select,input{
+        height: 30px;
+        outline: none;
+        resize: none;
+        padding:5px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid rgb(168, 168, 168);
+        width: 95%;
+    }
+
+    textarea{
+        height:130px;
+        padding:5px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid rgb(168, 168, 168);
+        outline: none;
+        resize: none;
+        width:92%;
+    }
+    /* span{
+        display: none;
+    } */
+    label{
+        font-size:13px;
+        margin:0 10px 0 0;
+        height: 30px;
+        line-height: 30px;
+    }
+    form{
+        margin: 0 auto;
+
+    }
+
+}
 </style>
 
 <!-- CSSファイルの指定をしてください〜 -->
 @section('content')
 <div class="container">
     <!-- この中にコンテンツ -->
-    <form action="{{ url('profile2') }}" method="GET" class="form-horizontal">
-    <table class="s1">
+    <form action="{{ url('profile2') }}" method="GET" class="">
+    <table>
         <tr>
             <th>都道府県<span>必須</span></th>
             <td>
                 <select type="text" name="user_prefectures" value="{{old('user_prefectures')}}" class="form-control" placeholder="">
-                    <option value="">（選択）お住まいの都道府県</option>
+                    <option value="">（選択）</option>
                     <option value="東京都">東京都</option>
                     <option value="神奈川県">神奈川県</option>
                     <option value="埼玉県">埼玉県</option>
@@ -188,7 +275,7 @@ td{
             <th>経験業界<span>必須</span></th>
             <td>
                 <select type="text" name="user_exp_business" value="{{old('user_exp_business')}}" class="form-control" placeholder="">
-                    <option value="">（選択）経験業界</option>
+                    <option value="">（選択）</option>
                     <option value="IT・通信">IT・通信</option>
                     <option value="Web・インターネット">Web・インターネット</option>
                     <option value="ゲーム">ゲーム</option>
@@ -223,7 +310,7 @@ td{
             <th>経験職種<span>必須</span></th>
             <td>
                 <select type="text" name="user_exp_job" value="{{old('user_exp_job')}}" class="form-control" placeholder="">
-                    <option value="">（選択）経験職種</option>
+                    <option value="">（選択）</option>
                     <option value="社長・役員">社長・役員（CXO）</option>
                     <option value="営業（個人/法人）">営業（個人/法人）</option>
                     <option value="企画（経営/事業/商品）">企画（経営/事業/商品）</option>
@@ -276,15 +363,15 @@ td{
         </tr>
 
         <tr>
-            <th>就業期間(開始)<span>必須</span></th>
+            <th>就業(開始)<span>必須</span></th>
             <td>
-                <input type="text" name="user_exp_start" value="{{old('user_exp_start')}}" class="form-control" placeholder="期間年・期間月から">
+                <input type="date" name="user_exp_start" value="{{old('user_exp_start')}}" class="form-control" placeholder="期間年・期間月から">
             </td>
         </tr>
         <tr>
-            <th>就業期間(終了)<span>必須</span></th>
+            <th>就業(終了)<span>必須</span></th>
             <td>
-                <input type="text" name="user_exp_end" value="{{old('user_exp_end')}}" class="form-control" placeholder="期間年・期間月まで">
+                <input type="date" name="user_exp_end" value="{{old('user_exp_end')}}" class="form-control" placeholder="期間年・期間月まで">
             </td>
         </tr>
 
@@ -295,9 +382,14 @@ td{
                 <input id="user_current2" type="radio" name="user_current" value="離職"><label for="user_current2" class="">離職</label>
             </td>
         </tr>
-    </form>
 
-     <button type="submit" class="">保存</button>
+                
+
+
+    </table>
+
+    <button type="submit" class="">次へ＞</button>
+</form>   
 
 </div>
 

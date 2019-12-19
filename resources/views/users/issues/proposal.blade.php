@@ -13,6 +13,7 @@
 @section('content')
 <div class="container">
     <!-- この中にコンテンツ -->
+
     <h2>提案文</h2>
     <div>
         <form method="POST" action="{{ url('comfirm') }}" >
@@ -24,6 +25,7 @@
                 <input type="hidden" name="progress_info" value="1">
                 <button type="submit">応募する</button>
         </form> 
+
     </div>
 </div>
 <!-- JSファイルの指定してください！ -->

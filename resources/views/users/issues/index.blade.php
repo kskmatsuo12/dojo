@@ -96,6 +96,14 @@
                     <div>$job->recruitment_term</div>
                 </td>
                 </tr>
+                <tr class="">
+                <td class="">
+                    <div>案件を通して得られるスキル</div>
+                </td>
+                <td class="">
+                    <div>$job->get_skill</div>
+                </td>
+                </tr>
                 <tr><td>
                     <form action="{{url('proposal')}}" method="POST">
                 {{ csrf_field() }}

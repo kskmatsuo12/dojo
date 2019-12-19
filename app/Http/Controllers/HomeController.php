@@ -45,10 +45,13 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
+
+        //案件を５件だけ表示
         $jobs = Job::orderBy('created_at', 'desc')->take(5)->get();
         $user = Auth::user();
         return view('users/home', [
-            'user' => $user,'jobs'=>$jobs
+            'user' => $user, 'jobs' => $jobs
+
         ]);
     }
 
@@ -206,7 +209,8 @@ class HomeController extends Controller
     // 案件一覧
     public function issues()
     {
-        return view('users/issues');
+        $jobs = Job::orderBy('created_at', 'desc')->get();
+        return view('users/issues', ['jobs' => $jobs]);
     }
 
     //サイトマップ
