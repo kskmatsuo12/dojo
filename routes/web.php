@@ -63,7 +63,7 @@ Auth::routes();
 
     Route::get('/issues/assessment', 'HomeController@assessment');
 
-
+    Route::get('/logout', 'HomeController@logout');
     //ユーザーの表示だけここまで
 
 // });

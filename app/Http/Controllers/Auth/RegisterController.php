@@ -48,7 +48,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            //登録時のバリデーション
+            // 'name' => 'required|string|max:255',
+            'name' => 'required',
+            'user_name_mei' => 'required',
+            'user_hurigana_sei' => 'required',
+            'user_hurigana_mei' => 'required',
+
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -64,8 +70,15 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'user_name_mei' => $data['user_name_mei'],
+            'user_hurigana_sei' => $data['user_hurigana_sei'],
+            'user_hurigana_mei' => $data['user_hurigana_mei'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+        ]);
+        $last_insert_id = $users->id;
+        return view('users/profile', [
+            "lid"=>$last_insert_id
         ]);
     }
 }

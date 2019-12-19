@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
                         
             // $table->softDeletes();
             $table->increments('id');
-            $table->string('user_name_sei', 30)->nullable();
+            $table->string('name', 30)->nullable();
             $table->string('user_name_mei', 30)->nullable();
             $table->string('user_hurigana_sei', 30)->nullable();
             $table->string('user_hurigana_mei', 30)->nullable();

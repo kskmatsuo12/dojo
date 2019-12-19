@@ -4,7 +4,9 @@
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
 $jobs=[];
+
 $suggestions=[];
+
 ?>
 @include('layouts/header')
 
@@ -15,7 +17,9 @@ $suggestions=[];
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
 
     <!-- CSSファイル指定してください -->
+
     <link rel="stylesheet" href="{{ asset('css/users/home.css') }}">
+
     <!-- CSSファイル指定してください -->
 </head>
 
@@ -25,9 +29,11 @@ $suggestions=[];
 <div class="container">
     <!-- この中にコンテンツ -->
     <p>memo 項目　募集中案件の状況</p>
+
     <!-- <h1>aaa</h1> -->
     <div>
         <div><h1>現在進捗中の案件</h1></div>
+
         <div>
         <!-- 現在の案件 foreach -->
             @if (count($jobs) > 0)
@@ -186,9 +192,10 @@ $suggestions=[];
         </div></div>
     </div>
 </div>
+@include('layouts/sp_menu')
 
 <!-- JSファイルの指定してください！ -->
-<script src="{{ asset('js/???.js') }}"></script>
+<!-- <script src="{{ asset('js/???.js') }}"></script> -->
 <!-- JSファイルの指定してください！ -->
 
 @endsection

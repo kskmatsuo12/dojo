@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
  //飯田ファイルはここから
   use App\User;
@@ -36,9 +37,17 @@ class HomeController extends Controller
      */
 
     //userホーム画面
-    public function index()
+    public function logout()
     {
-        return view('users/home');
+        return Auth::logout();
+    }
+
+    public function index(Request $request)
+    {
+        $user = Auth::user();
+        return view('users/home', [
+            'user' => $user
+        ]);
     }
 
     public function profile_view(Request $request)
