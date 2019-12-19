@@ -165,8 +165,6 @@ table{
     justify-content: center;
 }
 
-
-
 @media screen and (max-width:800px) { 
     table {
         width:90%;
