@@ -93,7 +93,8 @@ Auth::routes();
     Route::get('/clientsPost', 'ClientsController@jobPost');
     //ホーム画面。
     Route::get('/clients/home', 'ClientsController@Clienthome');
-
+    Route::post('/clientsProfile', 'ClientsController@profileUpdate');
+    Route::post('/clientsRegister', 'ClientsController@registerUpdate');
 
     //以下テスト用
     Route::get('/iida/test1', 'IidaController@test1');
