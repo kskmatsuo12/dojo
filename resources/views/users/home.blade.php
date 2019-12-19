@@ -4,6 +4,7 @@
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
 $suggestions=[];
+
 ?>
 
 @extends('layouts.app')
