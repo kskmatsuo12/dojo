@@ -1,9 +1,10 @@
 <!-- ページ読み込み時の注意事項 -->
 <!-- データが存在する状態で再度確認 -->
 <!-- foreachは要確認 -->
+<!-- controllerができたらifとforeachに@、関数に{{}}を追加 -->
 <!-- テーブルがない場合、↓を読み込み -->
-
-
+<?php
+?>
 
 @extends('layouts.app')
 <head>
@@ -19,16 +20,9 @@
 
 @section('content')
 <div class="container">
-    <!-- この中にコンテンツ -->
-    <p>memo 項目　募集中案件の状況</p>
     <div>
-        <div>案件一覧</div>
-        <div>公募案件の表示</div>
-        <div>foreachでもってくる案件一覧</div>
-        <div>表示項目　公募タイトル、相談したいこと、所用時間、担当者名　テーブルで作成</div>
-        <div>
-        <!-- 現在の案件 -->
-            @if (count($jobs) > 0)
+    <!-- この中にコンテンツ -->
+            if (count($jobs) > 0)
             <!-- クライアント条件での抜出要 -->
             <div class="card-body">
                 <div class="card-body">
@@ -44,33 +38,33 @@
                     </thead>
                     <!-- テーブル本体 -->
                     <tbody>
-                    @foreach ($jobs as $job)
+                    foreach ($jobs as $job)
                     <!-- いけるか不安 -->
                         <tr>
                         <td class="table-text">
                             <div>job_title</div>
-                            <!-- <div>{{ $job->job_title }}</div> -->
+                            <div>$job->job_title</div>
                         </td>
                         <td class="table-text">
-                            <div>{{ $job->consultation }}</div>
+                            <div> $job->consultation</div>
                         </td>
                         <td class="table-text">
-                            <div>{{ $job->work_term }}</div>
+                            <div> $job->work_term </div>
                         </td>
                         <td class="table-text">
-                            <div>{{ $job->responsible_party }}</div>
+                            <div> $job->responsible_party </div>
                         </td>
                         <td class="table-text">
                             <div>＊＊案件進捗状態の表示</div>
                         </td>
                         </tr>
-                    @endforeach
+                    endforeach
                     </tbody>
                 </table>
                 </div>
             </div>
 
-            @endif
+            endif
         </div>
 
     </div>
