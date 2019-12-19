@@ -3,7 +3,6 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
-echo $jobs;
 
 $suggestions=[];
 
@@ -126,6 +125,8 @@ $suggestions=[];
         <!-- 新着案件　表記例 -->
         <div><h1>新着案件</h1></div>
         <div>
+        @if (count($jobs) > 0)
+        @foreach ($jobs as $job)
         <table class="">
                 <!-- テーブル本体 -->
                 <tbody>
@@ -134,7 +135,7 @@ $suggestions=[];
                         <div>公募タイトル</div>
                     </td>
                     <td class="">
-                        <div>$job->job_title</div>
+                        <div>{{$job->job_title}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -142,7 +143,7 @@ $suggestions=[];
                         <div>募集期限</div>
                     </td>
                     <td class="">
-                        <div>$job->recruitment_term</div>
+                        <div>{{$job->recruitment_term}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -153,12 +154,17 @@ $suggestions=[];
                     </tr>
                 </tbody>
             </table>
+            @endforeach
         </div>
+        @endif
     </div>
 
     <div>
         <div><h1>あなたへのおすすめ</h1></div>
-        <div>        <div>
+        <div>
+        @if (count($jobs) > 0)
+        @foreach ($jobs as $job)
+
         <table class="">
                 <!-- テーブル本体 -->
                 <tbody>
@@ -167,7 +173,7 @@ $suggestions=[];
                         <div>公募タイトル</div>
                     </td>
                     <td class="">
-                        <div>$job->job_title</div>
+                        <div>{{$job->job_title}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -175,7 +181,7 @@ $suggestions=[];
                         <div>募集期限</div>
                     </td>
                     <td class="">
-                        <div>$job->recruitment_term</div>
+                        <div>{{$job->recruitment_term}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -186,7 +192,9 @@ $suggestions=[];
                     </tr>
                 </tbody>
             </table>
-        </div></div>
+            @endforeach
+        </div>
+        @endif
     </div>
 </div>
 @include('layouts/sp_menu')
