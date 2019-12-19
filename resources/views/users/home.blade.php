@@ -4,11 +4,8 @@
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
 $jobs=[];
-// $user = \Auth::user();
-// if ($user) {
-//     echo "Hello $user->name";
-// }
-//これでもAuthを呼び出せるぽい
+
+$suggestions=[];
 
 ?>
 @include('layouts/header')
@@ -18,8 +15,11 @@ $jobs=[];
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+
     <!-- CSSファイル指定してください -->
-    <!-- <link rel="stylesheet" href="{{ asset('css/???.css') }}"> -->
+
+    <link rel="stylesheet" href="{{ asset('css/users/home.css') }}">
+
     <!-- CSSファイル指定してください -->
 </head>
 
@@ -29,57 +29,167 @@ $jobs=[];
 <div class="container">
     <!-- この中にコンテンツ -->
     <p>memo 項目　募集中案件の状況</p>
-  
-    <!-- これでログイン中の名前が見れる -->
-   
+
+    <!-- <h1>aaa</h1> -->
     <div>
-        <div>案件一覧</div>
-       
+        <div><h1>現在進捗中の案件</h1></div>
+
         <div>
-        <!-- 現在の案件 -->
+        <!-- 現在の案件 foreach -->
             @if (count($jobs) > 0)
             <!-- クライアント条件での抜出要 -->
-            <div class="card-body">
-                <div class="card-body">
-                <table class="table table-striped task-table">
-                    <!-- テーブルヘッダ -->
-                    <thead>
-                    <th>公募タイトル</th>
-                    <th>相談したいこと</th>
-                    <th>所用時間</th>
-                    <th>担当者名</th>
-                    <th>案件進捗</th>
-                    <!-- <th>&nbsp;</th> -->
-                    </thead>
+            <div class="">
+                <div class="">
+                @foreach ($jobs as $job)
+                <table class="">
                     <!-- テーブル本体 -->
                     <tbody>
-                    @foreach ($jobs as $job)
-                    <!-- いけるか不安 -->
-                        <tr>
-                        <td class="table-text">
-                            <div>job_title</div>
-                            <!-- <div>{{ $job->job_title }}</div> -->
-                        </td>
-                        <td class="table-text">
-                            <div>{{ $job->consultation }}</div>
-                        </td>
-                        <td class="table-text">
-                            <div>{{ $job->work_term }}</div>
-                        </td>
-                        <td class="table-text">
-                            <div>{{ $job->responsible_party }}</div>
-                        </td>
-                        <td class="table-text">
-                            <div>＊＊案件進捗状態の表示</div>
-                        </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                    <tr class="">   
+                    <td class="">
+                        <div>公募タイトル</div>
+                    </td>
+                    <td class="">
+                        <div>{{$job->job_title}}</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div>相談したいこと</div>
+                    </td>
+                    <td class="">
+                        <div>{{$job->consultation}}</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div>募集期限</div>
+                    </td>
+                    <td class="">
+                        <div>{{$job->recruitment_term}}</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div>進捗状況</div>
+                    </td>
+                    <td class="">
+                        <div>{{$suggestion->progress_info}}</div>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+            @endforeach
                 </div>
             </div>
             @endif
         </div>
+        <div>
+        <!-- 現在の案件　表記例 -->
+            <table class="">
+                <!-- テーブル本体 -->
+                <tbody>
+                    <tr class="">   
+                    <td class="">
+                        <div>公募タイトル</div>
+                    </td>
+                    <td class="">
+                        <div>$job->job_title</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div>相談したいこと</div>
+                    </td>
+                    <td class="">
+                        <div>$job->consultation</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div>募集期限</div>
+                    </td>
+                    <td class="">
+                        <div>$job->recruitment_term</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div>進捗状況</div>
+                    </td>
+                    <td class="">
+                        <div>$suggestion->progress_info</div>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <!-- 新着案件　表記例 -->
+        <div><h1>新着案件</h1></div>
+        <div>
+        <table class="">
+                <!-- テーブル本体 -->
+                <tbody>
+                    <tr class="">   
+                    <td class="">
+                        <div>公募タイトル</div>
+                    </td>
+                    <td class="">
+                        <div>$job->job_title</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div>募集期限</div>
+                    </td>
+                    <td class="">
+                        <div>$job->recruitment_term</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div><a href="">確認:案件idもって案件詳細へ</a></div>
+                    </td>
+                    <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <div><h1>あなたへのおすすめ</h1></div>
+        <div>        <div>
+        <table class="">
+                <!-- テーブル本体 -->
+                <tbody>
+                    <tr class="">   
+                    <td class="">
+                        <div>公募タイトル</div>
+                    </td>
+                    <td class="">
+                        <div>$job->job_title</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div>募集期限</div>
+                    </td>
+                    <td class="">
+                        <div>$job->recruitment_term</div>
+                    </td>
+                    </tr>
+                    <tr class="">
+                    <td class="">
+                        <div><a href="">確認:案件idもって案件詳細へ</a></div>
+                    </td>
+                    <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div></div>
     </div>
 </div>
 @include('layouts/sp_menu')
