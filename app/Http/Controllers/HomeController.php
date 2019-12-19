@@ -240,18 +240,24 @@ class HomeController extends Controller
         return view('users/issues/comfirm', ['client_id' => $client_id, 'job_id'=>$job_id, 'suggestion_text'=>$suggestion_text, 'job'=>$job]);
     }
 
+    //案件応募送信
     public function postSuggestion(Request $request)
     {
         $client_id = $request->client_id;
         $job_id = $request->job_id;
+        $user_id = Auth::user()->id;
         $suggestion_text = $request->suggestion_text;
 
         $suggestions = new Suggestions;
         $suggestions->job_id = $job_id;
         $suggestions->client_id = $client_id;
+        $suggestions->user_id = $user_id;
         $suggestions->suggestion_text = $suggestion_text;
    
         $suggestions->save();
+        
+        
+        url('/home');
     }
 
     // 案件管理
