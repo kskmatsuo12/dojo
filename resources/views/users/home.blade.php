@@ -4,6 +4,12 @@
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
 $jobs=[];
+// $user = \Auth::user();
+// if ($user) {
+//     echo "Hello $user->name";
+// }
+//これでもAuthを呼び出せるぽい
+
 ?>
 @include('layouts/header')
 
@@ -13,7 +19,7 @@ $jobs=[];
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <!-- CSSファイル指定してください -->
-    <link rel="stylesheet" href="{{ asset('css/???.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/???.css') }}"> -->
     <!-- CSSファイル指定してください -->
 </head>
 
@@ -23,8 +29,12 @@ $jobs=[];
 <div class="container">
     <!-- この中にコンテンツ -->
     <p>memo 項目　募集中案件の状況</p>
+  
+    <!-- これでログイン中の名前が見れる -->
+   
     <div>
         <div>案件一覧</div>
+       
         <div>
         <!-- 現在の案件 -->
             @if (count($jobs) > 0)
@@ -72,9 +82,10 @@ $jobs=[];
         </div>
     </div>
 </div>
+@include('layouts/sp_menu')
 
 <!-- JSファイルの指定してください！ -->
-<script src="{{ asset('js/???.js') }}"></script>
+<!-- <script src="{{ asset('js/???.js') }}"></script> -->
 <!-- JSファイルの指定してください！ -->
 
 @endsection
