@@ -6,7 +6,6 @@
 
 $suggestions=[];
 
-
 ?>
 @include('layouts/header')
 
