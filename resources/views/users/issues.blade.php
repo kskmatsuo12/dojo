@@ -3,7 +3,6 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
-$jobs=[];
 $suggestions=[];
 ?>
 @extends('layouts.app')
@@ -65,7 +64,7 @@ $suggestions=[];
                     </td>
                     </tr>
                     <tr><td>
-                        <form action="{{ url('booksedit/'.$book->id) }}" method="POST">
+                        
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-primary">
                         応募する

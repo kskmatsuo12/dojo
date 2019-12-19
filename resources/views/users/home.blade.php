@@ -3,9 +3,10 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
-$jobs=[];
+echo $jobs;
 
 $suggestions=[];
+
 
 ?>
 @include('layouts/header')
@@ -72,9 +73,7 @@ $suggestions=[];
                     <td class="">
                         <div>進捗状況</div>
                     </td>
-                    <td class="">
-                        <div>{{$suggestion->progress_info}}</div>
-                    </td>
+            
                     </tr>
                 </tbody>
             </table>
@@ -116,9 +115,7 @@ $suggestions=[];
                     <td class="">
                         <div>進捗状況</div>
                     </td>
-                    <td class="">
-                        <div>$suggestion->progress_info</div>
-                    </td>
+                    
                     </tr>
                 </tbody>
             </table>
