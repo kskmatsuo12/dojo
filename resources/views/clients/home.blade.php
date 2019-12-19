@@ -61,6 +61,8 @@
                     endforeach
                     </tbody>
                 </table>
+                <!-- 以下飯田テスト用p -->
+                <p>{{ $client->client_name }}</p>
                 </div>
             </div>
 

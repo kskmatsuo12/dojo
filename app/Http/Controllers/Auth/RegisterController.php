@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+//飯田追記
+// use App\Client;
+
 class RegisterController extends Controller
 {
     /*
@@ -57,6 +60,11 @@ class RegisterController extends Controller
 
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+
+            //飯田追記
+            // 'client_id' => 'required|string|text|max:255|unique:clients',
+            // 'client_pass' => 'required|string|min:6|confirmed',
+
         ]);
     }
 
@@ -80,5 +88,13 @@ class RegisterController extends Controller
         return view('users/profile', [
             "lid"=>$last_insert_id
         ]);
+        
+        //飯田下記追記
+        // return Client::create([
+        //     'client_name' => $data['client_name'],
+        //     'client_id' => $data['client_id'],
+        //     'client_id' => $data['client_id'],
+        //     'client_pass' => bcrypt($data['client_pass']),
+        // ]);
     }
 }
