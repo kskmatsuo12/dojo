@@ -2,9 +2,7 @@
 <!-- データが存在する状態で再度確認 -->
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
-<?php
-$jobs=[];
-?>
+
 
 
 @extends('layouts.app')
@@ -99,11 +97,13 @@ $jobs=[];
                 </td>
                 </tr>
                 <tr><td>
-                    <form action="" method="POST">
+                    <form action="{{url('proposal')}}" method="POST">
                 {{ csrf_field() }}
+                <input type="hidden" name="job_id" value="{{ $job->id }}">
                 <button type="submit" class="btn btn-primary">
                     応募する
                 </button>
+                </form>
                 </td><td></td></tr>
             </tbody>
         </table>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
  //飯田ファイルはここから
   use App\User;
   use App\Job;
+  use App\Suggestions;
 
   //飯田ファイルはここまで
 
@@ -44,9 +45,10 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
+        $jobs = Job::orderBy('created_at', 'desc')->take(5)->get();
         $user = Auth::user();
         return view('users/home', [
-            'user' => $user
+            'user' => $user,'jobs'=>$jobs
         ]);
     }
 
@@ -214,21 +216,42 @@ class HomeController extends Controller
     }
 
     //案件詳細
-    public function issuesIndex()
+    public function issuesIndex(Job $jobs)
     {
-        return view('users/issues/index');
+        return view('users/issues/index', ['job'=>$jobs]);
     }
 
     //案件応募
-    public function proposal()
+    public function proposal(Request $request)
     {
-        return view('users/issues/proposal');
+        $job_id = $request->job_id;
+        return view('users/issues/proposal', ['job_id'=>$job_id]);
     }
 
     //案件応募確認
-    public function comfirm()
+    public function comfirm(Request $request)
     {
-        return view('users/issues/comfirm');
+        $client_id = $request->client_id;
+        $job_id = $request->job_id;
+        $suggestion_text = $request->suggestion_text;
+        
+        $job = Job::find($job_id);
+
+        return view('users/issues/comfirm', ['client_id' => $client_id, 'job_id'=>$job_id, 'suggestion_text'=>$suggestion_text, 'job'=>$job]);
+    }
+
+    public function postSuggestion(Request $request)
+    {
+        $client_id = $request->client_id;
+        $job_id = $request->job_id;
+        $suggestion_text = $request->suggestion_text;
+
+        $suggestions = new Suggestions;
+        $suggestions->job_id = $job_id;
+        $suggestions->client_id = $client_id;
+        $suggestions->suggestion_text = $suggestion_text;
+   
+        $suggestions->save();
     }
 
     // 案件管理

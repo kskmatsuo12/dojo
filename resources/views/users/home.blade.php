@@ -3,10 +3,7 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
-$jobs=[];
-
 $suggestions=[];
-
 ?>
 @include('layouts/header')
 
@@ -36,11 +33,11 @@ $suggestions=[];
 
         <div>
         <!-- 現在の案件 foreach -->
-            @if (count($jobs) > 0)
+            @if (count($suggestions) > 0)
             <!-- クライアント条件での抜出要 -->
             <div class="">
                 <div class="">
-                @foreach ($jobs as $job)
+                @foreach ($suggestions as $suggestion)
                 <table class="">
                     <!-- テーブル本体 -->
                     <tbody>
@@ -49,7 +46,7 @@ $suggestions=[];
                         <div>公募タイトル</div>
                     </td>
                     <td class="">
-                        <div>{{$job->job_title}}</div>
+                        <div>{{$suggestion->job_title}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -57,7 +54,7 @@ $suggestions=[];
                         <div>相談したいこと</div>
                     </td>
                     <td class="">
-                        <div>{{$job->consultation}}</div>
+                        <div>{{$suggestion->consultation}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -65,16 +62,14 @@ $suggestions=[];
                         <div>募集期限</div>
                     </td>
                     <td class="">
-                        <div>{{$job->recruitment_term}}</div>
+                        <div>{{$suggestion->recruitment_term}}</div>
                     </td>
                     </tr>
                     <tr class="">
                     <td class="">
                         <div>進捗状況</div>
                     </td>
-                    <td class="">
-                        <div>{{$suggestion->progress_info}}</div>
-                    </td>
+            
                     </tr>
                 </tbody>
             </table>
@@ -93,7 +88,7 @@ $suggestions=[];
                         <div>公募タイトル</div>
                     </td>
                     <td class="">
-                        <div>$job->job_title</div>
+                        <div>$suggestion->job_title</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -101,7 +96,7 @@ $suggestions=[];
                         <div>相談したいこと</div>
                     </td>
                     <td class="">
-                        <div>$job->consultation</div>
+                        <div>$suggestion->consultation</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -109,16 +104,14 @@ $suggestions=[];
                         <div>募集期限</div>
                     </td>
                     <td class="">
-                        <div>$job->recruitment_term</div>
+                        <div>$suggestion->recruitment_term</div>
                     </td>
                     </tr>
                     <tr class="">
                     <td class="">
                         <div>進捗状況</div>
                     </td>
-                    <td class="">
-                        <div>$suggestion->progress_info</div>
-                    </td>
+                    
                     </tr>
                 </tbody>
             </table>
@@ -129,6 +122,8 @@ $suggestions=[];
         <!-- 新着案件　表記例 -->
         <div><h1>新着案件</h1></div>
         <div>
+        @if (count($jobs) > 0)
+        @foreach ($jobs as $job)
         <table class="">
                 <!-- テーブル本体 -->
                 <tbody>
@@ -137,7 +132,7 @@ $suggestions=[];
                         <div>公募タイトル</div>
                     </td>
                     <td class="">
-                        <div>$job->job_title</div>
+                        <div>{{$job->job_title}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -145,7 +140,7 @@ $suggestions=[];
                         <div>募集期限</div>
                     </td>
                     <td class="">
-                        <div>$job->recruitment_term</div>
+                        <div>{{$job->recruitment_term}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -156,12 +151,17 @@ $suggestions=[];
                     </tr>
                 </tbody>
             </table>
+            @endforeach
         </div>
+        @endif
     </div>
 
     <div>
         <div><h1>あなたへのおすすめ</h1></div>
-        <div>        <div>
+        <div>
+        @if (count($jobs) > 0)
+        @foreach ($jobs as $job)
+
         <table class="">
                 <!-- テーブル本体 -->
                 <tbody>
@@ -170,7 +170,7 @@ $suggestions=[];
                         <div>公募タイトル</div>
                     </td>
                     <td class="">
-                        <div>$job->job_title</div>
+                        <div>{{$job->job_title}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -178,7 +178,7 @@ $suggestions=[];
                         <div>募集期限</div>
                     </td>
                     <td class="">
-                        <div>$job->recruitment_term</div>
+                        <div>{{$job->recruitment_term}}</div>
                     </td>
                     </tr>
                     <tr class="">
@@ -189,7 +189,9 @@ $suggestions=[];
                     </tr>
                 </tbody>
             </table>
-        </div></div>
+            @endforeach
+        </div>
+        @endif
     </div>
 </div>
 @include('layouts/sp_menu')

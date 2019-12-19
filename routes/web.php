@@ -51,9 +51,11 @@ Auth::routes();
     Route::get('/my', 'HomeController@my');
     Route::get('/sitemap', 'HomeController@sitemap');
 
-    Route::get('/issues/{id}', 'HomeController@issuesIndex');
-    Route::get('/proposal', 'HomeController@proposal');
-    Route::get('/comfirm', 'HomeController@comfirm');
+    Route::get('/issues/{jobs}', 'HomeController@issuesIndex');
+    Route::post('/proposal', 'HomeController@proposal');
+    Route::post('/comfirm', 'HomeController@comfirm');
+    Route::post('/post_suggestion', 'HomeController@postSuggestion');
+
 
     Route::get('/my/{id}', 'HomeController@myIndex');
 
