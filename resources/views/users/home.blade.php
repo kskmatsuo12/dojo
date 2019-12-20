@@ -39,6 +39,7 @@ use App\Job;
 .carousel-item p{
     text-shadow: 2px 1px 2px rgba(0,0,0,0.4);
 }
+
 body{
     background:#f2feff;
     padding-top: 0rem;
@@ -126,9 +127,12 @@ body{
 .carousel-control-prev:hover{
     background: rgba(67,196,207, 0.2);
 }
+
+
 /* .jobbox{
     height: 80%;
 } */
+
 @media screen and (min-width: 781px) {
     .contains{
         display: flex;
@@ -260,6 +264,7 @@ body{
         @if (count($jobs) > 0)
             <div class="contain">
                 @foreach ($jobs as $job)
+
                 <a href="issues/<?php echo $job->id ?>">
                     <div class="pjts">
                         <div class="pjt">
@@ -272,6 +277,7 @@ body{
                         </div>
                     </div>
                 </a>       
+
                 @endforeach
             </div>
             @endif

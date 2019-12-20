@@ -18,7 +18,7 @@
 						$table->increments('id');
 						$table->string('client_name',30)->nullable();
 						$table->string('client_kana',30)->nullable();
-						$table->string('client_id',20)->nullable();
+						$table->string('client_loginid',20)->nullable();
 						$table->string('client_pass',20)->nullable();
 						$table->string('client_loc',20)->nullable();
 						$table->text('client_url')->nullable();
