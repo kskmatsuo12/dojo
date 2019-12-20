@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 //飯田ファイルはここから
 use Validator;
 use App\User;
@@ -49,16 +50,16 @@ class ClientsController extends Controller
         if ($request->client_pass == $request->client_pass_confirm){
             $clients->client_pass = $request->client_pass;
         }else{
-            return redirect('/clients/regster_form');
+            return redirect('/clients/register_form');
         }
    
         $clients->save();
         //client_idをセッションに保存
         // $request->session()->put('client_id', $request->client_id);
-        $request->session()->put('name', $request->name);
+        $request->session()->put('client_id', $request->client_id);
 
         
-        return redirect('/clients/home');
+        return redirect('/clients/profile');
     }
 
     //profile登録
@@ -70,7 +71,7 @@ class ClientsController extends Controller
             'client_url' => 'required',
             'client_biz' => 'required',
             'client_num_emp' => 'required',
-            'client_matter' => 'required',
+            // 'client_matter' => 'required',
         ]);
     
         //バリデーション:エラー
@@ -92,32 +93,82 @@ class ClientsController extends Controller
         $clients->client_matter = $request->client_matter;
         $clients->save();
         return redirect('/clients/home');
+
+        $request->session()->put('client_id', $request->client_id);
+    }
+    //クライアントのログイン機能
+    public function ClientLogin(Request $request){
+        // $this->validate($request,[
+        // 'client_id' => 'required',
+        // 'client_pass' => 'required|min:4'
+        // ]);
+       
+        $clients = Client::where('client_id', $request->client_id)->first();
+
+
+        if($clients->client_pass === $request->client_pass){
+            $request->session()->put('client_id', $clients->client_id);
+            return redirect('/clients/home');
+        }  else{
+            return redirect()->back();
+        }      
+       
+
+        // if(Client::attempt(['client_id' => $request->client_id, 'client_pass' => $request->client_pass])){
+        // return redirect('/clients/home');
+        // }
+        // return redirect()->back();
     }
 
-    //jobsを保存
+    //clients/homeを表示
+    public function Clienthome(Request $request)
+    {    
+        $value = $request->session()->get('client_id');
+        $clients = Client::where('client_id', $value)->first();
+
+
+        $jobs = Job::where('client_id', $value)->paginate(5);
+        return view('clients/home', [
+            'jobs' => $jobs,
+        ]);
+
+        // $jobs = Job::orderBy('created_at', 'asc')->paginate(2);
+        // return view('clients/home', [
+        //     'jobs' => $jobs,
+        // ]);
+
+        //セッションでclient_idを投げる
+        $request->session()->put('client_id', $request->client_id);
+    }
+    
+    //jobs投稿画面を表示
     public function postForm()
     {
         return view('clients/post');
     }
 
+    //jobsを保存
     public function jobPost(Request $request)
     {
+        //セッションから取得
+        $value = $request->session()->get('client_id');
+
         $validator = Validator::make($request->all(), [
             'job_title' => 'required',
             'job_text' => 'required',
-            'recruit_advisor' => 'required',
-            'consultation' => 'required',
+            // 'recruit_advisor' => 'required',
+            // 'consultation' => 'required',
             'request_fill_out' => 'required',
             'work_format' => 'required',
             'work_term' => 'required',
-            'interview_format' => 'required',
+            // 'interview_format' => 'required',
             'interview_place' => 'required',
             'request_number' => 'required',
             'recruitment_term' => 'required',
             'responsible_party' => 'required',
             'responsible_email' => 'required',
-            'get_skill' => 'required',
-            'client_id' => 'required',
+            // 'get_skill' => 'required',
+            // 'client_id' => 'required',
         ]);
     
         //バリデーション:エラー
@@ -142,23 +193,16 @@ class ClientsController extends Controller
         $jobs->responsible_party = $request->responsible_party;
         $jobs->responsible_email = $request->responsible_email;
         $jobs->get_skill = $request->get_skill;
-        $jobs->client_id = $request->client_id;
+
+        //セッションで受け取ったclient_idをJobテーブルに保存
+        $jobs->client_id = $value;
         $jobs->save();
-        return redirect('/');
+        return redirect('/clients/home');
     }
 
 
-    public function Clienthome()
-    {
-        //下記飯田追記
-    
-        $jobs = Job::orderBy('created_at', 'asc')->paginate(2);
-        return view('clients/home', [
-            'jobs' => $jobs,
-            // //下記飯田追記
-            // 'client' => $client
-        ]);
-    }
+
+
 
     //飯田ファイルはここまで
 
@@ -190,6 +234,10 @@ class ClientsController extends Controller
     public function my()
     {
         return view('clients/my');
+    }
+    public function myIndex(Job $jobs)
+    {
+        return view('clients/my/index', ['job'=>$jobs]);
     }
 
     public function messages()

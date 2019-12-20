@@ -1,16 +1,21 @@
-<header>
-<a href="{{ url('/home')}}">dojo</a>
-<a href="{{ url('/profile_view')}}">プロフィール編集</a>
-<a href="{{ url('/my') }}">案件管理</a>
-<a href="{{ url('/issues') }}">案件一覧</a>
-<a href="{{ url('/messages') }}">メッセージ管理</a>
-<a href="{{ url('/sitemap') }}">サイトマップ（これはフッター）</a>
-<a href="/logout">ログアウト</a>
-</header>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+</head>
 
+<div class="header sp_menu">
+    <div class="brand_img">
+        <img alt="logo" class="logo" src="{{ asset('/images/dojo.png') }}"> 
+    </div>
+    <div>
+        <div class="header-icon">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </div>
+</div>
+<div class="header-space"></div>
 <style>
-    header{
-        display: flex;
-    }
+   
 
 </style>

@@ -75,6 +75,7 @@ Auth::routes();
 // クライアントはここより下に！
 // クライアントのログインは優先度低めで！
     Route::get('/clients/login_form', 'ClientsController@loginForm');
+    Route::post('/clients/ClientLogin', 'ClientsController@ClientLogin');
     Route::get('/clients/register_form', 'ClientsController@registerForm');
     // Route::get('/clients/home', 'ClientsController@home');
     Route::get('/clients/profile', 'ClientsController@profile');
@@ -85,7 +86,7 @@ Auth::routes();
     Route::get('/clients/sitemap', 'ClientsController@sitemap');
     Route::get('/clients/post/comfirm', 'ClientsController@postComfirm');
     Route::get('/clients/players/{id}', 'ClientsController@playersIndex');
-    Route::get('/clients/my/{id}', 'ClientsController@myIndex');
+    Route::get('/clients/my/index/{jobs}', 'ClientsController@myIndex');
     Route::get('/clients/messages/{id}', 'ClientsController@messagesIndex');
     Route::get('/clients/messages/group/{id}', 'ClientsController@messagesGroupIndex');
     Route::get('/clients/player/assessment', 'ClientsController@playerAssessment');

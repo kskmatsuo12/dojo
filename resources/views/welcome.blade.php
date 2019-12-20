@@ -219,7 +219,9 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">ログイン</a></li>
-                            <li><a href="{{ url('/clients/register_form') }}">クライアント用のログイン</a></li>
+                            <li><a href="{{ url('/clients/register_form') }}">クライアント用の新規登録</a></li>
+                            <li><a href="{{ url('/clients/login_form') }}">クライアント用のログイン</a></li>
+
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
