@@ -119,13 +119,15 @@ tr{
     
 }
 
+
+
 th{
     background:rgb(67,196,207,0.3);
     vertical-align: middle;
-    height:50px;
-    border-bottom: 1px solid rgb(21, 163, 75,0.1);
+    height:30px;
+    /* border-bottom: 1px solid rgb(21, 163, 75,0.1); */
     padding: 0 15px;
-    width:20%;
+    width:25%;
 }
 
 td{
@@ -140,6 +142,7 @@ td{
 }
 table{
     margin: 0 auto;
+    width:100%;
     display:?flex;
     justify-content: center;
     border: 1px solid rgb(67,196,207,0.5);
@@ -217,26 +220,18 @@ table{
             <!-- クライアント条件での抜出要 -->
             <div class="card-body">
                 <div class="card-body">
+                @foreach ($jobs as $job)
                 <table class="table table-striped task-table">
                     <!-- テーブルヘッダ -->
                     <thead>
-                    <th>公募タイトル</th>
-                    <th>相談したいこと</th>
-                    <th>所用時間</th>
-                    <th>担当者名</th>
-                    <th>案件進捗</th>
-                    <!-- <th>&nbsp;</th> -->
+                        <th>公募タイトル</th>
+                        <th>所用時間</th>
+                        <th>担当者名</th>
+                        <th>案件進捗</th>
                     </thead>
-                    <!-- テーブル本体 -->
                     <tbody>
-                    @foreach ($jobs as $job)
-                    <!-- いけるか不安 -->
-                        <tr>
                         <td class="table-text">
                             <div>{{$job->job_title}}</div>
-                        </td>
-                        <td class="table-text">
-                            <div> {{$job->consultation}}</div>
                         </td>
                         <td class="table-text">
                             <div> {{$job->work_term}} </div>
@@ -247,10 +242,17 @@ table{
                         <td class="table-text">
                             <div>＊＊案件進捗状態の表示</div>
                         </td>
-                        </tr>
-                    @endforeach
+                    </tbody>
+                    <thead>
+                    <th colspan="4">相談したいこと</th>
+                    </thead>
+                    <tbody>
+                        <td colspan="4" class="table-text">
+                            <div> {{$job->consultation}}</div>
+                        </td>
                     </tbody>
                 </table>
+                @endforeach
                 </div>
             </div>
             @endif
@@ -262,9 +264,9 @@ table{
         <h1>公募の作成</h1>
         <h2>　　</h2>
     </div>
-    <div class="line">
-    <h1>プロジェクトの募集を行う</h1>
-    <button type="submit" class="">作成する</button>
+    <form   action="{{ url('clients/post')}}">
+    <button class="">作成する</button>
+    </form>
     </div>
 </div>
 
