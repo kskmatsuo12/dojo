@@ -146,18 +146,22 @@ use Illuminate\Support\Facades\Auth;
       public function profile2Store(Request $request)
       {
           $validator = Validator::make($request->all(), [
-            'user_birthday' => 'required',
-            'user_last_degree' => 'required',
-            'user_last_school' => 'required',
-            'user_last_school_dept' => 'required',
-            'user_last_company' => 'required',
-            'user_last_company_dept' => 'required',
-            'user_last_company_position' => 'required',
-            'user_last_company_since' => 'required',
-            'user_last_company_until' => 'required',
-            'user_last_company_exp' => 'required',
-            'user_language' => 'required',
-            'user_licence' => 'required',
+    
+          'user_last_company' => 'required',
+          'user_last_company_dept' => 'required',
+          'user_last_company_position' => 'required',
+          'user_last_company_since' => 'required',
+          'user_last_company_since' => 'required',
+          'user_last_company_until' => 'required',
+          'user_birthday' => 'required',
+          'user_last_degree' => 'required',
+          'user_last_school'=> 'required',
+          'user_last_school_dept' => 'required',
+          'user_gender' => 'required',
+          'user_language' => 'required',
+          'user_licence' => 'required',
+          'user_last_company_exp' => 'required'
+
         ]);
         
           $uid = Auth::id();
@@ -172,29 +176,20 @@ use Illuminate\Support\Facades\Auth;
           $users->user_last_degree = $request->user_last_degree;
           $users->user_last_school = $request->user_last_school;
           $users->user_last_school_dept = $request->user_last_school_dept;
+          $users->user_gender = $request->user_gender;
           $users->user_language = $request->user_language;
           $users->user_licence = $request->user_licence;
           $users->user_last_company_exp = $request->user_last_company_exp;
           $users->save();
           return redirect('/home');
       }
-      // ユーザープロフィール1
-      // public function profile()
-      // {
-      //     return view('users/profile');
-      // }
 
-      // ユーザープロフィール２
-      // public function profile2()
-      // {
-      //     return view('users/profile2');
-      // }
 
       // ユーザープロフィール3
-      public function profile3()
-      {
-          return view('users/profile3');
-      }
+      //   public function profile3()
+      //   {
+      //       return view('users/profile3');
+      //   }
 
       // 案件一覧
       public function issues()

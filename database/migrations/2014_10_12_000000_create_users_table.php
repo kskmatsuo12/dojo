@@ -50,7 +50,6 @@ class CreateUsersTable extends Migration
             $table->integer('user_name_public')->nullable();
             $table->integer('user_point')->nullable();
             $table->integer('user_achievement')->nullable();
-            $table->string('user_exp_text', 1000)->nullable();
          
             $table->string('user_last_company', 30)->nullable();
             $table->string('user_last_company_dept', 30)->nullable();
