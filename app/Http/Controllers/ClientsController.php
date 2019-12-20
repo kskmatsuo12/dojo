@@ -197,7 +197,7 @@ class ClientsController extends Controller
         //セッションで受け取ったclient_idをJobテーブルに保存
         $jobs->client_id = $value;
         $jobs->save();
-        return redirect('/');
+        return redirect('/clients/home');
     }
 
 
