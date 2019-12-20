@@ -11,6 +11,16 @@
 |
 */
 
+
+// Route::get('/', function () {
+//     return view('home');
+// });
+// Route::get('/', function () {
+//     return view('users/test');
+// });
+// Route::get('/', function () {
+//     return view('users/profile2');
+// });
 Route::get('/', function () {
     return view('welcome');
 });
@@ -51,9 +61,11 @@ Auth::routes();
     Route::get('/my', 'HomeController@my');
     Route::get('/sitemap', 'HomeController@sitemap');
 
-    Route::get('/issues/{id}', 'HomeController@issuesIndex');
-    Route::get('/proposal', 'HomeController@proposal');
-    Route::get('/comfirm', 'HomeController@comfirm');
+    Route::get('/issues/{jobs}', 'HomeController@issuesIndex');
+    Route::post('/proposal', 'HomeController@proposal');
+    Route::post('/comfirm', 'HomeController@comfirm');
+    Route::post('/post_suggestion', 'HomeController@postSuggestion');
+
 
     Route::get('/my/{id}', 'HomeController@myIndex');
 
@@ -63,7 +75,7 @@ Auth::routes();
 
     Route::get('/issues/assessment', 'HomeController@assessment');
 
-
+    Route::get('/logout', 'HomeController@logout');
     //ユーザーの表示だけここまで
 
 // });
@@ -73,6 +85,7 @@ Auth::routes();
 // クライアントはここより下に！
 // クライアントのログインは優先度低めで！
     Route::get('/clients/login_form', 'ClientsController@loginForm');
+    Route::post('/clients/ClientLogin', 'ClientsController@ClientLogin');
     Route::get('/clients/register_form', 'ClientsController@registerForm');
     // Route::get('/clients/home', 'ClientsController@home');
     Route::get('/clients/profile', 'ClientsController@profile');
@@ -83,7 +96,7 @@ Auth::routes();
     Route::get('/clients/sitemap', 'ClientsController@sitemap');
     Route::get('/clients/post/comfirm', 'ClientsController@postComfirm');
     Route::get('/clients/players/{id}', 'ClientsController@playersIndex');
-    Route::get('/clients/my/{id}', 'ClientsController@myIndex');
+    Route::get('/clients/my/index/{jobs}', 'ClientsController@myIndex');
     Route::get('/clients/messages/{id}', 'ClientsController@messagesIndex');
     Route::get('/clients/messages/group/{id}', 'ClientsController@messagesGroupIndex');
     Route::get('/clients/player/assessment', 'ClientsController@playerAssessment');
@@ -93,7 +106,8 @@ Auth::routes();
     Route::get('/clientsPost', 'ClientsController@jobPost');
     //ホーム画面。
     Route::get('/clients/home', 'ClientsController@Clienthome');
-
+    Route::post('/clientsProfile', 'ClientsController@profileUpdate');
+    Route::post('/clientsRegister', 'ClientsController@registerUpdate');
 
     //以下テスト用
     Route::get('/iida/test1', 'IidaController@test1');

@@ -219,7 +219,9 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">ログイン</a></li>
-                            <li><a href="{{ route('register') }}">会員登録</a></li>
+                            <li><a href="{{ url('/clients/register_form') }}">クライアント用の新規登録</a></li>
+                            <li><a href="{{ url('/clients/login_form') }}">クライアント用のログイン</a></li>
+
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -264,13 +266,13 @@
                 @include('common.errors')
                 <!-- バリデーションエラーの表示に使用-->
 
-                <form action="{{ url('profile') }}" method="GET" class="form-horizontal">
+                <form method="POST" action="{{ route('register') }}" class="form-horizontal">
                     {{ csrf_field() }}
                     
                     <div class="form-group">
                         <div class="col-sm-6">
                             <!-- <label for="user_name_sei" class="">姓</label> -->
-                            <input type="text" name="user_name_sei" value="{{old('user_name_sei')}}" class="form-control" id="top_form" placeholder="姓">
+                            <input type="text" name="name" value="{{old('user_name_sei')}}" class="form-control" id="top_form" placeholder="姓">
                         </div>
                         <div class="col-sm-6">
                         <!-- <label for="user_name_mei" class="">名</label> -->
@@ -291,6 +293,10 @@
                         <div class="sm">
                             <!-- <label for="password" class="">パスワード設定</label> -->
                             <input type="text" name="password" value="{{old('password')}}" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
+                        </div>
+                        <div class="sm">
+                            <!-- <label for="password" class="">パスワード設定</label> -->
+                            <input type="text" name="password_confirmation" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
                         </div>
                     </div>
 

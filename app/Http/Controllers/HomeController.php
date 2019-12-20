@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
  //飯田ファイルはここから
   use App\User;
   use App\Job;
-
-  //飯田ファイルはここまで
-
+  use App\Suggestion;
 
 class HomeController extends Controller
 // Userコントローラーとして使う。
@@ -36,9 +35,22 @@ class HomeController extends Controller
      */
 
     //userホーム画面
-    public function index()
+    public function logout()
     {
-        return view('users/home');
+        return Auth::logout();
+    }
+
+    public function index(Request $request)
+    {
+        $uid = Auth::id();
+        //案件を５件だけ表示
+        $jobs = Job::orderBy('created_at', 'desc')->take(5)->get();
+        $suggestions = Suggestion::where('progress_info', 1)->where('user_id', $uid)->get();
+        $user = Auth::user();
+        return view('users/home', [
+            'user' => $user, 'jobs' => $jobs, 'suggestions' => $suggestions
+
+        ]);
     }
 
     public function profile_view(Request $request)
@@ -144,36 +156,7 @@ class HomeController extends Controller
             'user_language' => 'required',
             'user_licence' => 'required',
         ]);
-    
-        //バリデーション:エラー
-        if ($validator->fails()) {
-            return redirect('/')
-                ->withInput()
-                ->withErrors($validator);
-        }
-        //以下に登録処理を記述（Eloquentモデル）
-        $users = new User;
-        $users->user_birthday = $request->user_birthday;
-        $users->user_last_degree = $request->user_last_degree;
-        $users->user_last_school = $request->user_last_school;
-        $users->user_last_school_dept = $request->user_last_school_dept;
-        $users->user_last_company = $request->user_last_company;
-        $users->user_last_company_dept = $request->user_last_company_dept;
-        $users->user_last_company_position = $request->user_last_company_position;
-        $users->user_last_company_since = $request->user_last_company_since;
-        $users->user_last_company_until = $request->user_last_company_until;
-        $users->user_last_company_exp = $request->user_last_company_exp;
-        $users->user_language = $request->user_language;
-        $users->user_licence = $request->user_licence;
-        $users->save();
-        return redirect('/');
     }
-
-
-
-
-
-    
     // ユーザープロフィール1
     // public function profile()
     // {
@@ -195,7 +178,8 @@ class HomeController extends Controller
     // 案件一覧
     public function issues()
     {
-        return view('users/issues');
+        $jobs = Job::orderBy('created_at', 'desc')->get();
+        return view('users/issues', ['jobs' => $jobs]);
     }
 
     //サイトマップ
@@ -205,21 +189,60 @@ class HomeController extends Controller
     }
 
     //案件詳細
-    public function issuesIndex()
+    public function issuesIndex(Job $jobs)
     {
-        return view('users/issues/index');
+        $uid = Auth::id();
+        $did = false;
+        $true_false = Suggestion::where('user_id', $uid)->get();
+        if ($true_false) {
+            $did = true;
+        }
+
+        return view('users/issues/index', ['job'=>$jobs,'did'=>$did]);
     }
 
     //案件応募
-    public function proposal()
+    public function proposal(Request $request)
     {
-        return view('users/issues/proposal');
+        $uid = Auth::id();
+        $did = false;
+        $true_false = Suggestion::where('user_id', $uid)->get();
+        if ($true_false) {
+            $did = true;
+        }
+        $job_id = $request->job_id;
+        return view('users/issues/proposal', ['job_id'=>$job_id, 'did'=>$did]);
     }
 
     //案件応募確認
-    public function comfirm()
+    public function comfirm(Request $request)
     {
-        return view('users/issues/comfirm');
+        $client_id = $request->client_id;
+        $job_id = $request->job_id;
+        $suggestion_text = $request->suggestion_text;
+        
+        $job = Job::find($job_id);
+
+        return view('users/issues/comfirm', ['client_id' => $client_id, 'job_id'=>$job_id, 'suggestion_text'=>$suggestion_text, 'job'=>$job]);
+    }
+
+    //案件応募送信
+    public function postSuggestion(Request $request)
+    {
+        $client_id = $request->client_id;
+        $job_id = $request->job_id;
+        $user_id = Auth::user()->id;
+        $suggestion_text = $request->suggestion_text;
+
+        $suggestions = new Suggestion;
+        $suggestions->job_id = $job_id;
+        $suggestions->client_id = $client_id;
+        $suggestions->user_id = $user_id;
+        $suggestions->suggestion_text = $suggestion_text;
+        $suggestions->progress_info = 1;
+        $suggestions->save();
+        
+        return redirect('home');
     }
 
     // 案件管理

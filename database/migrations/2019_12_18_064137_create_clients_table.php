@@ -18,7 +18,7 @@
 						$table->increments('id');
 						$table->string('client_name',30)->nullable();
 						$table->string('client_kana',30)->nullable();
-						$table->string('client_id',20)->nullable();
+						$table->string('client_loginid',20)->nullable();
 						$table->string('client_pass',20)->nullable();
 						$table->string('client_loc',20)->nullable();
 						$table->text('client_url')->nullable();
@@ -26,7 +26,8 @@
 						$table->integer('client_num_emp')->nullable();
 						$table->string('client_matter',5000)->nullable();
 						$table->timestamps();
-						$table->softDeletes();
+                        $table->softDeletes();
+                        $table->rememberToken();
 
                 });
             }

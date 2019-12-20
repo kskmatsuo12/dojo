@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+//飯田追記
+// use App\Client;
+
 class RegisterController extends Controller
 {
     /*
@@ -48,9 +51,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            //登録時のバリデーション
+            // 'name' => 'required|string|max:255',
+            'name' => 'required',
+            'user_name_mei' => 'required',
+            'user_hurigana_sei' => 'required',
+            'user_hurigana_mei' => 'required',
+
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+
+            //飯田追記
+            // 'client_id' => 'required|string|text|max:255|unique:clients',
+            // 'client_pass' => 'required|string|min:6|confirmed',
+
         ]);
     }
 
@@ -64,8 +78,23 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'user_name_mei' => $data['user_name_mei'],
+            'user_hurigana_sei' => $data['user_hurigana_sei'],
+            'user_hurigana_mei' => $data['user_hurigana_mei'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        $last_insert_id = $users->id;
+        return view('users/profile', [
+            "lid"=>$last_insert_id
+        ]);
+        
+        //飯田下記追記
+        // return Client::create([
+        //     'client_name' => $data['client_name'],
+        //     'client_id' => $data['client_id'],
+        //     'client_id' => $data['client_id'],
+        //     'client_pass' => bcrypt($data['client_pass']),
+        // ]);
     }
 }
