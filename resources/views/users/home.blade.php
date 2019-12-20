@@ -2,10 +2,7 @@
 <!-- データが存在する状態で再度確認 -->
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
-<?php
-$suggestions=[];
 
-?>
 
 @extends('layouts.app')
 
@@ -103,8 +100,7 @@ body{
 
     .pjt img{
         width:210px;
-    }
-
+    }   
     .info{
         position: absolute;
         top: 125%;
@@ -119,11 +115,6 @@ body{
     }
 }
 @media screen and (min-width: 1040px) {
-  .container {
-    width: 1040px;
-    margin: auto;
-    width:90%;
-  }
 
 }
 
@@ -141,14 +132,22 @@ body{
         @if (count($suggestions) > 0)
                 <div class="contain">
                     @foreach ($suggestions as $suggestion)
+                    <?php
+                    
+
+                    $job1 = Job::where('client_id', $suggestion->id)->get();
+                    
+                    // echo $job1->id;
+                    
+                    ?>
                     <div class="pjts">
-                    <a href="issues/<?php echo $job->id ?>">
+                    <a href="issues/<?php echo $suggestion->id ?>">
                         <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">
-                                <p class="pjt_term">{{$suggestion->recruitment_term}}</p>
-                                <p class="pjt_title">{{$suggestion->job_title}}</p>
-                                <p class="pjt_name">{{$suggestion->consultation}}</p>
+                                <p class="pjt_term">{{$job1[0]->recruitment_term}}</p>
+                                <p class="pjt_title">{{$job1[0]->job_title}}</p>
+                                <p class="pjt_name">{{$job1[0]->client_}}</p>
                             </div>
                         </div>
                     </a>

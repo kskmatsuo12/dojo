@@ -45,13 +45,13 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $uid = Auth::id;
+        $uid = Auth::id();
         //案件を５件だけ表示
         $jobs = Job::orderBy('created_at', 'desc')->take(5)->get();
-        $suggestion = Suggestion::where('progress_info', 1)->where('user_id', $uid)->get();
+        $suggestions = Suggestion::where('progress_info', 1)->where('user_id', $uid)->get();
         $user = Auth::user();
         return view('users/home', [
-            'user' => $user, 'jobs' => $jobs
+            'user' => $user, 'jobs' => $jobs, 'suggestions' => $suggestions
 
         ]);
     }
@@ -258,7 +258,7 @@ class HomeController extends Controller
         $suggestions->client_id = $client_id;
         $suggestions->user_id = $user_id;
         $suggestions->suggestion_text = $suggestion_text;
-   
+        $suggestions->progress_info = 1;
         $suggestions->save();
         
         
