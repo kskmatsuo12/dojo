@@ -4,9 +4,10 @@
 <!-- controllerができたらifとforeachに@、関数に{{}}を追加 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
-    use App\Job;
-    $job = Job::get();
-    echo $job;
+use App\User;
+//おすすめのユーザー5人
+$users = User::take(5)->get();
+
 ?>
 <style>
 body{
@@ -210,63 +211,7 @@ table{
 @section('content')
 <div>image画像取り込む</div>
 <div class="container">
-<div class="line">
-        <h1>現在進捗中</h1>
-        <h2>　　</h2>
-    </div>
-    <div>
-    <!-- この中にコンテンツ -->
-            @if (count($jobs) > 0)
-            <!-- クライアント条件での抜出要 -->
-            <div class="card-body">
-                <div class="card-body">
-                @foreach ($jobs as $job)
-                <table class="table table-striped task-table">
-                    <!-- テーブルヘッダ -->
-                    <thead>
-                        <th>公募タイトル</th>
-                        <th>所用時間</th>
-                        <th>担当者名</th>
-                        <th>案件進捗</th>
-                        <th>案件詳細</th>
-                        <th>client_id</th>
-                    </thead>
-                    <tbody>
-                        <td class="table-text">
-                            <div>{{$job->job_title}}</div>
-                        </td>
-                        <td class="table-text">
-                            <div> {{$job->work_term}} </div>
-                        </td>
-                        <td class="table-text">
-                            <div> {{$job->responsible_party}} </div>
-                        </td>
-                        <td class="table-text">
-                            <div>＊＊案件進捗状態の表示</div>
-                        </td>
-                        <td class="table-text">
-                            <div><a href="{{ url('clients/my/index/'.$job->id) }}">詳細</a></div>
-                        </td>
-                        <td class="table-text">
-                            <div>{{$job->client_id}} </div>
-                        </td>
-                    </tbody>
-                    <thead>
-                    <th colspan="5">相談したいこと</th>
-                    </thead>
-                    <tbody>
-                        <td colspan="5" class="table-text">
-                            <div> {{$job->consultation}}</div>
-                        </td>
-                    </tbody>
-                </table>
-                @endforeach
-                </div>
-            </div>
-            @endif
-        </div>
 
-    </div>
 
     <div class="line">
         <h1>公募の作成</h1>
@@ -276,7 +221,134 @@ table{
     <button class="">作成する</button>
     </form>
     </div>
+
+    <div class="jobbox">
+
+        <div class="line">
+            <h1>募集中</h1>
+            <h2>　　</h2>
+        </div>
+
+        <div class="contains">
+            @if (count($jobs) > 0)
+                <div class="contain">
+                    @foreach ($jobs as $job)
+                    <?php
+                    $job1 = Job::where('jobstatus',1)->get();
+                    // echo $job1->id;
+                    ?>
+                    <div class="pjts">
+                    <a href="{{ url('clients/my/index/'.$job->id) }}">
+
+                        <div class="pjt">
+                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                            <div class="info">
+                                <p class="pjt_term">{
+                                {$job->work_term}}</p>
+                                <p class="pjt_title">{{$job->job_title}}</p>
+                                <p class="pjt_name"> {{$job->responsible_party}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+
+        <div class="line">
+            <h1>プロジェクト中</h1>
+            <h2>　　</h2>
+        </div>
+
+        <div class="contains">
+            @if (count($jobs) > 0)
+                <div class="contain">
+                    @foreach ($jobs as $job)
+                    <?php
+                    $job1 = Job::where('jobstatus',2)->get();
+                    // echo $job1->id;
+                    ?>
+                    <div class="pjts">
+                    <a href="{{ url('clients/my/index/'.$job->id) }}">
+
+                        <div class="pjt">
+                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                            <div class="info">
+                                <p class="pjt_term">{
+                                {$job->work_term}}</p>
+                                <p class="pjt_title">{{$job->job_title}}</p>
+                                <p class="pjt_name"> {{$job->responsible_party}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+
+        <div class="line">
+            <h1>評価待ち</h1>
+            <h2>　　</h2>
+        </div>
+
+        <div class="contains">
+            @if (count($jobs) > 0)
+                <div class="contain">
+                    @foreach ($jobs as $job)
+                    <?php
+                    $job1 = Job::where('jobstatus',3)->get();
+                    // echo $job1->id;
+                    ?>
+                    <div class="pjts">
+                    <a href="{{ url('clients/my/index/'.$job->id) }}">
+
+                        <div class="pjt">
+                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                            <div class="info">
+                                <p class="pjt_term">{
+                                {$job->work_term}}</p>
+                                <p class="pjt_title">{{$job->job_title}}</p>
+                                <p class="pjt_name"> {{$job->responsible_party}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    </div>
+
+
+    <div class="jobbox">
+    <div class="line">
+        <h1>おすすめユーザー</h1>
+        <h2>　　</h2>
+    </div>
+
+    <div class="contains">
+    @if (count($users) > 0)
+        <div class="contain">
+            @foreach ($users as $user)
+            <div class="pjts">
+                <div class="pjt">
+                    <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                    <div class="info">
+                        <p class="pjt_term">{{$user->user_prefectures}}</p>
+                        <p class="pjt_title">{{$user->user_exp_business}}</p>
+                        <p class="pjt_name">{{$user->user_exp_job}}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @endif
+    </div>
 </div>
+
+
 
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
