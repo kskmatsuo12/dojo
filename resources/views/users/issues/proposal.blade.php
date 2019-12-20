@@ -10,6 +10,10 @@
 <!-- <?php echo $job_id?> -->
 <!-- CSSファイルの指定をしてください〜 -->
 
+<?php
+
+?>
+
 @section('content')
 @include('layouts/header')
 <div class="container">
@@ -32,7 +36,13 @@
                     <textarea type="text" name="suggestion_text" value="{{old('job_text')}}" placeholder="例）この度○○領域で自分の力を試したいと思っています。弊社の次世代のビジネスを担う新規事業案について、一緒にディスカッションさせてください。"></textarea>
                 </div>
                 <input type="hidden" name="progress_info" value="1">
+                @if ($did)
+
+                <p class="red">(応募済みのプロジェクトです)</p>
+                
+                @else
                 <button type="submit">応募する</button>
+                @endif
         </form> 
         </div>
     </div>

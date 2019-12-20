@@ -13,13 +13,15 @@
     <link rel="stylesheet" href="{{ asset('css/users/issues/index.css') }}">
     <!-- CSSファイル指定してください -->
 </head>
-
 <!-- CSSファイルの指定をしてください〜 -->
 
 @section('content')
 @include('layouts/header')
 <div class="container">
     <!-- この中にコンテンツ -->
+    @if($did)
+    <p class="red">応募済みのプロジェクトです</p>
+    @endif
     <h1>プロジェクト詳細</h1>
     <div class="issues_index1">
         <!-- 現在の案件　表記例 -->
@@ -70,9 +72,15 @@
         <form action="{{url('proposal')}}" method="POST">
                 {{ csrf_field() }}
             <input type="hidden" name="job_id" value="{{ $job->id }}">
+            @if($did)
+            <button disabled class="btn disable_button">
+                応募済み
+            </button>
+            @else
             <button type="submit" class="btn">
                 応募する
             </button>
+            @endif
         </form>
     </div>
 </div>

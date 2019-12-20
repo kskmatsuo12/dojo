@@ -234,6 +234,18 @@ button:hover {
   justify-content: center;
 }
 
+.red {
+  margin-top: 16px;
+  color: red;
+  text-align: center;
+}
+
+.disable_button {
+  color: black;
+  background-color: grey;
+  opacity: 0.4;
+}
+
 /* ボタン用CSS */
 
 /* スマホ用CSS（ここまで） */
