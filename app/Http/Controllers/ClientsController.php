@@ -102,7 +102,7 @@ class ClientsController extends Controller
         // 'client_pass' => 'required|min:4'
         // ]);
        
-        $clients = Client::where('id', $request->id)->first();
+        $clients = Client::where('client_loginid', $request->client_loginid)->first();
 
 
         if($clients->client_pass === $request->client_pass){
@@ -239,7 +239,14 @@ class ClientsController extends Controller
     }
     public function myIndex(Job $jobs)
     {
-        return view('clients/my/index', ['job'=>$jobs]);
+        $value = $jobs->client_id;
+        $clients = Client::where('id', $value)->first();
+
+        return view('clients/my/index',
+         ['job'=>$jobs,
+          'client'=>$clients,
+
+            ]);
     }
 
     public function messages()
