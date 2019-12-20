@@ -75,6 +75,7 @@ Auth::routes();
 // クライアントはここより下に！
 // クライアントのログインは優先度低めで！
     Route::get('/clients/login_form', 'ClientsController@loginForm');
+    Route::post('/clients/ClientLogin', 'ClientsController@ClientLogin');
     Route::get('/clients/register_form', 'ClientsController@registerForm');
     // Route::get('/clients/home', 'ClientsController@home');
     Route::get('/clients/profile', 'ClientsController@profile');
