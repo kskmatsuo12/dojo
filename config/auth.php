@@ -44,7 +44,7 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-        ],
+        ],  
     ],
 
     /*
@@ -74,6 +74,12 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        //クライアント用に追加（飯田）
+        // 'clients' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Client::class,
+        // ],
     ],
 
     /*
@@ -97,6 +103,12 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-    ],
+        //クライアント用に追加（飯田）
+        // 'clients' => [
+        //     'provider' => 'clients',
+        //     'table' => 'password_resets',
+        //     'expire' => 60,
+        // ],
+    ]
 
 ];
