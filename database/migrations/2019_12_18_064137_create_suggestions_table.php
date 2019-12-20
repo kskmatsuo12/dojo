@@ -19,6 +19,7 @@ class CreateSuggestionsTable extends Migration
             $table->integer('user_id')->nullable();
             $table->integer('job_id')->nullable();
             $table->string('suggestion_text')->nullable();
+            $table->integer('progress_info');
             $table->timestamps();
             $table->softDeletes();
         });
