@@ -116,7 +116,7 @@ button:hover{
             </div>
             <div class="client_form">
                 <label for="client_id" class="client_form_title">ID設定</label>
-                <input type="text" name="client_id" value="{{old('client_id')}}" class="form-control" placeholder="半角英数字6～12文字">
+                <input type="text" name="client_loginid" value="{{old('client_id')}}" class="form-control" placeholder="半角英数字6～12文字">
             </div>
             <div class="client_form">
                 <label for="client_pass" class="client_form_title">パスワード設定</label>
