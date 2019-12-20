@@ -1,13 +1,13 @@
 <?php
     use App\Job;
     use App\Client;
-    use App\Suggestions;
+    use App\Suggestion;
     $jobs = Job::get();
     $clients = Client::get();
-    $suggestions = Suggestions::get();
+    $suggestions = Suggestion::get();
     echo $jobs;
     echo $clients;
-    echo $suggestions[0]->suggestion_text;
+    // echo $suggestions[0]->suggestion_text;
 ?>
 @extends('layouts.app')
 <style>
@@ -250,7 +250,7 @@
                         <div> {{$job->job_status}}</div>
                     </td>
                     <td class="">
-                        <div> {{$suggestions[0]->progress_info}}</div>
+                        <div> {$suggestions[0]->progress_info}</div>
                     </td>
                     <td class="">
                         <div><a href="">詳細</a></div>
