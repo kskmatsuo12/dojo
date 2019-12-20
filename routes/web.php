@@ -11,6 +11,16 @@
 |
 */
 
+
+// Route::get('/', function () {
+//     return view('home');
+// });
+// Route::get('/', function () {
+//     return view('users/test');
+// });
+// Route::get('/', function () {
+//     return view('users/profile2');
+// });
 Route::get('/', function () {
     return view('welcome');
 });

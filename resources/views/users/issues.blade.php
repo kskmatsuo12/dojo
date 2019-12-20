@@ -31,7 +31,9 @@ body{
     margin:20px auto;
     width:90%;
 }
-
+.contain{
+    display:inline-block;
+}
 .pjts{
     float: left;
     position: relative;
@@ -156,18 +158,23 @@ body{
 @section('content')
 
 <div class="container">
+    <div class="jobbox">
 
-    <div class="line">
-        <h1>現在進捗中</h1>
-        <h2>　　</h2>
-    </div>
+        <div class="line">
+            <h1>現在進捗中</h1>
+            <h2>　　</h2>
+        </div>
 
-    <div class="contains">
-        @if (count($suggestions) > 0)
+        <div class="contains">
+            @if (count($suggestions) > 0)
                 <div class="contain">
                     @foreach ($suggestions as $suggestion)
+                    <?php
+                    $job1 = Job::where('id', $suggestion->job_id)->get();
+                    // echo $job1->id;
+                    ?>
                     <div class="pjts">
-                    <a href="issues/<?php echo $job->id ?>">
+                    <a href="issues/<?php echo $job1[0]->id ?>">
                         <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">
@@ -180,38 +187,39 @@ body{
                     </div>
                     @endforeach
                 </div>
-            </div>
+            @endif
         </div>
-        @endif
     </div>
 
 
-    <div class="line">
-        <h1>新着</h1>
-        <h2>　　</h2>
-    </div>
+    <div class="jobbox">
+        <div class="line">
+            <h1>新着</h1>
+            <h2>　　</h2>
+        </div>
 
-    <div class="contains">
-    @if (count($jobs) > 0)
-        <div class="contain">
-            @foreach ($jobs as $job)
-            <div class="pjts">
-                <div class="pjt">
-                    <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
-                    <div class="info">
-                        <p class="pjt_term">{{$job->recruitment_term}}</p>
-                        <p class="pjt_title">{{$job->job_title}}</p>
-                        <p class="pjt_name">{{$job->consultation}}</p>
+        <div class="contains">
+        @if (count($jobs) > 0)
+            <div class="contain">
+                @foreach ($jobs as $job)
+                <div class="pjts">
+                    <div class="pjt">
+                        <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                        <div class="info">
+                            <p class="pjt_term">{{$job->recruitment_term}}</p>
+                            <p class="pjt_title">{{$job->job_title}}</p>
+                            <p class="pjt_name">{{$job->consultation}}</p>
+                        </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
+            @endif
         </div>
-        @endif
     </div>
 
-
 </div>
+
 @include('layouts/sp_menu')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

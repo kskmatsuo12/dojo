@@ -11,9 +11,6 @@ use Illuminate\Support\Facades\Auth;
   use App\Job;
   use App\Suggestion;
 
-  //飯田ファイルはここまで
-
-
 class HomeController extends Controller
 // Userコントローラーとして使う。
 {
@@ -159,36 +156,7 @@ class HomeController extends Controller
             'user_language' => 'required',
             'user_licence' => 'required',
         ]);
-    
-        //バリデーション:エラー
-        if ($validator->fails()) {
-            return redirect('/')
-                ->withInput()
-                ->withErrors($validator);
-        }
-        //以下に登録処理を記述（Eloquentモデル）
-        $users = new User;
-        $users->user_birthday = $request->user_birthday;
-        $users->user_last_degree = $request->user_last_degree;
-        $users->user_last_school = $request->user_last_school;
-        $users->user_last_school_dept = $request->user_last_school_dept;
-        $users->user_last_company = $request->user_last_company;
-        $users->user_last_company_dept = $request->user_last_company_dept;
-        $users->user_last_company_position = $request->user_last_company_position;
-        $users->user_last_company_since = $request->user_last_company_since;
-        $users->user_last_company_until = $request->user_last_company_until;
-        $users->user_last_company_exp = $request->user_last_company_exp;
-        $users->user_language = $request->user_language;
-        $users->user_licence = $request->user_licence;
-        $users->save();
-        return redirect('/');
     }
-
-
-
-
-
-    
     // ユーザープロフィール1
     // public function profile()
     // {
