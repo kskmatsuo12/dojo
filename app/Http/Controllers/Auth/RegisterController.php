@@ -30,7 +30,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    
+    protected $redirectTo = '/profile_view';
 
     /**
      * Create a new controller instance.
@@ -81,13 +82,16 @@ class RegisterController extends Controller
             'user_name_mei' => $data['user_name_mei'],
             'user_hurigana_sei' => $data['user_hurigana_sei'],
             'user_hurigana_mei' => $data['user_hurigana_mei'],
+            'user_point' => 0,
+            'user_name_public' => 0,
+            'user_achievement' => 0,
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        $last_insert_id = $users->id;
-        return view('users/profile', [
-            "lid"=>$last_insert_id
-        ]);
+        // $last_insert_id = $users->id;
+        // return view('users/profile', [
+        //     "lid"=>$last_insert_id
+        // ]);
         
         //飯田下記追記
         // return Client::create([

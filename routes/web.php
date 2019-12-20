@@ -11,8 +11,9 @@
 |
 */
 
+ use Illuminate\Support\Facades\Auth;
 
-// Route::get('/', function () {
+ // Route::get('/', function () {
 //     return view('home');
 // });
 // Route::get('/', function () {
@@ -21,7 +22,12 @@
 // Route::get('/', function () {
 //     return view('users/profile2');
 // });
+
+//welcomeページはログインされていたらユーザーログインへリダイレクト
 Route::get('/', function () {
+    if (Auth::id()) {
+        return redirect('/home');
+    }
     return view('welcome');
 });
 
@@ -65,7 +71,7 @@ Auth::routes();
     Route::post('/proposal', 'HomeController@proposal');
     Route::post('/comfirm', 'HomeController@comfirm');
     Route::post('/post_suggestion', 'HomeController@postSuggestion');
-
+    
 
     Route::get('/my/{id}', 'HomeController@myIndex');
 

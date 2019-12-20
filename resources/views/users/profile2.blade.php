@@ -257,7 +257,7 @@ table{
             <th>前職の就業(開始)<span class="opt">任意</span></th>
             <td><input type="date" name="user_last_company_since" value="{{old('user_last_company_since')}}" placeholder="期間年・期間月から"></td>
         </tr>
-
+        
         <tr>
             <th>前職の就業(終了)<span class="opt">任意</span></th>
             <td><input type="date" name="user_last_company_until" value="{{old('user_last_company_until')}}" placeholder="期間年・期間月まで"></td>
@@ -286,8 +286,8 @@ table{
         <tr>
             <th>性別<span class="opt">任意</span></th>
             <td>
-                <input id="user_gender1" type="radio" name="user_gender" value="{{old('user_gender')}}" ><label for="user_gender1" class="label">男性</label>
-                <input id="user_gender2" type="radio" name="user_gender" value="{{old('user_gender')}}" ><label for="user_gender2" class="label">女性</label>
+                <input id="user_gender1" type="radio" name="user_gender" value="男性"><label for="user_gender1" class="label">男性</label>
+                <input id="user_gender2" type="radio" name="user_gender" value="女性"><label for="user_gender2" class="label">女性</label>
             </td>
         </tr>
 

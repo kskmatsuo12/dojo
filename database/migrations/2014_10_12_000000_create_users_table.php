@@ -50,13 +50,28 @@ class CreateUsersTable extends Migration
             $table->integer('user_name_public')->nullable();
             $table->integer('user_point')->nullable();
             $table->integer('user_achievement')->nullable();
-            $table->string('user_exp_text', 1000)->nullable();
          
+            $table->string('user_last_company', 30)->nullable();
+            $table->string('user_last_company_dept', 30)->nullable();
+            $table->string('user_last_company_position', 30)->nullable();
+            $table->date('user_last_company_since')->nullable();
+            $table->date('user_last_company_until')->nullable();
+            $table->date('user_birthday')->nullable();
+            $table->string('user_last_degree', 30)->nullable();
+            $table->string('user_last_school', 30)->nullable();
+            $table->string('user_last_school_dept', 30)->nullable();
+            $table->string('user_gender', 10)->nullable();
+            $table->string('user_language', 30)->nullable();
+            $table->string('user_licence', 30)->nullable();
+            $table->string('user_last_company_exp', 1000)->nullable();
+
+
             $table->softDeletes();
 
 
             $table->string('email')->unique();
             $table->string('password');
+
             $table->rememberToken();
             $table->timestamps();
         });

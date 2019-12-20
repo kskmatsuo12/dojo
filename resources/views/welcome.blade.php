@@ -276,7 +276,7 @@
                         </div>
                         <div class="col-sm-6">
                         <!-- <label for="user_name_mei" class="">名</label> -->
-                            <input type="text" name="user_name_mei" value="{{old('user_name_mei')}}" class="form-control" id="top_form" placeholder="名">
+                            <input type="text" name="user_name_mei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form" placeholder="名">
                         </div>
                         <div class="col-sm-6">
                             <!-- <label for="user_hurigana_sei" class="">セイ</label> -->
