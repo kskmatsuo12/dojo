@@ -2,18 +2,36 @@
 body {
   background: #f2feff;
   font-family: 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
+  font-weight: lighter;
 }
 
 h1 {
-  margin-top: 16px;
+  margin-top: 32px;
   margin-bottom: 16px;
   text-align: center;
   font-size: 20px;
+  font-weight: lighter;
+}
+
+.container {
+  padding-bottom: 50px;
 }
 
 .issues_index1 {
   width: 90%;
   margin: auto;
+}
+
+.issues_img {
+  margin-top: 32px;
+  height: 200px;
+  width: 100%;
+}
+
+.issues_img img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
 }
 
 h2 {
@@ -75,7 +93,7 @@ h2 {
 }
 
 .section4 span {
-  font-size: 12px;
+  font-size: 10px;
   margin-right: 16px;
   width: 50%;
 }
@@ -98,7 +116,7 @@ h2 {
 
 .issues_index2 {
   width: 90%;
-  margin: auto;
+  margin: 0 auto 60px;
 }
 
 .section6 {
@@ -133,6 +151,53 @@ h2 {
 }
 
 .section7 p {
+  margin-top: 16px;
+  line-height: 20px;
+}
+
+.section8 {
+  align-items: center;
+  height: 40px;
+  padding-bottom: 8px;
+  display: flex;
+  padding: 8px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.section8-left {
+  width: 50%;
+  border-right: 1px solid #ddd;
+  padding-left: 16px;
+}
+
+.section8 span {
+  font-size: 10px;
+  margin-right: 16px;
+  width: 50%;
+}
+
+.section8-right {
+  width: 50%;
+  padding-left: 16px;
+}
+
+.section9 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.section9 span {
+  font-size: 10px;
+  margin-right: 16px;
+  width: 50%;
+}
+
+.section9 span i {
+  padding-right: 8px;
+}
+
+.section9 p {
   margin-top: 16px;
   line-height: 20px;
 }

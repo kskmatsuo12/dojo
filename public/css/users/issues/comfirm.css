@@ -2,6 +2,7 @@ body {
   background: #f2feff;
   font-size: 13px;
 }
+
 input {
   display: flex;
   justify-content: center;
@@ -166,18 +167,6 @@ button:hover {
     margin: 0px auto;
     border-radius: 5px;
     border: 1px solid rgb(168, 168, 168);
-    width: 100%;
-  }
-
-  textarea {
-    font-size: 15px;
-    height: 130px;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 0px auto;
-    border: 1px solid rgb(168, 168, 168);
-    outline: none;
-    resize: none;
     width: 100%;
   }
 }

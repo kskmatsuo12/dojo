@@ -2,7 +2,10 @@
 <!-- データが存在する状態で再度確認 -->
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
+<?php
+use App\Job;
 
+?>
 
 @extends('layouts.app')
 
@@ -143,7 +146,7 @@ body{
     }
 
     .pjt img{
-
+    }
     .info{
         position: absolute;
         top: 130%;
@@ -229,7 +232,7 @@ body{
                     
 
                     $job1 = Job::where('client_id', $suggestion->id)->get();
-                    
+                    echo $job1[0];
                     // echo $job1->id;
                     
                     ?>
@@ -237,11 +240,7 @@ body{
                     <a href="issues/<?php echo $suggestion->id ?>">
                         <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
-                            <div class="info">
-                                <p class="pjt_term">{{$job1[0]->recruitment_term}}</p>
-                                <p class="pjt_title">{{$job1[0]->job_title}}</p>
-                                <p class="pjt_name">{{$job1[0]->client_}}</p>
-                            </div>
+                          
                         </div>
                     </a>
                     </div>

@@ -261,8 +261,7 @@ class HomeController extends Controller
         $suggestions->progress_info = 1;
         $suggestions->save();
         
-        
-        url('/home');
+        return redirect('home');
     }
 
     // 案件管理
