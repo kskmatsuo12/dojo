@@ -127,7 +127,7 @@ th{
     height:30px;
     /* border-bottom: 1px solid rgb(21, 163, 75,0.1); */
     padding: 0 15px;
-    width:25%;
+    width:20%;
 }
 
 td{
@@ -228,6 +228,8 @@ table{
                         <th>所用時間</th>
                         <th>担当者名</th>
                         <th>案件進捗</th>
+                        <th>案件詳細</th>
+                        <th>client_id</th>
                     </thead>
                     <tbody>
                         <td class="table-text">
@@ -242,12 +244,18 @@ table{
                         <td class="table-text">
                             <div>＊＊案件進捗状態の表示</div>
                         </td>
+                        <td class="table-text">
+                            <div><a href="{{ url('clients/my/index/'.$job->id) }}">詳細</a></div>
+                        </td>
+                        <td class="table-text">
+                            <div>{{$job->client_id}} </div>
+                        </td>
                     </tbody>
                     <thead>
-                    <th colspan="4">相談したいこと</th>
+                    <th colspan="5">相談したいこと</th>
                     </thead>
                     <tbody>
-                        <td colspan="4" class="table-text">
+                        <td colspan="5" class="table-text">
                             <div> {{$job->consultation}}</div>
                         </td>
                     </tbody>

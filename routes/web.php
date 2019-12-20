@@ -86,7 +86,7 @@ Auth::routes();
     Route::get('/clients/sitemap', 'ClientsController@sitemap');
     Route::get('/clients/post/comfirm', 'ClientsController@postComfirm');
     Route::get('/clients/players/{id}', 'ClientsController@playersIndex');
-    Route::get('/clients/my/{id}', 'ClientsController@myIndex');
+    Route::get('/clients/my/index/{jobs}', 'ClientsController@myIndex');
     Route::get('/clients/messages/{id}', 'ClientsController@messagesIndex');
     Route::get('/clients/messages/group/{id}', 'ClientsController@messagesGroupIndex');
     Route::get('/clients/player/assessment', 'ClientsController@playerAssessment');
