@@ -22,11 +22,9 @@ input{
     border: 1px solid rgb(168, 168, 168);
     width: 100%;
 }
-
 input[type=radio] {
     display: none;
 }
-
 #top_form{
     height: 35px;
     font-size:13px;
