@@ -14,7 +14,7 @@
     <!-- この中にコンテンツ -->
     <h1>企業様　ログイン</h1>
     @include('common.errors')
-    <form action="{{ url('???') }}" method="POST" class="">
+    <form action="{{ url('/clients/ClientLogin') }}" method="POST" class="">
     {{ csrf_field() }}
         <div class="form-group">
             <div><input type="text" name="client_id" value="{{old('client_id')}}" class="form-control" id="top_form" placeholder="ID"></div>

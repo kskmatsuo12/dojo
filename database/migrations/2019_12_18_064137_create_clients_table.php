@@ -26,7 +26,8 @@
 						$table->integer('client_num_emp')->nullable();
 						$table->string('client_matter',5000)->nullable();
 						$table->timestamps();
-						$table->softDeletes();
+                        $table->softDeletes();
+                        $table->rememberToken();
 
                 });
             }
