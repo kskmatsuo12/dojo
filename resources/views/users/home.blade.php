@@ -6,6 +6,7 @@
 
 <?php
 use App\Job;
+
 ?>
 
 @extends('layouts.app')
@@ -26,18 +27,15 @@ use App\Job;
     padding:15px;
     color:#ffffff;
 }
-
 .btn:hover{
     background: #75d7e0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     color:#ffffff;
 }
-
 .carousel-item h1{
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
 }
-
 .carousel-item p{
     text-shadow: 2px 1px 2px rgba(0,0,0,0.4);
 }
@@ -47,9 +45,8 @@ body{
     padding-top: 0rem;
     color: #5a5a5a;
 }
-
 .contains{
-    display: flex;
+    display: flex;
     justify-content: center;
     margin:20px auto;
     width:90%;
@@ -65,15 +62,12 @@ body{
     padding:10px;
     margin-bottom:150px;
 }
-
 .pjts:hover{
     opacity:0.6;
 }
-
 .pjt img{
     width:144px;
 }
-
 .info{
     position: absolute;
     top: 152%;
@@ -87,12 +81,10 @@ body{
     transform: translate(-50%,-50%);
     box-shadow: 1px 4px 4px rgb(82, 147, 151);
 }
-
 .pjt_term{
     font-size: 13px;
     color: rgb(67,196,207);
     margin:5px 0 10px;
-
 }
 .pjt_title{
     font-size: 13px;
@@ -102,7 +94,6 @@ body{
     font-size: 10px;
     margin:5px 0 5px;
 }
-
 .line h1{
     padding-top:20px;
     text-align: center;
@@ -113,7 +104,6 @@ body{
     color:rgb(67,196,207);
     letter-spacing:1px;
 }
-
 .line h2{
     text-align: center;
     background: rgb(67,196,207);
@@ -122,7 +112,6 @@ body{
     margin: 0 auto 20px;
     border-radius: 50px;
 }
-
 .btn{
     background: rgb(67,196,207);
     box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -139,13 +128,14 @@ body{
     background: rgba(67,196,207, 0.2);
 }
 
+
 /* .jobbox{
     height: 80%;
 } */
 
 @media screen and (min-width: 781px) {
     .contains{
-        display: flex;
+        display: flex;
         justify-content: center;
         margin:20px auto;
         width:94%
@@ -158,9 +148,7 @@ body{
         padding:10px;
         margin: 20px 20px 140px 20px;
     }
-
     .pjt img{
-
     .info{
         position: absolute;
         top: 130%;
@@ -175,9 +163,7 @@ body{
     }
 }
 @media screen and (min-width: 1040px) {
-
 }
-
 </style>
 <!-- CSSファイルの指定をしてください〜 -->
 @section('content')
@@ -278,16 +264,20 @@ body{
         @if (count($jobs) > 0)
             <div class="contain">
                 @foreach ($jobs as $job)
-                <div class="pjts">
-                    <div class="pjt">
-                        <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
-                        <div class="info">
-                            <p class="pjt_term">{{$job->recruitment_term}}</p>
-                            <p class="pjt_title">{{$job->job_title}}</p>
-                            <p class="pjt_name">{{$job->consultation}}</p>
+
+                <a href="issues/<?php echo $job->id ?>">
+                    <div class="pjts">
+                        <div class="pjt">
+                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                            <div class="info">
+                                <p class="pjt_term">{{$job->recruitment_term}}</p>
+                                <p class="pjt_title">{{$job->job_title}}</p>
+                                <p class="pjt_name">{{$job->consultation}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>       
+
                 @endforeach
             </div>
             @endif

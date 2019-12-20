@@ -191,14 +191,27 @@ class HomeController extends Controller
     //案件詳細
     public function issuesIndex(Job $jobs)
     {
-        return view('users/issues/index', ['job'=>$jobs]);
+        $uid = Auth::id();
+        $did = false;
+        $true_false = Suggestion::where('user_id', $uid)->get();
+        if ($true_false) {
+            $did = true;
+        }
+
+        return view('users/issues/index', ['job'=>$jobs,'did'=>$did]);
     }
 
     //案件応募
     public function proposal(Request $request)
     {
+        $uid = Auth::id();
+        $did = false;
+        $true_false = Suggestion::where('user_id', $uid)->get();
+        if ($true_false) {
+            $did = true;
+        }
         $job_id = $request->job_id;
-        return view('users/issues/proposal', ['job_id'=>$job_id]);
+        return view('users/issues/proposal', ['job_id'=>$job_id, 'did'=>$did]);
     }
 
     //案件応募確認
@@ -229,8 +242,7 @@ class HomeController extends Controller
         $suggestions->progress_info = 1;
         $suggestions->save();
         
-        
-        url('/home');
+        return redirect('home');
     }
 
     // 案件管理

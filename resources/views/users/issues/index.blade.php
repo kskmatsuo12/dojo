@@ -13,14 +13,16 @@
     <link rel="stylesheet" href="{{ asset('css/users/issues/index.css') }}">
     <!-- CSSファイル指定してください -->
 </head>
-
 <!-- CSSファイルの指定をしてください〜 -->
 
 @section('content')
 @include('layouts/header')
 <div class="container">
     <!-- この中にコンテンツ -->
-    <h1>案件詳細</h1>
+    @if($did)
+    <p class="red">応募済みのプロジェクトです</p>
+    @endif
+    <h1>プロジェクト詳細</h1>
     <div class="issues_index1">
         <!-- 現在の案件　表記例 -->
         
@@ -31,10 +33,13 @@
         
         <!-- 探している人のカテゴリー -->
         <div class="section2">
-            <h3><span>探している人:</span>{{$job->recruit_advisor}}</h3>
+            <h3><span>探している人: </span>{{$job->recruit_advisor}}</h3>
+        </div>
+        <div class="issues_img">
+            <img alt="プロジェクト画像" class="issues_image" src="{{asset('/images/issuesindex.jpg')}}">
         </div>
         <div class="section3">
-            <div class="section3-left"><span>所用期間:</span>{{$job->work_term}}</div>
+            <div class="section3-left"><span>募集期間:</span>{{$job->recruitment_term}}</div>
             <div class="section3-right"><span>募集人数:</span>{{$job->request_number}}人</div> 
         </div>
         
@@ -56,17 +61,26 @@
             <p>{{$job->request_fill_out}}</p>
         </div>
             
-        <div class="section8">
-            {{$job->work_format}}
+          <div class="section8">
+            <div class="section8-left"><span>業務方法:</span> {{$job->work_format}}</div>
+            <div class="section8-right"><span>業務場所:</span>{{$job->interview_place}}</div>
         </div>
-        <div>{{$job->get_skill}}</div>
-              
+        <div class="section9">
+            <div><i class="fas fa-users-cog"></i> プロジェクトから得られるスキル</div>
+            <p>{{$job->get_skill}}</p>
+        </div>
         <form action="{{url('proposal')}}" method="POST">
                 {{ csrf_field() }}
             <input type="hidden" name="job_id" value="{{ $job->id }}">
+            @if($did)
+            <button disabled class="btn disable_button">
+                応募済み
+            </button>
+            @else
             <button type="submit" class="btn">
                 応募する
             </button>
+            @endif
         </form>
     </div>
 </div>
