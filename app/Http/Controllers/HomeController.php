@@ -176,7 +176,7 @@ use Illuminate\Support\Facades\Auth;
           $users->user_licence = $request->user_licence;
           $users->user_last_company_exp = $request->user_last_company_exp;
           $users->save();
-          return view('users/home');
+          return redirect('/home');
       }
       // ユーザープロフィール1
       // public function profile()
