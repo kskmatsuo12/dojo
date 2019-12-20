@@ -65,7 +65,7 @@ Auth::routes();
     Route::post('/proposal', 'HomeController@proposal');
     Route::post('/comfirm', 'HomeController@comfirm');
     Route::post('/post_suggestion', 'HomeController@postSuggestion');
-
+    
 
     Route::get('/my/{id}', 'HomeController@myIndex');
 
