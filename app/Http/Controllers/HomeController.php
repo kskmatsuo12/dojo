@@ -38,7 +38,8 @@ use Carbon¥Carbon;
       //userホーム画面
       public function logout()
       {
-          return Auth::logout();
+          Auth::logout();
+          return redirect('/');
       }
 
       public function index(Request $request)
@@ -212,13 +213,15 @@ use Carbon¥Carbon;
       public function issuesIndex(Job $jobs)
       {
           $uid = Auth::id();
+          $job_id = $jobs->id;
           $did = false;
-          $true_false = Suggestion::where('user_id', $uid)->get();
-          if ($true_false) {
+          $true_false = Suggestion::where('job_id', $job_id)->where('user_id', $uid)->get()->count();
+          
+          if ($true_false == 1) {
               $did = true;
           }
 
-          return view('users/issues/index', ['job'=>$jobs,'did'=>$did]);
+          return view('users/issues/index', ['job'=>$jobs,'did'=>$did, 'test'=>$true_false]);
       }
 
       //案件応募
@@ -227,8 +230,8 @@ use Carbon¥Carbon;
           $uid = Auth::id();
           $did = false;
           $job_id = $request->job_id;
-          $true_false = Suggestion::where('user_id', $uid)->where('job_id', $job_id)->get();
-          if ($true_false) {
+          $true_false = Suggestion::where('user_id', $uid)->where('job_id', $job_id)->get()->count();
+          if ($true_false == 1) {
               $did = true;
           }
           return view('users/issues/proposal', ['job_id'=>$job_id, 'did'=>$did]);

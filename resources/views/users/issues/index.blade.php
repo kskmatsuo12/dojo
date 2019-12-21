@@ -2,7 +2,9 @@
 <!-- データが存在する状態で再度確認 -->
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
-
+<?php
+    
+?>
 
 
 @extends('layouts.app')
@@ -19,7 +21,7 @@
 @include('layouts/header')
 <div class="container">
     <!-- この中にコンテンツ -->
-    @if($did)
+    @if($did == true)
     <p class="red">応募済みのプロジェクトです</p>
     @endif
     <h1>プロジェクト詳細</h1>
@@ -72,7 +74,7 @@
         <form action="{{url('proposal')}}" method="POST">
                 {{ csrf_field() }}
             <input type="hidden" name="job_id" value="{{ $job->id }}">
-            @if($did)
+            @if($did==true)
             <button disabled class="btn disable_button">
                 応募済み
             </button>
