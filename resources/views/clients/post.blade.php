@@ -302,5 +302,6 @@ $("input").on("click",function() {
     
 });
 
+
 </script>
 @endsection

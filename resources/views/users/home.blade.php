@@ -59,6 +59,7 @@ body{
 .contain{
     display:inline-block;
 }
+
 .pjts{
     float: left;
     position: relative;
@@ -158,7 +159,9 @@ body{
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
+
     box-shadow: 0px 0px 5px rgba(255,255,255,0.3);
+
 }
 
 @media screen and (min-width: 781px) {
@@ -210,6 +213,7 @@ body{
         -webkit-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
         box-shadow: 0px 0px 5px rgba(255,255,255,0.3);
+
     }
 }
 @media screen and (min-width: 1040px) {
@@ -323,6 +327,7 @@ body{
                 <div class="pjts">
                 <a href="issues/<?php echo $job->id ?>" class="link">
                     <div class="pjt">
+
                         <img src="https://skillshift-production.s3.ap-northeast-1.amazonaws.com/file1575512880-802.png" alt="">
                         <div class="info">
                             <p class="pjt_term">{{$job->recruitment_term}}</p>
@@ -330,6 +335,7 @@ body{
                             <p class="pjt_name">{{$job->consultation}}</p>
                             <h3 class="skill">{{$job->recruit_advisor}}</h3>
                         </div>
+
                     </div>
                 </a> 
                 </div>

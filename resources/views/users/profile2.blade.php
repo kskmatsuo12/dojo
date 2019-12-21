@@ -165,6 +165,18 @@ table{
     justify-content: center;
 }
 
+/* 追加しましたユーザープロフィール画像関係 */
+
+.user_profile_preview {
+    height: 70px;
+    width: 70px;
+    vertical-align: middle;
+    border-radius: 35px;
+    border: solid 1px #ddd;
+}
+
+/* 追加したユーザープロフィール画像関係ここまで */
+
 @media screen and (max-width:800px) { 
     table {
         width:90%;
@@ -226,6 +238,19 @@ table{
 
     }
 
+    .user_profile_preview {
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+    border-radius: 25px;
+    margin: auto;
+    text-align: center;
+    }
+
+    .preview_center {
+        text-align: center;
+    }
+
 }
 </style>
 
@@ -233,11 +258,13 @@ table{
 @section('content')
 <div class="container">
     <!-- この中にコンテンツ -->
-    <form action="{{ url('profile2Store') }}" method="POST">
-    <form action="{{ url('profile2Store') }}" method="GET">
+    <form action="{{ url('profile2Store') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
     <table>
-
+        <tr>
+            <th>プロフィール画像<span class="opt">任意</span></th>
+            <td class="preview_center"><input id="user_profile" type="file" name="image_url" value=""><img id="user_profile_preview" class="user_profile_preview" src="/images/top.jpeg"></td>
+        </tr>
         <tr>
             <th>前職の会社名<span class="opt">任意</span></th>
             <td><input type="text" name="user_last_company" value="{{old('user_last_company')}}" placeholder="前職の会社名"></td>
@@ -310,14 +337,10 @@ table{
     <button type="submit" class="">次へ　＞</button>
 </form>   
 
-
-
-
-
 </div>
 
 <!-- JSファイルの指定してください！ -->
-<script src="{{ asset('js/???.js') }}"></script>
+<script src="{{ asset('js/profile2.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
 
 @endsection

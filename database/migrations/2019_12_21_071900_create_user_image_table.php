@@ -4,7 +4,7 @@
         use Illuminate\Database\Schema\Blueprint;
         use Illuminate\Database\Migrations\Migration;
         
-        class CreateMessagesGroupRoomsTable extends Migration
+        class CreateUserImageTable extends Migration
         {
             /**
              * Run the migrations.
@@ -13,11 +13,11 @@
              */
             public function up()
             {
-                Schema::create("messages_group_rooms", function (Blueprint $table) {
+                Schema::create("user_image", function (Blueprint $table) {
 
 						$table->increments('id');
 						$table->integer('user_id')->nullable();
-						$table->integer('client_id')->nullable();
+						$table->string('image_url')->nullable();
 						$table->timestamps();
 						$table->softDeletes();
 
@@ -31,7 +31,7 @@
              */
             public function down()
             {
-                Schema::dropIfExists("messages_group_rooms");
+                Schema::dropIfExists("user_image");
             }
         }
     

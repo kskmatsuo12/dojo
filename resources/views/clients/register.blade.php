@@ -101,7 +101,7 @@ button:hover{
 <div class="container">
     <!-- この中にコンテンツ -->
 
-    <h1>Dojoを使ってみる</h1>
+    <h1>サービスを使ってみる</h1>
     @include('common.errors')
     <form action="{{ url('clientsRegister') }}" method="POST" class="">
     {{ csrf_field() }}

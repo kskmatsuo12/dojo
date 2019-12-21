@@ -2,7 +2,9 @@
 <!-- データが存在する状態で再度確認 -->
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
-
+<?php
+ 
+?>
 
 
 @extends('layouts.app')
@@ -20,8 +22,10 @@
 @include('layouts/header')
 <div class="container">
     <!-- この中にコンテンツ -->
-    @if($did)
+
+    @if($did == true)
     <p class="red">応募済み</p>
+
     @endif
 
     <div class="issues_index1">
@@ -33,15 +37,17 @@
 
         <div class="client_wrap">
             <div class="client_title">
-                <p>社名（client_name）</p>
+
+                <p>社名 {{$client[0]->client_name}}</p>
             </div>
             <div class="client_url">
-                <p>会社URL（client_url）</p>
+                <a href="{{$client[0]->client_url}}"><p>会社URL {{$client[0]->client_url}}</p></a>
             </div>
             <ul class="client_kind">
-                <li><i class="fas fa-home"></i> 事業内容(client_biz) </li>
-                <li><i class="fas fa-flag"></i> 社員数(client_num_emp)</li>
-                <li><i class="fas fa-map-marker-alt"></i> 所在地(client_loc)</li>
+                <li><i class="fas fa-home"></i> 事業内容 {{$client[0]->client_biz}} </li>
+                <li><i class="fas fa-flag"></i> 社員数 {{$client[0]->client_num_emp}} </li>
+                <li><i class="fas fa-map-marker-alt"></i> 所在地 {{$client[0]->client_loc}} </li>
+
             </ul> 
         </div>
         
@@ -87,7 +93,7 @@
         <form action="{{url('proposal')}}" method="POST">
                 {{ csrf_field() }}
             <input type="hidden" name="job_id" value="{{ $job->id }}">
-            @if($did)
+            @if($did==true)
             <button disabled class="btn disable_button">
                 応募済み
             </button>
