@@ -246,12 +246,16 @@ class ClientsController extends Controller
         $value = $jobs->client_id;
         $clients = Client::where('id', $value)->first();
         $suggestions = Suggestion::where('job_id', $jobs->id)->get();
+        // $users=[];
+        // foreach ($suggestions as $suggestion) {
+        //     // $users = User::where('id', $suggestion->user_id)->first();
+        //     $users = User::find($suggestion->user_id);
 
+        // }
+        
         for($i=0;$i<count($suggestions);$i++){
             $users[] = User::where('id', $suggestions[$i]->user_id)->first(); ;
         }
-        //下の「$suggestions->user_id」に値が入らない。「1」とかを入れると動く
-        // $users = User::where('id', $suggestions[1]->user_id)->get();
 
         return view(
             'clients/my/index',
@@ -269,6 +273,16 @@ class ClientsController extends Controller
         $jobs = Job::find($request->id);
         $jobs->job_status = 2;
         $jobs->save();
+
+        $suggestions = Suggestion::where('job_id', $jobs->id)->get();
+        // $suggestions->progress_info = 5;
+        // $suggestions->save();
+        foreach ($suggestions as $suggestion) {
+
+            $suggestion->progress_info = 5;
+            $suggestion->save();
+        
+        }
         return redirect('/clients/home');
     }
 
