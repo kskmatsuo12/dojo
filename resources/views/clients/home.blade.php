@@ -5,180 +5,54 @@
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
 use App\User;
+use App\Job;
 //おすすめのユーザー5人
 $users = User::take(5)->get();
+$id=session()->get('id');
+$jobs1 = Job::where('client_id',$id)->where('job_status',1)->get();
+$jobs2 = Job::where('client_id',$id)->where('job_status',2)->get();
+$jobs3 = Job::where('client_id',$id)->where('job_status',3)->get();
+// var_dump($jobs);
+// var_dump($jobs1);
+// $jobs = Job::where('client_id',$id)->get();
+// echo $jobs;
+// $jobs2= $jobs->where('job_status',2)->get();
+// echo $jobs2;
 
+// echo count($jobs);
+// echo count($jobs2);
+// echo count($jobs1);
 ?>
 <style>
-body{
-  background:#f2feff;
-}
+    body{
+    background:#f2feff;
+    }
 
-.contains{
-    display:?flex;
-    justify-content: center;
-    margin:20px auto;
-    width:90%
-}
-
-.pjts{
-    float: left;
-    position: relative;
-    width:145px;
-    text-align: center;
-    padding:10px;
-    margin-bottom:120px;
-}
-
-.pjt img{
-    width:144px;
-}
-
-.info{
-    position: absolute;
-    top: 140%;
-    left: 50%;
-    width:125px;
-    height:100px;
-    padding: 10px;
-    background: white;
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-}
-
-.pjt_term{
-    font-size: 13px;
-    font-weight: bold;
-    color: rgb(67,196,207);
-    margin:5px 0 10px;
-
-}
-.pjt_title,.pjt_name{
-    font-size: 13px;
-    font-weight: bold;
-    color: rgb(37, 37, 37);
-    margin:5px 0 5px;
-}
-.line h1{
-    padding-top:20px;
-    text-align: center;
-    height: 50px;
-    line-height: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    color:rgb(67,196,207);
-    letter-spacing:1px;
-}
-
-.line h2{
-    text-align: center;
-    background: rgb(67,196,207);
-    height: 5px;
-    width:50px;
-    margin: 0 auto 20px;
-    border-radius: 50px;
-}
-
-button{
-    display: flex;
-    justify-content: center;
-    width: 150px;
-    height: 50px;
-    border-radius: 50px;
-    background: #75d7e0;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing:3px;
-    color:#ffffff;
-    margin: 30px auto 20px;
-    user-select: none;
-    outline: none;
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
-    cursor: pointer;
-}
-button:hover{
-    box-shadow: none;
-    background: #43c4cf;
-}
-span{
-    font-size: 10px;
-    color:white;
-    background:crimson;
-    letter-spacing:0px;
-    padding:2px;
-    margin-left:3px;
-    height: 12px;
-    border-radius: 4px;
-}
-
-tr{
-    vertical-align: middle;
-    height: 30px;
-    margin: 20px auto;
-    letter-spacing:1px;
-    
-}
-
-
-
-th{
-    background:rgb(67,196,207,0.3);
-    vertical-align: middle;
-    height:30px;
-    /* border-bottom: 1px solid rgb(21, 163, 75,0.1); */
-    padding: 0 15px;
-    width:20%;
-}
-
-td{
-    background:white;
-    padding:20px 10px;
-    vertical-align: middle;
-    display: table-cell;
-    /* text-align:left; */
-    align-items:center;
-
-
-}
-table{
-    margin: 0 auto;
-    width:100%;
-    display:?flex;
-    justify-content: center;
-    border: 1px solid rgb(67,196,207,0.5);
-    border-radius: 10px;
-    border-collapse: separate;
-    box-shadow: 0px 1px 3px rgb(82, 147, 151);
-    overflow: hidden;
-    text-align: center;
-}
-
-@media screen and (min-width: 781px) {
     .contains{
         display:?flex;
         justify-content: center;
         margin:20px auto;
-        width:80%
+        width:90%
     }
+
     .pjts{
         float: left;
         position: relative;
-        width:210px;
+        width:145px;
         text-align: center;
         padding:10px;
         margin-bottom:120px;
     }
 
     .pjt img{
-        width:210px;
+        width:144px;
     }
 
     .info{
         position: absolute;
-        top: 125%;
+        top: 140%;
         left: 50%;
-        width:190px;
+        width:125px;
         height:100px;
         padding: 10px;
         background: white;
@@ -186,15 +60,155 @@ table{
         -webkit-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
     }
-}
-@media screen and (min-width: 1040px) {
-  .container {
-    width: 1040px;
-    margin: auto;
-    width:90%;
-  }
 
-}
+    .pjt_term{
+        font-size: 13px;
+        font-weight: bold;
+        color: rgb(67,196,207);
+        margin:5px 0 10px;
+
+    }
+    .pjt_title,.pjt_name{
+        font-size: 13px;
+        font-weight: bold;
+        color: rgb(37, 37, 37);
+        margin:5px 0 5px;
+    }
+    .line h1{
+        padding-top:20px;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        color:rgb(67,196,207);
+        letter-spacing:1px;
+    }
+
+    .line h2{
+        text-align: center;
+        background: rgb(67,196,207);
+        height: 5px;
+        width:50px;
+        margin: 0 auto 20px;
+        border-radius: 50px;
+    }
+
+    button{
+        display: flex;
+        justify-content: center;
+        width: 150px;
+        height: 50px;
+        border-radius: 50px;
+        background: #75d7e0;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing:3px;
+        color:#ffffff;
+        margin: 30px auto 20px;
+        user-select: none;
+        outline: none;
+        box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+        cursor: pointer;
+    }
+    button:hover{
+        box-shadow: none;
+        background: #43c4cf;
+    }
+    span{
+        font-size: 10px;
+        color:white;
+        background:crimson;
+        letter-spacing:0px;
+        padding:2px;
+        margin-left:3px;
+        height: 12px;
+        border-radius: 4px;
+    }
+
+    tr{
+        vertical-align: middle;
+        height: 30px;
+        margin: 20px auto;
+        letter-spacing:1px;
+        
+    }
+
+
+
+    th{
+        background:rgb(67,196,207,0.3);
+        vertical-align: middle;
+        height:30px;
+        /* border-bottom: 1px solid rgb(21, 163, 75,0.1); */
+        padding: 0 15px;
+        width:20%;
+    }
+
+    td{
+        background:white;
+        padding:20px 10px;
+        vertical-align: middle;
+        display: table-cell;
+        /* text-align:left; */
+        align-items:center;
+
+
+    }
+    table{
+        margin: 0 auto;
+        width:100%;
+        display:?flex;
+        justify-content: center;
+        border: 1px solid rgb(67,196,207,0.5);
+        border-radius: 10px;
+        border-collapse: separate;
+        box-shadow: 0px 1px 3px rgb(82, 147, 151);
+        overflow: hidden;
+        text-align: center;
+    }
+
+    @media screen and (min-width: 781px) {
+        .contains{
+            display:?flex;
+            justify-content: center;
+            margin:20px auto;
+            width:80%
+        }
+        .pjts{
+            float: left;
+            position: relative;
+            width:210px;
+            text-align: center;
+            padding:10px;
+            margin-bottom:120px;
+        }
+
+        .pjt img{
+            width:210px;
+        }
+
+        .info{
+            position: absolute;
+            top: 125%;
+            left: 50%;
+            width:190px;
+            height:100px;
+            padding: 10px;
+            background: white;
+            -ms-transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+        }
+    }
+    @media screen and (min-width: 1040px) {
+    .container {
+        width: 1040px;
+        margin: auto;
+        width:90%;
+    }
+
+    }
 </style>
 @extends('layouts.app')
 <head>
@@ -230,28 +244,22 @@ table{
         </div>
 
         <div class="contains">
-            @if (count($jobs) > 0)
+            @if (count($jobs1) > 0)
                 <div class="contain">
-                    @foreach ($jobs as $job)
-                    <?php
-                    $job1 = Job::where('jobstatus',1)->get();
-                    // echo $job1->id;
-                    ?>
+                    @for ($i=0;$i<@count($jobs1);$i++)
                     <div class="pjts">
-                    <a href="{{ url('clients/my/index/'.$job->id) }}">
-
-                        <div class="pjt">
+                    <a href="{{ url('clients/my/index/'.$jobs1[$i]->id) }}">
+                    <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">
-                                <p class="pjt_term">{
-                                {$job->work_term}}</p>
-                                <p class="pjt_title">{{$job->job_title}}</p>
-                                <p class="pjt_name"> {{$job->responsible_party}}</p>
+                                <p class="pjt_term">{{$jobs1[$i]->work_term}}</p>
+                                <p class="pjt_title">{{$jobs1[$i]->job_title}}</p>
+                                <p class="pjt_name"> {{$jobs1[$i]->responsible_party}}</p>
                             </div>
                         </div>
                     </a>
                     </div>
-                    @endforeach
+                    @endfor
                 </div>
             @endif
         </div>
@@ -262,28 +270,22 @@ table{
         </div>
 
         <div class="contains">
-            @if (count($jobs) > 0)
+        @if (count($jobs2) > 0)
                 <div class="contain">
-                    @foreach ($jobs as $job)
-                    <?php
-                    $job1 = Job::where('jobstatus',2)->get();
-                    // echo $job1->id;
-                    ?>
+                    @for ($i=0;$i<@count($jobs2);$i++)
                     <div class="pjts">
-                    <a href="{{ url('clients/my/index/'.$job->id) }}">
-
-                        <div class="pjt">
+                    <a href="{{ url('clients/my/index/'.$jobs2[$i]->id) }}">
+                    <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">
-                                <p class="pjt_term">{
-                                {$job->work_term}}</p>
-                                <p class="pjt_title">{{$job->job_title}}</p>
-                                <p class="pjt_name"> {{$job->responsible_party}}</p>
+                                <p class="pjt_term">{{$jobs2[$i]->work_term}}</p>
+                                <p class="pjt_title">{{$jobs2[$i]->job_title}}</p>
+                                <p class="pjt_name"> {{$jobs2[$i]->responsible_party}}</p>
                             </div>
                         </div>
                     </a>
                     </div>
-                    @endforeach
+                    @endfor
                 </div>
             @endif
         </div>
@@ -294,28 +296,23 @@ table{
         </div>
 
         <div class="contains">
-            @if (count($jobs) > 0)
+        @if (count($jobs3) > 0)
                 <div class="contain">
-                    @foreach ($jobs as $job)
-                    <?php
-                    $job1 = Job::where('jobstatus',3)->get();
-                    // echo $job1->id;
-                    ?>
+                    @for ($i=0;$i<@count($jobs3);$i++)
                     <div class="pjts">
-                    <a href="{{ url('clients/my/index/'.$job->id) }}">
-
-                        <div class="pjt">
+                    <a href="{{ url('clients/my/index/'.$jobs2[$i]->id) }}">
+                    <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">
                                 <p class="pjt_term">{
-                                {$job->work_term}}</p>
-                                <p class="pjt_title">{{$job->job_title}}</p>
-                                <p class="pjt_name"> {{$job->responsible_party}}</p>
+                                {$jobs2[$i]->work_term}}</p>
+                                <p class="pjt_title">{{$jobs3[$i]->job_title}}</p>
+                                <p class="pjt_name"> {{$jobs3[$i]->responsible_party}}</p>
                             </div>
                         </div>
                     </a>
                     </div>
-                    @endforeach
+                    @endfor
                 </div>
             @endif
         </div>
