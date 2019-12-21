@@ -1,15 +1,7 @@
 /* スマホ用CSSここから */
 body {
   background: #f2feff;
-  font-family: 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
-  font-weight: lighter;
-}
-
-h1 {
-  margin-top: 32px;
-  margin-bottom: 16px;
-  text-align: center;
-  font-size: 20px;
+  font-family: 'M PLUS 1p', sans-serif;
   font-weight: lighter;
 }
 
@@ -23,6 +15,7 @@ h1 {
 }
 
 .issues_img {
+  position: relative;
   margin-top: 32px;
   height: 200px;
   width: 100%;
@@ -35,47 +28,55 @@ h1 {
 }
 
 h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom:20px;
+  text-align: center;
   font-size: 20px;
+  font-weight: bold;
+  border-bottom: solid 1px #9c9c9c;
 }
 
 .section1 {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .section2 h3 span {
-  font-size: 12px;
+  font-size: 11px;
+  color:gray;
 }
 
 .section2 h3 {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .section3 {
   align-items: center;
   height: 40px;
-  margin-top: 16px;
+  margin-top: 12px;
   padding-top: 8px;
-  padding-bottom: 8px;
+  /* padding-bottom: 8px; */
   border-bottom: 1px solid #ddd;
-  border-top: 1px solid #ddd;
+  /* border-top: 1px solid #ddd; */
   display: flex;
 }
 
 .section3-left {
   width: 50%;
   border-right: 1px solid #ddd;
-  padding-left: 16px;
+  padding-left: 13px;
 }
 
 .section3 span {
-  font-size: 12px;
-  margin-right: 16px;
+  font-size: 11px;
+  color:gray;
+  margin-right: 8px;
   width: 50%;
 }
 
 .section3-right {
   width: 50%;
-  padding-left: 16px;
+  padding-left: 13px;
 }
 
 .section4 {
@@ -83,35 +84,44 @@ h2 {
   height: 40px;
   padding-bottom: 8px;
   display: flex;
-  padding: 8px 0;
+  padding: 8px 0 0;
 }
 
 .section4-left {
   width: 50%;
   border-right: 1px solid #ddd;
-  padding-left: 16px;
+  padding-left: 12px;
 }
 
 .section4 span {
   font-size: 10px;
-  margin-right: 16px;
+  margin-right: 8px;
   width: 50%;
+  color:gray;
 }
 
 .section4-right {
   width: 50%;
-  padding-left: 16px;
+  padding-left: 12px;
 }
 
 .section5 {
+  width: 70%;
   text-align: center;
+  margin: 10px auto 40px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: solid 1px rgba(67,196,207);
+  /* text-align: center;
   margin: auto;
   width: 100vw;
-  height: 16px;
+  height: 12px;
   background-color: #fff;
   padding-top: 8px;
   border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; */
 }
 
 .issues_index2 {
@@ -120,12 +130,13 @@ h2 {
 }
 
 .section6 {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .section6 span {
   padding-left: 8px;
+  color:gray;
 }
 
 .section6 span i {
@@ -133,17 +144,22 @@ h2 {
 }
 
 .section6 p {
-  margin-top: 16px;
+  margin-top: 12px;
   line-height: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgb(82, 147, 151);
 }
 
 .section7 {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .section7 span {
   padding-left: 8px;
+  color:gray;
 }
 
 .section7 span i {
@@ -151,46 +167,49 @@ h2 {
 }
 
 .section7 p {
-  margin-top: 16px;
+  margin-top: 12px;
   line-height: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgb(82, 147, 151);
 }
 
 .section8 {
   align-items: center;
-  height: 40px;
-  padding-bottom: 8px;
-  display: flex;
-  padding: 8px 0;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+    height: 40px;
+    padding-bottom: 8px;
+    display: flex;
+    padding: 8px 0 0;
+    border-top: 1px solid #ddd;
 }
 
 .section8-left {
   width: 50%;
   border-right: 1px solid #ddd;
-  padding-left: 16px;
+  padding-left: 12px;
 }
 
 .section8 span {
   font-size: 10px;
-  margin-right: 16px;
+  margin-right: 8px;
   width: 50%;
+  color:gray;
 }
 
 .section8-right {
   width: 50%;
-  padding-left: 16px;
+  padding-left: 12px;
 }
 
 .section9 {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .section9 span {
-  font-size: 10px;
-  margin-right: 16px;
-  width: 50%;
+  padding-left: 8px;
+  color:gray;
 }
 
 .section9 span i {
@@ -198,8 +217,12 @@ h2 {
 }
 
 .section9 p {
-  margin-top: 16px;
+  margin-top: 12px;
   line-height: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgb(82, 147, 151);
 }
 
 /* ボタン用CSS */
@@ -211,7 +234,7 @@ button {
   height: 50px;
   border-radius: 50px;
   background: #75d7e0;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 3px;
   color: #ffffff;
@@ -229,15 +252,21 @@ button:hover {
 
 .btn {
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
+  color:gray;
   display: flex;
   justify-content: center;
 }
 
 .red {
-  margin-top: 16px;
-  color: red;
+  color: white;
   text-align: center;
+  background:rgb(235, 8, 8);
+  padding:6px;
+  width: 80px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
 }
 
 .disable_button {
@@ -246,14 +275,86 @@ button:hover {
   opacity: 0.4;
 }
 
-/* ボタン用CSS */
+.skill{
+  position: absolute;
+  background: rgba(67,196,207);
+  color: white;
+  top: 11%;
+  left: 13%;
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 6px;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
 
-/* スマホ用CSS（ここまで） */
+.client_kind{
+  align-items: center;
+  list-style: none;
+}
 
-/* PC用のCSSはこちら */
+li {
+  padding: 0 10px;
+  padding-top:1.5px;
+  padding-bottom:1.5px;
+  font-size:11px;
+  color:grey;
+}
+i {
+  color:rgba(67,196,207);
+}
+
+li :last-child {
+  border-right: none;
+}
+
+.client_title p{
+  color:rgba(67,196,207);
+  font-size:18px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.client_url p{
+  color:grey;
+  font-size:11px;
+  margin: 5px;
+}
 
 @media screen and (min-width: 781px) {
-  /* この中にPC用CSSを書く！ */
+  .client_kind{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+  }
+  
+  li {
+    padding: 0 10px;
+    border-right: #ddd 1px solid;
+    font-size:11px;
+    color:grey;
+  }
+  
+  li :last-child {
+    border-right: none;
+  }
+  
+  .client_title p{
+    color:rgba(67,196,207);
+    font-size:18px;
+    font-weight: bold;
+    margin: 5px;
+  }
+  
+  .client_url p{
+    color:grey;
+    font-size:11px;
+    margin: 5px;
+  }
+  
+  
 }
 
 /* PC用のCSSはこちら（ここまで） */
