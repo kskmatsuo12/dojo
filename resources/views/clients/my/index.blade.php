@@ -66,13 +66,93 @@ body{
     font-size: 16px;
     margin: 0 auto;
     margin-top: 30px;
-    width: 60%;
-    margin-bottom: 20px;
+    width: 75%;
+    margin-bottom: 30px;
     padding: 20px 25px;
     border-radius: 10px;
     border: 5px solid #75d7e0;
     background-color: #fff;
 }
+
+.job_table_label{
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.job_table{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.job_table_left{
+    text-align: center;
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 3px solid #75d7e0;
+    border-bottom: 3px solid #75d7e0;
+    border-right: 1px solid #75d7e0;
+    padding: 12px;
+}
+
+.job_table_right{
+    margin-top: 10px;
+    background-color: #fff;
+    border-top: 3px solid #75d7e0;
+    border-bottom: 3px solid #75d7e0;
+    padding: 12px;
+}
+
+
+
+input{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    background: #75d7e0;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing:3px;
+    color:#ffffff;
+    margin: 30px auto 20px;
+    user-select: none;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+
+input:hover{
+    box-shadow: none;
+    background: #43c4cf;
+}
+
+.job_btn_done{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    background: #75d7e0;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing:3px;
+    color:#ffffff;
+    margin: 30px auto 20px;
+    user-select: none;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    align-items: center;
+}
+
+
 
 
 @media screen and (min-width: 781px) {
@@ -93,7 +173,7 @@ body{
 <div class="container">
 
 
-    <div class="client_name">依頼主：　{{$client->client_name}}</div>
+    <div class="client_name">依頼主：{{$client->client_name}}</div>
 
     <div class="job_title">「{{$job->job_title}}」</div>
 
@@ -105,78 +185,74 @@ body{
         <p class="job_text_message">担当者からのメッセージ</p>
         <div>{{$job->job_text}}</div>
     </div>
+        <div class="job_table_label"><p>【案件の具体的な内容】</p></div>
+   
+        <table class="job_table">
+            <tr>
+                <td class="job_table_left">時間・期間</td>
+                <td class="job_table_right">{{$job->work_term}}</td>
+            </tr>
+            <tr>
+                <td class="job_table_left">相談の形式</td>
+                <td class="job_table_right">{{$job->work_format}}</td>
+            </tr>
+            <tr>
+                <td class="job_table_left">面談場所</td>
+                <td class="job_table_right">{{$job->interview_place}}</td>
+            </tr>
+            <tr>
+                <td class="job_table_left">提案時に記載いただきたいこと</td>
+                <td class="job_table_right">{{$job->request_fill_out}}</td>
+            </tr>
+            <tr>
+                <td class="job_table_left">担当者名</td>
+                <td class="job_table_right">{{$job->responsible_party}}</td>
+            </tr>
+            <tr>
+                <td class="job_table_left">担当者メールアドレス</td>
+                <td class="job_table_right">{{$job->responsible_email}}</td>
+            </tr>
+        </table>
 
-    <table>
-    <tr>
-        <td>プロジェクトのタイトル</td>
-        <td>{{$job->job_title}}</td>
-    </tr>
 
-    <tr>
-        <td>プロジェクト進捗</td>
-        <td>
+
         @if($job->job_status === 1)
-            募集中
-        @elseif($job->job_status === 2)
-            プロジェクト進行中
-        @elseif($job->job_status === 3)
-            評価待ち
-        @elseif($job->job_status === 4)
-            プロジェクト終了済み
+
+        <div>
+        
+            <p>応募済みユーザーリスト</p>
+            @foreach ($suggestion as $suggestion)
+
+             <div>{{$suggestion->user_id}}</div>
+
+
+            @endforeach
+        </div>
+
         @endif
-        </td>
-    </tr>
 
-    <tr>
-        <td>プロジェクトの写真</td>
-        <td>プロジェクトの写真</td>
-
-    </tr>
-
-    <tr>
-        <td>相談したいこと</td>
-        <td>{{$job->job_title}}</td>
-    </tr>
-    
-    <tr>
-        <td>募集人数</td>
-        <td>{{$job->request_number}}</td>
-    </tr>
-
-    <tr>
-        <td>プロジェクト概要</td>
-        <td>{{$job->job_text}}</td>
-    </tr>
-
-    <tr>
-        <td>時間・期間</td>
-        <td>{{$job->work_term}}</td>
-    </tr>
-    <tr>
-        <td>相談の形式</td>
-        <td>{{$job->work_format}}</td>
-    </tr>
-    <tr>
-        <td>面談場所</td>
-        <td>{{$job->interview_place}}</td>
-    </tr>
-    <tr>
-        <td>提案時に記載いただきたいこと</td>
-        <td>{{$job->request_fill_out}}</td>
-    </tr>
-    <tr>
-        <td>担当者名</td>
-        <td>{{$job->responsible_party}}</td>
-    </tr>
-    <tr>
-        <td>担当者メールアドレス</td>
-        <td>{{$job->responsible_email}}</td>
-    </tr>
-    
-    </table>
-    
+    <div>
+        @if($job->job_status === 1)
+        <form action="{{ url('ClientRequestDone') }}" method="GET">
+            <input type="hidden" name="id" value="{{$job->id}}">
+            <input type="submit" value="募集を終了する">
+        </form>
+        @elseif($job->job_status === 2)
+        <form action="{{ url('ClientProjectDone') }}" method="GET">
+            <input type="hidden" name="id" value="{{$job->id}}">
+            <input type="submit" value="案件を終了する">
+        </form>
+        @elseif($job->job_status === 3)
+        <form action="{{ url('ClientAssessmentDone') }}" method="GET">
+            <input type="hidden" name="id" value="{{$job->id}}">
+            <input type="submit" value="評価を終了する">
+        </form>
+        @elseif($job->job_status === 4)
+            <div class="job_btn_done">
+                <p>案件終了済み</p>
+            </div>
+        @endif
     </div>
-
 
 
 </div>
