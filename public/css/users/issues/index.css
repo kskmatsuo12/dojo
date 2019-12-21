@@ -5,10 +5,6 @@ body {
   font-weight: lighter;
 }
 
-a {
-  text-decoration: none;
-}
-
 .container {
   padding-bottom: 50px;
 }
@@ -111,6 +107,7 @@ h2 {
 
 .section5 {
   width: 70%;
+
   text-align: center;
   margin: 10px auto 40px;
   padding-bottom: 20px;
@@ -118,14 +115,6 @@ h2 {
   font-size: 20px;
   font-weight: bold;
   border-bottom: solid 1px rgba(67, 196, 207);
-  /* text-align: center;
-  margin: auto;
-  width: 100vw;
-  height: 12px;
-  background-color: #fff;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd; */
 }
 
 .issues_index2 {
@@ -135,12 +124,12 @@ h2 {
 
 .section6 {
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
 .section6 span {
   padding-left: 8px;
-  color: gray;
+  color:gray;
 }
 
 .section6 span i {
@@ -158,12 +147,14 @@ h2 {
 
 .section7 {
   margin-top: 12px;
-  margin-bottom: 12px;
+
+  margin-bottom: 18px;
+
 }
 
 .section7 span {
   padding-left: 8px;
-  color: gray;
+  color:gray;
 }
 
 .section7 span i {
@@ -181,11 +172,11 @@ h2 {
 
 .section8 {
   align-items: center;
-  height: 40px;
-  padding-bottom: 8px;
-  display: flex;
-  padding: 8px 0 0;
-  border-top: 1px solid #ddd;
+    height: 40px;
+    padding-bottom: 8px;
+    display: flex;
+    padding: 8px 0 0;
+    border-top: 1px solid #ddd;
 }
 
 .section8-left {
@@ -198,7 +189,7 @@ h2 {
   font-size: 10px;
   margin-right: 8px;
   width: 50%;
-  color: gray;
+  color:gray;
 }
 
 .section8-right {
@@ -208,12 +199,12 @@ h2 {
 
 .section9 {
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
 .section9 span {
   padding-left: 8px;
-  color: gray;
+  color:gray;
 }
 
 .section9 span i {
@@ -257,7 +248,7 @@ button:hover {
 .btn {
   text-decoration: none;
   font-size: 11px;
-  color: gray;
+  color:gray;
   display: flex;
   justify-content: center;
 }
@@ -265,11 +256,11 @@ button:hover {
 .red {
   color: white;
   text-align: center;
-  background: rgb(235, 8, 8);
-  padding: 6px;
+  background:rgb(235, 8, 8);
+  padding:6px;
   width: 80px;
   margin: 20px auto;
-  display: flex;
+  display: flex;
   justify-content: center;
 }
 
@@ -279,55 +270,55 @@ button:hover {
   opacity: 0.4;
 }
 
-.skill {
+.skill{
   position: absolute;
-  background: rgba(67, 196, 207);
+  background: rgba(67,196,207);
   color: white;
   top: 11%;
   left: 13%;
   font-size: 12px;
   border-radius: 10px;
   padding: 6px;
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
-.client_kind {
+.client_kind{
   align-items: center;
   list-style: none;
 }
 
 li {
   padding: 0 10px;
-  padding-top: 1.5px;
-  padding-bottom: 1.5px;
-  font-size: 11px;
-  color: grey;
+  padding-top:1.5px;
+  padding-bottom:1.5px;
+  font-size:11px;
+  color:grey;
 }
-i {
-  color: rgba(67, 196, 207);
+.issues_index2 i,.client_kind i {
+  color:rgba(67,196,207);
 }
 
 li :last-child {
   border-right: none;
 }
 
-.client_title p {
-  color: rgba(67, 196, 207);
-  font-size: 18px;
+.client_title p{
+  color:rgba(67,196,207);
+  font-size:18px;
   font-weight: bold;
   margin: 5px;
 }
 
-.client_url p {
-  color: grey;
-  font-size: 11px;
+.client_url p{
+  color:grey;
+  font-size:11px;
   margin: 5px;
 }
 
 @media screen and (min-width: 781px) {
-  .client_kind {
+  .client_kind{
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -337,26 +328,28 @@ li :last-child {
   li {
     padding: 0 10px;
     border-right: #ddd 1px solid;
-    font-size: 11px;
-    color: grey;
+    font-size:11px;
+    color:grey;
   }
-
+  
   li :last-child {
     border-right: none;
   }
-
-  .client_title p {
-    color: rgba(67, 196, 207);
-    font-size: 18px;
+  
+  .client_title p{
+    color:rgba(67,196,207);
+    font-size:18px;
     font-weight: bold;
     margin: 5px;
   }
-
-  .client_url p {
-    color: grey;
-    font-size: 11px;
+  
+  .client_url p{
+    color:grey;
+    font-size:11px;
     margin: 5px;
   }
+  
+
 }
 
 /* PC用のCSSはこちら（ここまで） */

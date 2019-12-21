@@ -293,8 +293,15 @@ button:hover{
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
+
+$("input").on("click",function() {
+    console.log($(this).val());
+
+    
+});
+
+
 </script>
 @endsection
