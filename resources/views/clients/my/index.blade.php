@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="{{ asset('css/???.css') }}">
     <!-- CSSファイル指定してください -->
 </head>
+<?php
+ use App\Suggestion;
+?>
+
 <style>
 body{
     background:#f2feff;
@@ -131,6 +135,11 @@ body{
     border-top: 1px solid #75d7e0;
     border-bottom: 1px solid #75d7e0;
     padding: 12px;
+    text-decoration:none;
+}
+
+.user_table_user a{
+    text-decoration:none;
 }
 
 
@@ -250,17 +259,23 @@ input:hover{
                     <td class="user_table_top">都道府県</td>
                     <td class="user_table_top">現在の会社</td>
                     <td class="user_table_top">メールアドレス</td>
-                    <td class="user_table_top">詳細</td>
+                    <td class="user_table_top">受理予定or未回答</td>
                 </tr>
             @foreach ($user as $user)
-
                 <tr>
                     <td class="user_table_user">{{$user->name}}</td>
                     <td class="user_table_user">{{$user->user_prefectures}}</td>
                     <td class="user_table_user">{{$user->user_exp_company}}</td>
                     <td class="user_table_user">{{$user->email}}</td>
-                    <td class="user_table_user"><a href="">詳細を見る</a></td>
 
+                    <?php
+                    $suggestions = Suggestion::where('user_id', $user->id)->first();
+                    ?>
+                    @if($suggestions->progress_info === 1)
+                    <td class="user_table_user"><a href="{{url('clients/suggestions/'.$suggestions->id)}}">未回答</a></td>
+                    @else
+                    <td class="user_table_user"><a href="{{url('clients/suggestions/'.$suggestions->id)}}">受理予定</a></td>
+                    @endif
                 </tr>
             @endforeach
             </table>
