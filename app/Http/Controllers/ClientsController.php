@@ -247,12 +247,18 @@ class ClientsController extends Controller
         $clients = Client::where('id', $value)->first();
         $suggestions = Suggestion::where('job_id', $jobs->id)->get();
 
+        for($i=0;$i<count($suggestions);$i++){
+            $users[] = User::where('id', $suggestions[$i]->user_id)->first(); ;
+        }
+        //下の「$suggestions->user_id」に値が入らない。「1」とかを入れると動く
+        // $users = User::where('id', $suggestions[1]->user_id)->get();
 
         return view(
             'clients/my/index',
             ['job'=>$jobs,
           'client'=>$clients,
           'suggestion'=>$suggestions,
+          'user'=>$users,
             ]
         );
     }
@@ -307,7 +313,7 @@ class ClientsController extends Controller
 
     public function playerAssessment()
     {
-        return view('clients/player/assessment');
+        return view('clients/players/assessment');
     }
 
     public function suggestionsIndex(Suggestion $suggestions)

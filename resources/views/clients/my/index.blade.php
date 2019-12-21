@@ -83,7 +83,7 @@ body{
 }
 
 .job_table{
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -92,6 +92,7 @@ body{
 .job_table_left{
     text-align: center;
     font-weight: bold;
+    width: 20%;
     background-color: #fff;
     border-top: 3px solid #75d7e0;
     border-bottom: 3px solid #75d7e0;
@@ -101,12 +102,36 @@ body{
 
 .job_table_right{
     margin-top: 10px;
+    width: 60%;
     background-color: #fff;
     border-top: 3px solid #75d7e0;
     border-bottom: 3px solid #75d7e0;
     padding: 12px;
 }
 
+.user_table{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.user_table_top{
+    text-align: center;
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 3px solid #75d7e0;
+    border-bottom: 3px solid #75d7e0;
+    padding: 12px;
+}
+
+.user_table_user{
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #75d7e0;
+    border-bottom: 1px solid #75d7e0;
+    padding: 12px;
+}
 
 
 input{
@@ -164,6 +189,7 @@ input:hover{
 }
 
 </style>
+
 <!-- CSSファイルの指定をしてください〜 -->
 
 <!-- とってくるデータ　 -->
@@ -214,22 +240,34 @@ input:hover{
             </tr>
         </table>
 
-
-
-        @if($job->job_status === 1)
+        @if($job->job_status === 1)    
 
         <div>
-        
-            <p>応募済みユーザーリスト</p>
-            @foreach ($suggestion as $suggestion)
+            <p class="job_table_label">【現在応募中のユーザー】</p>
+            <table class="user_table">
+                <tr>
+                    <td class="user_table_top">名前</td>
+                    <td class="user_table_top">都道府県</td>
+                    <td class="user_table_top">現在の会社</td>
+                    <td class="user_table_top">メールアドレス</td>
+                    <td class="user_table_top">詳細</td>
+                </tr>
+            @foreach ($user as $user)
 
-             <div>{{$suggestion->user_id}}</div>
+                <tr>
+                    <td class="user_table_user">{{$user->name}}</td>
+                    <td class="user_table_user">{{$user->user_prefectures}}</td>
+                    <td class="user_table_user">{{$user->user_exp_company}}</td>
+                    <td class="user_table_user">{{$user->email}}</td>
+                    <td class="user_table_user"><a href="">詳細を見る</a></td>
 
-
+                </tr>
             @endforeach
+            </table>
         </div>
 
         @endif
+
 
     <div>
         @if($job->job_status === 1)
