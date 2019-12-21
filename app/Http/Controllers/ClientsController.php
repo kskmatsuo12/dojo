@@ -11,6 +11,8 @@ use Validator;
 use App\User;
 use App\Job;
 use App\Client;
+use App\Suggestion;
+
 
 //飯田ファイルはここまで
 
@@ -243,10 +245,13 @@ class ClientsController extends Controller
     {
         $value = $jobs->client_id;
         $clients = Client::where('id', $value)->first();
+        $suggestions = Suggestion::where('job_id', $jobs->id)->get();
+
 
         return view('clients/my/index',
          ['job'=>$jobs,
           'client'=>$clients,
+          'suggestion'=>$suggestions,
             ]);
     }
 
