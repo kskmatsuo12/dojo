@@ -246,7 +246,7 @@ class ClientsController extends Controller
         $value = $jobs->client_id;
         $clients = Client::where('id', $value)->first();
         $suggestions = Suggestion::where('job_id', $jobs->id)->get();
-        // $users=[];
+        $users=[];
         // foreach ($suggestions as $suggestion) {
         //     // $users = User::where('id', $suggestion->user_id)->first();
         //     $users = User::find($suggestion->user_id);

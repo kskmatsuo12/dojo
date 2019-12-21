@@ -261,23 +261,25 @@ input:hover{
                     <td class="user_table_top">メールアドレス</td>
                     <td class="user_table_top">受理予定or未回答</td>
                 </tr>
-            @foreach ($user as $user)
-                <tr>
-                    <td class="user_table_user">{{$user->name}}</td>
-                    <td class="user_table_user">{{$user->user_prefectures}}</td>
-                    <td class="user_table_user">{{$user->user_exp_company}}</td>
-                    <td class="user_table_user">{{$user->email}}</td>
+            @if (count($user) > 0)
+                @foreach ($user as $user)
+                    <tr>
+                        <td class="user_table_user">{{$user->name}}</td>
+                        <td class="user_table_user">{{$user->user_prefectures}}</td>
+                        <td class="user_table_user">{{$user->user_exp_company}}</td>
+                        <td class="user_table_user">{{$user->email}}</td>
 
-                    <?php
-                    $suggestions = Suggestion::where('user_id', $user->id)->first();
-                    ?>
-                    @if($suggestions->progress_info === 1)
-                    <td class="user_table_user"><a href="{{url('clients/suggestions/'.$suggestions->id)}}">未回答</a></td>
-                    @else
-                    <td class="user_table_user"><a href="{{url('clients/suggestions/'.$suggestions->id)}}">受理予定</a></td>
-                    @endif
-                </tr>
-            @endforeach
+                        <?php
+                        $suggestions = Suggestion::where('user_id', $user->id)->first();
+                        ?>
+                        @if($suggestions->progress_info === 1)
+                        <td class="user_table_user"><a href="{{url('clients/suggestions/'.$suggestions->id)}}">未回答</a></td>
+                        @else
+                        <td class="user_table_user"><a href="{{url('clients/suggestions/'.$suggestions->id)}}">受理予定</a></td>
+                        @endif
+                    </tr>
+                @endforeach
+            @endif
             </table>
         </div>
 
