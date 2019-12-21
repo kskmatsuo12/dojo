@@ -106,6 +106,12 @@ Auth::routes();
     Route::get('/clients/post/comfirm', 'ClientsController@postComfirm');
     Route::get('/clients/players/{id}', 'ClientsController@playersIndex');
     Route::get('/clients/my/index/{jobs}', 'ClientsController@myIndex');
+    Route::get('ClientRequestDone', 'ClientsController@requestDone');
+    Route::get('ClientProjectDone', 'ClientsController@projectDone');
+    Route::get('ClientAssessmentDone', 'ClientsController@assessmentDone');
+
+
+
     Route::get('/clients/messages/{id}', 'ClientsController@messagesIndex');
     Route::get('/clients/messages/group/{id}', 'ClientsController@messagesGroupIndex');
     Route::get('/clients/player/assessment', 'ClientsController@playerAssessment');
@@ -117,6 +123,12 @@ Auth::routes();
     Route::get('/clients/home', 'ClientsController@Clienthome');
     Route::post('/clientsProfile', 'ClientsController@profileUpdate');
     Route::post('/clientsRegister', 'ClientsController@registerUpdate');
+
+
+    //応募の詳細画面
+    Route::get('/clients/suggestions/{suggestions}', 'ClientsController@suggestionsIndex');
+    //応募の受理
+    Route::post('/clients/accept', 'ClientsController@accept');
 
     //以下テスト用
     Route::get('/iida/test1', 'IidaController@test1');

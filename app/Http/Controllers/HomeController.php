@@ -11,6 +11,7 @@ use Carbon¥Carbon;
   use App\User;
   use App\Job;
   use App\Suggestion;
+  use App\Client;
 
   class HomeController extends Controller
 // Userコントローラーとして使う。
@@ -183,7 +184,7 @@ use Carbon¥Carbon;
           $users->user_last_company_exp = $request->user_last_company_exp;
           
           $users->image_url = $request->file('image_url')->store('public/user_profile_image');
-          $users->image_url = str_replace('public/', 'storage/', $users->image_url);
+          $users->image_url = str_replace('public/', '/storage/', $users->image_url);
           
           $users->save();
           return redirect('/home');
@@ -214,6 +215,8 @@ use Carbon¥Carbon;
       {
           $uid = Auth::id();
           $job_id = $jobs->id;
+          $client_id = $jobs->client_id;
+          $client = Client::where('id', $client_id)->get();
           $did = false;
           $true_false = Suggestion::where('job_id', $job_id)->where('user_id', $uid)->get()->count();
           
@@ -221,7 +224,7 @@ use Carbon¥Carbon;
               $did = true;
           }
 
-          return view('users/issues/index', ['job'=>$jobs,'did'=>$did, 'test'=>$true_false]);
+          return view('users/issues/index', ['job'=>$jobs,'did'=>$did,'client'=>$client]);
       }
 
       //案件応募
@@ -254,8 +257,8 @@ use Carbon¥Carbon;
       {
           $client_id = $request->client_id;
           $job_id = $request->job_id;
-          $user_id = Auth::user()->id;
           $suggestion_text = $request->suggestion_text;
+          $user_id = Auth::id();
 
           $suggestions = new Suggestion;
           $suggestions->job_id = $job_id;

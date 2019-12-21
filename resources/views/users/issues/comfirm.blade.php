@@ -30,7 +30,7 @@
                 <div class="wrap">
                     <p class="title">以下の内容で送信しますか？</p>
                     
-                    <textarea disabled style="border:none" type="text" name="suggestion_text" value="{{old('job_text')}}" class="textarea">{{$suggestion_text}}</textarea>
+                    <textarea readonly style="border:none" type="text" name="suggestion_text" value="{{old('job_text')}}" class="textarea">{{$suggestion_text}}</textarea>
                 </div>
                 <input type="hidden" name="progress_info" value="1">
                 <button type="submit">送信する</button>
