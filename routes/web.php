@@ -82,6 +82,9 @@ Auth::routes();
     Route::get('/issues/assessment', 'HomeController@assessment');
 
     Route::get('/logout', 'HomeController@logout');
+
+    Route::post('/post_image_user', 'ImageController@user_image');
+    Route::post('/post_image_client', 'ImageController@client_image');
     //ユーザーの表示だけここまで
 
 // });
