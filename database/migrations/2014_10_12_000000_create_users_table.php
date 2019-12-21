@@ -64,7 +64,9 @@ class CreateUsersTable extends Migration
             $table->string('user_language', 30)->nullable();
             $table->string('user_licence', 30)->nullable();
             $table->string('user_last_company_exp', 1000)->nullable();
+            $table->string('image_url', 100)->nullable();
 
+            
 
             $table->softDeletes();
 

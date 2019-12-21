@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon¥Carbon;
 
  //飯田ファイルはここから
   use App\User;
@@ -147,23 +148,22 @@ use Illuminate\Support\Facades\Auth;
       {
           $validator = Validator::make($request->all(), [
     
-          'user_last_company' => 'required',
-          'user_last_company_dept' => 'required',
-          'user_last_company_position' => 'required',
-          'user_last_company_since' => 'required',
-          'user_last_company_since' => 'required',
-          'user_last_company_until' => 'required',
-          'user_birthday' => 'required',
-          'user_last_degree' => 'required',
-          'user_last_school'=> 'required',
-          'user_last_school_dept' => 'required',
-          'user_gender' => 'required',
-          'user_language' => 'required',
-          'user_licence' => 'required',
-          'user_last_company_exp' => 'required'
+        //   'user_last_company' => 'required',
+        //   'user_last_company_dept' => 'required',
+        //   'user_last_company_position' => 'required',
+        //   'user_last_company_since' => 'required',
+        //   'user_last_company_since' => 'required',
+        //   'user_last_company_until' => 'required',
+        //   'user_birthday' => 'required',
+        //   'user_last_degree' => 'required',
+        //   'user_last_school'=> 'required',
+        //   'user_last_school_dept' => 'required',
+        //   'user_gender' => 'required',
+        //   'user_language' => 'required',
+        //   'user_licence' => 'required',
+        //   'user_last_company_exp' => 'required'
 
         ]);
-        
           $uid = Auth::id();
           $users = User::find($uid);
           $users->user_last_company = $request->user_last_company;
@@ -180,6 +180,10 @@ use Illuminate\Support\Facades\Auth;
           $users->user_language = $request->user_language;
           $users->user_licence = $request->user_licence;
           $users->user_last_company_exp = $request->user_last_company_exp;
+          
+          $users->image_url = $request->file('image_url')->store('public/user_profile_image');
+          $users->image_url = str_replace('public/', 'storage/', $users->image_url);
+          
           $users->save();
           return redirect('/home');
       }
