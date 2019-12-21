@@ -222,19 +222,19 @@ button:hover{
 
         <div class="wrap">
             <p class="title">相談したいこと<span class="req">必須</span></p>
-            <input id="recruit_advisor1" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor1" class="label">経営企画立案</label>
-            <input id="recruit_advisor2" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor2" class="label">新規事業企画</label>
-            <input id="recruit_advisor3" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor3" class="label">商品開発</label>
-            <input id="recruit_advisor4" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor4" class="label">営業企画</label>
-            <input id="recruit_advisor5" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor5" class="label">人事・組織開発</label>
-            <input id="recruit_advisor6" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor6" class="label">ITシステム</label>
-            <input id="recruit_advisor7" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor7" class="label">マーケティング</label>
-            <input id="recruit_advisor8" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor8" class="label">広報・PR</label>
-            <input id="recruit_advisor9" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor9" class="label">宣伝・広告</label>
-            <input id="recruit_advisor10" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor10" class="label">販売促進</label>
-            <input id="recruit_advisor11" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor11" class="label">海外事業</label>
-            <input id="recruit_advisor12" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor12" class="label">資金調達</label>
-            <input id="recruit_advisor13" type="radio" name="recruit_advisor" value="{{old('recruit_advisor')}}" ><label for="recruit_advisor13" class="label">経理</label>
+            <input id="recruit_advisor1" type="radio" name="recruit_advisor" value="経営企画立案" ><label for="recruit_advisor1" class="label">経営企画立案</label>
+            <input id="recruit_advisor2" type="radio" name="recruit_advisor" value="新規事業企画" ><label for="recruit_advisor2" class="label">新規事業企画</label>
+            <input id="recruit_advisor3" type="radio" name="recruit_advisor" value="商品開発" ><label for="recruit_advisor3" class="label">商品開発</label>
+            <input id="recruit_advisor4" type="radio" name="recruit_advisor" value="営業企画" ><label for="recruit_advisor4" class="label">営業企画</label>
+            <input id="recruit_advisor5" type="radio" name="recruit_advisor" value="人事・組織開発" ><label for="recruit_advisor5" class="label">人事・組織開発</label>
+            <input id="recruit_advisor6" type="radio" name="recruit_advisor" value="ITシステム" ><label for="recruit_advisor6" class="label">ITシステム</label>
+            <input id="recruit_advisor7" type="radio" name="recruit_advisor" value="マーケティング" ><label for="recruit_advisor7" class="label">マーケティング</label>
+            <input id="recruit_advisor8" type="radio" name="recruit_advisor" value="広報・PR" ><label for="recruit_advisor8" class="label">広報・PR</label>
+            <input id="recruit_advisor9" type="radio" name="recruit_advisor" value="宣伝・広告" ><label for="recruit_advisor9" class="label">宣伝・広告</label>
+            <input id="recruit_advisor10" type="radio" name="recruit_advisor" value="販売促進" ><label for="recruit_advisor10" class="label">販売促進</label>
+            <input id="recruit_advisor11" type="radio" name="recruit_advisor" value="海外事業" ><label for="recruit_advisor11" class="label">海外事業</label>
+            <input id="recruit_advisor12" type="radio" name="recruit_advisor" value="資金調達" ><label for="recruit_advisor12" class="label">資金調達</label>
+            <input id="recruit_advisor13" type="radio" name="recruit_advisor" value="経理" ><label for="recruit_advisor13" class="label">経理</label>
         </div>
 
         <div class="wrap">
@@ -293,5 +293,14 @@ button:hover{
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
 
+$("input").on("click",function() {
+    console.log($(this).val());
+
+    
+});
+
+</script>
 @endsection
