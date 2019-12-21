@@ -124,6 +124,12 @@ Auth::routes();
     Route::post('/clientsProfile', 'ClientsController@profileUpdate');
     Route::post('/clientsRegister', 'ClientsController@registerUpdate');
 
+
+    //応募の詳細画面
+    Route::get('/clients/suggestions/{suggestions}', 'ClientsController@suggestionsIndex');
+    //応募の受理
+    Route::post('/clients/accept', 'ClientsController@accept');
+
     //以下テスト用
     Route::get('/iida/test1', 'IidaController@test1');
     Route::post('/iida/test2', 'IidaController@test2');

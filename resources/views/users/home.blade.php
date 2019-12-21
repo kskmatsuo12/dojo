@@ -60,6 +60,7 @@ body{
 .contain{
     display:inline-block;
 }
+
 .pjts{
     float: left;
     position: relative;

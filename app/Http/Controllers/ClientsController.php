@@ -13,7 +13,6 @@ use App\Job;
 use App\Client;
 use App\Suggestion;
 
-
 //飯田ファイルはここまで
 
 
@@ -49,9 +48,9 @@ class ClientsController extends Controller
         $clients->client_loginid = $request->client_loginid;
         $clients->client_pass = $request->client_pass;
 
-        if ($request->client_pass == $request->client_pass_confirm){
+        if ($request->client_pass == $request->client_pass_confirm) {
             $clients->client_pass = $request->client_pass;
-        }else{
+        } else {
             return redirect('/clients/register_form');
         }
    
@@ -98,7 +97,8 @@ class ClientsController extends Controller
         $request->session()->put('id', $request->id);
     }
     //クライアントのログイン機能
-    public function ClientLogin(Request $request){
+    public function ClientLogin(Request $request)
+    {
         // $this->validate($request,[
         // 'client_id' => 'required',
         // 'client_pass' => 'required|min:4'
@@ -107,12 +107,12 @@ class ClientsController extends Controller
         $clients = Client::where('client_loginid', $request->client_loginid)->first();
 
 
-        if($clients->client_pass === $request->client_pass){
+        if ($clients->client_pass === $request->client_pass) {
             $request->session()->put('id', $clients->id);
             return redirect('/clients/home');
-        }  else{
+        } else {
             return redirect()->back();
-        }      
+        }
        
 
         // if(Client::attempt(['client_id' => $request->client_id, 'client_pass' => $request->client_pass])){
@@ -123,7 +123,7 @@ class ClientsController extends Controller
 
     //clients/homeを表示
     public function Clienthome(Request $request)
-    {    
+    {
         $value = $request->session()->get('id');
         $clients = Client::where('id', $value)->first();
 
@@ -248,24 +248,27 @@ class ClientsController extends Controller
         $suggestions = Suggestion::where('job_id', $jobs->id)->get();
 
 
-        return view('clients/my/index',
-         ['job'=>$jobs,
+        return view(
+            'clients/my/index',
+            ['job'=>$jobs,
           'client'=>$clients,
           'suggestion'=>$suggestions,
-            ]);
+            ]
+        );
     }
 
     //募集の終了→案件スタート（job_statusを2に変更）
-    public function requestDone(Request $request){
+    public function requestDone(Request $request)
+    {
         $jobs = Job::find($request->id);
         $jobs->job_status = 2;
         $jobs->save();
         return redirect('/clients/home');
-
     }
 
     //案件の終了→評価スタート（job_statusを3に変更）
-    public function projectDone(Request $request){
+    public function projectDone(Request $request)
+    {
         $jobs = Job::find($request->id);
         $jobs->job_status = 3;
         $jobs->save();
@@ -305,5 +308,18 @@ class ClientsController extends Controller
     public function playerAssessment()
     {
         return view('clients/player/assessment');
+    }
+
+    public function suggestionsIndex(Suggestion $suggestions)
+    {
+        $job_id = $suggestions->job_id;
+        $uid = $suggestions->user_id;
+        $job = Job::find($job_id);
+        $user = User::find($uid);
+        return view('clients/suggestions/index', ['suggestion'=>$suggestions,'job'=>$job, 'user'=>$user]);
+    }
+
+    public function accept()
+    {
     }
 }
