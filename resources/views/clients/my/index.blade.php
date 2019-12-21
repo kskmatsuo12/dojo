@@ -74,6 +74,49 @@ body{
     background-color: #fff;
 }
 
+input{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    background: #75d7e0;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing:3px;
+    color:#ffffff;
+    margin: 30px auto 20px;
+    user-select: none;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+
+input:hover{
+    box-shadow: none;
+    background: #43c4cf;
+}
+
+.job_btn_done{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    background: #75d7e0;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing:3px;
+    color:#ffffff;
+    margin: 30px auto 20px;
+    user-select: none;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    align-items: center;
+}
+
 
 @media screen and (min-width: 781px) {
 
@@ -93,7 +136,7 @@ body{
 <div class="container">
 
 
-    <div class="client_name">依頼主：　{{$client->client_name}}</div>
+    <div class="client_name">依頼主：{{$client->client_name}}</div>
 
     <div class="job_title">「{{$job->job_title}}」</div>
 
@@ -177,6 +220,28 @@ body{
     
     </div>
 
+    <div>
+        @if($job->job_status === 1)
+        <form action="{{ url('ClientRequestDone') }}" method="GET">
+            <input type="hidden" name="id" value="{{$job->id}}">
+            <input type="submit" value="募集を終了する">
+        </form>
+        @elseif($job->job_status === 2)
+        <form action="{{ url('ClientProjectDone') }}" method="GET">
+            <input type="hidden" name="id" value="{{$job->id}}">
+            <input type="submit" value="案件を終了する">
+        </form>
+        @elseif($job->job_status === 3)
+        <form action="{{ url('ClientAssessmentDone') }}" method="GET">
+            <input type="hidden" name="id" value="{{$job->id}}">
+            <input type="submit" value="評価を終了する">
+        </form>
+        @elseif($job->job_status === 4)
+            <div class="job_btn_done">
+                <p>案件終了済み</p>
+            </div>
+        @endif
+    </div>
 
 
 </div>

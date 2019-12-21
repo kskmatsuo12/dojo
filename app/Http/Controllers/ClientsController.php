@@ -237,6 +237,8 @@ class ClientsController extends Controller
     {
         return view('clients/my');
     }
+
+    //案件詳細画面の表示、データ渡し
     public function myIndex(Job $jobs)
     {
         $value = $jobs->client_id;
@@ -245,8 +247,24 @@ class ClientsController extends Controller
         return view('clients/my/index',
          ['job'=>$jobs,
           'client'=>$clients,
-
             ]);
+    }
+
+    //募集の終了→案件スタート（job_statusを2に変更）
+    public function requestDone(Request $request){
+        $jobs = Job::find($request->id);
+        $jobs->job_status = 2;
+        $jobs->save();
+        return redirect('/clients/home');
+
+    }
+
+    //案件の終了→評価スタート（job_statusを3に変更）
+    public function projectDone(Request $request){
+        $jobs = Job::find($request->id);
+        $jobs->job_status = 3;
+        $jobs->save();
+        return redirect('/clients/home');
     }
 
     public function messages()
