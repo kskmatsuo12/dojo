@@ -27,12 +27,19 @@ class MessageController extends Controller
         return view('users/messages/message', ['uid'=>$uid,'rooms'=>$rooms[0]]);
     }
 
+
+
+    //クライアント側のメッセージ関係
+    //メッセージ一覧画面
+
     public function messages_view(Request $request)
     {
         $client_id = $request->session()->get('id');
         $rooms = MessagesRoom::where('client_id', $client_id)->get();
         return view('clients/messages/message', ['rooms'=>$rooms]);
     }
+
+    //ユーザーとのチャット画面
 
     public function message_room(Request $request)
     {
@@ -47,6 +54,8 @@ class MessageController extends Controller
         $messages = Message::where('room_id', $room_id)->orderBy('id', 'desc')->get();
         return view('clients/messages/message_room', ['messages'=>$messages,'user'=>$user,'client'=>$client,'job'=>$job, 'room_id'=>$room_id]);
     }
+
+    // チャット送信して改めて表示
 
     public function message_post_client(Request $request)
     {
