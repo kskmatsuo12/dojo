@@ -34,6 +34,29 @@
         background:#f2feff;
         font-size:13px;
     }
+
+    .user_table{
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .user_table th{
+        padding: 15px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+
+    }
+
+    .user_table td{
+        padding: 15px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;    
+        vertical-align: middle;
+        text-align: center;
+
+    }
     input{
         display: flex;
         justify-content: center;
@@ -44,7 +67,7 @@
         padding:5px;
         margin: 0px auto;
         border-radius: 5px;
-        border: 1px solid rgb(168, 168, 168);
+        border: 1px solid #fff;
         width: 100%;
     }
 
@@ -61,70 +84,6 @@
         outline: none;
         resize: none;
         width: 100%;
-    }
-
-    label{
-        display: inline-block;
-        width: 40%;
-        /* float: left; */
-        line-height: 30px;
-        padding-left: 5px;
-        padding-right: 5px;
-        font-size: 12px;
-        margin:5px;
-        color: gray;
-        text-align: center;
-        align-items:center;
-        cursor: pointer;
-        border: 1px solid rgba(128, 128, 128, 0.473);
-        border-radius: 5px;
-        background: #ffffff;
-    }
-    label:hover {
-        background: #75d7e0;
-    }
-    input[type="radio"]:checked + label {
-        background: #43c4cf;
-        color: #ffffff; 
-        border: 1px solid rgb(240, 240, 240);
-    }
-    /* .label{
-        display: inline-block;
-    } */
-    .line h1{
-        padding-top:20px;
-        text-align: center;
-        height: 50px;
-        line-height: 50px;
-        font-size: 18px;
-        font-weight: bold;
-        color:rgb(67,196,207);
-        letter-spacing:1px;
-    }
-    .line h2{
-        text-align: center;
-        background: rgb(67,196,207);
-        height: 5px;
-        width:50px;
-        margin: 0 auto 20px;
-        border-radius: 50px;
-    }
-
-    .wraps{
-        width: 70%;
-        padding: 25px;
-        margin: 0 auto;
-        border-radius: 10px;
-        background:white;
-        box-shadow: 0px 1px 3px rgb(82, 147, 151);
-    }
-    .wrap{
-        margin-bottom:15px;
-    }
-
-    .wrap p{
-        padding-left: 5px;
-        padding-bottom: 12px;
     }
 
     button{
@@ -149,66 +108,11 @@
         background: #43c4cf;
     }
 
-    .req{
-        font-size: 10px;
-        color:white;
-        background:crimson;
-        letter-spacing:0px;
-        padding:2px;
-        margin-left:4px;
-        height: 12px;
-        border-radius: 4px;
-    }
-    .opt{
-        font-size: 10px;
-        color:white;
-        background:gray;
-        letter-spacing:0px;
-        padding:2px;
-        margin-left:3px;
-        height: 12px;
-        border-radius: 4px;
-    }
-
-    .adjust{
-        height: 10px;
-    }
+  
 
     @media screen and (min-width: 781px) {
-        .wraps{
-            width: 40%;
-        }
-        .wrap{
-            margin-bottom:30px;
-        }
-        body,label{
-            font-size:15px;
-        }
-        input{
-            display: flex;
-            justify-content: center;
-            height: 40px;
-            font-size: 15px;
-            outline: none;
-            resize: none;
-            padding:5px;
-            margin: 0px auto;
-            border-radius: 5px;
-            border: 1px solid rgb(168, 168, 168);
-            width: 100%;
-        }
 
-        textarea{
-            font-size: 15px;
-            height:130px;
-            padding:5px;
-            border-radius: 5px;
-            margin: 0px auto;
-            border: 1px solid rgb(168, 168, 168);
-            outline: none;
-            resize: none;
-            width: 100%;
-        }
+  
     }
 
     @media screen and (min-width: 1040px) {
@@ -234,39 +138,34 @@
 
     <form action="{{ url('PlayerAssessmentDone') }}" method="GET">
 
-
-
-
-    <table>
-    <thead>
+    <table class="user_table">
+    <tr>
         <th>プロジェクト参加者名</th>
         <th>評価</th>
         <th>コメント</th>
-    </thead>
-    <tbody>
-    </tbody>
+    </tr>
     @if (count($users) > 0)
-    @for ($i=0;$i<@count($users);$i++)
-    <input type="hidden" name="id{{$i}}" value="{{$users[$i]->id}}">
-    <tr>
-        <td>{{$users[$i]->name}}　{{$users[$i]->user_name_mei}}</td>
-        <td>
-            <select id="user_assess{{$users[$i]->id}}" type="text" name="user_point{{$i}}" value="{{old('user_point')}}" class="form-control" placeholder="">
-                <option value="">（選択）</option>
-                <option value="15">またお願いしたい</option>
-                <option value="10">貢献度大</option>
-                <option value="5">感謝</option>
-            </select>
-        </td>
-        <td>
-        <textarea type="text" name="user_worrying{{$i}}" placeholder="ご記載いただいた内容は参加者に届けられます。参加者の成長につながるようなコメントや感謝のコメントをご記入いただきたいと思います。"></textarea>
-        </td>
-        <!-- id紐づけ -->
-    </tr>  
-    @endfor
-    <input type="hidden" name="kosuu" value="{{$i}}">
-    <input type="hidden" name="client_id" value="{{$client_id}}">
-    <input type="hidden" name="job_id" value="{{$job_id}}">
+        @for ($i=0;$i<@count($users);$i++)
+        <input type="hidden" name="id{{$i}}" value="{{$users[$i]->id}}">
+        <tr>
+            <td>{{$users[$i]->name}}　{{$users[$i]->user_name_mei}}</td>
+            <td>
+                <select id="user_assess{{$users[$i]->id}}" type="text" name="user_point{{$i}}" value="{{old('user_point')}}" class="form-control" placeholder="">
+                    <option value="">（選択）</option>
+                    <option value="15">またお願いしたい</option>
+                    <option value="10">貢献度大</option>
+                    <option value="5">感謝</option>
+                </select>
+            </td>
+            <td>
+            <textarea type="text" name="user_worrying{{$i}}" placeholder="ご記載いただいた内容は参加者に届けられます。参加者の成長につながるようなコメントや感謝のコメントをご記入いただきたいと思います。"></textarea>
+            </td>
+            <!-- id紐づけ -->
+        </tr>  
+        @endfor
+        <input type="hidden" name="kosuu" value="{{$i}}">
+        <input type="hidden" name="client_id" value="{{$client_id}}">
+        <input type="hidden" name="job_id" value="{{$job_id}}">
 
     @endif
     </table>
