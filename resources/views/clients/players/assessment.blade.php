@@ -265,6 +265,9 @@
     </tr>  
     @endfor
     <input type="hidden" name="kosuu" value="{{$i}}">
+    <input type="hidden" name="cline_id" value="{{$client_id}}">
+    <input type="hidden" name="job_id" value="{{$job_id}}">
+
     @endif
     </table>
 

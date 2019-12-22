@@ -13,6 +13,7 @@ use App\Job;
 use App\Client;
 use App\Suggestion;
 use App\MessagesRoom;
+use App\AssessmentUser;
 
 //飯田ファイルはここまで
 
@@ -343,14 +344,26 @@ class ClientsController extends Controller
     public function playerassessDone(Request $request)
     {
         $kosuu = $request->kosuu;
+        $client_id = $request->client_id;
+
         for($i=0;$i<$kosuu;$i++){
             $id='id'.$i;
             $user_point='user_point'.$i;
+            $user_worring='user_worrying'.$i;
+
             $uid = $request->$id;
             $upt = $request->$user_point;
             $users = User::where('id', $uid)->first();
             $users->user_point += $upt;
             $users->save();
+
+            $assessment = new AssessmentUser;
+            $assessment->user_id = $uid;
+            $assessment->client_id = $client_id;
+            $assessment->job_id = $job_id;
+            $assessment->user_worring = $user_worring;
+            $assessment->take_point = $upt;
+            $assessment->save();
         }
             return redirect('/clients/home');
     }
