@@ -71,18 +71,9 @@ Auth::routes();
     Route::post('/proposal', 'HomeController@proposal');
     Route::post('/comfirm', 'HomeController@comfirm');
     Route::post('/post_suggestion', 'HomeController@postSuggestion');
-    
-
     Route::get('/my/{id}', 'HomeController@myIndex');
-
-    Route::get('/messages', 'HomeController@messages');
-    Route::get('/messages/{id}', 'HomeController@messagesIndex');
-    Route::get('/messages/group/{id}', 'HomeController@messagesGroup');
-
     Route::get('/issues/assessment', 'HomeController@assessment');
-
     Route::get('/logout', 'HomeController@logout');
-
     Route::post('/post_image_user', 'ImageController@user_image');
     Route::post('/post_image_client', 'ImageController@client_image');
     //ユーザーの表示だけここまで
@@ -129,6 +120,12 @@ Auth::routes();
 
     //ユーザーメッセージルーム画面
     Route::get('/messages', 'MessageController@messages');
+
+    //ユーザー個別メッセージ画面
+    Route::get('/messages/{rooms}', 'MessageController@user_room');
+
+    //ユーザーメッセージ送信
+    Route::post('/messages/post', 'MessageController@message_post');
 
     //クライアントメッセージルーム一覧
     Route::get('/clients/messages', 'MessageController@messages_view');

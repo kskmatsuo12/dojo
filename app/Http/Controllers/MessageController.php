@@ -14,18 +14,18 @@ use App\Job;
 
 class MessageController extends Controller
 {
-    public function message()
-    {
-        $uid = Auth::id();
-        $rooms = MessagesRoom::where('id', $uid)->get();
+    // public function message()
+    // {
+    //     $uid = Auth::id();
+    //     $rooms = MessagesRoom::where('id', $uid)->get();
         
-        $i = 0;
-        // for ($i < count($rooms); $i++;) {
-        //     $room[] .=
-        // }
+    //     $i = 0;
+    // for ($i < count($rooms); $i++;) {
+    //     $room[] .=
+    // }
 
-        return view('users/messages/message', ['uid'=>$uid,'rooms'=>$rooms[0]]);
-    }
+    // return view('users/messages/message', ['uid'=>$uid,'rooms'=>$rooms[0]]);
+    // }
 
     //ユーザー側のメッセージ関係
     //メッセージ一覧画面
@@ -33,7 +33,39 @@ class MessageController extends Controller
     {
         $uid = Auth::id();
         $messages = MessagesRoom::where('user_id', $uid)->get();
-        return view('users/messages', ['messages'=>$messages]);
+        return view('users/messages', ['messages'=>$messages,'uid'=>$uid]);
+    }
+
+
+
+    public function user_room(MessagesRoom $rooms)
+    {
+        $rooms_id = $rooms->id;
+
+        $messages = Message::where('room_id', $rooms_id)->get();
+        $uid = $rooms->user_id;
+        $user = User::find($uid);
+        $client_id = $rooms->client_id;
+        $client = Client::find($client_id);
+        return view('users/messages/message_room', ['messages'=>$messages,'user'=>$user,'client'=>$client,'room_id'=>$rooms_id]);
+    }
+
+    public function message_post(Request $request)
+    {
+        $message_input = $request->message;
+        $user_id = $request->user_id;
+        $client_id = $request->client_id;
+        $room_id = $request->room_id;
+        $message = new Message;
+        $message->room_id = $room_id;
+        $message->message = $message_input;
+        $message->message_from = $user_id;
+        $message->message_which = 1;
+        $message->save();
+        $messages = Message::where('room_id', $room_id)->get();
+        $client = Client::find($client_id);
+        $user = User::find($user_id);
+        return view('users/messages/message_room', ['messages'=>$messages,'user'=>$user,'client'=>$client,'room_id'=>$room_id]);
     }
 
 
@@ -56,7 +88,7 @@ class MessageController extends Controller
         $user = User::find($uid);
         $client = Client::find($client_id);
         $job = Job::find($job_id);
-        $messages = Message::where('room_id', $room_id)->orderBy('id', 'desc')->get();
+        $messages = Message::where('room_id', $room_id)->get();
         return view('clients/messages/message_room', ['messages'=>$messages,'user'=>$user,'client'=>$client,'job'=>$job, 'room_id'=>$room_id]);
     }
     // チャット送信して改めて表示
