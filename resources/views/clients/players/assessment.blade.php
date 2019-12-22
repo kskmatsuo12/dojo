@@ -12,10 +12,10 @@
     use App\Job;
     use App\Suggestion;
     $client_id=session()->get('id');
-    $job_id = 1;
+    $job_id = $job;
     // job_idは前のページから持ってくる。忘れないように
     $job_title = Job::where('id',$job_id)->first()->job_title;
-    var_dump($job_title);
+    // var_dump($job_title);
 
     //抽出条件：Suggestionのclient_id&&job_id&&progress_info=3のユーザー>
     $target_user=Suggestion::where('client_id',$client_id)->where('job_id',$job_id)->where('progress_info',3)->get();
@@ -24,8 +24,8 @@
         // $target_user_ids[] = $target_user[$i] ->user_id ;
         $users[] = User::where('id', $target_user[$i] ->user_id)->first(); ;
     }
-    var_dump ($target_user);
-    var_dump (count($target_user));
+    // var_dump ($target_user);
+    // var_dump (count($target_user));
     // var_dump ($users[0]["name"]);
 ?>  
 
@@ -232,7 +232,7 @@
     <!-- この中にコンテンツ -->
     <h1>プロジェクト名：{{$job_title}}</h1>
 
-    <form action="{{ url('aoki/test1') }}" method="POST">
+    <form action="{{ url('PlayerAssessmentDone') }}" method="GET">
 
 
 
@@ -251,7 +251,7 @@
     <tr>
         <td>{{$users[$i]->name}}　{{$users[$i]->user_name_mei}}</td>
         <td>
-            <select id="user_assess[{{$users[$i]->id}}]" type="text" name="user_exp_job{{$i}}" value="{{old('user_exp_job')}}" class="form-control" placeholder="">
+            <select id="user_assess{{$users[$i]->id}}" type="text" name="user_point{{$i}}" value="{{old('user_point')}}" class="form-control" placeholder="">
                 <option value="">（選択）</option>
                 <option value="15">またお願いしたい</option>
                 <option value="10">貢献度大</option>
@@ -264,6 +264,7 @@
         <!-- id紐づけ -->
     </tr>  
     @endfor
+    <input type="hidden" name="kosuu" value="{{$i}}">
     @endif
     </table>
 
