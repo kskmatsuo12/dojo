@@ -9,7 +9,7 @@ use App\Job;
 ?>
 
 @extends('layouts.app')
-
+@include('layouts/header')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
@@ -228,6 +228,7 @@ body{
 </style>
 <!-- CSSファイルの指定をしてください〜 -->
 @section('content')
+
     <main role="main">
 
          <div id="myCarousel" class="carousel slide" data-ride="carousel">
