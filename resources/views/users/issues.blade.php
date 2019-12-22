@@ -3,6 +3,7 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
+    use App\Job;
 
 ?>
 
@@ -169,7 +170,6 @@ a {
 @include('layouts/header')
 <div class="container">
     <div class="jobbox">
-
         <div class="line">
             <h1>現在進捗中</h1>
             <h2>　　</h2>
@@ -188,9 +188,9 @@ a {
                         <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">
-                                <p class="pjt_term">{{$suggestion->recruitment_term}}</p>
-                                <p class="pjt_title">{{$suggestion->job_title}}</p>
-                                <p class="pjt_name">{{$suggestion->consultation}}</p>
+                                <p class="pjt_term">{{$job1[0]->recruitment_term}}</p>
+                                <p class="pjt_title">{{$job1[0]->job_title}}</p>
+                                <p class="pjt_name">{{$job1[0]->consultation}}</p>
                             </div>
                         </div>
                     </a>

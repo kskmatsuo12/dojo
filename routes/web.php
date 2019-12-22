@@ -63,19 +63,27 @@ Auth::routes();
     
     //案件一覧ページ
     Route::get('/issues', 'HomeController@issues');
+    //案件詳細（ここから応募)
+    Route::get('/issues/{jobs}', 'HomeController@issuesIndex');
     //案件管理ページ
     Route::get('/my', 'HomeController@my');
+    //サイトマップ
     Route::get('/sitemap', 'HomeController@sitemap');
-
-    Route::get('/issues/{jobs}', 'HomeController@issuesIndex');
+    //応募画面
     Route::post('/proposal', 'HomeController@proposal');
+    //応募確認画面
     Route::post('/comfirm', 'HomeController@comfirm');
+    //応募送信
     Route::post('/post_suggestion', 'HomeController@postSuggestion');
+    //ユーザーから見た案件詳細予定
     Route::get('/my/{id}', 'HomeController@myIndex');
+    //ユーザーから企業への評価ページ
     Route::get('/issues/assessment', 'HomeController@assessment');
+    //ログアウト
     Route::get('/logout', 'HomeController@logout');
-    Route::post('/post_image_user', 'ImageController@user_image');
-    Route::post('/post_image_client', 'ImageController@client_image');
+    //お蔵入り
+    // Route::post('/post_image_user', 'ImageController@user_image');
+    // Route::post('/post_image_client', 'ImageController@client_image');
     //ユーザーの表示だけここまで
 
 // });
@@ -84,6 +92,7 @@ Auth::routes();
 
 // クライアントはここより下に！
 // クライアントのログインは優先度低めで！
+    
     Route::get('/clients/login_form', 'ClientsController@loginForm');
     Route::post('/clients/ClientLogin', 'ClientsController@ClientLogin');
     Route::get('/clients/register_form', 'ClientsController@registerForm');
