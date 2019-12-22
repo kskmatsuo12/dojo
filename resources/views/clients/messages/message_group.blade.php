@@ -1,8 +1,3 @@
-<?php
-echo $suggestion_id;
-?>
-
-
 @extends('layouts.app')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">

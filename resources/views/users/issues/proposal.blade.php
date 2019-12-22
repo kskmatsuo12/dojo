@@ -27,9 +27,9 @@
         <div class="wraps">
         <form method="POST" action="{{ url('comfirm') }}" >
         {{ csrf_field() }}
-                <input type="hidden" name="job_id" value="1">
-                <input type="hidden" name="client_id" value="1">
-                <input type="hidden" name="user_id" value="1">
+                <input type="hidden" name="job_id" value="{{$job_id}}">
+                <input type="hidden" name="client_id" value="{{$client_id}}">
+                <input type="hidden" name="user_id" value="{{$user_id}}">
                 <!-- <textarea type="text" name="suggestion_text">test用</textarea> -->
                 <div class="wrap">
                     <p class="title">提案内容<span class="req">必須</span></p>

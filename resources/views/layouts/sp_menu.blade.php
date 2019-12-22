@@ -18,7 +18,7 @@
         </a>
     </div>
     <div class="sp-menu-item">
-        <a class="">
+        <a class="" href="/message">
             <i class="far fa-question-circle"></i>
             <p>ヘルプ</p>
         </a>

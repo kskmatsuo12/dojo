@@ -12,6 +12,7 @@ use App\User;
 use App\Job;
 use App\Client;
 use App\Suggestion;
+use App\MessagesRoom;
 
 //飯田ファイルはここまで
 
@@ -319,7 +320,25 @@ class ClientsController extends Controller
         return view('clients/suggestions/index', ['suggestion'=>$suggestions,'job'=>$job, 'user'=>$user]);
     }
 
-    public function accept()
+    public function accept(Request $request)
     {
+        $suggestion_id = $request->suggestion_id;
+        $suggestion = Suggestion::find($suggestion_id);
+        $uid = $suggestion->user_id;
+        $client_id = $suggestion->client_id;
+        $job_id = $suggestion->job_id;
+
+        //suggestionの進行を１進める
+        $suggestion->progress_info = 2;
+        $suggestion->save();
+
+        //メッセージルームに追加する。
+        $message_room = new MessagesRoom;
+        $message_room->user_id = $uid;
+        $message_room->client_id = $client_id;
+        $message_room->job_id = $job_id;
+        $message_room->save();
+        $room_id = $message_room->id;
+        return redirect()->route('room.show', ['room_id'=>$room_id]);
     }
 }
