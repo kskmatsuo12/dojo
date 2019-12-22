@@ -242,7 +242,7 @@ button:hover{
             <textarea type="text" name="request_fill_out" value="{{old('request_fill_out')}}" placeholder="例）案件に該当するご経歴（会社・部署・役職・期間など）、具体的な経験について"></textarea>
         </div>
         <div class="wrap">
-            <p class="title">相談の形式<span class="req">必須</span></p>
+            <p class="title">プロジェクトの形式<span class="req">必須</span></p>
             <input type="text" name="work_format" value="{{old('work_format')}}" placeholder="例）web会議、対面、電話など">
         </div>
         <div class="wrap">

@@ -220,7 +220,8 @@ a {
                         <div class="info">
                             <p class="pjt_term">{{$job->recruitment_term}}</p>
                             <p class="pjt_title">{{$job->job_title}}</p>
-                            <p class="pjt_name">{{$job->consultation}}</p>
+                            <p class="pjt_name">{{$job->job_text}}</p>
+                            <!-- <p class="pjt_name">{{$job->consultation}}</p> -->
                         </div>
                     </div>
                     </a>

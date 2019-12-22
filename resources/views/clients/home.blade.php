@@ -6,12 +6,13 @@
 <?php
 use App\User;
 use App\Job;
+
 //おすすめのユーザー5人
 $users = User::take(5)->get();
 $id=session()->get('id');
-$jobs1 = Job::where('client_id',$id)->where('job_status',1)->get();
-$jobs2 = Job::where('client_id',$id)->where('job_status',2)->get();
-$jobs3 = Job::where('client_id',$id)->where('job_status',3)->get();
+$jobs1 = Job::where('client_id', $id)->where('job_status', 1)->get();
+$jobs2 = Job::where('client_id', $id)->where('job_status', 2)->get();
+$jobs3 = Job::where('client_id', $id)->where('job_status', 3)->get();
 // var_dump($jobs);
 // var_dump($jobs1);
 // $jobs = Job::where('client_id',$id)->get();
@@ -478,7 +479,7 @@ body{
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">
                                 <p class="pjt_term">{
-                                {$jobs2[$i]->work_term}}</p>
+                                {$jobs3[$i]->work_term}}</p>
                                 <p class="pjt_title">{{$jobs3[$i]->job_title}}</p>
                                 <p class="pjt_name"> {{$jobs3[$i]->responsible_party}}</p>
                             </div>

@@ -8,6 +8,8 @@
 </head>
 <?php
  use App\Suggestion;
+
+// $users=[];
 ?>
 
 <style>
@@ -261,8 +263,8 @@ input:hover{
                     <td class="user_table_top">メールアドレス</td>
                     <td class="user_table_top">受理予定or未回答</td>
                 </tr>
-            @if (count($user) > 0)
-                @foreach ($user as $user)
+            @if (count($users) > 0)
+                @foreach ($users as $user)
                     <tr>
                         <td class="user_table_user">{{$user->name}}</td>
                         <td class="user_table_user">{{$user->user_prefectures}}</td>

@@ -86,10 +86,10 @@
             <p>{{$job->request_fill_out}}</p>
         </div>
             
-        <div class="section9">
+        <!-- <div class="section9">
             <span><i class="fas fa-users-cog"></i>プロジェクトから得られるスキル</span>
             <p>{{$job->get_skill}}</p>
-        </div>
+        </div> -->
 
         <form action="{{url('proposal')}}" method="POST">
                 {{ csrf_field() }}
