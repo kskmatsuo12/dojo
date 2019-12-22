@@ -1,3 +1,9 @@
+<?php
+echo $messages;
+return;
+?>
+
+
 @extends('layouts.app')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">

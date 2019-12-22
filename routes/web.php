@@ -127,7 +127,7 @@ Auth::routes();
     Route::post('/clients/accept', 'ClientsController@accept');
 
     //ユーザーメッセージルーム画面
-    Route::get('/message', 'MessageController@message');
+    Route::get('/messages', 'MessageController@messages');
 
     //クライアントメッセージルーム一覧
     Route::get('/clients/messages', 'MessageController@messages_view');
