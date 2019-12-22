@@ -71,7 +71,7 @@ class ClientsController extends Controller
             'client_loc' => 'required',
             'client_url' => 'required',
             'client_biz' => 'required',
-            'client_num_emp' => 'required',
+            // 'client_num_emp' => 'required',
             // 'client_matter' => 'required',
         ]);
     
@@ -173,11 +173,12 @@ class ClientsController extends Controller
             // 'interview_format' => 'required',
             'interview_place' => 'required',
             'request_number' => 'required',
-            'recruitment_term' => 'required',
+            // 'recruitment_term' => 'required',
             'responsible_party' => 'required',
-            'responsible_email' => 'required',
+            // 'responsible_email' => 'required',
             // 'get_skill' => 'required',
             // 'client_id' => 'required',
+            'president' => 'required'
         ]);
     
         //バリデーション:エラー
@@ -200,8 +201,10 @@ class ClientsController extends Controller
         $jobs->request_number = $request->request_number;
         $jobs->recruitment_term = $request->recruitment_term;
         $jobs->responsible_party = $request->responsible_party;
-        $jobs->responsible_email = $request->responsible_email;
+        // $jobs->responsible_email = $request->responsible_email;
         $jobs->get_skill = $request->get_skill;
+        //社長のおすすめ追加
+        $jobs->president = $request->president;
 
         //job_statusに1（募集中）を代入
         $jobs->job_status = 1;
@@ -333,8 +336,25 @@ class ClientsController extends Controller
 
     public function playerAssessment(Request $request)
     {
-        return view('clients/players/assessment');
+        $value = $request->id;
+        return view('clients/players/assessment',['job'=>$value]);
     }
+
+    public function playerassessDone(Request $request)
+    {
+        $kosuu = $request->kosuu;
+        for($i=0;$i<$kosuu;$i++){
+            $id='id'.$i;
+            $user_point='user_point'.$i;
+            $uid = $request->$id;
+            $upt = $request->$user_point;
+            $users = User::where('id', $uid)->first();
+            $users->user_point += $upt;
+            $users->save();
+        }
+            return redirect('/clients/home');
+    }
+    
 
     public function suggestionsIndex(Suggestion $suggestions)
     {

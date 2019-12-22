@@ -109,8 +109,9 @@ Auth::routes();
     Route::get('ClientRequestDone', 'ClientsController@requestDone');
     Route::get('ClientProjectDone', 'ClientsController@projectDone');
     Route::get('ClientAssessmentDone', 'ClientsController@assessmentDone');
-
+    
     Route::get('/clients/player/assessment', 'ClientsController@playerAssessment');
+    Route::get('PlayerAssessmentDone', 'ClientsController@playerassessDone');
 
     //クライアントの表示だけここまで
     //ここから飯田ファイル
