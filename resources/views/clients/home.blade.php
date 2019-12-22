@@ -9,9 +9,9 @@ use App\Job;
 //おすすめのユーザー5人
 $users = User::take(5)->get();
 $id=session()->get('id');
-$jobs1 = Job::where('client_id',$id)->where('job_status',1)->get();
-$jobs2 = Job::where('client_id',$id)->where('job_status',2)->get();
-$jobs3 = Job::where('client_id',$id)->where('job_status',3)->get();
+$jobs1 = Job::where('client_id',$id)->where('job_status',1)->get();//募集中
+$jobs2 = Job::where('client_id',$id)->where('job_status',2)->get();//進捗中
+$jobs3 = Job::where('client_id',$id)->where('job_status',3)->get();//終了（評価待ち）
 // var_dump($jobs);
 // var_dump($jobs1);
 // $jobs = Job::where('client_id',$id)->get();
@@ -80,6 +80,8 @@ body{
 
 .dropdown-item{
     font-size:13px;
+    height: 40px;
+    line-height: 30px;
 }
 .jumbotron {
     background-color: white;
@@ -217,7 +219,6 @@ body{
     line-height: 50px;
     font-size: 18px;
     font-weight: bold;
-
     letter-spacing:1px;
 }
 
@@ -256,7 +257,7 @@ body{
     background: rgba(67,196,207);
     color: white;
     top: -38%;
-    left: 22%;
+    left: 29%;
     font-size: 10px;
     border-radius: 10px;
     padding: 6px;
@@ -306,7 +307,7 @@ body{
         background: rgba(67,196,207);
         color: white;
         top: -67%;
-        left: 16%;
+        left: 21%;
         font-size: 11px;
         border-radius: 10px;
         padding: 7px;
@@ -473,12 +474,11 @@ body{
                 <div class="contain">
                     @for ($i=0;$i<@count($jobs3);$i++)
                     <div class="pjts">
-                    <a href="{{ url('clients/my/index/'.$jobs2[$i]->id) }}">
+                    <a href="{{ url('clients/my/index/'.$jobs3[$i]->id) }}">
                         <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">
-                                <p class="pjt_term">{
-                                {$jobs2[$i]->work_term}}</p>
+                                <p class="pjt_term">{{$jobs3[$i]->work_term}}</p>
                                 <p class="pjt_title">{{$jobs3[$i]->job_title}}</p>
                                 <p class="pjt_name"> {{$jobs3[$i]->responsible_party}}</p>
                             </div>
