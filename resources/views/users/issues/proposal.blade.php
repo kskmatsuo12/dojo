@@ -7,12 +7,8 @@
     <!-- CSSファイル指定してください -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<!-- <?php echo $job_id?> -->
 <!-- CSSファイルの指定をしてください〜 -->
 
-<?php
-
-?>
 
 @section('content')
 @include('layouts/header')

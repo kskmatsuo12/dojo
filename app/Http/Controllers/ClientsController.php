@@ -92,6 +92,11 @@ class ClientsController extends Controller
         $clients->client_biz = $request->client_biz;
         $clients->client_num_emp = $request->client_num_emp;
         $clients->client_matter = $request->client_matter;
+
+        // プロフィール画像保存
+        $clients->image_url = $request->file('image_url')->store('public/client_profile_image');
+        $clients->image_url = str_replace('public/', '/storage/', $clients->image_url);
+
         $clients->save();
         return redirect('/clients/home');
 

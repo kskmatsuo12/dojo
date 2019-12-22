@@ -36,6 +36,7 @@ input[type=radio] {
     border: 1px solid rgb(168, 168, 168);
     width: 70px;
 }
+
 textarea{
     height:130px;
     padding:5px;
@@ -109,6 +110,19 @@ input[type="radio"]:checked + label {
     padding-bottom: 12px;
 }
 
+.wrap_profile p {
+    text-align: left;
+    padding-left: 5px;
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+}
+
+.wrap_profile {
+    margin-bottom:15px;
+    text-align: center;
+}
+
+
 button{
     display: flex;
     justify-content: center;
@@ -152,6 +166,22 @@ button:hover{
     border-radius: 4px;
 }
 
+/* 追加しましたユーザープロフィール画像関係 */
+
+.client_profile_preview {
+    height: 70px;
+    width: 70px;
+    vertical-align: middle;
+    border-radius: 35px;
+    border: solid 1px #ddd;
+}
+
+  .preview_center {
+        text-align: center;
+    }
+
+/* 追加したユーザープロフィール画像関係ここまで */
+
 @media screen and (min-width: 781px) {
     .wraps{
         width: 40%;
@@ -187,6 +217,19 @@ button:hover{
         resize: none;
         width: 100%;
     }
+
+    .client_profile_preview {
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+    border-radius: 25px;
+    margin: auto;
+    text-align: center;
+    }
+
+    .preview_center {
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 1040px) {
@@ -206,9 +249,13 @@ button:hover{
     </div>
 
     @include('common.errors')
-    <form action="{{ url('clientsProfile') }}" method="POST" class="">
+    <form action="{{ url('clientsProfile') }}" method="POST" class="" enctype="multipart/form-data">
     {{ csrf_field() }}
          <div class="wraps">
+            <div class="wrap_profile">
+                <p>プロフィール画像<span class="opt">任意</span></p>
+                <td class="preview_center"><input id="client_profile" type="file" name="image_url" value=""><img id="client_profile_preview" class="client_profile_preview" src="/images/top.jpeg"></td>
+            </div>
             <div class="wrap">
                 <p class="title">会社所在地<span class="req">必須</span></p>
                 <input type="text" name="client_loc" value="{{old('client_loc')}}" class="form-control" id="" placeholder="東京都港区北青山３丁目５−６">
@@ -238,7 +285,8 @@ button:hover{
 </div>
 
 <!-- JSファイルの指定してください！ -->
-<script src="{{ asset('js/???.js') }}"></script>
+<!-- ユーザーのプロフィールでも同じファイル読み込んでるので修正する場合は注意 -->
+<script src="{{ asset('js/profile2.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
 
 @endsection
