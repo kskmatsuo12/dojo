@@ -2,15 +2,15 @@
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-    <!-- CSSファイル指定してください -->
     <link rel="stylesheet" href="{{ asset('css/???.css') }}">
-    <!-- CSSファイル指定してください -->
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 </head>
 
 <!-- CSSファイルの指定をしてください〜 -->
 <style>
 body{
     background:#f2feff;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 .col-sm-6{
     display: flex;
@@ -35,7 +35,7 @@ select,input{
     margin: 12px;
     border-radius: 5px;
     border: 1px solid rgb(168, 168, 168);
-    width: 250px;
+    width: 280px;
 }
 
 textarea{
@@ -59,7 +59,7 @@ label{
     float: left;
     width: 40px;
     height: 35px;
-    line-height: 35px;
+    line-height: 32px;
     padding-left: 5px;
     padding-right: 5px;
     margin:10px;
@@ -79,9 +79,6 @@ input[type="radio"]:checked + label {
     color: #ffffff; 
     border: 1px solid rgb(240, 240, 240);
 }
-input::placeholder {
-    /* color: rgb(204, 204, 204); */
-}
 button{
     display: flex;
     justify-content: center;
@@ -89,37 +86,40 @@ button{
     height: 50px;
     border-radius: 50px;
     background: #75d7e0;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     letter-spacing:3px;
     color:#ffffff;
-    margin: 30px auto 20px;
+    margin: 30px auto 80px;
     user-select: none;
     outline: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
     cursor: pointer;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 button:hover{
     box-shadow: none;
     background: #43c4cf;
 }
 .req{
-    font-size: 10px;
+    font-size: 8px;
     color:white;
     background:crimson;
     letter-spacing:0px;
     padding:2px;
     margin-left:3px;
+    margin-top:3px;
     height: 12px;
     border-radius: 4px;
 }
 .opt{
-    font-size: 10px;
+    font-size: 8px;
     color:white;
     background:gray;
     letter-spacing:0px;
     padding:2px;
     margin-left:3px;
+    margin-top:3px;
     height: 12px;
     border-radius: 4px;
 }
@@ -136,6 +136,7 @@ th{
     height:50px;
     border-bottom: 1px solid rgb(21, 163, 75,0.1);
     padding: 0 15px;
+
 }
 
 td{
@@ -160,15 +161,21 @@ table{
 }
 
 .container{
-    margin: 50px auto;
+    margin: 20px auto;
     display: flex;
     justify-content: center;
 }
+.line img {
+  width: 60%;
+  display: flex;
+  margin: 0 auto 35px;
+}
+
 
 @media screen and (max-width:800px) { 
     table {
-        width:90%;
-        font-size: 14px;
+        width:88%;
+        font-size: 11px;
     } 
     tr{
         height: 30px;
@@ -181,6 +188,7 @@ table{
         vertical-align: middle;
         border-bottom: 1px solid rgb(21, 163, 75,0.1);
         padding: 0 8px;
+        line-height: 16px; 
     }
 
     td{
@@ -223,7 +231,14 @@ table{
     }
     form{
         margin: 0 auto;
-
+    }
+    .line img {
+        width: 90%;
+        display: flex;
+        margin: 0 auto 15px;
+    }
+    button{
+    font-size: 12px;
     }
 
 }
@@ -231,8 +246,13 @@ table{
 
 <!-- CSSファイルの指定をしてください〜 -->
 @section('content')
+@include('layouts/header')
 <div class="container">
     <!-- この中にコンテンツ -->
+    <div class="line">
+        <img src="{{ asset('images/pic3.png') }}" alt="">
+    </div>
+
     <form action="{{ url('profile2Store') }}" method="POST">
     <form action="{{ url('profile2Store') }}" method="GET">
         {{ csrf_field() }}
@@ -317,7 +337,7 @@ table{
 </div>
 
 <!-- JSファイルの指定してください！ -->
-<script src="{{ asset('js/???.js') }}"></script>
+<script src=""></script>
 <!-- JSファイルの指定してください！ -->
-
+@include('layouts/sp_menu')
 @endsection
