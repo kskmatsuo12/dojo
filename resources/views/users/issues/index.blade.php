@@ -89,6 +89,7 @@
         <div class="section9">
             <span><i class="fas fa-users-cog"></i>プロジェクトから得られるスキル</span>
             <p>{{$job->get_skill}}</p>
+            
         </div>
 
         <form action="{{url('proposal')}}" method="POST">
@@ -104,6 +105,14 @@
             </button>
             @endif
         </form>
+        @if($suggestion->progress_info === 3)
+            <form action="{{url('/issues/assessment')}}" method="GET">
+                <input type="hidden" name="job_id" value="{{ $job->id }}">
+                <button type="submit" class="btn">
+                        評価する
+                </button>
+            </form>
+        @endif   
     </div>
 </div>
 
