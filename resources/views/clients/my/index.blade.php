@@ -298,7 +298,8 @@ input:hover{
             <input type="submit" value="案件を終了する">
         </form>
         @elseif($job->job_status === 3)
-        <form action="{{ url('ClientAssessmentDone') }}" method="GET">
+        <!-- <form action="{{ url('ClientAssessmentDone') }}" method="GET"> -->
+        <form action="{{ url('/clients/player/assessment') }}" method="GET">
             <input type="hidden" name="id" value="{{$job->id}}">
             <input type="submit" value="評価を終了する">
         </form>

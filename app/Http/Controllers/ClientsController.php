@@ -326,7 +326,7 @@ class ClientsController extends Controller
         return view('clients/messages/group');
     }
 
-    public function playerAssessment()
+    public function playerAssessment(Request $request)
     {
         return view('clients/players/assessment');
     }
