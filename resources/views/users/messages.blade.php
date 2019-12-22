@@ -1,6 +1,5 @@
 <?php
 echo $messages;
-return;
 ?>
 
 
@@ -18,8 +17,12 @@ return;
 @section('content')
 <div class="container">
     <!-- この中にコンテンツ -->
-</div>
-
+    @foreach($messages as $message)
+  
+    <a href="messages/{{$message->id}}'">test</a>
+    @endforeach
+   </div>
+    
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
