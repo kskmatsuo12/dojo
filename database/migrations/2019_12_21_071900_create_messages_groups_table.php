@@ -16,7 +16,6 @@
                 Schema::create("messages_groups", function (Blueprint $table) {
 
 						$table->increments('id');
-						$table->integer('group_id')->nullable();
 						$table->string('group_message',1000)->nullable();
 						$table->integer('group_messages_from')->nullable();
 						$table->integer('group_message_which')->nullable();

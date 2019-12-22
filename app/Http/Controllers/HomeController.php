@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon¥Carbon;
 
  //飯田ファイルはここから
   use App\User;
   use App\Job;
   use App\Suggestion;
+  use App\Client;
 
   class HomeController extends Controller
 // Userコントローラーとして使う。
@@ -37,7 +39,8 @@ use Illuminate\Support\Facades\Auth;
       //userホーム画面
       public function logout()
       {
-          return Auth::logout();
+          Auth::logout();
+          return redirect('/');
       }
 
       public function index(Request $request)
@@ -147,23 +150,22 @@ use Illuminate\Support\Facades\Auth;
       {
           $validator = Validator::make($request->all(), [
     
-          'user_last_company' => 'required',
-          'user_last_company_dept' => 'required',
-          'user_last_company_position' => 'required',
-          'user_last_company_since' => 'required',
-          'user_last_company_since' => 'required',
-          'user_last_company_until' => 'required',
-          'user_birthday' => 'required',
-          'user_last_degree' => 'required',
-          'user_last_school'=> 'required',
-          'user_last_school_dept' => 'required',
-          'user_gender' => 'required',
-          'user_language' => 'required',
-          'user_licence' => 'required',
-          'user_last_company_exp' => 'required'
+        //   'user_last_company' => 'required',
+        //   'user_last_company_dept' => 'required',
+        //   'user_last_company_position' => 'required',
+        //   'user_last_company_since' => 'required',
+        //   'user_last_company_since' => 'required',
+        //   'user_last_company_until' => 'required',
+        //   'user_birthday' => 'required',
+        //   'user_last_degree' => 'required',
+        //   'user_last_school'=> 'required',
+        //   'user_last_school_dept' => 'required',
+        //   'user_gender' => 'required',
+        //   'user_language' => 'required',
+        //   'user_licence' => 'required',
+        //   'user_last_company_exp' => 'required'
 
         ]);
-        
           $uid = Auth::id();
           $users = User::find($uid);
           $users->user_last_company = $request->user_last_company;
@@ -180,6 +182,10 @@ use Illuminate\Support\Facades\Auth;
           $users->user_language = $request->user_language;
           $users->user_licence = $request->user_licence;
           $users->user_last_company_exp = $request->user_last_company_exp;
+          
+          $users->image_url = $request->file('image_url')->store('public/user_profile_image');
+          $users->image_url = str_replace('public/', '/storage/', $users->image_url);
+          
           $users->save();
           return redirect('/home');
       }
@@ -208,13 +214,17 @@ use Illuminate\Support\Facades\Auth;
       public function issuesIndex(Job $jobs)
       {
           $uid = Auth::id();
+          $job_id = $jobs->id;
+          $client_id = $jobs->client_id;
+          $client = Client::where('id', $client_id)->get();
           $did = false;
-          $true_false = Suggestion::where('user_id', $uid)->get();
-          if ($true_false) {
+          $true_false = Suggestion::where('job_id', $job_id)->where('user_id', $uid)->get()->count();
+          
+          if ($true_false == 1) {
               $did = true;
           }
 
-          return view('users/issues/index', ['job'=>$jobs,'did'=>$did]);
+          return view('users/issues/index', ['job'=>$jobs,'did'=>$did,'client'=>$client]);
       }
 
       //案件応募
@@ -223,8 +233,8 @@ use Illuminate\Support\Facades\Auth;
           $uid = Auth::id();
           $did = false;
           $job_id = $request->job_id;
-          $true_false = Suggestion::where('user_id', $uid)->where('job_id', $job_id)->get();
-          if ($true_false) {
+          $true_false = Suggestion::where('user_id', $uid)->where('job_id', $job_id)->get()->count();
+          if ($true_false == 1) {
               $did = true;
           }
           return view('users/issues/proposal', ['job_id'=>$job_id, 'did'=>$did]);
@@ -247,8 +257,8 @@ use Illuminate\Support\Facades\Auth;
       {
           $client_id = $request->client_id;
           $job_id = $request->job_id;
-          $user_id = Auth::user()->id;
           $suggestion_text = $request->suggestion_text;
+          $user_id = Auth::id();
 
           $suggestions = new Suggestion;
           $suggestions->job_id = $job_id;

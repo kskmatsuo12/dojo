@@ -20,9 +20,13 @@ $suggestions=[];
 
 
 <style>
-
-body{
-  background:#f2feff;
+    
+body {
+        background:#f2feff;
+}
+    
+a {
+        color: #575757;
 }
 
 .contains{
@@ -34,6 +38,8 @@ body{
 .contain{
     display:inline-block;
 }
+
+
 .pjts{
     float: left;
     position: relative;
@@ -42,6 +48,9 @@ body{
     padding:10px;
     margin-bottom:150px;
 }
+
+
+
 
 .pjts:hover{
     opacity:0.6;
@@ -99,6 +108,8 @@ body{
     margin: 0 auto 20px;
     border-radius: 50px;
 }
+
+
 
 .btn{
     background: rgb(67,196,207);
@@ -174,7 +185,7 @@ body{
                     // echo $job1->id;
                     ?>
                     <div class="pjts">
-                    <a href="issues/<?php echo $job1[0]->id ?>">
+                    <a href="issues/<?php echo $job1[0]->id ?>" class="link">
                         <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">
@@ -203,6 +214,7 @@ body{
             <div class="contain">
                 @foreach ($jobs as $job)
                 <div class="pjts">
+                    <a href="issues/<?php echo $job->id ?>">
                     <div class="pjt">
                         <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                         <div class="info">
@@ -211,6 +223,7 @@ body{
                             <p class="pjt_name">{{$job->consultation}}</p>
                         </div>
                     </div>
+                    </a>
                 </div>
                 @endforeach
             </div>
