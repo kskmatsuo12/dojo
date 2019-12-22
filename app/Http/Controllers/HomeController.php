@@ -199,8 +199,10 @@ use Illuminate\Support\Facades\Auth;
       // 案件一覧
       public function issues()
       {
+          $uid = Auth::id();
           $jobs = Job::orderBy('created_at', 'desc')->get();
-          return view('users/issues', ['jobs' => $jobs]);
+          $suggestions = Suggestion::where('user_id', $uid)->get();
+          return view('users/issues', ['jobs' => $jobs,'suggestions'=>$suggestions]);
       }
 
       //サイトマップ
