@@ -1,3 +1,7 @@
+<?php
+echo $room_id;
+?>
+
 @extends('layouts.app')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">

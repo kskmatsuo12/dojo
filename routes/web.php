@@ -110,10 +110,6 @@ Auth::routes();
     Route::get('ClientProjectDone', 'ClientsController@projectDone');
     Route::get('ClientAssessmentDone', 'ClientsController@assessmentDone');
 
-
-
-    Route::get('/clients/messages/{id}', 'ClientsController@messagesIndex');
-    Route::get('/clients/messages/group/{id}', 'ClientsController@messagesGroupIndex');
     Route::get('/clients/player/assessment', 'ClientsController@playerAssessment');
 
     //クライアントの表示だけここまで
@@ -129,6 +125,13 @@ Auth::routes();
     Route::get('/clients/suggestions/{suggestions}', 'ClientsController@suggestionsIndex');
     //応募の受理
     Route::post('/clients/accept', 'ClientsController@accept');
+
+    //ユーザーメッセージルーム画面
+    Route::get('/message', 'MessageController@message');
+    //個別メッセージページ
+    Route::get('/clients/messages/message_room', 'MessageController@message_room')->name('room.show');
+    //メッセージ送信
+    Route::post('/clients/message/post', 'MessageController@message_post_client');
 
     //以下テスト用
     Route::get('/iida/test1', 'IidaController@test1');

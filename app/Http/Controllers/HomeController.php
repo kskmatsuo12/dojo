@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Carbon¥Carbon;
 
  //飯田ファイルはここから
   use App\User;
@@ -233,11 +232,13 @@ use Carbon¥Carbon;
           $uid = Auth::id();
           $did = false;
           $job_id = $request->job_id;
+          $job = Job::find($job_id);
+          $client_id = $job->client_id;
           $true_false = Suggestion::where('user_id', $uid)->where('job_id', $job_id)->get()->count();
           if ($true_false == 1) {
               $did = true;
           }
-          return view('users/issues/proposal', ['job_id'=>$job_id, 'did'=>$did]);
+          return view('users/issues/proposal', ['job_id'=>$job_id,'user_id'=>$uid,'client_id'=>$client_id, 'did'=>$did]);
       }
 
       //案件応募確認
