@@ -21,6 +21,13 @@ use App\Job;
 
 
 <style>
+body{
+    background:#f2feff;
+    padding-top: 0rem;
+    color: #5a5a5a;
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
 .btn{
     background: rgb(67,196,207);
     padding:15px;
@@ -41,13 +48,6 @@ use App\Job;
 
 .carousel-item p{
     text-shadow: 2px 1px 2px rgba(0,0,0,0.4);
-}
-
-body{
-    background:#f2feff;
-    padding-top: 0rem;
-    color: #5a5a5a;
-    font-family: 'M PLUS 1p', sans-serif;
 }
 
 .contains{
@@ -93,7 +93,7 @@ body{
 
 }
 
-.pjt_term{
+.skill{
     font-size: 13px;
     color: rgb(67,196,207);
     margin:5px 0 10px;
@@ -115,7 +115,7 @@ body{
     line-height: 50px;
     font-size: 18px;
     font-weight: bold;
-    color:rgb(67,196,207);
+    /* color:rgb(67,196,207); */
     letter-spacing:1px;
 }
 
@@ -147,21 +147,19 @@ body{
     color: #575757;
 }
 
-.skill{
+.president{
     position: absolute;
     background: rgba(67,196,207);
     color: white;
     top: -38%;
-    left: 22%;
+    left: 30%;
     font-size: 10px;
     border-radius: 10px;
     padding: 6px;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-
     box-shadow: 0px 0px 5px rgba(255,255,255,0.3);
-
 }
 
 @media screen and (min-width: 781px) {
@@ -185,7 +183,6 @@ body{
 
     .pjt img{
         width:240px;
-        
     }
 
     .info{
@@ -200,7 +197,7 @@ body{
         -webkit-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
     }
-    .skill {
+    .president {
         position: absolute;
         background: rgba(67,196,207);
         color: white;
@@ -331,12 +328,11 @@ body{
 
                         <img src="https://skillshift-production.s3.ap-northeast-1.amazonaws.com/file1575512880-802.png" alt="">
                         <div class="info">
-                            <p class="pjt_term">{{$job->recruitment_term}}</p>
+                            <p class="skill">{{$job->recruit_advisor}}</p>
                             <p class="pjt_title">{{$job->job_title}}</p>
                             <p class="pjt_name">{{$job->consultation}}</p>
-                            <h3 class="skill">{{$job->recruit_advisor}}</h3>
+                            <h3 class="president">{{$job->president}}</h3>
                         </div>
-
                     </div>
                 </a> 
                 </div>

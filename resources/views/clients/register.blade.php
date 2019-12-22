@@ -1,8 +1,9 @@
 @extends('layouts.app')
+@include('layouts/header')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-    <!-- CSSファイル指定してください -->
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/???.css') }}">
     <!-- CSSファイル指定してください -->
 </head>
@@ -10,6 +11,7 @@
 <style>
 body{
     background:#f2feff;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 .container {
   width: 100%;
@@ -18,7 +20,7 @@ body{
 .container h1{
     text-align: center;
     margin:50px auto;
-    color:rgb(67,196,207);
+    /* color:rgb(67,196,207); */
     font-size: 18px;
     font-weight: bold;
     letter-spacing:1px;
@@ -53,10 +55,10 @@ button{
     border-radius: 50px;
     background: #75d7e0;
     font-size: 16px;
-    font-weight: bold;
+
     letter-spacing:3px;
     color:#ffffff;
-    margin: 50px auto 20px;
+    margin: 50px auto 80px;
     user-select: none;
     outline: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
@@ -65,8 +67,16 @@ button{
 button:hover{
     box-shadow: none;
     background: #43c4cf;
+    font-weight: bold;
 }
-
+.con{
+    width: 75%;
+    background: #ffffff;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px rgb(82, 147, 151);
+}
 @media screen and (min-width: 781px) {
     .client_form input{
         display: flex;
@@ -79,12 +89,21 @@ button:hover{
         padding: 5px;
         border-radius: 5px;
         border: 1px solid rgb(168, 168, 168);
-        width: 40%;
+        width: 50%;
     }
     .client_form label{
         padding:0px;
         display: flex;
         justify-content: center;
+    }
+
+    .con{
+        width: 50%;
+        background: #ffffff;
+        margin: 0 auto;
+        padding: 30px 10px;
+        border-radius: 10px;
+        box-shadow: 0px 1px 3px rgb(82, 147, 151);
     }
 }
 
@@ -103,6 +122,7 @@ button:hover{
 
     <h1>サービスを使ってみる</h1>
     @include('common.errors')
+    <div class="con">
     <form action="{{ url('clientsRegister') }}" method="POST" class="">
     {{ csrf_field() }}
         <div class="form-group">
@@ -128,6 +148,8 @@ button:hover{
             </div>
         </div>
 
+    </div>
+
         <div class="form-group">
             <div class="col-sm">
                 <button type="submit" class="btn btn-primary">
@@ -135,11 +157,11 @@ button:hover{
                 </button>
             </div>
         </div>
-    </form>
+        </form>
 </div>
 
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
-
+@include('layouts/sp_menu')
 @endsection
