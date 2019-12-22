@@ -218,9 +218,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">ログイン</a></li>
-                            <li><a href="{{ url('/clients/register_form') }}">クライアント用の新規登録</a></li>
-                            <li><a href="{{ url('/clients/login_form') }}">クライアント用のログイン</a></li>
+                            <li><a href="{{ route('login') }}">個人ユーザーのログイン</a></li>
+                            <li><a href="{{ url('/clients/register_form') }}">法人ユーザーの新規登録</a></li>
+                            <li><a href="{{ url('/clients/login_form') }}">法人ユーザーのログイン</a></li>
 
                         @else
                             <li class="dropdown">

@@ -2,14 +2,14 @@
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-    <!-- CSSファイル指定してください -->
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
-    <!-- CSSファイル指定してください -->
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 </head>
 
 <style>
 body{
     background:#f2feff;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 .col-sm-6{
     display: flex;
@@ -34,7 +34,7 @@ select,input{
     margin: 12px;
     border-radius: 5px;
     border: 1px solid rgb(168, 168, 168);
-    width: 250px;
+    width: 300px;
 }
 
 input[type=radio] {
@@ -66,9 +66,7 @@ input[type="radio"]:checked + label {
     color: #ffffff; 
     border: 1px solid rgb(240, 240, 240);
 }
-input::placeholder {
-    /* color: rgb(204, 204, 204); */
-}
+
 button{
     display: flex;
     justify-content: center;
@@ -76,22 +74,23 @@ button{
     height: 50px;
     border-radius: 50px;
     background: #75d7e0;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     letter-spacing:3px;
     color:#ffffff;
-    margin: 30px auto 20px;
+    margin: 30px auto 80px;
     user-select: none;
     outline: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
     cursor: pointer;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 button:hover{
     box-shadow: none;
     background: #43c4cf;
 }
 span{
-    font-size: 10px;
+    font-size: 8px;
     color:white;
     background:crimson;
     letter-spacing:0px;
@@ -136,22 +135,27 @@ table{
 }
 
 .container{
-    margin: 50px auto;
+    margin: 20px auto;
     display: flex;
     justify-content: center;
     /* width: 40%; */
 }
 
+.line img {
+  width: 60%;
+  display: flex;
+  margin: 0 auto 20px;
+}
+
 @media screen and (max-width:800px) { 
     table {
-        width:90%;
-        font-size: 14px;
+        width:85%;
+        font-size: 11px;
     } 
     tr{
         height: 30px;
         margin: 10px auto;
         letter-spacing:0px;
-        
         }
 
     th{
@@ -196,7 +200,7 @@ table{
         display: none;
     } */
     label{
-        font-size:13px;
+        font-size:12px;
         margin:0 10px 0 0;
         height: 30px;
         line-height: 30px;
@@ -206,13 +210,29 @@ table{
 
     }
 
+    .line img {
+        width: 90%;
+        display: flex;
+        margin: 0 auto 10px;
+    }
+    button{
+    font-size: 12px;
+    }
+
 }
 </style>
 
+
+
 <!-- CSSファイルの指定をしてください〜 -->
 @section('content')
+@include('layouts/header')
 <div class="container">
     <!-- この中にコンテンツ -->
+    <div class="line">
+        <img src="{{ asset('images/pic2.png') }}" alt="">
+    </div>
+
     <form action="{{ url('profile2') }}" method="GET" class="">
     <table>
         <tr>
@@ -396,5 +416,6 @@ table{
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/profile.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
-
+@include('layouts/sp_menu')
 @endsection
+

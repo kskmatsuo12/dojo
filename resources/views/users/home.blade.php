@@ -6,11 +6,10 @@
 
 <?php
 use App\Job;
-
 ?>
 
 @extends('layouts.app')
-
+@include('layouts/header')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
@@ -36,7 +35,7 @@ use App\Job;
 
 .carousel-item h1{
     font-weight: bold;
-
+    font-size:30px;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
 }
 
@@ -160,6 +159,9 @@ body{
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
+
+    box-shadow: 0px 0px 5px rgba(255,255,255,0.3);
+
 }
 
 @media screen and (min-width: 781px) {
@@ -210,6 +212,8 @@ body{
         -ms-transform: translate(-50%,-50%);
         -webkit-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
+        box-shadow: 0px 0px 5px rgba(255,255,255,0.3);
+
     }
 }
 @media screen and (min-width: 1040px) {
@@ -224,6 +228,7 @@ body{
 </style>
 <!-- CSSファイルの指定をしてください〜 -->
 @section('content')
+
     <main role="main">
 
          <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -298,7 +303,7 @@ body{
                             <div class="info">
                                 <p class="pjt_term">{{$job1[0]->recruitment_term}}</p>
                                 <p class="pjt_title">{{$job1[0]->job_title}}</p>
-                                <p class="pjt_name">{{$job1[0]->client_}}</p>
+                                <p class="pjt_name">{{$job1[0]->recruit_advisor}}</p>
                             </div>
                         </div>
                     </a>

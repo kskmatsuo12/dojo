@@ -8,20 +8,24 @@
 
 
 @extends('layouts.app')
+@include('layouts/header')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/users/issues/index.css') }}">
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
 </head>
 
 
 @section('content')
-@include('layouts/header')
+
 <div class="container">
     <!-- この中にコンテンツ -->
+
     @if($did == true)
-    <p class="red">応募済みのプロジェクトです</p>
+    <p class="red">応募済み</p>
 
     @endif
 
@@ -34,6 +38,7 @@
 
         <div class="client_wrap">
             <div class="client_title">
+
                 <p>社名 {{$client[0]->client_name}}</p>
             </div>
             <div class="client_url">
@@ -43,6 +48,7 @@
                 <li><i class="fas fa-home"></i> 事業内容 {{$client[0]->client_biz}} </li>
                 <li><i class="fas fa-flag"></i> 社員数 {{$client[0]->client_num_emp}} </li>
                 <li><i class="fas fa-map-marker-alt"></i> 所在地 {{$client[0]->client_loc}} </li>
+
             </ul> 
         </div>
         
