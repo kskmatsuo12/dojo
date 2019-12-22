@@ -6,8 +6,8 @@
   display: flex;
   justify-content: space-between;
   margin-right: 32px;
-  box-shadow: 0px 2px 3px rgb(82, 147, 151,0.5);
-  z-index:100;
+  box-shadow: 0px 2px 3px rgb(82, 147, 151, 0.5);
+  z-index: 100;
 }
 
 .brand_img {
@@ -29,15 +29,15 @@
   align-items: center;
 }
 
-.header-icon{
+.header-icon {
   height: 50px;
-  padding:3px;
+  padding: 3px;
 }
 .header-icon i {
   margin-top: 10px;
   margin-right: 10px;
   font-size: 24px;
-  color:rgb(92, 92, 92);
+  color: rgb(92, 92, 92);
 }
 
 @media screen and (min-width: 781px) {

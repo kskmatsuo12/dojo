@@ -5,12 +5,12 @@
 
 <div class="header sp_menu">
     <div class="brand_img">
-        <img alt="logo" class="logo" src="{{ asset('/images/dojo.png') }}"> 
+        <a href="/home"><img alt="logo" class="logo" src="{{ asset('/images/dojo.png') }}"></a>
     </div>
     <div>
         <div class="header-icon">
-            <i class="fas fa-bell"></i>
-            <i class="fas fa-user-circle"></i>
+            <a href=""><i class="fas fa-bell"></i></a>
+            <a href=""><i class="fas fa-user-circle"></i></a>
         </div>
     </div>
 </div>

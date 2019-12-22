@@ -3,7 +3,6 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
-$suggestions=[];
 
 ?>
 
@@ -167,7 +166,7 @@ a {
 </style>
 <!-- CSSファイルの指定をしてください〜 -->
 @section('content')
-
+@include('layouts/header')
 <div class="container">
     <div class="jobbox">
 
