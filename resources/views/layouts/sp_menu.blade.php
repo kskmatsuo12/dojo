@@ -6,23 +6,21 @@
 
 <div class="sp-menu">
     <div class="sp-menu-item">
-        <a class="">
+        <a class="" href="/home">
             <i class="fas fa-home"></i>
             <p>ホーム</p>
         </a>
     </div>
     <div class="sp-menu-item">
-        <a class="">
+        <a class="" href="/issues">
             <i class="fas fa-edit"></i>
             <p>応募する</p>
         </a>
     </div>
     <div class="sp-menu-item">
-
-        <a class="">
+        <a class="" href="/messages">
             <i class="far fa-comments"></i>
             <p>メッセージ</p>
-
         </a>
     </div>
     <div class="sp-menu-item">
