@@ -24,8 +24,9 @@
         // $target_user_ids[] = $target_user[$i] ->user_id ;
         $users[] = User::where('id', $target_user[$i] ->user_id)->first(); ;
     }
-    // var_dump ($target_user_ids);
-    var_dump ($users[0]["name"]);
+    var_dump ($target_user);
+    var_dump (count($target_user));
+    // var_dump ($users[0]["name"]);
 ?>  
 
 <style>
@@ -246,11 +247,11 @@
     </tbody>
     @if (count($users) > 0)
     @for ($i=0;$i<@count($users);$i++)
-    <input type="hidden" name="id[{{$i}}]" value="{{$users[$i]->id}}">
+    <input type="hidden" name="id{{$i}}" value="{{$users[$i]->id}}">
     <tr>
         <td>{{$users[$i]->name}}　{{$users[$i]->user_name_mei}}</td>
         <td>
-            <select id="user_assess[{{$users[$i]->id}}]" type="text" name="user_exp_job[{{$i}}]" value="{{old('user_exp_job')}}" class="form-control" placeholder="">
+            <select id="user_assess[{{$users[$i]->id}}]" type="text" name="user_exp_job{{$i}}" value="{{old('user_exp_job')}}" class="form-control" placeholder="">
                 <option value="">（選択）</option>
                 <option value="15">またお願いしたい</option>
                 <option value="10">貢献度大</option>
@@ -258,7 +259,7 @@
             </select>
         </td>
         <td>
-        <textarea type="text" name="user_worrying[{{$i}}]" value="{{old('user_worrying')}}" placeholder="ご記載いただいた内容は参加者に届けられます。参加者の成長につながるようなコメントや感謝のコメントをご記入いただきたいと思います。"></textarea>
+        <textarea type="text" name="user_worrying{{$i}}" value="{{old('user_worrying')}}" placeholder="ご記載いただいた内容は参加者に届けられます。参加者の成長につながるようなコメントや感謝のコメントをご記入いただきたいと思います。"></textarea>
         </td>
         <!-- id紐づけ -->
     </tr>  
