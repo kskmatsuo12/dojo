@@ -27,6 +27,13 @@ class MessageController extends Controller
         return view('users/messages/message', ['uid'=>$uid,'rooms'=>$rooms[0]]);
     }
 
+    public function messages_view(Request $request)
+    {
+        $client_id = $request->session()->get('id');
+        $rooms = MessagesRoom::where('client_id', $client_id)->get();
+        return view('clients/messages/message', ['rooms'=>$rooms]);
+    }
+
     public function message_room(Request $request)
     {
         $room_id = $request->room_id;

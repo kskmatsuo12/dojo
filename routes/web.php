@@ -128,6 +128,9 @@ Auth::routes();
 
     //ユーザーメッセージルーム画面
     Route::get('/message', 'MessageController@message');
+
+    //クライアントメッセージルーム一覧
+    Route::get('/clients/messages', 'MessageController@messages_view');
     //個別メッセージページ
     Route::get('/clients/messages/message_room', 'MessageController@message_room')->name('room.show');
     //メッセージ送信
