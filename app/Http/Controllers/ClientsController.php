@@ -380,8 +380,21 @@ class ClientsController extends Controller
             $assessment->take_point = $upt;
             $assessment->save();
         }
-            return redirect('/clients/home');
-    }
+        //job_statusを3→4（案件終了）に変更
+        $jobs = Job::find($job_id);
+        $jobs->job_status = 4;
+        $jobs->save();
+
+        //suggestionのprogress_infoを4に変更
+        // $suggestions = Suggestion::where('job_id', $job_id)->get();
+        // foreach ($suggestions as $suggestion) {
+        //     if($suggestion->progress_info === 3){
+        //         $suggestion->progress_info = 4;
+        //         $suggestion->save();
+        //         }
+        //     }
+    return redirect('/clients/home');
+}
     
 
     public function suggestionsIndex(Suggestion $suggestions)

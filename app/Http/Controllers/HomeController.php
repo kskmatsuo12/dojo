@@ -47,7 +47,7 @@ use Illuminate\Support\Facades\Auth;
           $uid = Auth::id();
           //案件を５件だけ表示
           $jobs = Job::orderBy('created_at', 'desc')->take(5)->get();
-          $suggestions = Suggestion::where('progress_info', 1)->where('user_id', $uid)->get();
+          $suggestions = Suggestion::where('progress_info','<', 4)->where('user_id', $uid)->get();
           $user = Auth::user();
           return view('users/home', [
             'user' => $user, 'jobs' => $jobs, 'suggestions' => $suggestions
@@ -220,12 +220,16 @@ use Illuminate\Support\Facades\Auth;
           $client = Client::where('id', $client_id)->get();
           $did = false;
           $true_false = Suggestion::where('job_id', $job_id)->where('user_id', $uid)->get()->count();
+
+          //飯田追加（12/22）該当のsuggestionのレコードを取得（issues/indexでprogress_infoに応じて表示する項目を変更させる）
+          $suggestions = Suggestion::where('job_id', $job_id)->where('user_id', $uid)->first();
+          //
           
           if ($true_false == 1) {
               $did = true;
           }
 
-          return view('users/issues/index', ['job'=>$jobs,'did'=>$did,'client'=>$client]);
+          return view('users/issues/index', ['job'=>$jobs,'did'=>$did,'client'=>$client, 'suggestion'=>$suggestions]);
       }
 
       //案件応募
@@ -305,7 +309,7 @@ use Illuminate\Support\Facades\Auth;
       }
 
       //企業評価
-      public function assessment()
+      public function assessment(Request $request)
       {
           return view('users/issues/assessment');
       }
