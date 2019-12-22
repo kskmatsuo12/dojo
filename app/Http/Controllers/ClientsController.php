@@ -290,9 +290,10 @@ class ClientsController extends Controller
         // $suggestions->progress_info = 5;
         // $suggestions->save();
         foreach ($suggestions as $suggestion) {
-
-            $suggestion->progress_info = 5;
-            $suggestion->save();
+            if($suggestion->progress_info === 1){
+                $suggestion->progress_info = 5;
+                $suggestion->save();
+            }
         
         }
         return redirect('/clients/home');
@@ -304,6 +305,15 @@ class ClientsController extends Controller
         $jobs = Job::find($request->id);
         $jobs->job_status = 3;
         $jobs->save();
+        $suggestions = Suggestion::where('job_id', $jobs->id)->get();
+        foreach ($suggestions as $suggestion) {
+            if($suggestion->progress_info === 2){
+                $suggestion->progress_info = 3;
+                $suggestion->save();
+            }
+        
+        }   
+
         return redirect('/clients/home');
     }
 
