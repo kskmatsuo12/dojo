@@ -259,13 +259,13 @@
             </select>
         </td>
         <td>
-        <textarea type="text" name="user_worrying{{$i}}" value="{{old('user_worrying')}}" placeholder="ご記載いただいた内容は参加者に届けられます。参加者の成長につながるようなコメントや感謝のコメントをご記入いただきたいと思います。"></textarea>
+        <textarea type="text" name="user_worrying{{$i}}" placeholder="ご記載いただいた内容は参加者に届けられます。参加者の成長につながるようなコメントや感謝のコメントをご記入いただきたいと思います。"></textarea>
         </td>
         <!-- id紐づけ -->
     </tr>  
     @endfor
     <input type="hidden" name="kosuu" value="{{$i}}">
-    <input type="hidden" name="cline_id" value="{{$client_id}}">
+    <input type="hidden" name="client_id" value="{{$client_id}}">
     <input type="hidden" name="job_id" value="{{$job_id}}">
 
     @endif

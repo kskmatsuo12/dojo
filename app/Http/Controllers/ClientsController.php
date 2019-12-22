@@ -357,14 +357,17 @@ class ClientsController extends Controller
     {
         $kosuu = $request->kosuu;
         $client_id = $request->client_id;
+        $job_id = $request->job_id;
+
 
         for($i=0;$i<$kosuu;$i++){
             $id='id'.$i;
             $user_point='user_point'.$i;
-            $user_worring='user_worrying'.$i;
+            $user_worrying='user_worrying'.$i;
 
             $uid = $request->$id;
             $upt = $request->$user_point;
+            $comment = $request->$user_worrying;
             $users = User::where('id', $uid)->first();
             $users->user_point += $upt;
             $users->save();
@@ -373,7 +376,7 @@ class ClientsController extends Controller
             $assessment->user_id = $uid;
             $assessment->client_id = $client_id;
             $assessment->job_id = $job_id;
-            $assessment->user_worring = $user_worring;
+            $assessment->user_worrying = $comment;
             $assessment->take_point = $upt;
             $assessment->save();
         }
