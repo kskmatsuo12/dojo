@@ -115,7 +115,7 @@ Auth::routes();
 
     //クライアントの表示だけここまで
     //ここから飯田ファイル
-    Route::get('/clientsPost', 'ClientsController@jobPost');
+    Route::post('/clientsPost', 'ClientsController@jobPost');
     //ホーム画面。
     Route::get('/clients/home', 'ClientsController@Clienthome');
     Route::post('/clientsProfile', 'ClientsController@profileUpdate');
