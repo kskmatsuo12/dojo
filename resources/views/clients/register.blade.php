@@ -45,6 +45,7 @@ body{
     border-radius: 5px;
     border: 1px solid rgb(168, 168, 168);
     width: 70%;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 
 button{
@@ -63,6 +64,7 @@ button{
     outline: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
     cursor: pointer;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 button:hover{
     box-shadow: none;
@@ -77,6 +79,12 @@ button:hover{
     border-radius: 10px;
     box-shadow: 0px 1px 3px rgb(82, 147, 151);
 }
+
+.line img {
+        width: 85%;
+        display: flex;
+        margin: 25px auto 18px;
+    }
 @media screen and (min-width: 781px) {
     .client_form input{
         display: flex;
@@ -105,6 +113,13 @@ button:hover{
         border-radius: 10px;
         box-shadow: 0px 1px 3px rgb(82, 147, 151);
     }
+
+    .line img {
+    width: 60%;
+    display: flex;
+    margin: 30px auto 20px;
+    }
+
 }
 
 @media screen and (min-width: 1040px) {
@@ -119,8 +134,10 @@ button:hover{
 @section('content')
 <div class="container">
     <!-- この中にコンテンツ -->
-
-    <h1>サービスを使ってみる</h1>
+    <div class="line">
+        <img src="{{ asset('images/pic7.png') }}" alt="">
+    </div>
+    <!-- <h1>サービスを使ってみる</h1> -->
     @include('common.errors')
     <div class="con">
     <form action="{{ url('clientsRegister') }}" method="POST" class="">
