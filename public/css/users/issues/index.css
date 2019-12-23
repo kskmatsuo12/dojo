@@ -142,6 +142,7 @@ h2 {
 
 .section6 p {
   margin-top: 12px;
+  margin-bottom: 30px;
   line-height: 20px;
   background: white;
   padding: 15px;
@@ -151,9 +152,7 @@ h2 {
 
 .section7 {
   margin-top: 12px;
-
-  margin-bottom: 18px;
-
+  margin-bottom: 25px;
 }
 
 .section7 span {
@@ -168,6 +167,7 @@ h2 {
 .section7 p {
   margin-top: 12px;
   line-height: 20px;
+  margin-bottom: 20px;
   background: white;
   padding: 15px;
   border-radius: 3px;
