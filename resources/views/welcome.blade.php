@@ -8,8 +8,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'dojo') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 </head>
 <style>
+body{
+    font-family: 'M PLUS 1p', sans-serif;
+}
 .top{
     background-image: url("/images/top.jpeg");
     position: absolute;
@@ -59,19 +63,22 @@
     font-weight: bold;
     color:#43c4cf;
     letter-spacing: 2px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-#top_body{
+#top_title p{
+    margin: 0;
+}
+
+#top_body {
     width: 36%;
-    padding: 20px 30px;
+    padding: 15px 30px;
     background: #fff;
-    border: 1px solid #43c4cf;
     border-radius: 5px;
-    box-shadow:5px 5px 5px rgba(26, 43, 46, 0.6);
+    box-shadow: 5px 5px 5px rgba(26, 43, 46, 0.6);
     position: absolute;
-    top: 52%;
+    top: 54%;
     left: 74%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -86,7 +93,7 @@
     border: none;
     letter-spacing: 2px;
     text-align: center;
-    margin: 20px auto 0;
+    margin: 10px auto 0;
     justify-content: center;
     display: flex;
 }
@@ -120,10 +127,29 @@
     color:#fff;
     position: absolute;
     top: 40%;
-    left: 27%;
+    left: 26%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
+}
+
+    .nav li a {
+        border: 1px solid lightgray;
+        line-height: 0px;
+        padding: 11px;
+        height: 20px;
+        border-radius: 7px;
+        margin: 12px;
+        vertical-align: middle;
+        color:lightgray;
+}
+
+.nav li a:hover {
+    background-color: lightgray;
+}
+
+.nav li p:hover {
+        background-color: lightgray;
 }
 
 @media screen and (max-width:767px) { 
@@ -254,7 +280,7 @@
         <div class="top">
             <div class="copy">
                 <h1>新時代の学び体験</h1>
-                <h2>スキルで繋ぐ社会貢献型プロジェクト</h2>
+                <h2>人と組織の変わりたいを応援する</h2>
             </div>
             <div class="card-body" id="top_body">
                 
