@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 <?php
-use App\Suggestion;
-use App\User;
-use App\Job;
-//おすすめのユーザー5人
-$suggestions = Suggestion::take(5)->get();
-$users = User::take(5)->get();
-$id=session()->get('id');
-$jobs = Job::take(5)->get();
 
 ?>
 <head>
@@ -175,29 +167,7 @@ $jobs = Job::take(5)->get();
         </div>
 
         <div class="contains">
-            @if (count($suggestions) > 0)
-                <div class="contain">
-                    @foreach ($suggestions as $suggestion)
-                    <?php
-                    $job1 = Job::where('id', $suggestion->job_id)->get();
-                    // echo $job1->id;
-                    ?>
-                    <div class="pjts">
-                    <a href="issues/<?php echo $job1[0]->id ?>">
-
-                        <div class="pjt">
-                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
-                            <div class="info">
-                                <p class="pjt_term">{{$job1[0]->recruitment_term}}</p>
-                                <p class="pjt_title">{{$job1[0]->job_title}}</p>
-                                <p class="pjt_name">{{$job1[0]->client_}}</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    @endforeach
-                </div>
-            @endif
+          
         </div>
     </div>
 
@@ -208,28 +178,7 @@ $jobs = Job::take(5)->get();
             <h2>　　</h2>
         </div>
 
-        <div class="contains">
-        @if (count($jobs) > 0)
-            <div class="contain">
-                @foreach ($jobs as $job)
 
-                <a href="issues/<?php echo $job->id ?>">
-                    <div class="pjts">
-                        <div class="pjt">
-                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
-                            <div class="info">
-                                <p class="pjt_term">{{$job->recruitment_term}}</p>
-                                <p class="pjt_title">{{$job->job_title}}</p>
-                                <p class="pjt_name">{{$job->consultation}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>       
-
-                @endforeach
-            </div>
-            @endif
-        </div>
     </div>
 
 </div>

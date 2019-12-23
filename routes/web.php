@@ -111,11 +111,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/clients/profile', 'ClientsController@profile');
     Route::get('/clients/post', 'ClientsController@postForm');
     Route::get('/clients/players', 'ClientsController@players');
+    Route::get('/clients/players/{id}', 'ClientsController@playersIndex');
     Route::get('/clients/my', 'ClientsController@my');
     Route::get('/clients/messages', 'ClientsController@messages');
     Route::get('/clients/sitemap', 'ClientsController@sitemap');
     Route::get('/clients/post/comfirm', 'ClientsController@postComfirm');
-    Route::get('/clients/players/{id}', 'ClientsController@playersIndex');
     Route::get('/clients/my/index/{jobs}', 'ClientsController@myIndex');
     Route::get('ClientRequestDone', 'ClientsController@requestDone');
     Route::get('ClientProjectDone', 'ClientsController@projectDone');

@@ -246,7 +246,8 @@ class ClientsController extends Controller
 
     public function players()
     {
-        return view('clients/players');
+        $users = User::all();
+        return view('clients/players', ['users'=>$users]);
     }
 
     public function my()
