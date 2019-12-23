@@ -115,7 +115,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/clients/my', 'ClientsController@my');
     Route::get('/clients/messages', 'ClientsController@messages');
     Route::get('/clients/sitemap', 'ClientsController@sitemap');
-    Route::get('/clients/post/comfirm', 'ClientsController@postComfirm');
+    //postの確認画面
+    Route::post('/clients/post/comfirm', 'ClientsController@postComfirm');
     Route::get('/clients/my/index/{jobs}', 'ClientsController@myIndex');
     Route::get('ClientRequestDone', 'ClientsController@requestDone');
     Route::get('ClientProjectDone', 'ClientsController@projectDone');

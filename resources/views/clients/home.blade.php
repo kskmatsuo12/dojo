@@ -475,14 +475,16 @@ body{
             <div class="contain">
                 @foreach ($users as $user)
                 <div class="pjts">
-                    <div class="pjt">
-                        <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
-                        <div class="info">
-                            <p class="pjt_term">{{$user->user_prefectures}}</p>
-                            <p class="pjt_title">{{$user->user_exp_business}}</p>
-                            <p class="pjt_name">{{$user->user_exp_job}}</p>
+                    <a href="{{ url('/clients/players/index/'.$user->id)}}">
+                        <div class="pjt">
+                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                            <div class="info">
+                                <p class="pjt_term">{{$user->user_prefectures}}</p>
+                                <p class="pjt_title">{{$user->user_exp_business}}</p>
+                                <p class="pjt_name">{{$user->user_exp_job}}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 @endforeach
             </div>
