@@ -173,13 +173,19 @@ button:hover{
     height: 10px;
 }
 .job_profile_preview {
-    height: 70px;
-    width: 70px;
-    margin: 20px;
+    height: 120px;
+    width: 120px;
+    margin: 10px auto 10px;
+
+    display: flex;
+    justify-content: center;
     vertical-align: middle;
-    border-radius: 35px;
     border: solid 1px #ddd;
 }
+.gazo{
+    margin-bottom:12px;
+}
+
 
   .preview_center {
         text-align: center;
@@ -270,11 +276,6 @@ button:hover{
             <textarea type="text" name="job_text" value="{{old('job_text')}}" placeholder="例）この度○○領域で新しく事業を検討しています。弊社の次世代のビジネスを担う新規事業案について、一緒にディスカッションしませんか。"></textarea>
         </div>
 
-        <div class="wrap_profile">
-                <p>画像の登録<span class="req">必須</span></p>
-                <td class="preview_center"><input id="job_profile" type="file" name="image_url" value=""><img id="job_profile_preview" class="job_profile_preview" src="/images/top.jpeg"></td>
-        </div>
-
         <div class="wrap">
             <p class="title">相談したいこと<span class="req">必須</span></p>
             <input id="recruit_advisor2" type="radio" name="recruit_advisor" value="新規事業アイデア出し" ><label for="recruit_advisor2">新規事業アイデア出し</label>
@@ -325,6 +326,12 @@ button:hover{
             <input id="president1" type="radio" name="president" value="お墨付きあり" ><label for="president1">お墨付きあり</label>
             <input id="president2" type="radio" name="president" value="お墨付きなし" ><label for="president2">お墨付きなし</label>
         </div>
+        <div class="wrap_profile">
+                <p class="gazo">画像の登録<span class="req">必須</span></p>
+                <td class="preview_center"><input id="job_profile" type="file" name="image_url" value=""><img id="job_profile_preview" class="job_profile_preview" src="/images/top.jpeg"></td>
+        </div>
+
+
         <!-- <div class="wrap">
             <p class="title">担当者のメールアドレス<span class="req">必須</span></p>
             <input type="text" name="responsible_email" value="{{old('responsible_email')}}" placeholder="担当者のメールアドレス">
