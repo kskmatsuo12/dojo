@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@include('layouts/header_client2')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
@@ -290,5 +291,5 @@ button:hover{
 <!-- ユーザーのプロフィールでも同じファイル読み込んでるので修正する場合は注意 -->
 <script src="{{ asset('js/profile3.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
-@include('layouts/sp_menu')
+@include(('layouts/sp_menu_client'))
 @endsection

@@ -20,6 +20,7 @@ use App\Job;
 
 
 @extends('layouts.app')
+@include('layouts/header_client2')
 <?php
 
 ?>
@@ -149,10 +150,9 @@ use App\Job;
 
 @section('content')
 <div class="container">
-    <div class="jumbotron">
-        <h1>プロジェクト参加者一覧</h1>
-    </div>
     <div class="message_area">
+        <p><br></p>
+        <h1 style="text-align:center ;font-weight:bold">プロジェクト参加者一覧</h1>
         <!-- ループさせる -->
         @if(count($rooms)>0)
         @for($i=0; $i<count($rooms); $i++)

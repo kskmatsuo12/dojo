@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@include('layouts/header')
+@include('layouts/header_client2')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
