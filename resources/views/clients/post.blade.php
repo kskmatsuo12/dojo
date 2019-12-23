@@ -321,9 +321,9 @@ button:hover{
             <input type="text" name="responsible_party" value="{{old('responsible_party')}}" placeholder="担当者名">
         </div>
         <div class="wrap">
-            <p class="title">当プロジェクトは社長のお墨付き<span class="req">必須</span></p>
-            <input id="president1" type="radio" name="president" value="お墨付きあり" ><label for="president1">お墨付きあり</label>
-            <input id="president2" type="radio" name="president" value="お墨付きなし" ><label for="president2">お墨付きなし</label>
+            <p class="title">当該プロジェクトに貴社社長は参加されますか？<span class="req">必須</span></p>
+            <input id="president1" type="radio" name="president" value="社長参加" ><label for="president1">社長は参加する</label>
+            <input id="president2" type="radio" name="president" value="社長不参加" ><label for="president2">社長は参加しない</label>
         </div>
         <!-- <div class="wrap">
             <p class="title">担当者のメールアドレス<span class="req">必須</span></p>

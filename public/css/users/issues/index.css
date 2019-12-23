@@ -232,11 +232,11 @@ h2 {
 button {
   display: flex;
   justify-content: center;
-  width: 150px;
+  width: 200px;
   height: 50px;
   border-radius: 50px;
   background: #75d7e0;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
   letter-spacing: 3px;
   color: #ffffff;
@@ -252,13 +252,6 @@ button:hover {
   background: #43c4cf;
 }
 
-.btn {
-  text-decoration: none;
-  font-size: 11px;
-  color:gray;
-  display: flex;
-  justify-content: center;
-}
 
 .red {
   color: white;
@@ -282,7 +275,7 @@ button:hover {
   background: rgba(67,196,207);
   color: white;
   top: 11%;
-  left: 13%;
+  left: 50%;
   font-size: 12px;
   border-radius: 10px;
   padding: 6px;
@@ -330,6 +323,15 @@ li :last-child {
 }
 
 @media screen and (min-width: 781px) {
+  .job_table_left {
+    font-weight: normal;
+    font-size:15px;
+  }
+  .section10 span {
+      color: gray;
+      margin-left:35px;
+  }
+
   .client_kind{
     display: flex;
     justify-content: flex-end;
@@ -366,10 +368,10 @@ li :last-child {
     background: rgba(67,196,207);
     color: white;
     top: 11%;
-    left: 8%;
+    left: 50%;
     font-size: 12px;
     border-radius: 10px;
-    padding: 6px;
+    padding: 8px;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -407,7 +409,17 @@ li :last-child {
     border-bottom: 1px solid #ddd;
     display: flex;
   }
-
+  h2{
+    margin-top: 40px;
+  }
+  .section6 {
+    margin-top: 12px;
+    margin-bottom: 30px;
+}
+  .section7 {
+    margin-top: 12px;
+    margin-bottom: 35px;
+}
 }
 
 /* PC用のCSSはこちら（ここまで） */
