@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 <?php
-
+// echo $user->id;
 ?>
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <!-- CSSファイル指定してください -->
     <link rel="stylesheet" href="{{ asset('css/???.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
     <!-- CSSファイル指定してください -->
 </head>
 
@@ -87,13 +88,25 @@
     .line h1{
         padding-top:20px;
         text-align: center;
-        height: 60px;
-        line-height: 50px;
-        font-size: 18px;
+        height: 50px;
+        line-height: 30px;
+        font-size: 16px;
         font-weight: bold;
         color:rgb(67,196,207);
         letter-spacing:1px;
     }
+    .line span{
+        padding-top:20px;
+        text-align: center;
+        height: 60px;
+        line-height: 50px;
+        font-size: 24px;
+        font-weight: bold;
+        color:rgb(67,196,207);
+        letter-spacing:1px;
+        margin-right: 8px;
+    }
+
     .line h2{
         text-align: center;
         background: rgb(67,196,207);
@@ -116,6 +129,20 @@
     }
     .carousel-control-prev:hover{
         background: rgba(67,196,207, 0.2);
+    }
+
+    .user_image_wrapper{
+        width: 250px;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+
+    .user_image{
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
     }
 
 
@@ -162,7 +189,8 @@
     <div class="jobbox">
 
         <div class="line">
-            <h1>現在進捗中</h1>
+            <h1><span>{{$user->name}} {{$user->user_name_mei}}</span>さんの詳細情報</h1>
+            <h1>（{{$user->user_hurigana_sei}} {{$user->user_hurigana_mei}}）</h1>
             <h2>　　</h2>
         </div>
 
@@ -171,11 +199,23 @@
         </div>
     </div>
 
+    <div class="jobbox">
+        <div class="line">
+            <h1>プロフィール写真</h1>
+            <div class="user_image_wrapper">
+                <img class="user_image" src="{{$user->image_url}}">
+            </div>
+            <h2></h2>
+        </div>
 
     <div class="jobbox">
         <div class="line">
-            <h1>新着</h1>
-            <h2>　　</h2>
+            <h1>所在地：{{$user->user_prefectures}}</h1>
+            <h1>業界：{{$user->user_exp_business}}</h1>
+            <h1>職種：{{$user->user_exp_job}}</h1>
+
+
+            <h2></h2>
         </div>
 
 

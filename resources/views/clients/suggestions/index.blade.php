@@ -44,7 +44,7 @@
                     <img class="user_image" src="{{$user->image_url}}">
                     <span>名前:</span>
                     <span> {{$user->name}}{{$user->user_name_mei}}</span>
-                    <a href="/clients/players/{{$user->id}}">応募者の詳細</a>
+                    <a href="{{ url('/clients/players/index/'.$user->id)}}">応募者の詳細</a>
                 </div>
                 
             </div>
