@@ -156,11 +156,11 @@ h2 {
 button {
   display: flex;
   justify-content: center;
-  width: 150px;
+  width: 200px;
   height: 50px;
   border-radius: 50px;
   background: #75d7e0;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   letter-spacing: 3px;
   color: #ffffff;
@@ -178,8 +178,7 @@ button:hover {
 
 .btn {
   text-decoration: none;
-  font-size: 11px;
-  color: gray;
+
   display: flex;
   justify-content: center;
 }
@@ -241,13 +240,36 @@ li :last-child {
   font-weight: bold;
   margin: 5px;
   line-height: 24px;
+  cursor: pointer;
 }
 
-.project_url p {
-  color: grey;
+.client_title p:hover {
+  color: rgb(31, 126, 134);
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.client_title span{
+  color:gray;
+  font-size: 10px;
+}
+
+
+/* .project_url p {
   font-size: 11px;
   margin: 5px;
-}
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  height: 20px;
+  background: rgba(67, 196, 207,0.7);
+  width: 200px;
+  color: white;
+} */
 
 @media screen and (min-width: 781px) {
   .client_kind {
