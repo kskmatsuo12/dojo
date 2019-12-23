@@ -105,16 +105,18 @@
             </button>
             @endif
         </form>
-        @if(count($suggestion)>0)
-        @if($suggestion->progress_info === 3)
-            <form action="{{url('/issues/assessment')}}" method="GET">
-                <input type="hidden" name="job_id" value="{{ $job->id }}">
-                <button type="submit" class="btn">
-                        評価する
-                </button>
-            </form>
-        @endif   
-        @endif   
+        @if($did==true)
+            @if($suggestion->progress_info === 3)
+                <form action="{{url('/issues/assessment')}}" method="GET">
+                {{ csrf_field() }}
+                    <input type="hidden" name="job_id" value="{{ $job->id }}">
+                    <button type="submit" class="btn">
+                            評価する
+                    </button>
+                </form>
+            @endif
+        @endif
+
     </div>
 </div>
 

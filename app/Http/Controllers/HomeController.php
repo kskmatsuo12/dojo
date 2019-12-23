@@ -51,7 +51,6 @@ use Illuminate\Support\Facades\Auth;
           $user = Auth::user();
           return view('users/home', [
             'user' => $user, 'jobs' => $jobs, 'suggestions' => $suggestions
-
         ]);
       }
 
