@@ -481,6 +481,7 @@ body{
                         </div>
                     </div>
                 </a>
+
                 </div>
                 @endforeach
             </div>

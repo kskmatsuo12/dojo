@@ -220,7 +220,14 @@ class ClientsController extends Controller
         $jobs->save();
         return redirect('/clients/home');
     }
+    
+    public function postComfirm()
+    {
 
+
+        
+        return view('clients/post/comfirm');
+    }
 
     //飯田ファイルはここまで
 
@@ -329,10 +336,7 @@ class ClientsController extends Controller
         return view('clients/sitemap');
     }
 
-    public function postComfirm()
-    {
-        return view('clients/post/comfirm');
-    }
+
 
     //ユーザープロフィール詳細画面の表示
     public function playersIndex(User $users)
