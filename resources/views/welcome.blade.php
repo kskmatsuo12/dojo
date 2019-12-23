@@ -91,10 +91,10 @@
     display: flex;
 }
 
-.col-sm button:hover{
+/* .button_hover:hover{
     border: #43c4cf;
     background: #43c4cf;
-}
+} */
 
 .sm{
     height: 100%;
@@ -124,6 +124,16 @@
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
+}
+
+#button1 {
+}
+
+#button2 {
+    display: none;
+    border: #43c4cf;
+    background: #43c4cf;
+
 }
 
 @media screen and (max-width:767px) { 
@@ -272,37 +282,38 @@
                     <div class="form-group">
                         <div class="col-sm-6">
                             <!-- <label for="user_name_sei" class="">姓</label> -->
-                            <input type="text" name="name" value="{{old('user_name_sei')}}" class="form-control" id="top_form" placeholder="姓">
+                            <input type="text" name="name" value="{{old('user_name_sei')}}" class="form-control" id="top_form1" placeholder="姓">
                         </div>
                         <div class="col-sm-6">
                         <!-- <label for="user_name_mei" class="">名</label> -->
-                            <input type="text" name="user_name_mei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form" placeholder="名">
+                            <input type="text" name="user_name_mei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form2" placeholder="名">
                         </div>
                         <div class="col-sm-6">
                             <!-- <label for="user_hurigana_sei" class="">セイ</label> -->
-                            <input type="text" name="user_hurigana_sei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form" placeholder="セイ">
+                            <input type="text" name="user_hurigana_sei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form3" placeholder="セイ">
                         </div>
                         <div class="col-sm-6">
                             <!-- <label for="user_hurigana_mei" class="">メイ</label> -->
-                            <input type="text" name="user_hurigana_mei" value="{{old('user_hurigana_mei')}}" class="form-control" id="top_form" placeholder="メイ">
+                            <input type="text" name="user_hurigana_mei" value="{{old('user_hurigana_mei')}}" class="form-control" id="top_form4" placeholder="メイ">
                         </div>
                         <div class="sm">
                             <!-- <label for="email" class="">メールアドレス</label> -->
-                            <input type="text" name="email" value="{{old('email')}}" class="form-control" id="top_form" placeholder="メールアドレス">
+                            <input type="text" name="email" value="{{old('email')}}" class="form-control" id="top_form5" placeholder="メールアドレス">
                         </div>
                         <div class="sm">
                             <!-- <label for="password" class="">パスワード設定</label> -->
-                            <input type="text" name="password" value="{{old('password')}}" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
+                            <input type="password" name="password" value="{{old('password')}}" class="form-control" id="top_form6" placeholder="パスワード(6文字以上)">
                         </div>
                         <div class="sm">
                             <!-- <label for="password" class="">パスワード設定</label> -->
-                            <input type="text" name="password_confirmation" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
+                            <input type="password" name="password_confirmation" class="form-control" id="top_form7" placeholder="パスワード(6文字以上)">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm">
-                            <button type="submit" class="btn btn-primary">
+                            <button id="button1">会員登録（無料）</button>
+                            <button id="button2" type="submit" class="button_hover btn btn-primary">
                                 会員登録（無料）
                             </button>
                         </div>
@@ -319,9 +330,7 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
-</body>
+<script src="{{ asset('js/welcome.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
-
-</script>
+</body>
 </html>

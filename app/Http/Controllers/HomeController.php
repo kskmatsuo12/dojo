@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
   use App\Client;
   use App\AssessmentClient;
 
-
   class HomeController extends Controller
 // Userコントローラーとして使う。
   {
@@ -49,7 +48,7 @@ use Illuminate\Support\Facades\Auth;
           $uid = Auth::id();
           //案件を５件だけ表示
           $jobs = Job::orderBy('created_at', 'desc')->take(5)->get();
-          $suggestions = Suggestion::where('progress_info','<', 4)->where('user_id', $uid)->get();
+          $suggestions = Suggestion::where('progress_info', '<', 4)->where('user_id', $uid)->get();
           $user = Auth::user();
           return view('users/home', [
             'user' => $user, 'jobs' => $jobs, 'suggestions' => $suggestions
@@ -64,7 +63,9 @@ use Illuminate\Support\Facades\Auth;
 
       public function profile2_view(Request $request)
       {
-          return view('users/profile2');
+          $uid = Auth::id();
+          $user = User::find($uid);
+          return view('users/profile2', ['user'=>$user]);
       }
 
       public function profile3_view(Request $request)
@@ -168,6 +169,8 @@ use Illuminate\Support\Facades\Auth;
         ]);
           $uid = Auth::id();
           $users = User::find($uid);
+
+          
           $users->user_last_company = $request->user_last_company;
           $users->user_last_company_dept = $request->user_last_company_dept;
           $users->user_last_company_position = $request->user_last_company_position;
@@ -183,8 +186,10 @@ use Illuminate\Support\Facades\Auth;
           $users->user_licence = $request->user_licence;
           $users->user_last_company_exp = $request->user_last_company_exp;
           
-          $users->image_url = $request->file('image_url')->store('public/user_profile_image');
-          $users->image_url = str_replace('public/', '/storage/', $users->image_url);
+          if ($request->file('image_url')) {
+              $users->image_url = $request->file('image_url')->store('public/user_profile_image');
+              $users->image_url = str_replace('public/', '/storage/', $users->image_url);
+          }
           
           $users->save();
           return redirect('/home');
@@ -312,47 +317,50 @@ use Illuminate\Support\Facades\Auth;
       //企業評価
       public function assessment(Request $request)
       {
-        $value = $request->id;
-        $user_id = Auth::id();
+          $value = $request->id;
+          $user_id = Auth::id();
 
-        $suggestions = Suggestion::where('job_id', $value)->where('user_id', $user_id)->first();
-        $clients = Client::where('id', $suggestions->client_id)->first();
-        return view('users/issues/assessment', 
-                ['job'=>$value, 
-                 'suggestion'=>$suggestions, 
-                 'client'=>$clients]);
+          $suggestions = Suggestion::where('job_id', $value)->where('user_id', $user_id)->first();
+          $clients = Client::where('id', $suggestions->client_id)->first();
+          return view(
+              'users/issues/assessment',
+              ['job'=>$value,
+                 'suggestion'=>$suggestions,
+                 'client'=>$clients]
+          );
       }
 
-      public function userassessment(Request $request){
-        $job_id = $request->job_id;
-        $client_id = $request->client_id;
-        $user_id = $request->user_id;
-        $comment = $request->client_worrying;
-        $client_level = $request->client_level;
+      public function userassessment(Request $request)
+      {
+          $job_id = $request->job_id;
+          $client_id = $request->client_id;
+          $user_id = $request->user_id;
+          $comment = $request->client_worrying;
+          $client_level = $request->client_level;
 
 
 
-        $assessment = new AssessmentClient;
-        $assessment->user_id = $user_id;
-        $assessment->client_id = $client_id;
-        $assessment->job_id = $job_id;
-        $assessment->client_worrying = $comment;
-        $assessment->client_level = $client_level;
-        $assessment->save();
+          $assessment = new AssessmentClient;
+          $assessment->user_id = $user_id;
+          $assessment->client_id = $client_id;
+          $assessment->job_id = $job_id;
+          $assessment->client_worrying = $comment;
+          $assessment->client_level = $client_level;
+          $assessment->save();
     
-        // //job_statusを3→4（案件終了）に変更
-        // $jobs = Job::find($job_id);
-        // $jobs->job_status = 4;
-        // $jobs->save();
+          // //job_statusを3→4（案件終了）に変更
+          // $jobs = Job::find($job_id);
+          // $jobs->job_status = 4;
+          // $jobs->save();
 
-        // suggestionのprogress_infoを4に変更
-        $suggestion = Suggestion::where('job_id', $job_id)->where('user_id', $user_id)->first();
-            if($suggestion->progress_info === 3){
-                $suggestion->progress_info = 4;
-                $suggestion->save();
-                }
+          // suggestionのprogress_infoを4に変更
+          $suggestion = Suggestion::where('job_id', $job_id)->where('user_id', $user_id)->first();
+          if ($suggestion->progress_info === 3) {
+              $suggestion->progress_info = 4;
+              $suggestion->save();
+          }
             
 
-        return redirect('/clients/home');
+          return redirect('/clients/home');
       }
   }
