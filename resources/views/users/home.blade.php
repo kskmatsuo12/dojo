@@ -149,13 +149,13 @@ body{
 
 .president{
     position: absolute;
-    background: rgba(67,196,207);
+    background: rgb(67,196,207);
     color: white;
-    top: -38%;
-    left: 30%;
-    font-size: 10px;
+    top: -67%;
+    left: 21%;
+    font-size: 11px;
     border-radius: 10px;
-    padding: 6px;
+    padding: 7px;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -199,10 +199,10 @@ body{
     }
     .president {
         position: absolute;
-        background: rgba(67,196,207);
+        background: rgb(67,196,207);
         color: white;
         top: -67%;
-        left: 16%;
+        left: 21%;
         font-size: 11px;
         border-radius: 10px;
         padding: 7px;

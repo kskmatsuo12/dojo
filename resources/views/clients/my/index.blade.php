@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@include('layouts/header')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <!-- CSSファイル指定してください -->
     <link rel="stylesheet" href="{{ asset('css/???.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <!-- CSSファイル指定してください -->
 </head>
 <?php
@@ -14,6 +17,7 @@
 body{
     background:#f2feff;
     font-size:13px;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 
 .container{
@@ -29,6 +33,7 @@ body{
     font-weight: bold;
     width: 70%;
     margin-bottom: 15px;
+    color:darkgray;
 }
 
 .job_title{
@@ -63,24 +68,56 @@ body{
 .job_text_message{
     font-size: 14px;
     margin-bottom: 18px;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+}
+.job_wrap i{
+    color:rgb(67,196,207);
+    font-size: 40px;
+    margin: 10px 0px 30px 20px;
 }
 
+.job_wrap{
+    text-align: center;
+}
+
+
 .job_text{
-    font-size: 16px;
-    margin: 0 auto;
+    /* font-size: 16px;
+    margin: 0 0 0 auto;
     margin-top: 30px;
-    width: 75%;
     margin-bottom: 30px;
     padding: 20px 25px;
     border-radius: 10px;
     border: 5px solid #75d7e0;
     background-color: #fff;
+    width: 55%; */
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    line-height: 16px;
+    padding: 10px;
+    min-width: 120px;
+    max-width: 65%;
+    color: white;
+    font-size: 13px;
+    background: rgb(67,196,207);
+    border-radius: 15px;
+}
+
+.job_text:before {
+    content: "";
+    position: absolute;
+    top: 55%;
+    right: -28px;
+    margin-top: -15px;
+    border: 15px solid transparent;
+    border-left: 15px solid rgb(67,196,207);
+    z-index: 0;
 }
 
 .job_table_label{
     width: 80%;
-    margin: 0 auto;
+    margin: 30px auto 10px;
     margin-bottom: 12px;
     font-size: 16px;
     font-weight: bold;
@@ -89,57 +126,65 @@ body{
 .job_table{
     width: 80%;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 20px;
+    font-size:12px;
 }
 
 .job_table_left{
     text-align: center;
     font-weight: bold;
-    width: 20%;
-    background-color: #fff;
-    border-top: 3px solid #75d7e0;
-    border-bottom: 3px solid #75d7e0;
-    border-right: 1px solid #75d7e0;
+    width: 30%;
+    background-color: rgb(67,196,207,0.2);
+    border-top: 2px solid #75d7e0;
+    border-bottom: 2px solid #75d7e0;
+    border-right: 0.5px solid #75d7e0;
     padding: 12px;
+
 }
 
 .job_table_right{
     margin-top: 10px;
     width: 60%;
     background-color: #fff;
-    border-top: 3px solid #75d7e0;
-    border-bottom: 3px solid #75d7e0;
+    border-top: 2px solid #75d7e0;
+    border-bottom: 2px solid #75d7e0;
     padding: 12px;
 }
 
 .user_table{
     width: 80%;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 20px;
+    font-size:12px;
 }
 
 .user_table_top{
     text-align: center;
     font-weight: bold;
     background-color: #fff;
-    border-top: 3px solid #75d7e0;
-    border-bottom: 3px solid #75d7e0;
+    border-top: 2px solid #75d7e0;
+    border-bottom: 2px solid #75d7e0;
     padding: 12px;
+    background-color: rgb(67,196,207,0.2);
 }
 
 .user_table_user{
     text-align: center;
     background-color: #fff;
-    border-top: 1px solid #75d7e0;
-    border-bottom: 1px solid #75d7e0;
+    border-top: 2px solid #75d7e0;
+    border-bottom: 2px solid #75d7e0;
     padding: 12px;
     text-decoration:none;
 }
 
 .user_table_user a{
     text-decoration:none;
+}
+
+.job_table_wrap{
+    margin-top:30px;
 }
 
 
@@ -150,11 +195,11 @@ input{
     height: 50px;
     border-radius: 50px;
     background: #75d7e0;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
     letter-spacing:3px;
     color:#ffffff;
-    margin: 30px auto 20px;
+    margin: 30px auto 80px;
     user-select: none;
     outline: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
@@ -186,10 +231,48 @@ input:hover{
     align-items: center;
 }
 
-
+.job_table_label i{
+    color:rgb(67,196,207);
+}
 
 
 @media screen and (min-width: 781px) {
+    .job_text{
+    position: relative;
+    display: inline-block;
+    margin: 0 0 0 auto;
+    line-height: 20px;
+    padding: 18px;
+    min-width: 120px;
+    max-width: 65%;
+    color: white;
+    font-size: 15px;
+    background: rgb(67,196,207);
+    border-radius: 15px;
+}
+.job_wrap i{
+    color:rgb(67,196,207);
+    font-size: 50px;
+    margin: 20px;
+}
+
+.job_table{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size:15px;
+}
+.user_table{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size:15px;
+}
+.job_table_wrap{
+    margin-top:60px;
+}
 
 }
 
@@ -208,20 +291,25 @@ input:hover{
 <div class="container">
 
 
-    <div class="client_name">依頼主：{{$client->client_name}}</div>
+
 
     <div class="job_title">「{{$job->job_title}}」</div>
-
+    <div class="client_name">{{$client->client_name}}</div>
     <div class="job_img"> 
          <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
     </div>
 
-    <div class="job_text">
-        <p class="job_text_message">担当者からのメッセージ</p>
-        <div>{{$job->job_text}}</div>
-    </div>
-        <div class="job_table_label"><p>【案件の具体的な内容】</p></div>
-   
+        <div class="job_wrap">
+            <div class="job_text">
+                <p class="job_text_message">担当者からのメッセージ</p>
+                <div>{{$job->job_text}}</div>
+                
+            </div>
+            <i class="fas fa-envelope"></i>
+        </div>
+
+    <div class="job_table_wrap">
+        <p class="job_table_label"><i class="fas fa-table"></i>　案件の具体的な内容</p>   
         <table class="job_table">
             <tr>
                 <td class="job_table_left">時間・期間</td>
@@ -243,16 +331,17 @@ input:hover{
                 <td class="job_table_left">担当者名</td>
                 <td class="job_table_right">{{$job->responsible_party}}</td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td class="job_table_left">担当者メールアドレス</td>
                 <td class="job_table_right">{{$job->responsible_email}}</td>
-            </tr>
+            </tr> -->
         </table>
+    </div>
 
         @if($job->job_status === 1)    
 
-        <div>
-            <p class="job_table_label">【現在応募中のユーザー】</p>
+    <div class="job_table_wrap">
+            <p class="job_table_label"><i class="fas fa-users"></i>　現在応募中のユーザー</p>
             <table class="user_table">
                 <tr>
                     <td class="user_table_top">名前</td>
@@ -316,5 +405,5 @@ input:hover{
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
-
+@include('layouts/sp_menu')
 @endsection
