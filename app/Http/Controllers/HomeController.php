@@ -361,6 +361,7 @@ use Illuminate\Support\Facades\Auth;
           }
             
 
-          return redirect('/clients/home');
+
+        return redirect('/home');
       }
   }

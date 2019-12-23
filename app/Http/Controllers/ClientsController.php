@@ -334,9 +334,11 @@ class ClientsController extends Controller
         return view('clients/post/comfirm');
     }
 
-    public function playersIndex()
+    //ユーザープロフィール詳細画面の表示
+    public function playersIndex(User $users)
     {
-        return view('clients/players/index');
+  
+        return view('clients/players/index',['user'=>$users]);
     }
 
     public function messagesIndex()

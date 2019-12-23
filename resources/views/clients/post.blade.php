@@ -270,6 +270,11 @@ button:hover{
             <textarea type="text" name="job_text" value="{{old('job_text')}}" placeholder="例）この度○○領域で新しく事業を検討しています。弊社の次世代のビジネスを担う新規事業案について、一緒にディスカッションしませんか。"></textarea>
         </div>
 
+        <div class="wrap">
+            <p class="title">担当者からのメッセージ<span class="req">必須</span></p>
+            <textarea type="text" name="request_fill_out" value="{{old('request_fill_out')}}" placeholder="例）案件に該当するご経歴（会社・部署・役職・期間など）、具体的な経験について"></textarea>
+        </div>
+
         <div class="wrap_profile">
                 <p>画像の登録<span class="req">必須</span></p>
                 <td class="preview_center"><input id="job_profile" type="file" name="image_url" value=""><img id="job_profile_preview" class="job_profile_preview" src="/images/top.jpeg"></td>
@@ -289,10 +294,7 @@ button:hover{
             <input id="recruit_advisor11" type="radio" name="recruit_advisor" value="海外事業" ><label for="recruit_advisor11">海外事業</label>
         </div>
 
-        <div class="wrap">
-            <p class="title">提案時に記載いただきたいこと<span class="req">必須</span></p>
-            <textarea type="text" name="request_fill_out" value="{{old('request_fill_out')}}" placeholder="例）案件に該当するご経歴（会社・部署・役職・期間など）、具体的な経験について"></textarea>
-        </div>
+
         <div class="wrap">
             <p class="title">相談の形式<span class="req">必須</span></p>
             <input type="text" name="work_format" value="{{old('work_format')}}" placeholder="例）対面、web会議など">
@@ -321,9 +323,9 @@ button:hover{
             <input type="text" name="responsible_party" value="{{old('responsible_party')}}" placeholder="担当者名">
         </div>
         <div class="wrap">
-            <p class="title">当プロジェクトは社長のお墨付き<span class="req">必須</span></p>
-            <input id="president1" type="radio" name="president" value="お墨付きあり" ><label for="president1">お墨付きあり</label>
-            <input id="president2" type="radio" name="president" value="お墨付きなし" ><label for="president2">お墨付きなし</label>
+            <p class="title">当該プロジェクトに貴社社長は参加されますか？<span class="req">必須</span></p>
+            <input id="president1" type="radio" name="president" value="社長参加" ><label for="president1">社長が参加する</label>
+            <input id="president2" type="radio" name="president" value="社長不参加" ><label for="president2">社長が参加しない</label>
         </div>
         <!-- <div class="wrap">
             <p class="title">担当者のメールアドレス<span class="req">必須</span></p>

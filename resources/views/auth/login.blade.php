@@ -24,6 +24,7 @@ body{
     padding-top:25px;
     padding-bottom:25px;
     font-weight: bold;
+    text-align: center;
 }
 .checkbox{
     font-size: 12px;
@@ -35,11 +36,14 @@ body{
     margin: 12px;
     border-radius: 5px;
     width: 200px;
+    height: 35px;
 }
-.col-md-6{
+.col-md-6 {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
 button{
     display: flex;
     justify-content: center;
@@ -67,6 +71,13 @@ button:hover{
     font-size: 12px;
     display: flex;
     justify-content: center;
+}
+
+strong {
+    font-weight: normal;
+    color:red;
+    font-size: 12px;
+
 }
 
 @media screen and (min-width: 800px) {
@@ -146,7 +157,7 @@ button:hover{
 
                     <div class="form-group">
                         <div class="col-md-8 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn-primary">
                                 ログイン
                             </button>
 

@@ -250,15 +250,15 @@ table{
                 <!-- </select> -->
                 <div class="medals">
                     <div class="medal">
-                        <input id="assess1" type="radio" name="user_point{{$i}}" value="1"><label for="assess1" class="">感謝</label>
+                        <input id="assess1{{$i}}" type="radio" name="user_point{{$i}}" value="1"><label for="assess1{{$i}}" class="">感謝</label>
                         <i class="fas fa-medal"></i>
                     </div>
                     <div class="medal">
-                        <input id="assess2" type="radio" name="user_point{{$i}}" value="2"><label for="assess2" class="">大感謝</label>
+                        <input id="assess2{{$i}}" type="radio" name="user_point{{$i}}" value="2"><label for="assess2{{$i}}" class="">大感謝</label>
                         <i class="fas fa-medal"></i><i class="fas fa-medal"></i>
                     </div>
                     <div class="medal">
-                        <input id="assess3" type="radio" name="user_point{{$i}}" value="3"><label for="assess3" class="">大大感謝</label>
+                        <input id="assess3{{$i}}" type="radio" name="user_point{{$i}}" value="3"><label for="assess3{{$i}}" class="">大大感謝</label>
                         <i class="fas fa-medal"></i><i class="fas fa-medal"></i><i class="fas fa-medal"></i>
                     </div>
                 </div>
