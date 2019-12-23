@@ -47,8 +47,8 @@ Route::get('/news', function () {
 Auth::routes();
 
 
-// Route::group(['middleware' => 'auth'], function () {
-    //ユーザーのホーム画面
+Route::group(['middleware' => 'auth'], function () {
+    // ユーザーのホーム画面
     Route::get('/home', 'HomeController@index');
     //profileを表示する画面
     Route::get('profile_view', 'HomeController@profile_view');
@@ -86,7 +86,15 @@ Auth::routes();
     // Route::post('/post_image_client', 'ImageController@client_image');
     //ユーザーの表示だけここまで
 
-// });
+    //ユーザーメッセージルーム画面
+    Route::get('/messages', 'MessageController@messages');
+
+    //ユーザー個別メッセージ画面
+    Route::get('/messages/{rooms}', 'MessageController@user_room');
+
+    //ユーザーメッセージ送信
+    Route::post('/messages/post', 'MessageController@message_post');
+});
 // ユーザーがログインしていないと入れないページ
 
 
@@ -127,14 +135,6 @@ Auth::routes();
     //応募の受理
     Route::post('/clients/accept', 'ClientsController@accept');
 
-    //ユーザーメッセージルーム画面
-    Route::get('/messages', 'MessageController@messages');
-
-    //ユーザー個別メッセージ画面
-    Route::get('/messages/{rooms}', 'MessageController@user_room');
-
-    //ユーザーメッセージ送信
-    Route::post('/messages/post', 'MessageController@message_post');
 
     //クライアントメッセージルーム一覧
     Route::get('/clients/messages', 'MessageController@messages_view');
