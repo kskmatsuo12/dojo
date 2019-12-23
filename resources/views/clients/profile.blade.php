@@ -1,5 +1,11 @@
 @extends('layouts.app')
 @include('layouts/header_client2')
+
+<?php
+  use App\Client;
+  $value = session()->get('id');
+  $client = Client::where('id', $value)->first();
+?>
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
@@ -273,19 +279,19 @@ button:hover{
          <div class="wraps">
             <div class="wrap">
                 <p class="title">会社所在地<span class="req">必須</span></p>
-                <input type="text" name="client_loc" value="{{old('client_loc')}}" class="form-control" id="" placeholder="東京都港区北青山３丁目５−６">
+                <input type="text" name="client_loc" value="@if($client->client_loc) {{$client->client_loc}} @else {{old('client_loc')}}@endif"  class="form-control" id="" placeholder="東京都港区北青山３丁目５−６" required>
             </div>
             <div class="wrap">
                 <p class="title">貴社ホームページＵＲＬ<span class="req">必須</span></p>
-                <input type="text" name="client_url" value="{{old('client_url')}}" class="form-control" id="" placeholder="https://dojo.com">
+                <input type="text" name="client_url" value="@if($client->client_url) {{$client->client_url}} @else{{old('client_url')}}@endif" class="form-control" id="" placeholder="https://dojo.com" required>
             </div>
             <div class="wrap">
                 <p class="title">事業内容<span class="req">必須</span></p>
-                <textarea type="text" name="client_biz" value="{{old('client_biz')}}" class="form-control" id="" placeholder="我々は埼玉県を中心にアミューズメント事業を展開しています。"></textarea>
+                <textarea type="text" name="client_biz" value="@if($client->client_biz) {{$client->client_biz}} @else{{old('client_biz')}}@endif" class="form-control" id="" placeholder="我々は埼玉県を中心にアミューズメント事業を展開しています。" required></textarea>
             </div>
             <div class="wrap">
                 <p class="title">従業員数<span class="opt">任意</span></p>
-                <input type="number" name="client_num_emp" value="{{old('client_num_emp')}}" class="form-control" id="top_form" placeholder="20"> 名
+                <input type="number" name="client_num_emp" value="@if($client->client_num_emp) {{$client->client_num_emp}} @else{{old('client_num_emp')}}@endif" class="form-control" id="top_form" placeholder="20"> 名
             </div>
             <div class="wrap_profile">
                 <p>プロフィール画像<span class="req">必須</span></p>

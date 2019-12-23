@@ -157,11 +157,11 @@ button:hover{
             </div>
             <div class="client_form">
                 <label for="client_pass" class="client_form_title">パスワード設定</label>
-                <input type="text" name="client_pass" value="" class="form-control" placeholder="半角英数字6～12文字" required>
+                <input type="password" name="client_pass" value="" class="form-control" placeholder="半角英数字6～12文字" required>
             </div>
             <div class="client_form">
                 <label for="client_pass" class="client_form_title">パスワード確認</label>
-                <input type="text" name="client_pass_confirm" value="" class="form-control" placeholder="半角英数字6～12文字（確認用）" required>
+                <input type="password" name="client_pass_confirm" value="" class="form-control" placeholder="半角英数字6～12文字（確認用）" required>
             </div>
         </div>
 

@@ -1,12 +1,8 @@
-<!-- ページ読み込み時の注意事項 -->
-<!-- データが存在する状態で再度確認 -->
-<!-- foreachは要確認 -->
-<!-- controllerができたらifとforeachに@、関数に{{}}を追加 -->
-<!-- テーブルがない場合、↓を読み込み -->
 <?php
 use App\User;
 use App\Job;
 
+//おすすめユーザーは本来条件付けしたほうがいい
 //おすすめのユーザー5人
 $users = User::take(5)->get();
 $id=session()->get('id');
@@ -387,7 +383,7 @@ body{
                 <div class="pjts">
                     <a href="{{ url('clients/my/index/'.$jobs1[$i]->id)}}" class="link">
                     <div class="pjt">
-                            <img src="https://skillshift-production.s3.ap-northeast-1.amazonaws.com/file1575512880-802.png" alt="">
+                            <img src="{{$jobs1[$i]->image_url}}" alt="job_image">
                             <div class="info">
                                 <p class="pjt_term">{{$jobs1[$i]->work_term}}</p>
                                 <p class="pjt_title">{{$jobs1[$i]->job_title}}</p>
@@ -418,7 +414,7 @@ body{
                     <div class="pjts"> 
                         <a href="{{ url('clients/my/index/'.$jobs2[$i]->id) }}">
                         <div class="pjt">
-                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                            <img src="{{$jobs2[$i]->image_url}}" alt="job_image">
                             <div class="info">
                                 <p class="pjt_term">{{$jobs2[$i]->work_term}}</p>
                                 <p class="pjt_title">{{$jobs2[$i]->job_title}}</p>
@@ -448,7 +444,7 @@ body{
                     <div class="pjts">
                     <a href="{{ url('clients/my/index/'.$jobs3[$i]->id) }}">
                         <div class="pjt">
-                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                            <img src="{{$jobs3[$i]->image_url}}" alt="job_image">
                             <div class="info">
                                 <p class="pjt_term">{{$jobs3[$i]->work_term}}</p>
                                 <p class="pjt_title">{{$jobs3[$i]->job_title}}</p>
@@ -475,16 +471,17 @@ body{
             <div class="contain">
                 @foreach ($users as $user)
                 <div class="pjts">
-                    <a href="{{ url('/clients/players/index/'.$user->id)}}">
-                        <div class="pjt">
-                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
-                            <div class="info">
-                                <p class="pjt_term">{{$user->user_prefectures}}</p>
-                                <p class="pjt_title">{{$user->user_exp_business}}</p>
-                                <p class="pjt_name">{{$user->user_exp_job}}</p>
-                            </div>
+                <a href="{{ url('clients/players/index/'.$user->id) }}">
+                    <div class="pjt">
+                        <img src="{{$user->image_url}}" alt="user_image">
+                        <div class="info">
+                            <p class="pjt_term">{{$user->user_prefectures}}</p>
+                            <p class="pjt_title">{{$user->user_exp_business}}</p>
+                            <p class="pjt_name">{{$user->user_exp_job}}</p>
                         </div>
-                    </a>
+                    </div>
+                </a>
+
                 </div>
                 @endforeach
             </div>

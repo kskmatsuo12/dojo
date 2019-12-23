@@ -1,5 +1,6 @@
 
 @extends('layouts.app')
+@include('layouts/header_client2')
 <?php
 
 ?>
@@ -174,7 +175,7 @@ button:hover{
     </div>
 
 </div>
-@include('layouts/sp_menu')
+@include('layouts/sp_menu_client')
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <!-- JSファイルの指定してください！ -->

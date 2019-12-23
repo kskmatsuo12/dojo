@@ -124,7 +124,7 @@ button:hover{
                 
                 <div>
                 <label for="email" class="col-md-4 control-label">登録パスワード</label>
-                    <input type="text" name="client_pass" value="" class="" id="top_form" placeholder="半角英数字6～12文字" required>
+                    <input type="" name="client_pass" value="" class="" id="top_form" placeholder="半角英数字6～12文字" required>
                 </div>
             </div>
 

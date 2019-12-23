@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@include('layouts/header')
+@include('layouts/header_client2')
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
@@ -296,7 +296,7 @@ input:hover{
     <div class="job_title">「{{$job->job_title}}」</div>
     <div class="client_name">{{$client->client_name}}</div>
     <div class="job_img"> 
-         <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+         <img src="{{$job->image_url}}" alt="job_image">
     </div>
 
         <div class="job_wrap">
@@ -405,5 +405,5 @@ input:hover{
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
-@include('layouts/sp_menu')
+@include('layouts/sp_menu_client')
 @endsection
