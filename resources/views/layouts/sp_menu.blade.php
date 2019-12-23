@@ -24,7 +24,7 @@
         </a>
     </div>
     <div class="sp-menu-item">
-        <a class="">
+        <a class="" href="/my">
             <i class="fas fa-cog"></i>
             <p>マイページ</p>
         </a>

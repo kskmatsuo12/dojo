@@ -50,6 +50,7 @@ class MessageController extends Controller
         return view('users/messages/message_room', ['messages'=>$messages,'user'=>$user,'client'=>$client,'room_id'=>$rooms_id]);
     }
 
+    //ユーザーのメッセージ投稿
     public function message_post(Request $request)
     {
         $message_input = $request->message;
@@ -65,7 +66,8 @@ class MessageController extends Controller
         $messages = Message::where('room_id', $room_id)->get();
         $client = Client::find($client_id);
         $user = User::find($user_id);
-        return view('users/messages/message_room', ['messages'=>$messages,'user'=>$user,'client'=>$client,'room_id'=>$room_id]);
+        return redirect("messages/".$room_id);
+        // return redirect('messages/$room_id', ['messages'=>$messages,'user'=>$user,'client'=>$client,'room_id'=>$room_id]);
     }
 
 

@@ -3,7 +3,7 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
-    use App\Job;
+use App\Job;
 
 ?>
 
@@ -22,11 +22,12 @@
 <style>
     
 body {
-        background:#f2feff;
+    background:#f2feff;
+    padding-top:0;
 }
     
 a {
-        color: #575757;
+    color: #575757;
 }
 
 .contains{
@@ -169,42 +170,11 @@ a {
 @section('content')
 @include('layouts/header')
 <div class="container">
-    <div class="jobbox">
-        <div class="line">
-            <h1>現在進捗中</h1>
-            <h2>　　</h2>
-        </div>
-
-        <div class="contains">
-            @if (count($suggestions) > 0)
-                <div class="contain">
-                    @foreach ($suggestions as $suggestion)
-                    <?php
-                    $job1 = Job::where('id', $suggestion->job_id)->get();
-                    // echo $job1->id;
-                    ?>
-                    <div class="pjts">
-                    <a href="issues/<?php echo $job1[0]->id ?>" class="link">
-                        <div class="pjt">
-                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
-                            <div class="info">
-                                <p class="pjt_term">{{$job1[0]->recruitment_term}}</p>
-                                <p class="pjt_title">{{$job1[0]->job_title}}</p>
-                                <p class="pjt_name">{{$job1[0]->consultation}}</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-    </div>
 
 
     <div class="jobbox">
         <div class="line">
-            <h1>新着</h1>
+            <h1>プロジェクト一覧</h1>
             <h2>　　</h2>
         </div>
 
