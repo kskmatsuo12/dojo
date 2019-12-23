@@ -6,6 +6,7 @@
 
 <?php
 use App\Job;
+
 ?>
 
 @extends('layouts.app')
@@ -296,7 +297,7 @@ body{
                     <div class="pjts">
                     <a href="issues/<?php echo $job1[0]->id ?>" class="link">
                         <div class="pjt">
-                            <img src="https://www.skill-shift.com/jobs/3761?new_arrival_page=1" alt="">
+                            <img src="{{$job1[0]->image_url}}" alt="">
                             <div class="info">
                                 <p class="pjt_term">{{$job1[0]->recruitment_term}}</p>
                                 <p class="pjt_title">{{$job1[0]->job_title}}</p>
@@ -326,7 +327,7 @@ body{
                 <a href="issues/<?php echo $job->id ?>" class="link">
                     <div class="pjt">
 
-                        <img src="https://skillshift-production.s3.ap-northeast-1.amazonaws.com/file1575512880-802.png" alt="">
+                        <img src="{{$job->image_url}}" alt="">
                         <div class="info">
                             <p class="skill">{{$job->recruit_advisor}}</p>
                             <p class="pjt_title">{{$job->job_title}}</p>
