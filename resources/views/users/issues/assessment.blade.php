@@ -202,19 +202,19 @@ table{
     <table class="user_table">
     <tr>
         <th>クライアント名</th>
-        <th>評価</th>
+        <!-- <th>評価</th> -->
         <th>コメント</th>
     </tr>
         <tr>
             <td>{{$client->client_name}}</td>
-            <td>
+            <!-- <td>
                 <select type="text" name="client_level" class="form-control" placeholder="">
                     <option value="">（選択）</option>
                     <option value="3">とても協力的だった</option>
                     <option value="2">協力的だった</option>
                     <option value="1">あまり協力的ではなかった</option>
                 </select>
-            </td>
+            </td> -->
             <td>
             <textarea type="text" name="client_worrying" placeholder="ご記載いただいた内容は参加者に届けられます。参加者の成長につながるようなコメントや感謝のコメントをご記入いただきたいと思います。"></textarea>
             </td>
