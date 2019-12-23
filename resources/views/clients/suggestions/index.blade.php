@@ -31,10 +31,10 @@
 
         <div class="client_wrap">
             <div class="client_title">
-                <p><br>{{$job->job_title}}</p>
-                <div class="project_url">
-                    <a href="/clients/my/index/{{$job->id}}"><p>【プロジェクトの内容を確認】 </p></a>
-                </div>
+            <a href="/clients/my/index/{{$job->id}}"><p><span>プロジェクト名：</span><br>{{$job->job_title}}</p></a>
+                <!-- <div class="project_url">
+                    <a href="/clients/my/index/{{$job->id}}"><p>プロジェクトの内容を確認する</p></a>
+                </div> -->
             </div>
             <div class="section1">
                 <span><i class="fas fa-user-circle"></i>応募者</span>
@@ -42,14 +42,15 @@
             <div class="section2">
                 <div class="section2-left">
                     <img class="user_image" src="{{$user->image_url}}">
-                    <span>名前：</span>
-                    <span> {{$user->name}}　{{$user->user_name_mei}}</span>
+                    <span>名前:</span>
+                    <span> {{$user->name}}{{$user->user_name_mei}}</span>
+                    <a href="/clients/players/{{$user->id}}">応募者の詳細</a>
                 </div>
                 
             </div>
-            <div class="section3">
+            <!-- <div class="section3">
                 <a href="/clients/players/{{$user->id}}">応募者の詳細</a>
-            </div>
+            </div> -->
                <div class="issues_index2">
         <div class="section6">
             <span><i class="fas fa-comments"></i>応募内容</span>
@@ -64,7 +65,7 @@
                 {{ csrf_field() }}
             <input type="hidden" name="suggestion_id" value="{{$suggestion->id}}">
             <button type="submit" class="btn">
-                応募受理
+                この人に依頼する
             </button>
             
         </form>
