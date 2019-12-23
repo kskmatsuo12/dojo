@@ -365,5 +365,5 @@ $("input").on("click",function() {
 
 
 </script>
-@include('layouts/sp_menu')
+@include('layouts/sp_menu_client')
 @endsection

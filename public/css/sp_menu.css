@@ -1,5 +1,6 @@
 .sp-menu {
   display: flex;
+  z-index: 5;
   position: fixed;
   bottom: 0;
   background-color: rgb(240, 240, 240);

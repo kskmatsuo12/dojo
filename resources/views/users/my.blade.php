@@ -5,7 +5,6 @@ use App\Suggestion;
 use App\Job;
 
 $user_id = Auth::id();
-
 $suggestions = Suggestion::where('user_id', $user_id)->get();
 
 ?>
@@ -41,9 +40,6 @@ a {
     padding:10px;
     margin-bottom:150px;
 }
-
-
-
 
 .pjts:hover{
     opacity:0.6;
@@ -148,6 +144,7 @@ a {
         transform: translate(-50%,-50%);
     }
 }
+
 @media screen and (min-width: 1040px) {
   .container {
     width: 1040px;
@@ -172,6 +169,7 @@ a {
 <!-- CSSファイルの指定をしてください〜 -->
 
 @section('content')
+@include('layouts/header')
 <div class="container">
     <!-- この中にコンテンツ -->
             <div class="jobbox">
@@ -182,8 +180,8 @@ a {
 
         <div class="contains">
             @if (count($suggestions) > 0)
+            @foreach ($suggestions as $suggestion)
                 <div class="contain">
-                    @foreach ($suggestions as $suggestion)
                     <?php
                     $job1 = Job::where('id', $suggestion->job_id)->get();
                     // echo $job1->id;
@@ -200,8 +198,8 @@ a {
                         </div>
                     </a>
                     </div>
-                    @endforeach
                 </div>
+                @endforeach
             @endif
         </div>
     </div>
@@ -210,5 +208,5 @@ a {
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
-
+@include('layouts/sp_menu')
 @endsection

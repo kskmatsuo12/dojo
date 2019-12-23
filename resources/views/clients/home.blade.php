@@ -6,12 +6,13 @@
 <?php
 use App\User;
 use App\Job;
+
 //おすすめのユーザー5人
 $users = User::take(5)->get();
 $id=session()->get('id');
-$jobs1 = Job::where('client_id',$id)->where('job_status',1)->get();//募集中
-$jobs2 = Job::where('client_id',$id)->where('job_status',2)->get();//進捗中
-$jobs3 = Job::where('client_id',$id)->where('job_status',3)->get();//終了（評価待ち）
+$jobs1 = Job::where('client_id', $id)->where('job_status', 1)->get();//募集中
+$jobs2 = Job::where('client_id', $id)->where('job_status', 2)->get();//進捗中
+$jobs3 = Job::where('client_id', $id)->where('job_status', 3)->get();//終了（評価待ち）
 // var_dump($jobs);
 // var_dump($jobs1);
 // $jobs = Job::where('client_id',$id)->get();
@@ -350,16 +351,16 @@ body{
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav text-md-center nav-justified w-100">
         <li class="nav-item">
-            <a class="nav-logo" href="#"><img src="{{ url('images/dojo.png')}}" alt=""></a>
+            <a class="nav-logo" href="/clients/home"><img src="{{ url('images/dojo.png')}}" alt=""></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="#">ホーム<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/clients/home">ホーム<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link"><form action="{{ url('clients/post')}}"><button class="pjt_post">公募する</button></form></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">メッセージ管理</a>
+            <a class="nav-link" href="/clients/messages">メッセージ管理</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">企業情報の編集</a>
@@ -519,7 +520,7 @@ body{
     </div>
 
 </div>
-
+@include('layouts/sp_menu_client')
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
