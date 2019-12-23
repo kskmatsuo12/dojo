@@ -14,6 +14,8 @@ use App\Client;
 use App\Suggestion;
 use App\MessagesRoom;
 use App\AssessmentUser;
+use App\PushMessageToUser;
+use App\PushMessageToClient;
 
 //飯田ファイルはここまで
 
@@ -206,8 +208,8 @@ class ClientsController extends Controller
         $jobs->get_skill = $request->get_skill;
         //社長のおすすめ追加
         $jobs->president = $request->president;
-        $jobs->image_url = $request->file(‘image_url’)->store(‘public/client_profile_image’);
-        $jobs->image_url = str_replace(‘public/‘, ‘/storage/’, $jobs->image_url);
+        $jobs->image_url = $request->file('image_url')->store('public/client_profile_image');
+        $jobs->image_url = str_replace('public/', '/storage/', $jobs->image_url);
 
         //job_statusに1（募集中）を代入
         $jobs->job_status = 1;
@@ -426,6 +428,11 @@ class ClientsController extends Controller
         $room_id = $message_room->id;
 
         //ユーザーに通知
+        $push = new PushMessageToUser;
+        $push->user_id = $uid;
+        $push->client_id = $client_id;
+        $push->toggle = 1;
+        $push->room_id = $room_id;
 
         return redirect()->route('room.show', ['room_id'=>$room_id]);
     }

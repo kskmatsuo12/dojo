@@ -1,12 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
- //飯田ファイルはここから
+//飯田ファイルはここから
   use App\User;
   use App\Job;
   use App\Suggestion;
@@ -20,57 +18,47 @@ use Illuminate\Support\Facades\Auth;
        *
        * @return void
        */
-
       //ログイン認証していれば通す（一時的にオフにしてる）
       // public function __construct()
       // {
       //     $this->middleware('auth');
       // }
       //ログイン認証していれば通すここまで
-
-
       /**
        * Show the application dashboard.
        *
        * @return \Illuminate\Http\Response
        */
-
       //userホーム画面
       public function logout()
       {
           Auth::logout();
           return redirect('/');
       }
-
       public function index(Request $request)
       {
           $uid = Auth::id();
           //案件を５件だけ表示
           $jobs = Job::orderBy('created_at', 'desc')->take(5)->get();
-          $suggestions = Suggestion::where('progress_info','<', 4)->where('user_id', $uid)->get();
+          $suggestions = Suggestion::where('progress_info', '<', 4)->where('user_id', $uid)->get();
           $user = Auth::user();
           return view('users/home', [
             'user' => $user, 'jobs' => $jobs, 'suggestions' => $suggestions
-
         ]);
       }
-
       public function profile_view(Request $request)
       {
           $uid = Auth::id();
           return view('users/profile', ['uid'=>$uid]);
       }
-
       public function profile2_view(Request $request)
       {
           return view('users/profile2');
       }
-
       public function profile3_view(Request $request)
       {
           return view('users/profile3');
       }
-
       // 三島さん作ユーザープロフィール
       //初回登録のためのprofile登録ポスト
       //本来はmakeauthで生成される方へ書くべきなので引っ越し予定
@@ -107,8 +95,6 @@ use Illuminate\Support\Facades\Auth;
       // ]);
       // return view(‘users/profile/.$user->id)’);
       //   }
-
-
       // ユーザープロフィール2
       //プロフィール２でポストするときに発動
       public function profile2(Request $request)
@@ -124,7 +110,6 @@ use Illuminate\Support\Facades\Auth;
           //         ->withErrors($validator);
           // }
           $uid = Auth::id();
-
           $users = User::find($uid);
           $users->user_prefectures = $request->user_prefectures;
           $users->user_exp_business = $request->user_exp_business;
@@ -140,9 +125,7 @@ use Illuminate\Support\Facades\Auth;
           return view('users/profile2', ['uid'=>$uid]);
           // return view(‘users/profile2’);
       }
-
       //三島さんここまで！
-
       //飯田さんここから
       //profile3を保存
       public function profile2Store(Request $request)
@@ -163,7 +146,6 @@ use Illuminate\Support\Facades\Auth;
         //   'user_language' => 'required',
         //   'user_licence' => 'required',
         //   'user_last_company_exp' => 'required'
-
         ]);
           $uid = Auth::id();
           $users = User::find($uid);
@@ -188,14 +170,11 @@ use Illuminate\Support\Facades\Auth;
           $users->save();
           return redirect('/home');
       }
-
-
       // ユーザープロフィール3
       //   public function profile3()
       //   {
       //       return view('users/profile3');
       //   }
-
       // 案件一覧
       public function issues()
       {
@@ -204,13 +183,11 @@ use Illuminate\Support\Facades\Auth;
           $suggestions = Suggestion::where('user_id', $uid)->get();
           return view('users/issues', ['jobs' => $jobs,'suggestions'=>$suggestions]);
       }
-
       //サイトマップ
       public function sitemap()
       {
           return view('users/sitemap');
       }
-
       //案件詳細
       public function issuesIndex(Job $jobs)
       {
@@ -220,18 +197,15 @@ use Illuminate\Support\Facades\Auth;
           $client = Client::where('id', $client_id)->get();
           $did = false;
           $true_false = Suggestion::where('job_id', $job_id)->where('user_id', $uid)->get()->count();
-
           //飯田追加（12/22）該当のsuggestionのレコードを取得（issues/indexでprogress_infoに応じて表示する項目を変更させる）
-          $suggestions = Suggestion::where('job_id', $job_id)->where('user_id', $uid)->first();
+          //   $suggestions = Suggestion::where('job_id', $job_id)->where('user_id', $uid)->first();
           //
           
           if ($true_false == 1) {
               $did = true;
           }
-
           return view('users/issues/index', ['job'=>$jobs,'did'=>$did,'client'=>$client, 'suggestion'=>$suggestions]);
       }
-
       //案件応募
       public function proposal(Request $request)
       {
@@ -246,7 +220,6 @@ use Illuminate\Support\Facades\Auth;
           }
           return view('users/issues/proposal', ['job_id'=>$job_id,'user_id'=>$uid,'client_id'=>$client_id, 'did'=>$did]);
       }
-
       //案件応募確認
       public function comfirm(Request $request)
       {
@@ -255,10 +228,8 @@ use Illuminate\Support\Facades\Auth;
           $suggestion_text = $request->suggestion_text;
         
           $job = Job::find($job_id);
-
           return view('users/issues/comfirm', ['client_id' => $client_id, 'job_id'=>$job_id, 'suggestion_text'=>$suggestion_text, 'job'=>$job]);
       }
-
       //案件応募送信
       public function postSuggestion(Request $request)
       {
@@ -266,7 +237,6 @@ use Illuminate\Support\Facades\Auth;
           $job_id = $request->job_id;
           $suggestion_text = $request->suggestion_text;
           $user_id = Auth::id();
-
           $suggestions = new Suggestion;
           $suggestions->job_id = $job_id;
           $suggestions->client_id = $client_id;
@@ -277,37 +247,31 @@ use Illuminate\Support\Facades\Auth;
         
           return redirect('home');
       }
-
       // 案件管理
       public function my()
       {
           return view('users/my');
       }
-
       //案件管理詳細
       public function myIndex()
       {
           return view('users/my/index');
       }
-
       //メッセージ管理
       public function messages()
       {
           return view('users/messages');
       }
-
       //メッセージ画面（個人）
       public function messagesIndex()
       {
           return view('users/messages/index');
       }
-
       //メッセージ画面（グループ）
       public function messagesGroup()
       {
           return view('users/messages/group');
       }
-
       //企業評価
       public function assessment(Request $request)
       {

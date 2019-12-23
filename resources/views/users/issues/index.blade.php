@@ -3,7 +3,6 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
- 
 ?>
 
 
@@ -99,22 +98,23 @@
             <button disabled class="btn disable_button">
                 応募済み
             </button>
+                     @if($suggestion->progress_info === 3)
+                <form action="{{url('/issues/assessment')}}" method="GET">
+                {{ csrf_field() }}
+                    <input type="hidden" name="job_id" value="{{ $job->id }}">
+                    <button type="submit" class="btn">
+                            評価する
+                    </button>
+                </form>
+            @endif
             @else
             <button type="submit" class="btn">
                 応募する
             </button>
             @endif
         </form>
-        @if(count($suggestion)>0)
-        @if($suggestion->progress_info === 3)
-            <form action="{{url('/issues/assessment')}}" method="GET">
-                <input type="hidden" name="job_id" value="{{ $job->id }}">
-                <button type="submit" class="btn">
-                        評価する
-                </button>
-            </form>
-        @endif   
-        @endif   
+
+
     </div>
 </div>
 
