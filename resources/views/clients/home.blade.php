@@ -365,9 +365,9 @@ body{
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">企業情報の編集</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">会社概要の編集</a>
-            <a class="dropdown-item" href="#">公募案件の編集</a>
-            <a class="dropdown-item" href="#">公募案件の管理</a>
+            <a class="dropdown-item" href="profile">会社概要の編集</a>
+            <!-- <a class="dropdown-item" href="#">公募案件の編集</a> -->
+            <a class="dropdown-item" href="my">公募案件の管理</a>
             </div>
         </li>
         </ul>
@@ -387,17 +387,17 @@ body{
         <div class="col-lg-4">
             <h2><i class="fas fa-project-diagram"></i>　プロジェクト中</h2>
             <p>現在進行中のプロジェクトを確認する</p>
-            <p><a class="btn btn-primary" href="#" role="button">詳しく見る &raquo;</a></p>
+            <p><a class="btn btn-primary" href="#progress" role="button">詳しく見る &raquo;</a></p>
         </div>
         <div class="col-lg-4">
             <h2><i class="fas fa-comment-alt"></i>　評価待ち</h2>
             <p>プロジェクト終了後の評価を確認する</p>
-            <p><a class="btn btn-primary" href="#" role="button">詳しく見る &raquo;</a></p>
+            <p><a class="btn btn-primary" href="#assess_term" role="button">詳しく見る &raquo;</a></p>
         </div>
         <div class="col-lg-4">
             <h2><i class="fas fa-user-check"></i>　おすすめユーザー</h2>
             <p>プロジェクトに合うユーザーを確認する</p>
-            <p><a class="btn btn-primary" href="#" role="button">詳しく見る &raquo;</a></p>
+            <p><a class="btn btn-primary" href="#recomend_users" role="button">詳しく見る &raquo;</a></p>
         </div>
     </div>
 
@@ -436,7 +436,7 @@ body{
     <div class="jobbox">
 
         <div class="line">
-            <h1>プロジェクト中</h1>
+            <h1 id="progress">プロジェクト中</h1>
             <h2>　　</h2>
         </div>
 
@@ -466,7 +466,7 @@ body{
 
     <div class="jobbox">
         <div class="line">
-            <h1>評価待ち</h1>
+            <h1 id="assess_term">評価待ち</h1>
             <h2>　　</h2>
         </div>
 
@@ -495,7 +495,7 @@ body{
 
     <div class="jobbox">
         <div class="line">
-            <h1>おすすめユーザー</h1>
+            <h1 id="recomend_users">おすすめユーザー</h1>
             <h2>　　</h2>
         </div>
 
