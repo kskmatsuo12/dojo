@@ -31,7 +31,7 @@
 
         <div class="client_wrap">
             <div class="client_title">
-                <p>プロジェクト名 <br>{{$job->job_title}}</p>
+                <p><br>{{$job->job_title}}</p>
                 <div class="project_url">
                     <a href="/clients/my/index/{{$job->id}}"><p>【プロジェクトの内容を確認】 </p></a>
                 </div>
