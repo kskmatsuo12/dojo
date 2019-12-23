@@ -105,6 +105,7 @@
             </button>
             @endif
         </form>
+        @if(count($suggestion)>0)
         @if($suggestion->progress_info === 3)
             <form action="{{url('/issues/assessment')}}" method="GET">
                 <input type="hidden" name="job_id" value="{{ $job->id }}">
@@ -112,6 +113,7 @@
                         評価する
                 </button>
             </form>
+        @endif   
         @endif   
     </div>
 </div>
