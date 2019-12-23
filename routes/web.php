@@ -25,9 +25,9 @@
 
 //welcomeページはログインされていたらユーザーログインへリダイレクト
 Route::get('/', function () {
-    if (Auth::id()) {
-        return redirect('/home');
-    }
+    // if (Auth::id()) {
+    //     return redirect('/home');
+    // }
     return view('welcome');
 });
 
@@ -111,7 +111,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/clients/profile', 'ClientsController@profile');
     Route::get('/clients/post', 'ClientsController@postForm');
     Route::get('/clients/players', 'ClientsController@players');
-    Route::get('/clients/players/{id}', 'ClientsController@playersIndex');
+    Route::get('/clients/players/index/{users}', 'ClientsController@playersIndex');
     Route::get('/clients/my', 'ClientsController@my');
     Route::get('/clients/messages', 'ClientsController@messages');
     Route::get('/clients/sitemap', 'ClientsController@sitemap');

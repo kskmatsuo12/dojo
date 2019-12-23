@@ -20,7 +20,7 @@
 <style>
 
 .job_text_message{
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 18px;
     /* text-decoration: underline; */
 }
@@ -56,7 +56,7 @@
     color: white;
     font-size: 13px;
     background: rgb(67,196,207);
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .job_text:before {
@@ -66,7 +66,7 @@
     right: -28px;
     margin-top: -15px;
     border: 15px solid transparent;
-    border-left: 15px solid rgb(67,196,207);
+    border-left: 30px solid rgb(67,196,207);
     z-index: 0;
 }
 
@@ -131,7 +131,9 @@ table{
     box-shadow: 0px 1px 3px rgb(82, 147, 151);
     overflow: hidden;
 }
-
+.job_text_message_detail{
+    font-size: 15px;
+}
 </style>
 
 @section('content')
@@ -178,7 +180,7 @@ table{
         <div class="job_wrap">
             <div class="job_text">
                 <p class="job_text_message">担当者からのメッセージ</p>
-                <div>{{$job->job_text}}</div>
+                <div class="job_text_message_detail">{{$job->job_text}}</div>
                 
             </div>
             <i class="fas fa-envelope"></i>

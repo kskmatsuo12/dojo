@@ -334,9 +334,11 @@ class ClientsController extends Controller
         return view('clients/post/comfirm');
     }
 
-    public function playersIndex()
+    //ユーザープロフィール詳細画面の表示
+    public function playersIndex(User $users)
     {
-        return view('clients/players/index');
+  
+        return view('clients/players/index',['user'=>$users]);
     }
 
     public function messagesIndex()
@@ -403,9 +405,10 @@ class ClientsController extends Controller
     {
         $job_id = $suggestions->job_id;
         $uid = $suggestions->user_id;
+        $client_id = $suggestions->client_id;
         $job = Job::find($job_id);
         $user = User::find($uid);
-        return view('clients/suggestions/index', ['suggestion'=>$suggestions,'job'=>$job, 'user'=>$user]);
+        return view('clients/suggestions/index', ['suggestion'=>$suggestions,'job'=>$job, 'user'=>$user, 'client_id'=>$client_id]);
     }
 
     //案件受理。ユーザーにお願いする。

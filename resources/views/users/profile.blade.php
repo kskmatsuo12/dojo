@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/profile.css') }}"> -->
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 </head>
 
@@ -94,8 +94,10 @@ span{
     color:white;
     background:crimson;
     letter-spacing:0px;
-    padding:2px;
+    line-height: 12px;
+    padding:8px 2px 2px 2px;
     margin-left:3px;
+    
     height: 12px;
     border-radius: 4px;
 }
@@ -145,6 +147,22 @@ table{
   width: 60%;
   display: flex;
   margin: 0 auto 20px;
+}
+
+#button1 {
+    opacity: 0.3;
+}
+
+#button2 {
+    display: none;    
+}
+
+.red {
+    font-weight: bold;
+    margin-top: 32px;
+    color: red;
+    text-align: center;
+    display: none;
 }
 
 @media screen and (max-width:800px) { 
@@ -232,13 +250,12 @@ table{
     <div class="line">
         <img src="{{ asset('images/pic2.png') }}" alt="">
     </div>
-
     <form action="{{ url('profile2') }}" method="GET" class="">
     <table>
         <tr>
             <th>都道府県<span>必須</span></th>
             <td>
-                <select type="text" name="user_prefectures" value="{{old('user_prefectures')}}" class="form-control" placeholder="">
+                <select id="input1" type="text" name="user_prefectures" value="{{old('user_prefectures')}}" class="form-control" placeholder="" required>
                     <option value="">（選択）</option>
                     <option value="東京都">東京都</option>
                     <option value="神奈川県">神奈川県</option>
@@ -294,7 +311,7 @@ table{
         <tr>
             <th>経験業界<span>必須</span></th>
             <td>
-                <select type="text" name="user_exp_business" value="{{old('user_exp_business')}}" class="form-control" placeholder="">
+                <select id="input2" type="text" name="user_exp_business" value="{{old('user_exp_business')}}" class="form-control" placeholder="" required>
                     <option value="">（選択）</option>
                     <option value="IT・通信">IT・通信</option>
                     <option value="Web・インターネット">Web・インターネット</option>
@@ -329,7 +346,7 @@ table{
         <tr>
             <th>経験職種<span>必須</span></th>
             <td>
-                <select type="text" name="user_exp_job" value="{{old('user_exp_job')}}" class="form-control" placeholder="">
+                <select id="input3" type="text" name="user_exp_job" value="{{old('user_exp_job')}}" class="form-control" placeholder="" required>
                     <option value="">（選択）</option>
                     <option value="社長・役員">社長・役員（CXO）</option>
                     <option value="営業（個人/法人）">営業（個人/法人）</option>
@@ -357,49 +374,49 @@ table{
         <tr>
             <th>電話番号<span>必須</span></th>
             <td>
-                <input type="text" name="user_phone" value="{{old('user_phone')}}" class="form-control" placeholder="電話番号">
+                <input id="input4" type="text" name="user_phone" value="{{old('user_phone')}}" class="form-control" placeholder="電話番号" required>
             </td>
         </tr>
 
         <tr>
             <th>会社名<span>必須</span></th>
             <td>
-                <input type="text" name="user_exp_company" value="{{old('user_exp_company')}}" class="form-control" placeholder="直近の会社名">
+                <input id="input5" type="text" name="user_exp_company" value="{{old('user_exp_company')}}" class="form-control" placeholder="直近の会社名" required>
             </td>
         </tr>
 
         <tr>
             <th>部署名<span>必須</span></th>
             <td>
-                <input type="text" name="user_exp_department" value="{{old('user_exp_department')}}" class="form-control" placeholder="部署名">
+                <input id="input6" type="text" name="user_exp_department" value="{{old('user_exp_department')}}" class="form-control" placeholder="部署名" required>
             </td>
         </tr>
 
         <tr>
             <th>役職名<span>必須</span></th>
             <td>
-                <input type="text" name="user_exp_position" value="{{old('user_exp_position')}}" class="form-control" placeholder="役職">
+                <input id="input7" type="text" name="user_exp_position" value="{{old('user_exp_position')}}" class="form-control" placeholder="役職" required>
             </td>
         </tr>
 
         <tr>
             <th>就業(開始)<span>必須</span></th>
             <td>
-                <input type="date" name="user_exp_start" value="{{old('user_exp_start')}}" class="form-control" placeholder="期間年・期間月から">
+                <input id="input8" type="date" name="user_exp_start" value="{{old('user_exp_start')}}" class="form-control" placeholder="期間年・期間月から" required>
             </td>
         </tr>
         <tr>
             <th>就業(終了)<span>必須</span></th>
             <td>
-                <input type="date" name="user_exp_end" value="{{old('user_exp_end')}}" class="form-control" placeholder="期間年・期間月まで">
+                <input id="input9" type="date" name="user_exp_end" value="{{old('user_exp_end')}}" class="form-control" placeholder="期間年・期間月まで" required>
             </td>
         </tr>
 
         <tr>
             <th>現在の状況<span>必須</span></th>
             <td>
-                <input id="user_current1" type="radio" name="user_current" value="在職"><label for="user_current1" class="">在職</label>
-                <input id="user_current2" type="radio" name="user_current" value="離職"><label for="user_current2" class="">離職</label>
+                <input id="user_current1" class="input10" type="radio" name="user_current" value="在職"><label for="user_current1" class="">在職</label>
+                <input id="user_current2" class="input10" type="radio" name="user_current" value="離職"><label for="user_current2" class="">離職</label>
             </td>
         </tr>
 
@@ -407,8 +424,9 @@ table{
 
 
     </table>
-
-    <button type="submit" class="">次へ＞</button>
+    <p class="red" id="alert">未入力の項目があります</p>
+    <button id="button1" style="background-color: grey;">次へ＞</button>
+    <button type="submit" id="button2" class="">次へ＞</button>
 </form>   
 
 </div>

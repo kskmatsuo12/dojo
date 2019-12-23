@@ -273,7 +273,7 @@ button:hover{
             </div>
             <div class="wrap_profile">
                 <p>プロフィール画像<span class="req">必須</span></p>
-                <td class="preview_center"><input id="client_profile" type="file" name="image_url" value=""><img id="client_profile_preview" class="client_profile_preview" src="/images/top.jpeg"></td>
+                <td class="preview_center"><input id="client_profile" type="file" name="image_url" value=""><img id="client_profile_preview" class="client_profile_preview" src="/images/client_default.jpg"></td>
             </div>
         </div>
 
