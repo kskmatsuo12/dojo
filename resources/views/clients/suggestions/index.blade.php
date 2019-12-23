@@ -3,6 +3,7 @@
 <!-- foreachは要確認 -->
 <!-- テーブルがない場合、↓を読み込み -->
 <?php
+    use App\MessagesRoom;
 
 ?>
 
@@ -61,14 +62,27 @@
     </div>
         
     <div class="issues_index2">
+        @if($suggestion->progress_info==1)
         <form action="{{url('/clients/accept')}}" method="POST">
                 {{ csrf_field() }}
             <input type="hidden" name="suggestion_id" value="{{$suggestion->id}}">
             <button type="submit" class="btn">
                 この人に依頼する
-            </button>
-            
+            </button>            
         </form>
+        @else
+            
+            <?php
+            // ルームIDとる
+                $room = MessagesRoom::where('user_id', $user->id)->where('client_id', $client_id)->first();
+                $room_id = $room->id;
+            ?>
+            <a href="/clients/messages/message_room/?room_id={{$room_id}}">
+                <button type="submit" class="btn">
+                    この人と連絡をとる
+                </button>
+            </a>  
+        @endif
     </div>
 </div>
 

@@ -25,9 +25,9 @@
 
 //welcomeページはログインされていたらユーザーログインへリダイレクト
 Route::get('/', function () {
-    if (Auth::id()) {
-        return redirect('/home');
-    }
+    // if (Auth::id()) {
+    //     return redirect('/home');
+    // }
     return view('welcome');
 });
 

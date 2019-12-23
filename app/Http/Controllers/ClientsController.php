@@ -403,9 +403,10 @@ class ClientsController extends Controller
     {
         $job_id = $suggestions->job_id;
         $uid = $suggestions->user_id;
+        $client_id = $suggestions->client_id;
         $job = Job::find($job_id);
         $user = User::find($uid);
-        return view('clients/suggestions/index', ['suggestion'=>$suggestions,'job'=>$job, 'user'=>$user]);
+        return view('clients/suggestions/index', ['suggestion'=>$suggestions,'job'=>$job, 'user'=>$user, 'client_id'=>$client_id]);
     }
 
     //案件受理。ユーザーにお願いする。
