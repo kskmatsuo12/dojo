@@ -242,7 +242,7 @@ body{
                         <div class="carousel-caption text-left">
                             <h1>複数事業を横断するマーケティング</h1>
                             <p>弊社は食品卸売を行う中小企業です。マーケティング領域で横断的に戦略の設計や、社長との壁打ちをお願いしたい。ブレーンとして幅広く頼れる方々との出会いを希望します！</p>
-                            <p><a class="btn" href="#" role="button">プロジェクトを見る</a></p>
+                            <p><a class="btn" href="/issues" role="button">プロジェクトを見る</a></p>
                         </div>
                     </div>
                 </div>
@@ -252,7 +252,7 @@ body{
                         <div class="carousel-caption">
                             <h1>飲食店チェーンへ営業強化を図りたい</h1>
                             <p>関東近郊のドミナント経営の飲食店への営業強化、販促強化のお手伝いしていただける方を探しています！営業組織の生産性向上などについてディスカッションしたい！</p>
-                            <p><a class="btn" href="#" role="button">プロジェクトを見る</a></p>
+                            <p><a class="btn" href="/issues" role="button">プロジェクトを見る</a></p>
                         </div>
                     </div>
                 </div>
@@ -262,7 +262,7 @@ body{
                         <div class="carousel-caption text-right">
                             <h1>地方発の新たな事業モデルを検討</h1>
                             <p>弊社は西東京で電気工事業を営む中小企業です。ドローンを活用した新たな事業アイデアを一緒に考え提案していただける方、地方発の新たな事業モデルの構築をお手伝い頂ける方を募集します！</p>
-                            <p><a class="btn" href="#" role="button">プロジェクトを見る</a></p>
+                            <p><a class="btn" href="/issues" role="button">プロジェクトを見る</a></p>
                         </div>
                     </div>
                 </div>

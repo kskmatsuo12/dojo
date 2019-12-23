@@ -20,7 +20,7 @@ body{
 .box{
     display: flex;
     padding: 0.5em 1em;
-    margin: 2em 0;
+    margin: 1.3em 0;
     color: #5d627b;
     background: white;
     border-top: solid 5px #5d627b;
@@ -47,35 +47,39 @@ body{
 }
 
 .box_text p {
-    line-height: 20px;
+    line-height: 18px;
     letter-spacing: 1px;
+    font-size: 12px;
 }
 
-.box_time {
-    font-size: 12px;
+.box_name {
+    border-bottom: 2px solid #ddd;
+}
+
+.box_time{
+    font-size: 8px;
     text-align: right;
 }
 
 .message_area {
-    padding-bottom: 280px;
-    position: relative;
-    z-index: 1;
+    padding-bottom: 200px;
 }
 
 .message_input {
-    height: 120px;
+    height: 160px;
     width: 100%;
     text-align: center;
-    bottom:130px;
-    background-color: #f2feff;
+    background:#f2feff;
     position: fixed;
-    z-index: 2;
+    z-index: 1;
+    bottom: 50px;
+    left:0;
 }
 
 textarea{
     font-size: 12px;
     letter-spacing: 1px;
-    height:120px;
+    height:90px;
     width: 96%;
     padding:5px;
     border-radius: 5px;
@@ -95,7 +99,7 @@ button{
     font-weight: bold;
     letter-spacing:3px;
     color:#ffffff;
-    margin: 30px auto 20px;
+    margin: 20px auto 10px;
     user-select: none;
     outline: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
@@ -106,6 +110,24 @@ button:hover{
     background: #43c4cf;
 }
 
+@media screen and (min-width: 781px) {
+.message_input {
+    left: 10%;
+    width: 80%;
+}
+
+.message_input form{
+    text-align: center;
+}
+
+    textarea {
+        text-align: left;
+        margin: auto;
+        width: 80%;
+    }
+
+}
+
 
 
 </style>
@@ -113,32 +135,32 @@ button:hover{
 
 @section('content')
 <div class="container">
-<div class="message_area">
-    <!-- ループさせる -->
-    @foreach ($messages as $message)
-    <div class="box">
-        @if($message->message_which == 1)
-        <div class="box_image">
-            <img src={{$user->image_url}}>
+    <div class="message_area">
+        <!-- ループさせる -->
+        @foreach ($messages as $message)
+        <div class="box">
+            @if($message->message_which == 1)
+            <div class="box_image">
+                <img src={{$user->image_url}}>
+            </div>
+            <div class="box_text">    
+            <p>{{$user->name}} {{$user->user_name_mei}}</p>
+            <p>{{$message->message}}</p>
+            <p class="box_time">{{$message->created_at}}</p>
+            </div>
+            @else
+            <div class="box_image">
+                <img src={{$client->image_url}}>
+            </div>
+            <div class="box_text">
+            <p>名前 {{$client->client_name}}</p>
+            <p>{{$message->message}}</p>
+            <p class="box_time">{{$message->created_at}}</p>
+            </div>
+            @endif
         </div>
-        <div class="box_text">    
-        <p>{{$user->name}} {{$user->user_name_mei}}</p>
-        <p>{{$message->message}}</p>
-        <p class="box_time">{{$message->created_at}}</p>
-        </div>
-        @else
-        <div class="box_image">
-            <img src={{$client->image_url}}>
-        </div>
-        <div class="box_text">
-        <p>名前 {{$job->responsible_party}}</p>
-        <p>{{$message->message}}</p>
-        <p class="box_time">{{$message->created_at}}</p>
-        </div>
-        @endif
+        @endforeach
     </div>
-    @endforeach
-</div>
     <!-- ここまでループで回す -->
     <div class="message_input">
         <form  action=" {{ url('clients/message/post') }}" method="POST">

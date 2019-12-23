@@ -4,7 +4,7 @@
         use Illuminate\Database\Schema\Blueprint;
         use Illuminate\Database\Migrations\Migration;
         
-        class CreatePushMessageToUserTable extends Migration
+        class CreatePushMessageToUsersTable extends Migration
         {
             /**
              * Run the migrations.
@@ -13,7 +13,7 @@
              */
             public function up()
             {
-                Schema::create("push_message_to_user", function (Blueprint $table) {
+                Schema::create("push_message_to_users", function (Blueprint $table) {
 
 						$table->increments('id');
 						$table->integer('toggle')->nullable();
@@ -33,7 +33,7 @@
              */
             public function down()
             {
-                Schema::dropIfExists("push_message_to_user");
+                Schema::dropIfExists("push_message_to_users");
             }
         }
     

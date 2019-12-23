@@ -284,74 +284,88 @@ table{
     <table>
         <tr>
             <th>プロフィール画像<span class="opt">任意</span></th>
-            <td class="preview_center"><input id="user_profile" type="file" name="image_url" value=""><img id="user_profile_preview" class="user_profile_preview" src="/images/top.jpeg"></td>
+            @if($user->image_url)
+            <td class="preview_center"><input id="user_profile" type="file" name="image_url" value="{{$user->image_url}}"><img id="user_profile_preview" class="user_profile_preview" src="{{$user->image_url}}"></td>
+            @else
+            <td class="preview_center"><input id="user_profile" type="file" name="image_url" value=""><img id="user_profile_preview" class="user_profile_preview" src="/images/user_default.jpg"></td>
+            @endif
         </tr>
         <tr>
             <th>前職の会社名<span class="opt">任意</span></th>
-            <td><input type="text" name="user_last_company" value="{{old('user_last_company')}}" placeholder="前職の会社名"></td>
+            <td><input type="text" name="user_last_company" value="@if($user->user_last_company) {{$user->user_last_company}} @else {{old('user_last_company')}} @endif" placeholder="前職の会社名"></td>
         </tr>
 
         <tr>
             <th>前職の部署名<span class="opt">任意</span></th>
-            <td><input type="text" name="user_last_company_dept" value="{{old('user_last_company_dept')}}" placeholder="前職の部署名"></td>
+            <td><input type="text" name="user_last_company_dept" value="@if($user->user_last_company){{$user->user_last_company}} @else {{old('user_last_company_dept')}}@endif" placeholder="前職の部署名"></td>
         </tr>
 
         <tr>
             <th>前職の役職<span class="opt">任意</span></th>
-            <td><input type="text" name="user_last_company_position" value="{{old('user_last_company_position')}}" placeholder="前職の役職"></td>
+            <td><input type="text" name="user_last_company_position" value="@if($user->user_last_company_position){{$user->user_last_company_position}} @else {{old('user_last_company_position')}}@endif" placeholder="前職の役職"></td>
         </tr>
 
         <tr>
             <th>前職の就業(開始)<span class="opt">任意</span></th>
-            <td><input type="date" name="user_last_company_since" value="{{old('user_last_company_since')}}" placeholder="期間年・期間月から"></td>
+            <td><input type="date" name="user_last_company_since" value="@if($user->user_last_company_since){{$user->user_last_company_since}} @else {{old('user_last_company_since')}}@endif" placeholder="期間年・期間月から"></td>
         </tr>
         
         <tr>
             <th>前職の就業(終了)<span class="opt">任意</span></th>
-            <td><input type="date" name="user_last_company_until" value="{{old('user_last_company_until')}}" placeholder="期間年・期間月まで"></td>
+            <td><input type="date" name="user_last_company_until" value="@if($user->user_last_company_until){{$user->user_last_company_until}} @else {{old('user_last_company_until')}}@endif" placeholder="期間年・期間月まで"></td>
         </tr>
 
         <tr>
             <th>生年月日<span class="opt">任意</span></th>
-            <td><input type="date" name="user_birthday" value="{{old('user_birthday')}}" placeholder="生年月日"></td>
+            <td><input type="date" name="user_birthday" value="@if($user->user_birthday){{$user->user_birthday}} @else {{old('user_birthday')}}@endif" placeholder="生年月日"></td>
         </tr>
 
         <tr>
             <th>最終学歴<span class="opt">任意</span></th>
-            <td><input type="text" name="user_last_degree" value="{{old('user_last_degree')}}" placeholder="最終学歴"></td>
+            <td><input type="text" name="user_last_degree" value="@if($user->user_last_degree){{$user->user_last_degree}} @else {{old('user_last_degree')}}@endif" placeholder="最終学歴"></td>
         </tr>
 
         <tr>
             <th>学校名<span class="opt">任意</span></th>
-            <td><input type="text" name="user_last_school" value="{{old('user_last_school')}}" placeholder="学校名"></td>
+            <td><input type="text" name="user_last_school" value="@if($user->user_last_school){{$user->user_last_school}} @else {{old('user_last_school')}}@endif" placeholder="学校名"></td>
         </tr>
 
         <tr>
             <th>学部・学科<span class="opt">任意</span></th>
-            <td><input type="text" name="user_last_school_dept" value="{{old('user_last_school_dept')}}" placeholder="学部・学科"></td>
+            <td><input type="text" name="user_last_school_dept" value="@if($user->user_last_school_dept){{$user->user_last_school_dept}} @else {{old('user_last_school_dept')}}@endif" placeholder="学部・学科"></td>
         </tr>
 
         <tr>
             <th>性別<span class="opt">任意</span></th>
             <td>
-                <input id="user_gender1" type="radio" name="user_gender" value="男性"><label for="user_gender1" class="label">男性</label>
-                <input id="user_gender2" type="radio" name="user_gender" value="女性"><label for="user_gender2" class="label">女性</label>
+                @if($user->user_gender)
+                    @if($user->user_gender == "男性")
+                    <input id="user_gender1" type="radio" name="user_gender" value="男性" checked><label for="user_gender1" class="label">男性</label>
+                    <input id="user_gender2" type="radio" name="user_gender" value="女性"><label for="user_gender2" class="label">女性</label>
+                    @else
+                    <input id="user_gender1" type="radio" name="user_gender" value="男性"><label for="user_gender1" class="label">男性</label>
+                    <input id="user_gender2" type="radio" name="user_gender" value="女性" checked><label for="user_gender2" class="label">女性</label>
+                    @endif
+                @else
+                    <input id="user_gender1" type="radio" name="user_gender" value="男性"><label for="user_gender1" class="label">男性</label>
+                    <input id="user_gender2" type="radio" name="user_gender" value="女性"><label for="user_gender2" class="label">女性</label>
+                @endif
             </td>
         </tr>
 
         <tr>
             <th>言語(日本語以外)<span class="opt">任意</span></th>
-            <td><input type="text" name="user_language" value="{{old('user_language')}}" placeholder="得意な言語（日本語以外）"></td>
+            <td><input type="text" name="user_language" value="@if($user->user_language){{$user->user_language}} @else {{old('user_language')}}@endif" placeholder="得意な言語（日本語以外）"></td>
         </tr>
 
         <tr>
             <th>資格・免許<span class="opt">任意</span></th>
-            <td><input type="text" name="user_licence" value="{{old('user_licence')}}" placeholder="資格・免許"></td>
+            <td><input type="text" name="user_licence" value="@if($user->user_licence){{$user->user_licence}} @else {{old('user_licence')}}@endif" placeholder="資格・免許"></td>
         </tr>
 
         <tr>
             <th>簡単な経歴<span class="opt">任意</span></th>
-            <td><textarea name="user_last_company_exp" value="{{old('user_last_company_exp')}}" placeholder="例) 自社が運営するWebサービスのデジタルマーケティングを行ってきました。（SEO/SEMの企画からSNSの運用まで）"></textarea></td>
+            <td><textarea name="user_last_company_exp" value="" placeholder="例) 自社が運営するWebサービスのデジタルマーケティングを行ってきました。（SEO/SEMの企画からSNSの運用まで）">@if($user->user_last_company_exp){{$user->user_last_company_exp}} @else {{old('user_last_company_exp')}}@endif</textarea></td>
         </tr>
 
         </table>

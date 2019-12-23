@@ -34,7 +34,22 @@ use App\Job;
 <style>
 
     body{
-        background:#f2feff;
+        font-family: 'M PLUS 1p', sans-serif;
+        background: #f2feff;
+    }
+
+
+    .jumbotron {
+  background-color: white;
+  box-shadow: 0px 0px 3px rgb(82, 147, 151, 0.5);
+    }
+
+    .jumbotron h1 {
+    font-size: 30px;
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #5a5a5a;
     }
 
     .box{
@@ -134,14 +149,18 @@ use App\Job;
 
 @section('content')
 <div class="container">
+    <div class="jumbotron">
+        <h1>プロジェクト参加者一覧</h1>
+    </div>
     <div class="message_area">
         <!-- ループさせる -->
-        <h1>プロジェクト参加者一覧</h1>
         @if(count($rooms)>0)
         @for($i=0; $i<count($rooms); $i++)
         <div class="box">
             <div class="box_image">
-                <img src={{$users[$i]->image_url}}>
+                <a href="/clients/players/{{$users[$i]->id}}">
+                    <img src={{$users[$i]->image_url}}>
+                </a>
             </div>
             <div class="box_text">    
                 <p>プロジェクトタイトル：{{$jobs[$i]->job_title}}</p>
