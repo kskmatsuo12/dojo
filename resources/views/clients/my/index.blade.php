@@ -359,7 +359,7 @@ input:hover{
                         <td class="user_table_user">{{$user->email}}</td>
 
                         <?php
-                        $suggestions = Suggestion::where('user_id', $user->id)->first();
+                        $suggestions = Suggestion::where('user_id', $user->id)->where('job_id', $job->id)->first();
                         ?>
                         @if($suggestions->progress_info === 1)
                         <td class="user_table_user"><a href="{{url('clients/suggestions/'.$suggestions->id)}}">未回答</a></td>
