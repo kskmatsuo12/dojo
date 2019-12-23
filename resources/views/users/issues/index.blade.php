@@ -39,14 +39,14 @@
         <div class="client_wrap">
             <div class="client_title">
 
-                <p>社名 {{$client[0]->client_name}}</p>
+                <p>{{$client[0]->client_name}}</p>
             </div>
             <div class="client_url">
-                <a href="{{$client[0]->client_url}}"><p>会社URL {{$client[0]->client_url}}</p></a>
+                <a href="{{$client[0]->client_url}}"><p>{{$client[0]->client_url}}</p></a>
             </div>
             <ul class="client_kind">
                 <li><i class="fas fa-home"></i> 事業内容 {{$client[0]->client_biz}} </li>
-                <li><i class="fas fa-flag"></i> 社員数 {{$client[0]->client_num_emp}} </li>
+                <li><i class="fas fa-flag"></i> 社員数 {{$client[0]->client_num_emp}} 名</li>
                 <li><i class="fas fa-map-marker-alt"></i> 所在地 {{$client[0]->client_loc}} </li>
 
             </ul> 
@@ -86,11 +86,11 @@
             <p>{{$job->request_fill_out}}</p>
         </div>
             
-        <div class="section9">
+        <!-- <div class="section9">
             <span><i class="fas fa-users-cog"></i>プロジェクトから得られるスキル</span>
             <p>{{$job->get_skill}}</p>
             
-        </div>
+        </div> -->
 
         <form action="{{url('proposal')}}" method="POST">
                 {{ csrf_field() }}
