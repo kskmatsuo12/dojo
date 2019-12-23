@@ -78,7 +78,10 @@ Route::group(['middleware' => 'auth'], function () {
     //ユーザーから見た案件詳細予定
     Route::get('/my/{id}', 'HomeController@myIndex');
     //ユーザーから企業への評価ページ
-    Route::get('/issues/assessment', 'HomeController@assessment');
+    Route::get('/issue/assessment', 'HomeController@assessment');
+    Route::get('UserAssessmentDone', 'HomeController@userassessment');
+
+    
     //ログアウト
     Route::get('/logout', 'HomeController@logout');
     //お蔵入り

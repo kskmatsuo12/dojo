@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
   use App\Job;
   use App\Suggestion;
   use App\Client;
+  use App\AssessmentClient;
+
 
   class HomeController extends Controller
 // Userコントローラーとして使う。
@@ -310,6 +312,47 @@ use Illuminate\Support\Facades\Auth;
       //企業評価
       public function assessment(Request $request)
       {
-          return view('users/issues/assessment');
+        $value = $request->id;
+        $user_id = Auth::id();
+
+        $suggestions = Suggestion::where('job_id', $value)->where('user_id', $user_id)->first();
+        $clients = Client::where('id', $suggestions->client_id)->first();
+        return view('users/issues/assessment', 
+                ['job'=>$value, 
+                 'suggestion'=>$suggestions, 
+                 'client'=>$clients]);
+      }
+
+      public function userassessment(Request $request){
+        $job_id = $request->job_id;
+        $client_id = $request->client_id;
+        $user_id = $request->user_id;
+        $comment = $request->client_worrying;
+        $client_level = $request->client_level;
+
+
+
+        $assessment = new AssessmentClient;
+        $assessment->user_id = $user_id;
+        $assessment->client_id = $client_id;
+        $assessment->job_id = $job_id;
+        $assessment->client_worrying = $comment;
+        $assessment->client_level = $client_level;
+        $assessment->save();
+    
+        // //job_statusを3→4（案件終了）に変更
+        // $jobs = Job::find($job_id);
+        // $jobs->job_status = 4;
+        // $jobs->save();
+
+        // suggestionのprogress_infoを4に変更
+        $suggestion = Suggestion::where('job_id', $job_id)->where('user_id', $user_id)->first();
+            if($suggestion->progress_info === 3){
+                $suggestion->progress_info = 4;
+                $suggestion->save();
+                }
+            
+
+        return redirect('/clients/home');
       }
   }

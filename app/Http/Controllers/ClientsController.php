@@ -206,6 +206,8 @@ class ClientsController extends Controller
         $jobs->get_skill = $request->get_skill;
         //社長のおすすめ追加
         $jobs->president = $request->president;
+        // $jobs->image_url = $request->file(‘image_url’)->store(‘public/client_profile_image’);
+        // $jobs->image_url = str_replace(‘public/‘, ‘/storage/’, $jobs->image_url);
         $jobs->image_url = $request->file('image_url')->store('public/client_profile_image');
         $jobs->image_url = str_replace('public/', '/storage/', $jobs->image_url);
 
