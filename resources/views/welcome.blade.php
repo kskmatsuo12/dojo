@@ -298,31 +298,31 @@ body{
                     <div class="form-group">
                         <div class="col-sm-6">
                             <!-- <label for="user_name_sei" class="">姓</label> -->
-                            <input type="text" name="name" value="{{old('user_name_sei')}}" class="form-control" id="top_form" placeholder="姓">
+                            <input type="text" name="name" value="{{old('user_name_sei')}}" class="form-control" id="top_form" placeholder="姓" required>
                         </div>
                         <div class="col-sm-6">
                         <!-- <label for="user_name_mei" class="">名</label> -->
-                            <input type="text" name="user_name_mei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form" placeholder="名">
+                            <input type="text" name="user_name_mei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form" placeholder="名" required>
                         </div>
                         <div class="col-sm-6">
                             <!-- <label for="user_hurigana_sei" class="">セイ</label> -->
-                            <input type="text" name="user_hurigana_sei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form" placeholder="セイ">
+                            <input type="text" name="user_hurigana_sei" value="{{old('user_hurigana_sei')}}" class="form-control" id="top_form" placeholder="セイ" required>
                         </div>
                         <div class="col-sm-6">
                             <!-- <label for="user_hurigana_mei" class="">メイ</label> -->
-                            <input type="text" name="user_hurigana_mei" value="{{old('user_hurigana_mei')}}" class="form-control" id="top_form" placeholder="メイ">
+                            <input type="text" name="user_hurigana_mei" value="{{old('user_hurigana_mei')}}" class="form-control" id="top_form" placeholder="メイ" required>
                         </div>
                         <div class="sm">
                             <!-- <label for="email" class="">メールアドレス</label> -->
-                            <input type="text" name="email" value="{{old('email')}}" class="form-control" id="top_form" placeholder="メールアドレス">
+                            <input type="text" name="email" value="{{old('email')}}" class="form-control" id="top_form" placeholder="メールアドレス" required>
                         </div>
                         <div class="sm">
                             <!-- <label for="password" class="">パスワード設定</label> -->
-                            <input type="text" name="password" value="{{old('password')}}" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
+                            <input type="text" name="password" value="{{old('password')}}" class="form-control" id="top_form" placeholder="パスワード(6文字以上)" required>
                         </div>
                         <div class="sm">
                             <!-- <label for="password" class="">パスワード設定</label> -->
-                            <input type="text" name="password_confirmation" class="form-control" id="top_form" placeholder="パスワード(6文字以上)">
+                            <input type="text" name="password_confirmation" class="form-control" id="top_form" placeholder="パスワード(6文字以上)" required>
                         </div>
                     </div>
 
