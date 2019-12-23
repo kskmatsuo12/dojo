@@ -84,6 +84,7 @@ body{
     height: 40px;
     line-height: 30px;
 }
+
 .jumbotron {
     background-color: white;
     box-shadow: 0px 0px 3px rgb(82, 147, 151,0.5);
