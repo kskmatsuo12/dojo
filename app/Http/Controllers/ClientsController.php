@@ -265,8 +265,9 @@ class ClientsController extends Controller
 
         // }
         
-        for($i=0;$i<count($suggestions);$i++){
-            $users[] = User::where('id', $suggestions[$i]->user_id)->first(); ;
+        for ($i=0;$i<count($suggestions);$i++) {
+            $users[] = User::where('id', $suggestions[$i]->user_id)->first();
+            ;
         }
 
         return view(
@@ -290,11 +291,10 @@ class ClientsController extends Controller
         // $suggestions->progress_info = 5;
         // $suggestions->save();
         foreach ($suggestions as $suggestion) {
-            if($suggestion->progress_info === 1){
+            if ($suggestion->progress_info === 1) {
                 $suggestion->progress_info = 5;
                 $suggestion->save();
             }
-        
         }
         return redirect('/clients/home');
     }
@@ -307,12 +307,11 @@ class ClientsController extends Controller
         $jobs->save();
         $suggestions = Suggestion::where('job_id', $jobs->id)->get();
         foreach ($suggestions as $suggestion) {
-            if($suggestion->progress_info === 2){
+            if ($suggestion->progress_info === 2) {
                 $suggestion->progress_info = 3;
                 $suggestion->save();
             }
-        
-        }   
+        }
 
         return redirect('/clients/home');
     }
@@ -350,7 +349,7 @@ class ClientsController extends Controller
     public function playerAssessment(Request $request)
     {
         $value = $request->id;
-        return view('clients/players/assessment',['job'=>$value]);
+        return view('clients/players/assessment', ['job'=>$value]);
     }
 
     public function playerassessDone(Request $request)
@@ -360,7 +359,7 @@ class ClientsController extends Controller
         $job_id = $request->job_id;
 
 
-        for($i=0;$i<$kosuu;$i++){
+        for ($i=0;$i<$kosuu;$i++) {
             $id='id'.$i;
             $user_point='user_point'.$i;
             $user_worrying='user_worrying'.$i;
@@ -393,8 +392,8 @@ class ClientsController extends Controller
         //         $suggestion->save();
         //         }
         //     }
-    return redirect('/clients/home');
-}
+        return redirect('/clients/home');
+    }
     
 
     public function suggestionsIndex(Suggestion $suggestions)
@@ -425,6 +424,9 @@ class ClientsController extends Controller
         $message_room->job_id = $job_id;
         $message_room->save();
         $room_id = $message_room->id;
+
+        //ユーザーに通知
+
         return redirect()->route('room.show', ['room_id'=>$room_id]);
     }
 }

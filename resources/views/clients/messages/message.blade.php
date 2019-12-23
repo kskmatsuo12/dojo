@@ -1,16 +1,17 @@
 <?php
     use App\User;
-    use App\Job;
-    // echo $rooms;
+use App\Job;
+
+// echo $rooms;
     //memo 下のデータが飛んでくる
     //[{"id":1,"user_id":1,"client_id":1,"job_id":1,"created_at":"2019-12-22 20:39:30","updated_at":"2019-12-22 20:39:30","deleted_at":null}]
     //クリックしたらメッセージに飛ばす
     //着信データ、どうとる？
     // $users = User::take(5)->get();
-    for($i=0;$i<count($rooms);$i++){
-        $users[$i]= User::where('id',$rooms[$i]->user_id)->first();
-        $jobs[$i]= Job::where('id',$rooms[$i]->job_id)->first();
-        }
+    for ($i=0;$i<count($rooms);$i++) {
+        $users[$i]= User::where('id', $rooms[$i]->user_id)->first();
+        $jobs[$i]= Job::where('id', $rooms[$i]->job_id)->first();
+    }
     // var_dump($users[0]->name);
     // var_dump($jobs[0]->job_title);
     // echo count($rooms);
@@ -76,9 +77,10 @@
     }
 
     .message_area {
-        padding-bottom: 280px;
+        padding-bottom: 0;
         position: relative;
         z-index: 1;
+        margin-bottom: 54px;
     }
 
     .message_input {
@@ -132,29 +134,30 @@
 
 @section('content')
 <div class="container">
-<div class="message_area">
-    <!-- ループさせる -->
-    <h1>プロジェクト参加者一覧</h1>
-    @if(count($rooms)>0)
-    @for($i=0; $i<count($rooms); $i++)
-    <div class="box">
-        <div class="box_image">
-            <img src={{$users[$i]->image_url}}>
+    <div class="message_area">
+        <!-- ループさせる -->
+        <h1>プロジェクト参加者一覧</h1>
+        @if(count($rooms)>0)
+        @for($i=0; $i<count($rooms); $i++)
+        <div class="box">
+            <div class="box_image">
+                <img src={{$users[$i]->image_url}}>
+            </div>
+            <div class="box_text">    
+                <p>プロジェクトタイトル：{{$jobs[$i]->job_title}}</p>
+                <p>プロジェクト参加者 {{$users[$i]->name}}　{{$users[$i]->user_name_mei}}　様</p>
+                <p><br>
+                </p>
+                <p><a href="/clients/messages/message_room/?room_id={{$rooms[$i]->id}}">メッセージルームはこちら</a></p>
+            </div>
         </div>
-
-        <div class="box_text">    
-        <p>プロジェクトタイトル：{{$jobs[$i]->job_title}}</p>
-        <p>プロジェクト参加者 {{$users[$i]->name}}　{{$users[$i]->user_name_mei}}　様</p>
-        <p><br></p>
-        <p><a href="/clients/messages/message_room/?room_id={{$rooms[$i]->id}}">メッセージルームはこちら</a></p>
-        </div>
+        @endfor
+        @endif
     </div>
-    @endfor
-    @endif
 </div>
-@include('layouts/sp_menu')
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>
 <!-- JSファイルの指定してください！ -->
+@include('layouts/sp_menu_client')
 
 @endsection
