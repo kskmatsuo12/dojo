@@ -3,11 +3,13 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/???.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 </head>
 <style>
 body{
     color:white;
     margin: 0px auto;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 .logo{
     width:50%;
@@ -42,6 +44,8 @@ input{
     width: 200px;
     display: flex;
     justify-content: center;
+    font-family: 'M PLUS 1p', sans-serif;
+    
 }
 button{
     /* display: flex;
@@ -56,14 +60,16 @@ button{
     margin: 30px auto 15px;
     user-select: none;
     outline: none;
+    font-size: 14px;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
     cursor: pointer;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 
 button:hover{
     box-shadow: none;
     background: #b8d2d4;
-    color:#dcf1f3;
+    color:white;
 }
 .col-sm {
     margin: 0px auto;
@@ -113,12 +119,12 @@ button:hover{
             <div class="form-group">
                 <div>
                 <label for="email" class="col-md-4 control-label">登録ID</label>
-                    <input type="text" name="client_loginid" value="{{old('client_loginid')}}" class="" id="top_form" placeholder="ID">
+                    <input type="text" name="client_loginid" value="{{old('client_loginid')}}" class="" id="top_form" placeholder="半角英数字6～12文字" required>
                 </div>
                 
                 <div>
                 <label for="email" class="col-md-4 control-label">登録パスワード</label>
-                    <input type="text" name="client_pass" value="" class="" id="top_form" placeholder="password">
+                    <input type="text" name="client_pass" value="" class="" id="top_form" placeholder="半角英数字6～12文字" required>
                 </div>
             </div>
 
