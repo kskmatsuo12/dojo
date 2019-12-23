@@ -4,11 +4,13 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/???.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 </head>
 <style>
 body{
     background:#f2feff;
     font-size:13px;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 
 input{
@@ -23,6 +25,7 @@ input{
     border-radius: 5px;
     border: 1px solid rgb(168, 168, 168);
     width: 100%;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 input[type=radio] {
     display: none;
@@ -48,6 +51,7 @@ textarea{
     outline: none;
     resize: none;
     width: 100%;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 
 label{
@@ -120,7 +124,7 @@ input[type="radio"]:checked + label {
 }
 
 .wrap_profile {
-    margin-bottom:15px;
+    /* margin-bottom:15px; */
     text-align: center;
 }
 
@@ -136,11 +140,12 @@ button{
     font-weight: bold;
     letter-spacing:3px;
     color:#ffffff;
-    margin: 30px auto 20px;
+    margin: 30px auto 80px;
     user-select: none;
     outline: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
     cursor: pointer;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 button:hover{
     box-shadow: none;
@@ -181,6 +186,11 @@ button:hover{
 
   .preview_center {
         text-align: center;
+    }
+    .line img {
+        width: 85%;
+        display: flex;
+        margin: 25px auto 18px;
     }
 
 /* 追加したユーザープロフィール画像関係ここまで */
@@ -233,6 +243,11 @@ button:hover{
     .preview_center {
         text-align: center;
     }
+    .line img {
+        width: 60%;
+        display: flex;
+        margin: 30px auto 20px;
+    }
 }
 
 @media screen and (min-width: 1040px) {
@@ -247,8 +262,9 @@ button:hover{
 <div class="container">
     <!-- この中にコンテンツ -->
     <div class="line">
-        <h1>基本情報の登録</h1>
-        <h2>　　</h2>
+    <img src="{{ asset('images/pic8.png') }}" alt="">
+        <!-- <h1>基本情報の登録</h1>
+        <h2>　　</h2> -->
     </div>
 
     @include('common.errors')
