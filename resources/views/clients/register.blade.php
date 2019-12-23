@@ -128,7 +128,7 @@ button:hover{
         <div class="form-group">
             <div class="client_form">
                 <label for="client_name" class="client_form_title">貴社名</label>
-                <input type="text" name="client_name" value="{{old('client_name')}}" class="form-control" placeholder="例)株式会社Dojo">
+                <input type="text" name="client_name" value="{{old('client_name')}}" class="form-control" placeholder="例)株式会社Dojo" required>
             </div>
             <div class="client_form">
                 <label for="client_kana" class="client_form_title">貴社名（全角カナ）</label>
@@ -136,15 +136,15 @@ button:hover{
             </div>
             <div class="client_form">
                 <label for="client_id" class="client_form_title">ID設定</label>
-                <input type="text" name="client_loginid" value="{{old('client_id')}}" class="form-control" placeholder="半角英数字6～12文字">
+                <input type="text" name="client_loginid" value="{{old('client_id')}}" class="form-control" placeholder="半角英数字6～12文字" required>
             </div>
             <div class="client_form">
                 <label for="client_pass" class="client_form_title">パスワード設定</label>
-                <input type="text" name="client_pass" value="" class="form-control" placeholder="半角英数字6～12文字">
+                <input type="password" name="client_pass" value="" class="form-control" placeholder="半角英数字6～12文字" required>
             </div>
             <div class="client_form">
                 <label for="client_pass" class="client_form_title">パスワード確認</label>
-                <input type="text" name="client_pass_confirm" value="" class="form-control" placeholder="半角英数字6～12文字（確認用）">
+                <input type="password" name="client_pass_confirm" value="" class="form-control" placeholder="半角英数字6～12文字（確認用）" required>
             </div>
         </div>
 

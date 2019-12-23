@@ -18,7 +18,7 @@
 
 
 @section('content')
-@include('layouts/header')
+@include('layouts/header_client2')
 <div class="container">
     <!-- この中にコンテンツ -->
   
@@ -97,7 +97,7 @@
 
 
 
-
+@include('layouts/sp_menu_client')
 
 <!-- JSファイルの指定してください！ -->
 <script src="{{ asset('js/???.js') }}"></script>

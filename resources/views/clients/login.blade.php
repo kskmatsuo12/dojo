@@ -113,12 +113,12 @@ button:hover{
             <div class="form-group">
                 <div>
                 <label for="email" class="col-md-4 control-label">登録ID</label>
-                    <input type="text" name="client_loginid" value="{{old('client_loginid')}}" class="" id="top_form" placeholder="ID">
+                    <input type="text" name="client_loginid" value="{{old('client_loginid')}}" class="" id="top_form" placeholder="ID" required>
                 </div>
                 
                 <div>
                 <label for="email" class="col-md-4 control-label">登録パスワード</label>
-                    <input type="text" name="client_pass" value="" class="" id="top_form" placeholder="password">
+                    <input type="text" name="client_pass" value="" class="" id="top_form" placeholder="password" required>
                 </div>
             </div>
 

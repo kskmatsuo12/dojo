@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@include('layouts/header_client2')
 
 <?php
 

@@ -158,7 +158,7 @@ use App\Job;
         @for($i=0; $i<count($rooms); $i++)
         <div class="box">
             <div class="box_image">
-                <a href="/clients/players/{{$users[$i]->id}}">
+                <a href="/clients/players/index/{{$users[$i]->id}}">
                     <img src={{$users[$i]->image_url}}>
                 </a>
             </div>

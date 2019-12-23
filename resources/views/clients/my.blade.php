@@ -344,7 +344,7 @@ $jobs3 = Job::where('client_id', $id)->where('job_status', 3)->get();//終了（
                 <div class="pjts">
                     <a href="{{ url('clients/my/index/'.$jobs1[$i]->id)}}" class="link">
                     <div class="pjt">
-                            <img src="https://skillshift-production.s3.ap-northeast-1.amazonaws.com/file1575512880-802.png" alt="">
+                            <img src="{{$jobs1[$i]->image_url}}" alt="job_image">
                             <div class="info">
                                 <p class="pjt_term">{{$jobs1[$i]->work_term}}</p>
                                 <p class="pjt_title">{{$jobs1[$i]->job_title}}</p>
@@ -375,7 +375,7 @@ $jobs3 = Job::where('client_id', $id)->where('job_status', 3)->get();//終了（
                     <div class="pjts"> 
                         <a href="{{ url('clients/my/index/'.$jobs2[$i]->id) }}">
                         <div class="pjt">
-                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                            <img src="{{$jobs2[$i]->image_url}}" alt="job_image">
                             <div class="info">
                                 <p class="pjt_term">{{$jobs2[$i]->work_term}}</p>
                                 <p class="pjt_title">{{$jobs2[$i]->job_title}}</p>
@@ -405,7 +405,7 @@ $jobs3 = Job::where('client_id', $id)->where('job_status', 3)->get();//終了（
                     <div class="pjts">
                     <a href="{{ url('clients/my/index/'.$jobs3[$i]->id) }}">
                         <div class="pjt">
-                            <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                            <img src="{{$jobs3[$i]->image_url}}" alt="job_image">
                             <div class="info">
                                 <p class="pjt_term">{{$jobs3[$i]->work_term}}</p>
                                 <p class="pjt_title">{{$jobs3[$i]->job_title}}</p>

@@ -276,7 +276,6 @@ table{
     @endif
     </table>
 
-    <p>全てのvalueが埋まらないと評価完了できないようにする。</p>
     <div class="form-group">
         <div class="col-sm">
             <button type="submit" class="btn btn-primary">
