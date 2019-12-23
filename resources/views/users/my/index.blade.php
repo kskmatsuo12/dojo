@@ -14,6 +14,8 @@
 @section('content')
 <div class="container">
     <!-- この中にコンテンツ -->
+
+
 </div>
 
 <!-- JSファイルの指定してください！ -->

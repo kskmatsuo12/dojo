@@ -43,12 +43,17 @@ body{
 }
 
 .box_text p {
-    line-height: 20px;
+    line-height: 18px;
     letter-spacing: 1px;
+    font-size: 12px;
 }
 
-.box_time {
-    font-size: 12px;
+.box_name {
+    border-bottom: 2px solid #ddd;
+}
+
+.box_time{
+    font-size: 8px;
     text-align: right;
 }
 
@@ -118,8 +123,8 @@ button:hover{
             <img src={{$user->image_url}}>
         </div>
         <div class="box_text">    
-        <p>{{$user->name}} {{$user->user_name_mei}}</p>
-        <p>{{$message->message}}</p>
+        <p class="box_name">名前 {{$user->name}} {{$user->user_name_mei}}</p>
+          <p>{!! nl2br($message->message)!!}</p>
         <p class="box_time">{{$message->created_at}}</p>
         </div>
         @else
@@ -127,8 +132,8 @@ button:hover{
             <img src={{$client->image_url}}>
         </div>
         <div class="box_text">
-        <p>名前 {{$client->client_name}}</p>
-        <p>{{$message->message}}</p>
+        <p class="box_name">名前 {{$client->client_name}}</p>
+        <p>{!! nl2br($message->message)!!}</p>
         <p class="box_time">{{$message->created_at}}</p>
         </div>
         @endif
