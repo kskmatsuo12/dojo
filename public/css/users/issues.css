@@ -1,0 +1,39 @@
+
+/* スマホ用CSSここから */
+body{
+  background:#f2feff;
+}
+.container {
+  width: 100%;
+}
+
+table{
+  width:350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+tbody{
+  border:1px black solid;
+}
+tr, th, td {
+  display: block;
+    max-width: 98%;
+}
+
+
+/* スマホ用CSS（ここまで） */
+
+/* PC用のCSSはこちら */
+
+@media screen and (min-width: 781px) {
+  /* この中にPC用CSSを書く！ */
+}
+
+/* PC用のCSSはこちら（ここまで） */
+
+@media screen and (min-width: 1040px) {
+  .container {
+    width: 1040px;
+    margin: auto;
+  }
+}

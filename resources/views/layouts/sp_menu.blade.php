@@ -1,20 +1,33 @@
 <head>
-     <link rel="stylesheet" href="{{ asset('css/sp_menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sp_menu.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 
 
-    <div id="nav-drawer">
-        <input id="nav-input" type="checkbox" class="nav-unshown" />
-        <label id="nav-open" for="nav-input"><span></span></label>
-        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-        <div id="nav-content">
-            <ul>
-                <li><a class="toAbout">中身決まったら修正しましょう</a></li>
-                <li><a class="toAbout">ABOUT</a></li>
-                <li><a class="toCourse">COURSE</a></li>
-                <li><a class="toNews">NEWS</a></li>
-                <li><a class="toAccess">ACCESS</a></li>
-                <li><a class="toContact">CONTACT</a></li>
-            </ul>
-        </div>
+<div class="sp-menu">
+    <div class="sp-menu-item">
+        <a class="" href="/home">
+            <i class="fas fa-home"></i>
+            <p>ホーム</p>
+        </a>
     </div>
+    <div class="sp-menu-item">
+        <a class="" href="/issues">
+            <i class="fas fa-edit"></i>
+            <p>応募する</p>
+        </a>
+    </div>
+    <div class="sp-menu-item">
+        <a class="" href="/messages">
+            <i class="far fa-comments"></i>
+            <p>メッセージ</p>
+        </a>
+    </div>
+    <div class="sp-menu-item">
+        <a class="" href="/my">
+            <i class="fas fa-cog"></i>
+            <p>マイページ</p>
+        </a>
+    </div>
+</div>
+    

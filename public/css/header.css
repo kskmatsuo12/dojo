@@ -1,0 +1,50 @@
+.header {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 32px;
+  box-shadow: 0px 2px 3px rgb(82, 147, 151, 0.5);
+  z-index: 100;
+}
+
+.brand_img {
+  height: 50px;
+  width: 100px;
+}
+
+.brand_img img {
+  height: 50px;
+  width: 100%;
+  object-fit: cover;
+  margin-left: 15px;
+}
+
+.header-space {
+  width: 100%;
+  height: 50px;
+  right: 16px;
+  align-items: center;
+}
+
+.header-icon {
+  box-sizing: border-box;
+  height: 50px;
+  padding: 3px;
+}
+
+.header-icon i {
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 24px;
+  color: rgb(92, 92, 92);
+}
+
+@media screen and (min-width: 781px) {
+  .sp-menu {
+    display: none;
+  }
+}
