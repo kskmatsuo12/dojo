@@ -159,7 +159,9 @@ table{
                 <p>{{$client[0]->client_name}}</p>
             </div>
             <div class="client_url">
+                <!-- <a href="{{$client[0]->client_url}}"><p>{{$client[0]->client_url}}</p></a> -->
                 <a href="{{$client[0]->client_url}}"><p>{{$client[0]->client_url}}</p></a>
+
             </div>
             <ul class="client_kind">
                 <li><i class="fas fa-home"></i> 事業内容: {{$client[0]->client_biz}} </li>
@@ -173,7 +175,8 @@ table{
         <div class="section2">
         </div>
         <div class="issues_img">
-            <img alt="プロジェクト画像" class="issues_image" src="{{asset('/images/issuesindex.jpg')}}">
+            <!-- <img alt="プロジェクト画像" class="issues_image" src="{{asset('/images/issuesindex.jpg')}}"> -->
+            <img class="issues_image" src="{{$job->image_url}}" alt="">
             <h3><span class="skill">{{$job->recruit_advisor}}</span></h3>
         </div>
 
