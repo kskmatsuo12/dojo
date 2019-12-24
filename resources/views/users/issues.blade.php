@@ -13,6 +13,7 @@ use App\Job;
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/users/home.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css" rel="stylesheet">
 </head>
@@ -48,10 +49,8 @@ a {
     text-align: center;
     padding:10px;
     margin-bottom:150px;
+    
 }
-
-
-
 
 .pjts:hover{
     opacity:0.6;
@@ -59,6 +58,8 @@ a {
 
 .pjt img{
     width:144px;
+    box-shadow: 1px 4px 4px rgb(82, 147, 151);
+
 }
 
 .info{
@@ -140,6 +141,7 @@ a {
 
     .pjt img{
         width:211.9px;
+        height: 141.26px;
         
     }
 
@@ -154,6 +156,28 @@ a {
         -ms-transform: translate(-50%,-50%);
         -webkit-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
+    }
+    
+    .skill{
+    font-size: 13px;
+    color: rgb(67,196,207);
+    margin:5px 0 10px;
+    }
+
+    .president {
+        position: absolute;
+        background: rgb(67,196,207);
+        color: white;
+        top: -67%;
+        left: 21%;
+        font-size: 11px;
+        border-radius: 10px;
+        padding: 7px;
+        -ms-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        box-shadow: 0px 0px 5px rgba(255,255,255,0.3);
+
     }
 }
 @media screen and (min-width: 1040px) {
@@ -185,11 +209,14 @@ a {
                 <div class="pjts">
                     <a href="issues/<?php echo $job->id ?>">
                     <div class="pjt">
-                        <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
+                        <!-- <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt=""> -->
+                        <img src="{{$job->image_url}}" alt="">
                         <div class="info">
-                            <p class="pjt_term">{{$job->recruitment_term}}</p>
+                            <p class="skill">{{$job->recruit_advisor}}</p>
                             <p class="pjt_title">{{$job->job_title}}</p>
                             <p class="pjt_name">{{$job->consultation}}</p>
+                            <h3 class="president">{{$job->president}}</h3>
+                            <!-- <p class="pjt_term">{{$job->recruitment_term}}</p> -->
                         </div>
                     </div>
                     </a>
