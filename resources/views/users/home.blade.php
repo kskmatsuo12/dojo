@@ -237,32 +237,33 @@ body{
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="first-slide" src="https://skillshift-production.s3.ap-northeast-1.amazonaws.com/file1575633990-179.jpg" alt="First slide">
+                    <img class="first-slide" src="https://asp.hotel-story.ne.jp/media/6924000100455.jpg" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
-                            <h1>複数事業を横断するマーケティング</h1>
-                            <p>弊社は食品卸売を行う中小企業です。マーケティング領域で横断的に戦略の設計や、社長との壁打ちをお願いしたい。ブレーンとして幅広く頼れる方々との出会いを希望します！</p>
-                            <p><a class="btn" href="/issues" role="button">プロジェクトを見る</a></p>
+                            <h1>60年続く老舗旅館が外国人観光客向けに新サービスを検討中です。</h1>
+                            <p>今回のプロジェクトには社長も参加します。4代目である社長は、これまでにない新しい旅館サービスを検討しており、その壁打ち相手を探しております。ご検討のほどお願いします。</p>
+                            <p><a class="btn" href="/issues/1" role="button">プロジェクトを見る</a></p>
+                            <!-- <p><a class="btn" href="/issues" role="button">プロジェクトを見る</a></p> -->
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="second-slide" src="https://d1f5hsy4d47upe.cloudfront.net/5a/5a7eb6d9b17bd823e642d7b492777949_t.jpeg" alt="Second slide">
+                    <img class="second-slide" src="https://www.glcl.co.jp/wp-content/uploads/2018/05/AdobeStock_106486311.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>飲食店チェーンへ営業強化を図りたい</h1>
-                            <p>関東近郊のドミナント経営の飲食店への営業強化、販促強化のお手伝いしていただける方を探しています！営業組織の生産性向上などについてディスカッションしたい！</p>
-                            <p><a class="btn" href="/issues" role="button">プロジェクトを見る</a></p>
+                            <h1>新規事業であるSaaSのマーケティングについてディスカッションしたい</h1>
+                            <p>新規サービス「楽楽労務」のオフライン担当として、「楽楽労務」の販売数増を目的としたプロモーション及び販売促進施策の企画を行っていただきます。</p>
+                            <p><a class="btn" href="/issues/2" role="button">プロジェクトを見る</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide" src="https://d1f5hsy4d47upe.cloudfront.net/e5/e573afd47ac7709ba3aeb4bbbc37197c_t.jpeg" alt="Third slide">
+                    <img class="third-slide" src="https://image.opst.co.jp/5715/7459/5097/related-culture-business.jpg" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption text-right">
-                            <h1>地方発の新たな事業モデルを検討</h1>
-                            <p>弊社は西東京で電気工事業を営む中小企業です。ドローンを活用した新たな事業アイデアを一緒に考え提案していただける方、地方発の新たな事業モデルの構築をお手伝い頂ける方を募集します！</p>
-                            <p><a class="btn" href="/issues" role="button">プロジェクトを見る</a></p>
+                            <h1>スタートアップである当社のCEOとともに新規事業戦略を話しませんか</h1>
+                            <p>トップマネジメントとのコミュニケーションを通じ、主に新規事業の検討～中期経営計画の策定などを行っていただきます</p>
+                            <p><a class="btn" href="/issues/3" role="button">プロジェクトを見る</a></p>
                         </div>
                     </div>
                 </div>
@@ -299,9 +300,10 @@ body{
                         <div class="pjt">
                             <img src="{{$job1[0]->image_url}}" alt="">
                             <div class="info">
-                                <p class="pjt_term">{{$job1[0]->recruitment_term}}</p>
+                                <p class="skill">{{$job1[0]->recruit_advisor}}</p>
                                 <p class="pjt_title">{{$job1[0]->job_title}}</p>
-                                <p class="pjt_name">{{$job1[0]->recruit_advisor}}</p>
+                                <p class="pjt_name">{{$job1[0]->consultation}}</p>
+                                <h3 class="president">{{$job1[0]->president}}</h3>
                             </div>
                         </div>
                     </a>
