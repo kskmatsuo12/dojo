@@ -162,13 +162,13 @@ body{
 @media screen and (max-width:767px) { 
 
     .copy h1{
-    font-size: 35px;
+    font-size: 28px;
     font-weight: bold;
-    color:#fff;
+    color: #fff;
     text-align: center;
     position: absolute;
     width: 90%;
-    top: 12%;
+    top: 10%;
     left: 50%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -176,13 +176,13 @@ body{
     }
 
     .copy h2{
-    font-size: 16px;
+        font-size: 14px;
     font-weight: bold;
-    color:#fff;
+    color: #fff;
     width: 90%;
     text-align: center;
     position: absolute;
-    top: 17%;
+    top: 15%;
     left: 50%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -191,7 +191,7 @@ body{
 
     #top_body{
     width:70%;
-    padding: 30px;
+    padding: 20px 30px;
     background: #fff;
     border: 1px solid #43c4cf;
     border-radius: 5px;
@@ -216,6 +216,12 @@ body{
 
     .form-group {
         margin:0px;
+    }
+    .form-control {
+    height: 30px;
+    }
+    .col-sm button {
+        height: 50px;
     }
 
 }
