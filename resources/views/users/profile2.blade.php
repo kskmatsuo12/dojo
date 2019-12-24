@@ -283,12 +283,9 @@ table{
         {{ csrf_field() }}
     <table>
         <tr>
-            <th>プロフィール画像<span class="opt">任意</span></th>
-            @if($user->image_url)
-            <td class="preview_center"><input id="user_profile" type="file" name="image_url" value="{{$user->image_url}}"><img id="user_profile_preview" class="user_profile_preview" src="{{$user->image_url}}"></td>
-            @else
+            <th>プロフィール画像<span class="opt">任意</span></th>        
             <td class="preview_center"><input id="user_profile" type="file" name="image_url" value=""><img id="user_profile_preview" class="user_profile_preview" src="/images/user_default.jpg"></td>
-            @endif
+            
         </tr>
         <tr>
             <th>前職の会社名<span class="opt">任意</span></th>
