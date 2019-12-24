@@ -47,7 +47,7 @@ use Illuminate\Support\Facades\Auth;
       {
           $uid = Auth::id();
           //案件を５件だけ表示
-          $jobs = Job::orderBy('created_at', 'desc')->take(5)->get();
+          $jobs = Job::orderBy('created_at', 'desc')->take(8)->get();
           $suggestions = Suggestion::where('progress_info', '<', 4)->where('user_id', $uid)->get();
           $user = Auth::user();
           return view('users/home', [
@@ -139,7 +139,7 @@ use Illuminate\Support\Facades\Auth;
           $users->user_exp_end = $request->user_exp_end;
           $users->user_current = $request->user_current;
           $users->save();
-          return view('users/profile2', ['uid'=>$uid]);
+          return view('users/profile2', ['uid'=>$uid,'user'=>$users]);
           // return view(‘users/profile2’);
       }
 
@@ -186,10 +186,10 @@ use Illuminate\Support\Facades\Auth;
           $users->user_licence = $request->user_licence;
           $users->user_last_company_exp = $request->user_last_company_exp;
           
-          if ($request->file('image_url')) {
+          
               $users->image_url = $request->file('image_url')->store('public/user_profile_image');
               $users->image_url = str_replace('public/', '/storage/', $users->image_url);
-          }
+          
           
           $users->save();
           return redirect('/home');
