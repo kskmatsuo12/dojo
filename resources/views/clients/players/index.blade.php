@@ -1,3 +1,4 @@
+@include('layouts/header_client2')
 @extends('layouts.app')
 
 <?php
@@ -218,21 +219,10 @@
 
             <h2></h2>
         </div>
-        <div class="jobbox">
-        <div class="line">
-            <h1>（任意項目）</h1>
-            <h1>最終学位：{{$user->user_last_degree}}</h1>
-            <h1>最終学歴：{{$user->user_last_school}}</h1>
-            <h1>得意な言語：{{$user->user_language}}</h1>
-            <h1>免許・資格：{{$user->user_licence}}</h1>
-        </div>
-
-
     </div>
-
 </div>
 
-@include('layouts/sp_menu')
+@include('layouts/sp_menu_client')
 
 
 @endsection
