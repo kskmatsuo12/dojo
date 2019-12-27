@@ -25,7 +25,6 @@ class ClientsController extends Controller
     //     return view('users/home');
     // }
 
-
     //registerの登録（下の一行をweb.phpへ）
     //Route::post('/clientsRegister', 'ClientsController@registerUpdate');
     public function registerUpdate(Request $request)
@@ -157,6 +156,39 @@ class ClientsController extends Controller
         return view('clients/post');
     }
 
+    //案件投稿確認画面
+    public function postComfirm(Request $request)
+    {
+        $client_id = $request->session()->get('id');
+
+        $job_title = $request->job_title;
+        $job_text = $request->job_text;
+        $request_fill_out = $request->request_fill_out;
+        $recruit_advisor = $request->recruit_advisor;
+        $work_format = $request->work_format;
+        $work_term = $request->work_term;
+        $interview_place = $request->interview_place;
+        $request_number = $request->request_number;
+        $recruitment_term = $request->recruitment_term;
+        $responsible_party = $request->responsible_party;
+        $president = $request->president;
+
+        return view('/clients/post/comfirm', 
+        [   'job_title' => $job_title,
+           'job_text' => $job_text,
+            'request_fill_out' => $request_fill_out,
+            'recruit_advisor' => $recruit_advisor,
+            'work_format' => $work_format,
+            'work_term' => $work_term,
+            'interview_place' => $interview_place,
+            'request_number' => $request_number,
+            'recruitment_term' => $recruitment_term,
+            'responsible_party' => $responsible_party,
+            'president' => $president,
+            'client_id' => $client_id,
+            ]);
+    }
+
     //jobsを保存
     public function jobPost(Request $request)
     {
@@ -202,32 +234,20 @@ class ClientsController extends Controller
         $jobs->request_number = $request->request_number;
         $jobs->recruitment_term = $request->recruitment_term;
         $jobs->responsible_party = $request->responsible_party;
-        // $jobs->responsible_email = $request->responsible_email;
         $jobs->get_skill = $request->get_skill;
         //社長のおすすめ追加
         $jobs->president = $request->president;
-        // $jobs->image_url = $request->file(‘image_url’)->store(‘public/client_profile_image’);
-        // $jobs->image_url = str_replace(‘public/‘, ‘/storage/’, $jobs->image_url);
         $jobs->image_url = $request->file('image_url')->store('public/client_profile_image');
         $jobs->image_url = str_replace('public/', '/storage/', $jobs->image_url);
-
         //job_statusに1（募集中）を代入
         $jobs->job_status = 1;
-        
-
         //セッションで受け取ったclient_idをJobテーブルに保存
-        $jobs->client_id = $value;
+        $jobs->client_id = $request->client_id;
         $jobs->save();
         return redirect('/clients/home');
     }
     
-    public function postComfirm()
-    {
 
-
-        
-        return view('clients/post/comfirm');
-    }
 
     //飯田ファイルはここまで
 
