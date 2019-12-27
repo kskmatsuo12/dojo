@@ -254,8 +254,8 @@ button:hover{
         <h1>プロジェクトの依頼</h1>
         <h2>　　</h2>
     </div>
-    <!-- <form action="{{ url('/clients/post/comfirm') }}" method="POST" class="" enctype="multipart/form-data"> -->
-<form action="{{ url('clientsPost') }}" method="POST" class="" enctype="multipart/form-data">
+    <form action="{{ url('/clients/post/comfirm') }}" method="POST" class="" enctype="multipart/form-data">
+<!-- <form action="{{ url('clientsPost') }}" method="POST" class="" enctype="multipart/form-data"> -->
                     {{ csrf_field() }}
     <div class="wraps">
         <!-- この中にコンテンツ -->
@@ -340,7 +340,7 @@ button:hover{
     <div class="form-group">
         <div class="col-sm">
             <button type="submit" class="btn btn-primary">
-                案件を投稿する
+                確認画面へ
             </button>
         </div>
     </div>
