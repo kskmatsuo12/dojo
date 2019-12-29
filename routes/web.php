@@ -80,8 +80,6 @@ Route::group(['middleware' => 'auth'], function () {
     //ユーザーから企業への評価ページ
     Route::get('/issue/assessment', 'HomeController@assessment');
     Route::get('UserAssessmentDone', 'HomeController@userassessment');
-
-    
     //ログアウト
     Route::get('/logout', 'HomeController@logout');
     //お蔵入り
@@ -89,6 +87,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::post('/post_image_client', 'ImageController@client_image');
     //ユーザーの表示だけここまで
 
+    //プッシュ通知でチャットルームへ飛ぶ
+    Route::get('/push/{rooms}', 'MessageController@push');
     //ユーザーメッセージルーム画面
     Route::get('/messages', 'MessageController@messages');
 
