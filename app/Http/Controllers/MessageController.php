@@ -27,6 +27,19 @@ class MessageController extends Controller
     // return view('users/messages/message', ['uid'=>$uid,'rooms'=>$rooms[0]]);
     // }
 
+    //ユーザー側プッシュ通知、チャットルームへ遷移
+    public function push(MessagesRoom $rooms)
+    {
+        $rooms_id = $rooms->id;
+
+        $messages = Message::where('room_id', $rooms_id)->get();
+        $uid = $rooms->user_id;
+        $user = User::find($uid);
+        $client_id = $rooms->client_id;
+        $client = Client::find($client_id);
+        return view('users/messages/message_room', ['messages'=>$messages,'user'=>$user,'client'=>$client,'room_id'=>$rooms_id]);
+    }
+
     //ユーザー側のメッセージ関係
     //メッセージ一覧画面
     public function messages(Request $request)
