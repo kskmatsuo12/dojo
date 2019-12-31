@@ -256,7 +256,7 @@ button:hover{
     </div>
     <form action="{{ url('/clients/post/comfirm') }}" method="POST" class="" enctype="multipart/form-data">
 <!-- <form action="{{ url('clientsPost') }}" method="POST" class="" enctype="multipart/form-data"> -->
-                    {{ csrf_field() }}
+    {{ csrf_field() }}
     <div class="wraps">
         <!-- この中にコンテンツ -->
         <div class="wrap">

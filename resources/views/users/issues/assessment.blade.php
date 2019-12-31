@@ -189,16 +189,13 @@ table{
     }
 
 </style>
-
-
-</style>
 @section('content')
 <div class="container">
     <!-- この中にコンテンツ -->
 
 
-    <form action="{{ url('UserAssessmentDone') }}" method="GET">
-
+    <form action="{{ url('UserAssessmentDone') }}" method="POST">
+    {{ csrf_field() }}
     <table class="user_table">
     <tr>
         <th>クライアント名</th>

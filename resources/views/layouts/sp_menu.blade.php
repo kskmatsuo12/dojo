@@ -6,25 +6,25 @@
 
 <div class="sp-menu">
     <div class="sp-menu-item">
-        <a class="" href="/home">
+        <a class="" href="{{url('/home')}}">
             <i class="fas fa-home"></i>
             <p>ホーム</p>
         </a>
     </div>
     <div class="sp-menu-item">
-        <a class="" href="/issues">
+        <a class="" href="{{url('/issues')}}">
             <i class="fas fa-edit"></i>
             <p>応募する</p>
         </a>
     </div>
     <div class="sp-menu-item">
-        <a class="" href="/messages">
+        <a class="" href="{{url('/messages')}}">
             <i class="far fa-comments"></i>
             <p>メッセージ</p>
         </a>
     </div>
     <div class="sp-menu-item">
-        <a class="" href="/my">
+        <a class="" href="{{url('/my')}}">
             <i class="fas fa-cog"></i>
             <p>マイページ</p>
         </a>

@@ -187,7 +187,7 @@ a {
                     // echo $job1->id;
                     ?>
                     <div class="pjts">
-                    <a href="issues/<?php echo $job1[0]->id ?>" class="link">
+                    <a href="{{url('issues/'.$job1[0]->id)}}" class="link">
                         <div class="pjt">
                             <img src="https://static.camp-fire.jp/uploads/project_version/image/331374/5fd91b4a-a70b-40fe-ae2c-1545fa0250fa.jpg?ixlib=rails-2.1.4&w=1024&h=682&fit=clip&auto=format" alt="">
                             <div class="info">

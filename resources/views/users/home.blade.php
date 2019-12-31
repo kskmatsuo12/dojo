@@ -226,9 +226,9 @@ body{
 </style>
 <!-- CSSファイルの指定をしてください〜 -->
 @section('content')
-
+    <!-- レコメンドをひっぱってこないといけない -->
     <main role="main">
-
+        
          <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -278,7 +278,7 @@ body{
             </a>
         </div>
     </main>
-
+<!-- レコメンドひっぱってこないといけないここまで -->
 <div class="container">
     <div class="jobbox">
 
@@ -296,7 +296,7 @@ body{
                     // echo $job1->id;
                     ?>
                     <div class="pjts">
-                    <a href="issues/<?php echo $job1[0]->id ?>" class="link">
+                    <a href="{{url('issues/'.$job1[0]->id)}}" class="link">
                         <div class="pjt">
                             <img src="{{$job1[0]->image_url}}" alt="">
                             <div class="info">
@@ -326,7 +326,7 @@ body{
             <div class="contain">
                 @foreach ($jobs as $job)
                 <div class="pjts">
-                <a href="issues/<?php echo $job->id ?>" class="link">
+                <a href="{{url('issues/'.$job->id)}}" class="link">
                     <div class="pjt">
 
                         <img src="{{$job->image_url}}" alt="">

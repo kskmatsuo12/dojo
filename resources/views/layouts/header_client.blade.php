@@ -309,23 +309,23 @@ body{
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav text-md-center nav-justified w-100">
         <li class="nav-item">
-            <a class="nav-logo" href="/clients/home"><img src="{{ url('images/dojo.png')}}" alt=""></a>
+            <a class="nav-logo" href="{{url('/clients/home')}}"><img src="{{ url('images/dojo.png')}}" alt=""></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="/clients/home">ホーム<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{url('/clients/home')}}">ホーム<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link"><form action="{{ url('clients/post')}}"><button class="pjt_post">公募する</button></form></a>
+            <a class="nav-link" href="{{url('clients/post')}}"><button class="pjt_post">公募する</button></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/clients/messages">メッセージ管理</a>
+            <a class="nav-link" href="{{url('/clients/messages')}}">メッセージ管理</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">企業情報の編集</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="profile">会社概要の編集</a>
+            <a class="dropdown-item" href="{{url('clients/profile')}}">会社概要の編集</a>
             <!-- <a class="dropdown-item" href="#">公募案件の編集</a> -->
-            <a class="dropdown-item" href="my">公募案件の管理</a>
+            <a class="dropdown-item" href="{{url('/clients/my')}}">公募案件の管理</a>
             </div>
         </li>
         </ul>

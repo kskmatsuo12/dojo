@@ -4,17 +4,18 @@
 // echo $uid;
 use App\Client;
 use App\Job;
+
 // echo $rooms;
 //memo 下のデータが飛んでくる
 //[{"id":1,"user_id":1,"client_id":1,"job_id":1,"created_at":"2019-12-22 20:39:30","updated_at":"2019-12-22 20:39:30","deleted_at":null}]
 //クリックしたらメッセージに飛ばす
 //着信データ、どうとる？
 // $users = User::take(5)->get();
-for($i=0;$i<count($messages);$i++){
-    $clients[$i]= Client::where('id',$messages[$i]->client_id)->first();
-    $jobs[$i]= Job::where('id',$messages[$i]->job_id)->first();
+for ($i=0;$i<count($messages);$i++) {
+    $clients[$i]= Client::where('id', $messages[$i]->client_id)->first();
+    $jobs[$i]= Job::where('id', $messages[$i]->job_id)->first();
     // echo ($jobs[$i]);
-    }
+}
 // var_dump($users[0]->name);
 // var_dump($jobs[0]->job_title);
 ?>
@@ -146,7 +147,7 @@ for($i=0;$i<count($messages);$i++){
         <p>プロジェクトタイトル：{{$jobs[$i]->job_title}}</p>
         <p>プロジェクト実施企業 {{$clients[$i]->client_name}}　様</p>
         <p><br></p>
-        <p><a href="messages/{{$messages[$i]->id}}">メッセージルームはこちら</a></p>
+        <p><a href="{{url('messages/'.$messages[$i]->id)}}">メッセージルームはこちら</a></p>
         </div>
 
     </div>

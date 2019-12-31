@@ -10,20 +10,22 @@
 
 <?php
     use App\User;
-    use App\Job;
-    use App\Suggestion;
-    $client_id=session()->get('id');
+use App\Job;
+use App\Suggestion;
+
+$client_id=session()->get('id');
     $job_id = $job;
     // job_idは前のページから持ってくる。忘れないように
-    $job_title = Job::where('id',$job_id)->first()->job_title;
+    $job_title = Job::where('id', $job_id)->first()->job_title;
     // var_dump($job_title);
 
     //抽出条件：Suggestionのclient_id&&job_id&&progress_info=3のユーザー>
-    $target_user=Suggestion::where('client_id',$client_id)->where('job_id',$job_id)->where('progress_info',3)->get();
+    $target_user=Suggestion::where('client_id', $client_id)->where('job_id', $job_id)->where('progress_info', 3)->get();
 
-    for($i=0;$i<count($target_user);$i++){
+    for ($i=0;$i<count($target_user);$i++) {
         // $target_user_ids[] = $target_user[$i] ->user_id ;
-        $users[] = User::where('id', $target_user[$i] ->user_id)->first(); ;
+        $users[] = User::where('id', $target_user[$i] ->user_id)->first();
+        ;
     }
     // var_dump ($target_user);
     // var_dump (count($target_user));
@@ -228,8 +230,8 @@ table{
         <p>プロジェクト名：{{$job_title}}</p>
     </div>
 
-    <form action="{{ url('PlayerAssessmentDone') }}" method="GET">
-
+    <form action="{{ url('PlayerAssessmentDone') }}" method="POST">
+    {{ csrf_field() }}
     <table class="">
     <tr>
         <th>参加者名</th>

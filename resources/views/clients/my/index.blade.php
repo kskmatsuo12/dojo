@@ -11,6 +11,7 @@
 </head>
 <?php
  use App\Suggestion;
+
 ?>
 
 <style>
@@ -289,10 +290,6 @@ input:hover{
 <!-- 押し込むデータ -->
 @section('content')
 <div class="container">
-
-
-
-
     <div class="job_title">「{{$job->job_title}}」</div>
     <div class="client_name">{{$client->client_name}}</div>
     <div class="job_img"> 
@@ -302,8 +299,7 @@ input:hover{
         <div class="job_wrap">
             <div class="job_text">
                 <p class="job_text_message">担当者からのメッセージ</p>
-                <div>{{$job->job_text}}</div>
-                
+                <div>{{$job->job_text}}</div>       
             </div>
             <i class="fas fa-envelope"></i>
         </div>
@@ -377,18 +373,21 @@ input:hover{
 
     <div>
         @if($job->job_status === 1)
-        <form action="{{ url('ClientRequestDone') }}" method="GET">
+        <form action="{{ url('ClientRequestDone') }}" method="POST">
+            {{ csrf_field() }}
             <input type="hidden" name="id" value="{{$job->id}}">
             <input type="submit" value="募集を終了する">
         </form>
         @elseif($job->job_status === 2)
-        <form action="{{ url('ClientProjectDone') }}" method="GET">
+        <form action="{{ url('ClientProjectDone') }}" method="POST">
+            {{ csrf_field() }}
             <input type="hidden" name="id" value="{{$job->id}}">
             <input type="submit" value="案件を終了する">
         </form>
         @elseif($job->job_status === 3)
         <!-- <form action="{{ url('ClientAssessmentDone') }}" method="GET"> -->
-        <form action="{{ url('/clients/player/assessment') }}" method="GET">
+        <form action="{{ url('/clients/player/assessment') }}" method="POST">
+            {{ csrf_field() }}
             <input type="hidden" name="id" value="{{$job->id}}">
             <input type="submit" value="評価する">
         </form>
