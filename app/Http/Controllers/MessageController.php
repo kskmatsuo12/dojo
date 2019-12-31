@@ -6,6 +6,7 @@ use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\PushMessageToUser;
 use App\MessagesRoom;
 use App\Message;
 use App\Client;
@@ -14,25 +15,16 @@ use App\Job;
 
 class MessageController extends Controller
 {
-    // public function message()
-    // {
-    //     $uid = Auth::id();
-    //     $rooms = MessagesRoom::where('id', $uid)->get();
-        
-    //     $i = 0;
-    // for ($i < count($rooms); $i++;) {
-    //     $room[] .=
-    // }
-
-    // return view('users/messages/message', ['uid'=>$uid,'rooms'=>$rooms[0]]);
-    // }
-
     //ユーザー側プッシュ通知、チャットルームへ遷移
     public function push(MessagesRoom $rooms)
     {
         $rooms_id = $rooms->id;
-
-        $messages = Message::where('room_id', $rooms_id)->get();
+        //プッシュメッセージを非表示
+        $push = PushMessageToUser::where('room_id', $rooms_id)->where('user_id', Auth::id())->first();
+        $push->toggle = 2;
+        $push->save();
+        //メッセージルームへ遷移
+        $messages =  Message::where('room_id', $rooms_id)->get();
         $uid = $rooms->user_id;
         $user = User::find($uid);
         $client_id = $rooms->client_id;
@@ -49,8 +41,7 @@ class MessageController extends Controller
         return view('users/messages', ['messages'=>$messages,'uid'=>$uid]);
     }
 
-
-
+    //メッセージ一覧からメッセージ個別へ移動のとき
     public function user_room(MessagesRoom $rooms)
     {
         $rooms_id = $rooms->id;
@@ -82,7 +73,6 @@ class MessageController extends Controller
         return redirect("messages/".$room_id);
         // return redirect('messages/$room_id', ['messages'=>$messages,'user'=>$user,'client'=>$client,'room_id'=>$room_id]);
     }
-
 
     //クライアント側のメッセージ関係
     //メッセージ一覧画面
