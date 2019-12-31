@@ -4,7 +4,6 @@ use App\PushMessageToUser;
 $push = PushMessageToUser::where('user_id', Auth::id())->get();
 $toggle = $push[0]->toggle;
 $room_id = $push[0]->room_id;
-$url = "{{url('/push/".$room_id."')}}";
 
 ?>
 
@@ -28,7 +27,8 @@ $url = "{{url('/push/".$room_id."')}}";
             <a><i class="fas fa-bell push"></i></a>
             <a id="push_message" class="push_message" href=""></a>
             @endif
-            <a href=""><i class="fas fa-user-circle"></i></a>
+            <!-- <a href=""><i class="fas fa-user-circle"></i><a> -->
+            <a href="{{url('/logout')}}">logout</a>
         </div>
     </div>
 </div>

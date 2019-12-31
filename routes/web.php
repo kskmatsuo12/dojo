@@ -79,7 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/my/{id}', 'HomeController@myIndex');
     //ユーザーから企業への評価ページ
     Route::get('/issue/assessment', 'HomeController@assessment');
-    Route::get('UserAssessmentDone', 'HomeController@userassessment');
+    Route::post('UserAssessmentDone', 'HomeController@userassessment');
     //ログアウト
     Route::get('/logout', 'HomeController@logout');
     //お蔵入り
@@ -118,12 +118,15 @@ Route::group(['middleware' => 'auth'], function () {
     //postの確認画面
     Route::post('/clients/post/comfirm', 'ClientsController@postComfirm');
     Route::get('/clients/my/index/{jobs}', 'ClientsController@myIndex');
-    Route::get('ClientRequestDone', 'ClientsController@requestDone');
-    Route::get('ClientProjectDone', 'ClientsController@projectDone');
-    Route::get('ClientAssessmentDone', 'ClientsController@assessmentDone');
+    //案件管理ページでユーザーの応募締め切り
+    Route::post('ClientRequestDone', 'ClientsController@requestDone');
+    //案件管理ページで案件を終了
+    Route::post('ClientProjectDone', 'ClientsController@projectDone');
+    //案件管理ページでユーザー評価終了
+    Route::post('ClientAssessmentDone', 'ClientsController@assessmentDone');
     
     Route::get('/clients/player/assessment', 'ClientsController@playerAssessment');
-    Route::get('PlayerAssessmentDone', 'ClientsController@playerassessDone');
+    Route::post('PlayerAssessmentDone', 'ClientsController@playerassessDone');
 
     //クライアントの表示だけここまで
     //ここから飯田ファイル

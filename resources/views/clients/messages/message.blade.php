@@ -158,7 +158,7 @@ use App\Job;
         @for($i=0; $i<count($rooms); $i++)
         <div class="box">
             <div class="box_image">
-                <a href="/clients/players/index/{{$users[$i]->id}}">
+                <a href="{{url('/clients/players/index/'.$users[$i]->id)}}">
                     <img src={{$users[$i]->image_url}}>
                 </a>
             </div>
@@ -167,7 +167,7 @@ use App\Job;
                 <p>プロジェクト参加者 {{$users[$i]->name}}　{{$users[$i]->user_name_mei}}　様</p>
                 <p><br>
                 </p>
-                <p><a href="/clients/messages/message_room/?room_id={{$rooms[$i]->id}}">メッセージルームはこちら</a></p>
+                <p><a href="{{url('/clients/messages/message_room/?room_id='.$rooms[$i]->id)}}">メッセージルームはこちら</a></p>
             </div>
         </div>
         @endfor

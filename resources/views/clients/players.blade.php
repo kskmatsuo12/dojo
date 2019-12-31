@@ -23,7 +23,7 @@
         <!-- ループさせる -->
         @foreach($users as $user)
         
-        <a href="/clients/players/{{$user->id}}">
+        <a href="{{url('/clients/players/'.$user->id)}}">
         <div class="box">
             <div class="box_image">
                 <img src={{$user->image_url}}>
