@@ -19,12 +19,13 @@ $url = "{{url('/push/".$room_id."')}}";
     </div>
     <div>
         <div class="header-icon">
-            <a id="open"><i class="fas fa-bell push" style="color: blue;"></i></a>
             @if($toggle == 1)
+            <a id="open"><i class="fas fa-bell push" style="color: blue;"></i></a>
             <a id="push_message" class="push_message" href="{{url('/push/'.$room_id)}}">
                 新着のメッセージが1件あります。
             </a>
             @else
+            <a><i class="fas fa-bell push"></i></a>
             <a id="push_message" class="push_message" href=""></a>
             @endif
             <a href=""><i class="fas fa-user-circle"></i></a>
